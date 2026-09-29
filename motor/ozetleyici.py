@@ -23,7 +23,13 @@ Aşağıda PubMed'den alınmış makaleler var. Her biri için:
 Kurallar:
 - Tıbbi terimleri ve kısaltmaları İngilizce bırak (ör. anastomotic leak,
   RCT, hazard ratio, TNT, ERAS). Cümle yapısı Türkçe olsun.
-- Çalışma tasarımını, hasta sayısını ve ana bulguyu SAYILARLA ver.
+- Çalışma tasarımını, hasta sayısını ve ana bulguyu ver.
+- Sayıları MUTLAKA RAKAMLA yaz (750 hasta, %59, RR 0,68); asla yazıyla
+  yazma ("yedi yüz elli" YANLIŞ).
+- Metinde varsa ana etki büyüklüğünü mutlaka ekle: oranlar (%4,8'e karşı
+  %13,5), RR/OR/HR, %95 CI veya p değeri.
+- Örnek: "233 hastalık tek merkezli RCT'de dikişsiz teknikte parastomal
+  hernia %4,8, dikişlide %13,5 bulundu (RR 0,35; p=0,047)."
 - YALNIZCA verilen metindeki bilgiyi kullan. Metinde olmayan sayı, sonuç
   veya yorum ekleme. Özet yoksa yalnızca başlıktan çıkarılabileni yaz.
 - Kendi görüşünü, "önemli bir çalışma" gibi değerlendirmeleri ekleme.
