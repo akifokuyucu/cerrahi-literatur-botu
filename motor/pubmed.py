@@ -19,10 +19,10 @@ ARAC_ADI = "cerrahi-literatur-botu"
 # ---------------------------------------------------------------------------
 # Sorgu kurma
 # ---------------------------------------------------------------------------
-def _terim(t):
-    """Tek terimi PubMed [tiab] ifadesine çevirir."""
+def _terim(t, etiket="tiab"):
+    """Tek terimi PubMed ifadesine çevirir ([tiab] ya da [ti])."""
     # Boşluk/tire içeren terimler öbek olarak aranır (PubMed öbek içinde * destekler)
-    return f'"{t}"[tiab]' if (" " in t or "-" in t) else f"{t}[tiab]"
+    return f'"{t}"[{etiket}]' if (" " in t or "-" in t) else f"{t}[{etiket}]"
 
 
 def _veya(liste, etiket):
@@ -32,7 +32,8 @@ def _veya(liste, etiket):
 def alan_sorgusu(alan_kodu):
     """Bir alt alan için PubMed arama ifadesini döndürür."""
     a = config.ALANLAR[alan_kodu]
-    konu = _veya(a["anahtar"], _terim)
+    etiket = a.get("anahtar_etiket", "tiab")
+    konu = _veya(a["anahtar"], lambda t: _terim(t, etiket))
     if a["cerrahi"]:
         konu = f"({konu} AND {_veya(a['cerrahi'], _terim)})"
     dergiler = a["alan_dergileri"]
@@ -40,7 +41,8 @@ def alan_sorgusu(alan_kodu):
         dergi_ifadesi = _veya(dergiler, lambda d: '"' + d + '"[ta]')
         konu = f"({konu} OR {dergi_ifadesi})"
     elenen = _veya(config.ELENEN_TIPLER, lambda p: f'"{p}"[pt]')
-    return f"{konu} NOT {elenen} AND english[la]"
+    brans = _veya(config.DIGER_BRANSLAR, lambda t: _terim(t, "ti"))
+    return f"{konu} NOT {elenen} NOT {brans} AND english[la]"
 
 
 def turk_dergisi_sorgusu(alan_kodu):
@@ -74,7 +76,7 @@ class PubMed:
             return r
         r.raise_for_status()
 
-    def ara(self, sorgu, gun, en_fazla=500):
+    def ara(self, sorgu, gun, en_fazla=2000):
         """Son `gun` günde PubMed'e eklenen makalelerin PMID'lerini döndürür."""
         r = self._post("esearch.fcgi", {
             "db": "pubmed", "term": sorgu, "retmode": "json",

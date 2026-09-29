@@ -46,7 +46,8 @@ KISA_OZET_SEMASI = {
 class Gemini:
     def __init__(self, api_key=None, model=None):
         self.api_key = api_key or os.environ["GEMINI_API_KEY"]
-        self.model = model or os.getenv("GEMINI_MODEL", VARSAYILAN_MODEL)
+        # Boş değişken ("") de varsayılana düşsün
+        self.model = model or os.getenv("GEMINI_MODEL") or VARSAYILAN_MODEL
 
     def uret(self, metin, sema=None, sicaklik=0.2):
         govde = {

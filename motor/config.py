@@ -148,9 +148,14 @@ ALANLAR = {
     },
     "transplantasyon": {
         "ad": "Transplantasyon",
+        # Yalnızca BAŞLIKTA aranır: özette "transplant" geçen hepatoloji/
+        # nefroloji makaleleri bu alana sızmasın
+        "anahtar_etiket": "ti",
         "anahtar": ["liver transplant*", "kidney transplant*",
-                    "pancreas transplant*", "living donor",
-                    "machine perfusion", "graft survival"],
+                    "renal transplant*", "pancreas transplant*",
+                    "living donor*", "machine perfusion",
+                    "donation after circulatory death", "deceased donor*",
+                    "graft failure", "hepatic artery thrombosis"],
         "cerrahi": None,
         "ust": ["J Hepatol"],
         "alan_dergileri": ["Am J Transplant", "Transplantation",
@@ -218,6 +223,19 @@ ALANLAR = {
                            "Infect Control Hosp Epidemiol"],
     },
 }
+
+# Genel cerrahi dışı branşlar: başlığında bunlar geçen makaleler hiçbir
+# alana girmez (ör. robotik diz protezi, jinekolojik onkoloji)
+DIGER_BRANSLAR = [
+    "arthroplasty", "knee", "hip fracture", "spine", "spinal",
+    "prostatectomy", "prostate", "hysterectomy", "gynecolog*",
+    "gynaecolog*", "ovarian", "endometri*", "cervical cancer", "urolog*",
+    "bladder cancer", "cystectomy", "cardiac surgery", "coronary",
+    "aortic valve", "mitral", "lung cancer", "lobectomy", "pneumonectomy",
+    "thoracic surgery", "neurosurg*", "craniotomy", "cataract", "retina*",
+    "dental", "orthodont*", "tonsillectomy", "rhinoplasty", "cesarean",
+    "caesarean",
+]
 
 # Her alanda gösterilecek makale sayısı
 ALAN_BASINA = 5
