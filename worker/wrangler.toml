@@ -1,0 +1,16 @@
+name = "cerrahi-literatur-botu"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+# Panelden girilen ayarlar her güncellemede silinmesin
+keep_vars = true
+
+[vars]
+VERI_URL = "https://raw.githubusercontent.com/akifokuyucu/cerrahi-literatur-botu/main/cikti/hafta.json"
+
+# Gizli değerler (TELEGRAM_TOKEN, GEMINI_API_KEY, WEBHOOK_SECRET,
+# IZINLI_KULLANICI) buraya YAZILMAZ; Cloudflare panelinden "Secret" olarak girilir.
+
+# KV önbelleği: panelde oluşturulan KV alanının kimliği (id) buraya yazılır.
+# [[kv_namespaces]]
+# binding = "ONBELLEK"
+# id = "..."

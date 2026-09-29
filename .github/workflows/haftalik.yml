@@ -1,0 +1,46 @@
+name: Haftalık hazırlık
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"   # Her pazartesi 04:00 UTC = 07:00 Türkiye
+  workflow_dispatch:       # "Run workflow" tuşuyla elle çalıştırma
+
+permissions:
+  contents: write
+
+concurrency:
+  group: haftalik
+  cancel-in-progress: false
+
+jobs:
+  hazirla:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Bağımlılıkları kur
+        run: pip install -r motor/requirements.txt
+
+      - name: 14 alanı tara, puanla, özetle
+        working-directory: motor
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          NCBI_EMAIL: ${{ secrets.NCBI_EMAIL }}
+          NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+        run: python hazirla.py
+
+      - name: Sonuçları depoya kaydet
+        run: |
+          git config user.name "haftalik-hazirlik"
+          git config user.email "actions@users.noreply.github.com"
+          git add cikti/
+          git diff --cached --quiet || git commit -m "Haftalık liste: $(date +%F)"
+          git push
