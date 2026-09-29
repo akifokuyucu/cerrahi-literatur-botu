@@ -2,7 +2,7 @@
 Gemini ile Türkçe kısa özet üretimi (haftalık toplu hazırlık için).
 
 Ücretsiz katmanda dakika başına istek sınırı olduğu için her alanın aday
-makaleleri (en fazla 10 + Türk dergisi) TEK istekte özetlenir ve cerrahi
+makaleleri (en fazla 12 + Türk dergisi) TEK istekte özetlenir ve cerrahi
 ilgi puanı alır (haftada ~15 istek).
 """
 import json
@@ -20,13 +20,20 @@ Aşağıda PubMed'den alınmış makaleler var. Her biri için:
 
 1. "baslik_tr": Başlığın kısa, doğal Türkçe karşılığı (en fazla 12 kelime).
 2. "kisa_ozet": Türkçe, 2-3 cümlelik kısa özet (en fazla 350 karakter).
-3. "cerrahi_ilgi": Makalenin GENEL CERRAHIN pratiği için önemi:
-   2 = doğrudan ilgili: ameliyat endikasyonu, cerrahi teknik, perioperatif
-       bakım, cerrahi komplikasyonlar ya da cerrahi sonuçlar
-   1 = dolaylı ilgili: cerrahi hastanın onkolojik/medikal tedavisi, tanı,
-       cerrahi eğitim, cerrahide teknoloji veya sağlık sistemi
-   0 = ilgisiz: cerrahi bağlamı olmayan radyoterapi/ilaç çalışması, temel
-       bilim, başka bir branşın konusu
+3. "cerrahi_ilgi": Makale bir GENEL CERRAHIN karar verme veya ameliyat
+   pratiğini değiştirebilir mi? Katı değerlendir:
+   2 = doğrudan: ameliyat endikasyonu/zamanlaması, cerrahi teknik veya
+       yaklaşım, perioperatif bakım, cerrahi komplikasyon ve sonuçlar,
+       cerrahi kılavuzlar
+   1 = dolaylı ama cerrahın kararını etkiler: ör. ameliyatın kapsamını veya
+       zamanlamasını belirleyen neoadjuvan tedavi, preoperatif görüntüleme/
+       evreleme, cerrahi eğitim, cerrahide yapay zekâ/teknoloji, cerrahi
+       hizmetin organizasyonu
+   0 = cerrahın pratiğini değiştirmez: radyoterapi dozu/fraksiyonu
+       karşılaştırmaları, sistemik ilaç etkinliği veya biyobenzer çalışmaları,
+       prognostik biyobelirteç/ctDNA çalışmaları, ilaç yan etkileri, temel
+       bilim ve hayvan deneyleri, başka branşın konusu
+   Emin değilsen 0 ile 1 arasında 0'ı seç.
 
 Kurallar:
 - Tıbbi terimleri ve kısaltmaları İngilizce bırak (ör. anastomotic leak,

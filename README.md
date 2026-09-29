@@ -33,7 +33,7 @@ Toplam puan = dergi puanı + çalışma tipi puanı.
 - Prospektif, Delphi / konsensus çalışması: 2
 - Retrospektif ve diğer: 1
 
-**Cerrahi ilgi filtresi:** Her alanda en yüksek puanlı 10 aday Gemini'ye gönderilir. Gemini, genel cerrahi pratiğiyle ilgisiz bulduklarını (cerrahi bağlamı olmayan radyoterapi/ilaç çalışması, temel bilim, başka branş) eler. Kalanlardan puan sırasıyla ilk 5 gösterilir.
+**Cerrahi ilgi filtresi:** Her alanda en yüksek puanlı 12 aday Gemini'ye gönderilir. Gemini, genel cerrahi pratiğiyle ilgisiz bulduklarını (cerrahi bağlamı olmayan radyoterapi/ilaç çalışması, temel bilim, başka branş) eler. Kalanlardan puan sırasıyla ilk 5 gösterilir.
 
 **Türk dergisi satırı:** Turkish Journal of Surgery; Acil Cerrahi alanında ayrıca Ulusal Travma ve Acil Cerrahi Dergisi (TJTES).
 

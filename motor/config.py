@@ -188,8 +188,9 @@ ALANLAR = {
                     "acute cholecystitis", "small bowel obstruction",
                     "perforat*", "acute care surgery", "trauma laparotomy",
                     "damage control", "REBOA", "abdominal trauma",
-                    "blunt trauma", "penetrating trauma", "splenic injur*",
-                    "liver injur*", "incarcerated"],
+                    "blunt trauma", "penetrating trauma", "splenic trauma",
+                    "splenic injur*", "liver trauma", "hepatic trauma",
+                    "incarcerated"],
         "cerrahi": None,
         "ust": [],
         "alan_dergileri": ["World J Emerg Surg", "J Trauma Acute Care Surg",
@@ -261,6 +262,6 @@ GENIS_DERGILER = [
 # Her alanda gösterilecek makale sayısı
 ALAN_BASINA = 5
 # Cerrahi ilgi kontrolü için Gemini'ye gönderilen aday sayısı
-ADAY_SAYISI = 10
+ADAY_SAYISI = 12
 # Kaç günlük pencere taransın
 PENCERE_GUN = 7
