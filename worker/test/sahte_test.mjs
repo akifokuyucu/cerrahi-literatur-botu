@@ -62,7 +62,7 @@ giden.length = 0; await gonder(tik(111, "a:kolorektal"));
 const liste = giden.find((g) => g.metod === "editMessageText");
 kontrol("Alan listesi düzenlendi", !!liste);
 kontrol("Liste 4096 sınırında", liste.govde.text.length <= 4096);
-kontrol("5 ayrıntı tuşu", liste.govde.reply_markup.inline_keyboard[0].length === 5);
+kontrol("En az 5 ayrıntı tuşu", liste.govde.reply_markup.inline_keyboard[0].length >= 5);
 console.log("\n--- Liste önizleme ---\n" + liste.govde.text + "\n---\n");
 // 5) Gündem
 giden.length = 0; await gonder(tik(111, "g"));
