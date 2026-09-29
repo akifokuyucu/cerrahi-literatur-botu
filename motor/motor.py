@@ -48,7 +48,7 @@ def turk_gosterildi_isaretle(alan_kodu, pmid):
 
 
 def alan_hazirla(alan_kodu, pm=None, girdi_xml=None, turk_xml=None,
-                 n=config.ALAN_BASINA):
+                 n=config.ALAN_BASINA, tercih=None):
     if girdi_xml:
         with open(girdi_xml, encoding="utf-8") as f:
             kayitlar = pubmed.xml_ayristir(f.read())
@@ -56,7 +56,7 @@ def alan_hazirla(alan_kodu, pm=None, girdi_xml=None, turk_xml=None,
         pmidler = pm.ara(pubmed.alan_sorgusu(alan_kodu), config.PENCERE_GUN)
         kayitlar = pm.getir(pmidler)
 
-    secilen, tum_puanli = puanlama.ilk_n(kayitlar, alan_kodu, n)
+    secilen, tum_puanli = puanlama.ilk_n(kayitlar, alan_kodu, n, tercih)
 
     turk = None
     if turk_xml:

@@ -263,6 +263,12 @@ GENIS_DERGILER = [
 
 # Her alanda gösterilecek makale sayısı
 ALAN_BASINA = 5
+# Kişisel puan: bottaki 👍/👎 oylarından dergi ve çalışma tipi başına
+# en fazla ±0,5 (toplam ±1) katkı. Her net oy 0,25 puan.
+KISISEL_ADIM = 0.25
+KISISEL_SINIR = 0.5
+BOT_URL = "https://cerrahi-literatur-botu.akif-okuyucu.workers.dev"
+
 # Cerrahi ilgi kontrolü için Gemini'ye gönderilen aday sayısı
 ADAY_SAYISI = 12
 # Kaç günlük pencere taransın

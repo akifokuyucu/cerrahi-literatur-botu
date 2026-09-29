@@ -36,6 +36,7 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           NCBI_EMAIL: ${{ secrets.NCBI_EMAIL }}
           NCBI_API_KEY: ${{ secrets.NCBI_API_KEY }}
+          BOT_ANAHTAR: ${{ secrets.BOT_ANAHTAR }}
         run: python hazirla.py
 
       - name: Sonuçları depoya kaydet

@@ -6,9 +6,12 @@ keep_vars = true
 
 [vars]
 VERI_URL = "https://raw.githubusercontent.com/akifokuyucu/cerrahi-literatur-botu/main/cikti/hafta.json"
+# Notion veritabanları (kimlikler gizli değil; erişim NOTION_TOKEN ile)
+NOTION_ARSIV_DB = "50942cc7e2dc422c90de38a3dd7975b4"
+NOTION_ICERIK_DB = "820f0899d21244b294298ece8fc87389"
 
 # Gizli değerler (TELEGRAM_TOKEN, GEMINI_API_KEY, WEBHOOK_SECRET,
-# IZINLI_KULLANICI) buraya YAZILMAZ; Cloudflare panelinden "Secret" olarak girilir.
+# IZINLI_KULLANICI, NOTION_TOKEN) buraya YAZILMAZ; Cloudflare panelinden "Secret" olarak girilir.
 
 # KV önbelleği: ayrıntılı özetler 120 gün saklanır, tekrar istenince anında gelir
 [[kv_namespaces]]

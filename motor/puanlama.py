@@ -109,7 +109,29 @@ def puanla(kayit, alan_kodu):
     }
 
 
-def ilk_n(kayitlar, alan_kodu, n=config.ALAN_BASINA):
+def tercihleri_hesapla(oylar):
+    """Bottaki oylardan dergi ve çalışma tipi için kişisel katkı hesaplar."""
+    net = {"dergi": {}, "tip": {}}
+    for o in oylar:
+        yon = 1 if o.get("oy") else -1
+        if o.get("dergi"):
+            d = _norm(o["dergi"])
+            net["dergi"][d] = net["dergi"].get(d, 0) + yon
+        if o.get("tip"):
+            net["tip"][o["tip"]] = net["tip"].get(o["tip"], 0) + yon
+    sinir = lambda x: max(-config.KISISEL_SINIR, min(config.KISISEL_SINIR, x))
+    return {tur: {k: sinir(v * config.KISISEL_ADIM) for k, v in d.items() if v}
+            for tur, d in net.items()}
+
+
+def kisisel_puan(p, tercih):
+    if not tercih:
+        return 0.0
+    return (tercih["dergi"].get(_norm(p["dergi"]), 0)
+            + tercih["tip"].get(p["tip"], 0))
+
+
+def ilk_n(kayitlar, alan_kodu, n=config.ALAN_BASINA, tercih=None):
     """Puanlar, Türk dergisini ana listeden ayırır, en iyi n'i döndürür."""
     turk = {_norm(d) for d in config.TUM_TURK_DERGILERI}
     puanli = []
@@ -120,7 +142,8 @@ def ilk_n(kayitlar, alan_kodu, n=config.ALAN_BASINA):
         gorulen.add(k["pmid"])
         p = puanla(k, alan_kodu)
         if p:
+            p["kisisel"] = kisisel_puan(p, tercih)
             puanli.append(p)
-    puanli.sort(key=lambda p: (p["toplam"], p["cok_merkezli"], p["orneklem"]),
-                reverse=True)
+    puanli.sort(key=lambda p: (p["toplam"] + p["kisisel"], p["cok_merkezli"],
+                               p["orneklem"]), reverse=True)
     return puanli[:n], puanli
