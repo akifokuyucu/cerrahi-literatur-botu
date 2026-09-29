@@ -3,11 +3,15 @@ import fs from "node:fs";
 import worker from "../src/index.js";
 
 const hafta = JSON.parse(fs.readFileSync(new URL("../../cikti/hafta.json", import.meta.url)));
+const gundem = JSON.parse(fs.readFileSync(new URL("./gundem_ornek.json", import.meta.url)));
 const giden = [];
 const kv = new Map();
+let gundemYok = false; // perşembeden önce gundem.json henüz yoksa
 globalThis.fetch = async (url, opt = {}) => {
   url = String(url);
   const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { "content-type": "application/json" } });
+  if (url.includes("raw.githubusercontent") && url.endsWith("gundem.json"))
+    return gundemYok ? new Response("404: Not Found", { status: 404 }) : json(gundem);
   if (url.includes("raw.githubusercontent")) return json(hafta);
   if (url.includes("api.telegram.org")) {
     const metod = url.split("/").pop();
@@ -56,7 +60,7 @@ kontrol("Yabancı kullanıcıya sessiz", giden.length === 0);
 giden.length = 0; await gonder(mesaj(111, "/start"));
 const menu = giden.find((g) => g.metod === "sendMessage");
 kontrol("Menü gönderildi", menu && menu.govde.text.includes("Hangi alana"));
-kontrol("Menüde Kolorektal ve Gündem tuşu", JSON.stringify(menu.govde.reply_markup).includes("a:kolorektal") && JSON.stringify(menu.govde.reply_markup).includes('"g"'));
+kontrol("Menüde Kolorektal, Öne çıkanlar ve Gündem tuşu", ["a:kolorektal", '"g"', '"h"', "📰 Gündem"].every((x) => JSON.stringify(menu.govde.reply_markup).includes(x)));
 // 4) Alan seçimi → liste (mesaj yerinde düzenlenir)
 giden.length = 0; await gonder(tik(111, "a:kolorektal"));
 const liste = giden.find((g) => g.metod === "editMessageText");
@@ -64,9 +68,35 @@ kontrol("Alan listesi düzenlendi", !!liste);
 kontrol("Liste 4096 sınırında", liste.govde.text.length <= 4096);
 kontrol("En az 5 ayrıntı tuşu", liste.govde.reply_markup.inline_keyboard[0].length >= 5);
 console.log("\n--- Liste önizleme ---\n" + liste.govde.text + "\n---\n");
-// 5) Gündem
+// 5) Haftanın öne çıkanları
 giden.length = 0; await gonder(tik(111, "g"));
-kontrol("Gündem ekranı", giden.some((g) => g.metod === "editMessageText" && g.govde.text.includes("gündemde")));
+kontrol("Öne çıkanlar ekranı", giden.some((g) => g.metod === "editMessageText" && g.govde.text.includes("öne çıkanları")));
+giden.length = 0; await gonder(mesaj(111, "/onecikanlar"));
+kontrol("/onecikanlar komutu", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("öne çıkanları")));
+// 5b) 📰 Gündem: bölüm menüsü → bölüm listesi
+giden.length = 0; await gonder(tik(111, "h"));
+const gmenu = giden.find((g) => g.metod === "editMessageText");
+kontrol("Gündem menüsü", gmenu && gmenu.govde.text.includes("Gündem") && ["h:kilavuz", "h:teknoloji", "h:yerli", "h:rct"].every((x) => JSON.stringify(gmenu.govde.reply_markup).includes(x)));
+giden.length = 0; await gonder(tik(111, "h:rct"));
+const rct = giden.find((g) => g.metod === "editMessageText");
+kontrol("RCT listesi ClinicalTrials.gov bağlantılı", rct && rct.govde.text.includes("clinicaltrials.gov/study/NCT") && rct.govde.text.length <= 4096);
+kontrol("RCT listesinde ← Gündem tuşu", JSON.stringify(rct.govde.reply_markup).includes('"h"'));
+console.log("\n--- Gündem önizleme ---\n" + rct.govde.text + "\n---\n");
+giden.length = 0; await gonder(tik(111, "h:yerli"));
+kontrol("Boş bölümde açıklama", giden.some((g) => g.govde?.text?.includes("kayda değer bir gelişme yok")));
+// Çok uzun liste: HTML ortadan kesilmez, sığmayan haber dışarıda kalır
+const eskiRct = gundem.bolumler.rct.ogeler;
+gundem.bolumler.rct.ogeler = Array.from({ length: 12 }, (_, i) => ({ ...eskiRct[0], ozet: "Uzun <özet> ".repeat(40) + i }));
+giden.length = 0; await gonder(tik(111, "h:rct"));
+const uzun = giden.find((g) => g.metod === "editMessageText").govde.text;
+kontrol("Uzun gündem 4096 sınırında ve bütün bloklarla", uzun.length <= 4096 && uzun.trim().endsWith("kaynağa bak.</i>") && (uzun.match(/<a /g) || []).length < 12);
+gundem.bolumler.rct.ogeler = eskiRct;
+giden.length = 0; await gonder(mesaj(111, "/gundem"));
+kontrol("/gundem komutu gündemi açar", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("kılavuzlar, teknoloji")));
+gundemYok = true;
+giden.length = 0; await gonder(tik(111, "h"));
+kontrol("gundem.json yokken açıklayıcı mesaj", giden.some((g) => g.govde?.text?.includes("henüz çıkmadı")));
+gundemYok = false;
 // 6) Ayrıntılı özet: açık erişimli (PMC) makale → tam metin
 giden.length = 0; await gonder(tik(111, "d:42778806"));
 const gem = giden.find((g) => g.metod === "GEMINI");

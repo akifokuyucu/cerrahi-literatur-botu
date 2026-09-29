@@ -1,0 +1,48 @@
+name: Haftalık gündem
+
+on:
+  schedule:
+    - cron: "0 4 * * 4"   # Her perşembe 04:00 UTC = 07:00 Türkiye
+  workflow_dispatch:       # "Run workflow" tuşuyla elle çalıştırma
+
+permissions:
+  contents: write
+
+concurrency:
+  group: gundem
+  cancel-in-progress: false
+
+jobs:
+  gundem:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Bağımlılıkları kur
+        run: pip install -r motor/requirements.txt
+
+      - name: Kaynakları tara, süz, özetle
+        working-directory: motor
+        env:
+          PYTHONUNBUFFERED: "1"
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python gundem.py
+
+      - name: Sonuçları depoya kaydet
+        run: |
+          git config user.name "haftalik-gundem"
+          git config user.email "actions@users.noreply.github.com"
+          git add cikti/gundem.json cikti/gundem_gorulen.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Haftalık gündem: $(date +%F)"
+          # Çalışma sürerken depoya başka değişiklik geldiyse üstüne ekle
+          git pull --rebase origin main
+          git push

@@ -273,3 +273,74 @@ BOT_URL = "https://cerrahi-literatur-botu.akif-okuyucu.workers.dev"
 ADAY_SAYISI = 12
 # Kaç günlük pencere taransın
 PENCERE_GUN = 7
+
+# ---------------------------------------------------------------------------
+# 5) 📰 GÜNDEM (haber modülü — her perşembe, gundem.py)
+#    Bölümler Telegram'da ayrı tuşlar olarak görünür. Kaynak türleri:
+#      rss     : RSS akışı (son GUNDEM_PENCERE_GUN gün)
+#      sayfa   : haber sayfası; bağlantıları önceki haftayla karşılaştırılır,
+#                yalnızca YENİ çıkanlar alınır (desen: bağlantıda aranan ifade)
+#      haber   : Google Haberler araması (dil: "en" ya da "tr")
+#      openfda : FDA 510(k) kararları (danışma kurulu kodları)
+#    Hepsi Gemini'nin genel cerrahi süzgecinden geçer.
+# ---------------------------------------------------------------------------
+GUNDEM_BOLUMLERI = {
+    "kilavuz": {"ad": "📘 Kılavuz & Kongre", "en_fazla": 8},
+    "teknoloji": {"ad": "🤖 Teknoloji & Onaylar", "en_fazla": 8},
+    "yerli": {"ad": "🇹🇷 Türkiye", "en_fazla": 8},
+    "rct": {"ad": "🧪 Yeni RCT'ler", "en_fazla": 10},
+}
+
+GUNDEM_KAYNAKLARI = [
+    # --- Kılavuz ve kongre takibi ---
+    {"bolum": "kilavuz", "ad": "WSES", "tur": "sayfa",
+     "url": "https://www.wses.org.uk/news", "desen": "/news/"},
+    {"bolum": "kilavuz", "ad": "ESCP", "tur": "sayfa",
+     "url": "https://www.escp.eu.com/news", "desen": r"/news/[a-z-]+/\d+-"},
+    {"bolum": "kilavuz", "ad": "ASCRS", "tur": "sayfa",
+     "url": "https://fascrs.org/Web/Web/About/News/News.aspx?hkey=42b0d20c-5761-4127-8824-e5c4ca208603",
+     "desen": "/News-Articles/"},
+    {"bolum": "kilavuz", "ad": "EAES", "tur": "rss", "url": "https://eaes.eu/feed/"},
+    {"bolum": "kilavuz", "ad": "SAGES", "tur": "rss", "url": "https://www.sages.org/feed/"},
+    {"bolum": "kilavuz", "ad": "Google Haberler", "tur": "haber", "dil": "en",
+     "sorgu": '(WSES OR ESCP OR ASCRS OR EAES OR SAGES OR "surgical society") '
+              '(guideline OR guidelines OR consensus OR congress)'},
+    # --- Teknoloji: FDA/CE onayları, robotik, yapay zekâ ---
+    {"bolum": "teknoloji", "ad": "FDA 510(k)", "tur": "openfda",
+     # SU: Genel ve Plastik Cerrahi, GU: Gastroenteroloji-Üroloji
+     "kurullar": ["SU", "GU"]},
+    {"bolum": "teknoloji", "ad": "Google Haberler", "tur": "haber", "dil": "en",
+     "sorgu": '(surgical OR surgery OR laparoscopic) ("FDA clearance" OR "FDA approval" '
+              'OR "FDA clears" OR "FDA approves" OR "CE mark" OR "510(k)" OR "De Novo")'},
+    {"bolum": "teknoloji", "ad": "Google Haberler", "tur": "haber", "dil": "en",
+     "sorgu": '("surgical robot" OR "robotic surgical system" OR "surgical robotics" '
+              'OR "artificial intelligence surgery" OR "AI surgical")'},
+    # --- Yerli gelişmeler ---
+    {"bolum": "yerli", "ad": "Türk Cerrahi Derneği", "tur": "sayfa",
+     "url": "https://www.turkcer.org.tr/", "desen": "/haber/"},
+    {"bolum": "yerli", "ad": "Google Haberler", "tur": "haber", "dil": "tr",
+     "sorgu": '("Türk Cerrahi Derneği" OR "Ulusal Cerrahi Kongresi" OR "genel cerrahi" '
+              'OR "cerrahi kongresi")'},
+    {"bolum": "yerli", "ad": "Google Haberler", "tur": "haber", "dil": "tr",
+     # Cerrahiyle ilgili olanları Gemini seçer (dar sorgu hiç sonuç vermiyor)
+     "sorgu": '"Türk Tabipleri Birliği"'},
+]
+
+# Yeni RCT'ler: ClinicalTrials.gov'a son GUNDEM_PENCERE_GUN günde kaydedilen
+# randomize girişimsel çalışmalardan bu terimlerden birini içerenler
+RCT_TERIMLERI = [
+    "colectomy", "colorectal surgery", "rectal cancer", "colon cancer",
+    "hernia", "cholecystectomy", "appendicitis", "appendectomy",
+    "pancreatectomy", "pancreatoduodenectomy", "hepatectomy",
+    "liver resection", "gastrectomy", "esophagectomy", "bariatric",
+    "sleeve gastrectomy", "gastric bypass", "mastectomy", "breast surgery",
+    "anastomotic leak", "surgical site infection", "laparoscopic surgery",
+    "robotic surgery", "abdominal surgery", "hemorrhoid", "pilonidal",
+    "anal fistula", "stoma", "liver transplantation",
+    "kidney transplantation", "peritoneal metastases", "HIPEC",
+    "emergency laparotomy", "thyroidectomy", "parathyroidectomy", "ERAS",
+]
+
+GUNDEM_PENCERE_GUN = 7
+# Gemini'ye bölüm başına gönderilen en fazla aday
+GUNDEM_ADAY_SINIRI = 60

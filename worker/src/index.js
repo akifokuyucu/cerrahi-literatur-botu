@@ -6,6 +6,7 @@
  *   GEMINI_API_KEY     (gizli) Google AI Studio anahtarı
  *   WEBHOOK_SECRET     (gizli) Kendi uydurduğun uzun rastgele bir parola
  *   VERI_URL           hafta.json'un GitHub "raw" adresi
+ *   GUNDEM_URL         (isteğe bağlı) gundem.json adresi; boşsa VERI_URL'in yanındaki dosya
  *   IZINLI_KULLANICI   Telegram kullanıcı numaran (boşsa bot numaranı söyler)
  *   GEMINI_MODEL       (isteğe bağlı) varsayılan: gemini-flash-latest
  *   NOTION_TOKEN       (gizli, isteğe bağlı) Notion entegrasyon anahtarı
@@ -57,6 +58,15 @@ async function haftaVerisi(env) {
   return r.json();
 }
 
+// 📰 Gündem (perşembe hazırlanır). İlk hazırlıktan önce dosya yoksa null.
+async function gundemVerisi(env) {
+  const url = env.GUNDEM_URL || env.VERI_URL.replace(/hafta\.json$/, "gundem.json");
+  const r = await fetch(url, { cf: { cacheTtl: 300 } });
+  if (r.status === 404) return null;
+  if (!r.ok) throw new Error("gundem.json okunamadı: " + r.status);
+  return r.json();
+}
+
 function makaleBul(veri, pmid) {
   for (const a of Object.values(veri.alanlar || {})) {
     for (const m of [...a.makaleler, a.turk]) if (m && m.pmid === pmid) return { ...m, alan: a.ad };
@@ -75,7 +85,10 @@ function menuEkrani(veri) {
   }));
   const satirlar = [];
   for (let i = 0; i < tuslar.length; i += 2) satirlar.push(tuslar.slice(i, i + 2));
-  satirlar.push([{ text: "🔥 Bu hafta gündemde", callback_data: "g" }]);
+  satirlar.push([
+    { text: "🔥 Haftanın öne çıkanları", callback_data: "g" },
+    { text: "📰 Gündem", callback_data: "h" },
+  ]);
   return { metin, klavye: satirlar };
 }
 
@@ -129,8 +142,8 @@ function alanEkrani(veri, kod) {
   return { metin: sigdir(bloklar, bas, son), klavye };
 }
 
-function gundemEkrani(veri) {
-  const bas = `🔥 <b>Bu hafta gündemde</b>\n${esc(veri.hafta)} · tüm alanlardan en yüksek puanlılar`;
+function oneCikanlarEkrani(veri) {
+  const bas = `🔥 <b>Haftanın öne çıkanları</b>\n${esc(veri.hafta)} · tüm alanlardan en yüksek puanlılar`;
   const bloklar = (veri.gundem || []).map((m, i) =>
     makaleBlogu(i + 1, m, ` · ${esc(m.alan)}`));
   const detay = (veri.gundem || []).map((m, i) => ({ text: `📄 ${i + 1}`, callback_data: `d:${m.pmid}` }));
@@ -141,6 +154,59 @@ function gundemEkrani(veri) {
 }
 
 const geriTusu = { text: "← Alanlar", callback_data: "m" };
+const gundemTusu = { text: "← Gündem", callback_data: "h" };
+
+// ------------------------------------------------------------ 📰 Gündem
+function gundemMenuEkrani(gv) {
+  if (!gv) {
+    return {
+      metin: "📰 <b>Gündem</b>\n\nGündem her perşembe sabah hazırlanıyor; ilk liste henüz çıkmadı.",
+      klavye: [[geriTusu]],
+    };
+  }
+  const bolumler = Object.entries(gv.bolumler || {});
+  const satirlar = bolumler.map(([, b]) => `${esc(b.ad)}: ${b.ogeler.length} haber`);
+  const uyari = gv.hatalar?.length
+    ? `\n\n<i>⚠️ Bu hafta okunamayan kaynaklar: ${esc(gv.hatalar.join("; "))}</i>` : "";
+  const tuslar = bolumler.map(([kod, b]) => ({ text: `${b.ad} (${b.ogeler.length})`, callback_data: `h:${kod}` }));
+  const klavye = [];
+  for (let i = 0; i < tuslar.length; i += 2) klavye.push(tuslar.slice(i, i + 2));
+  klavye.push([geriTusu]);
+  return {
+    metin: `📰 <b>Gündem</b>\n${esc(gv.hafta)} · kılavuzlar, teknoloji, Türkiye ve yeni RCT'ler\n\n` +
+      satirlar.join("\n") + uyari,
+    klavye,
+  };
+}
+
+function haberBlogu(no, o) {
+  const tarih = o.tarih ? ` · ${esc(o.tarih.split("-").reverse().join("."))}` : "";
+  const rct = o.nct
+    ? `\n${o.n ? `${o.n} hasta · ` : ""}${esc(o.ulke || "ülke belirtilmemiş")}` +
+      (o.sponsor ? ` · ${esc(o.sponsor)}` : "")
+    : "";
+  return (
+    `<b>${no}. ${esc(o.baslik_tr || o.baslik)}</b>\n` +
+    esc(o.ozet || "") + rct + "\n" +
+    `<a href="${esc(o.url)}">${esc(o.nct || o.kaynak)}</a>${tarih}`
+  );
+}
+
+function haberBolumEkrani(gv, kod) {
+  const b = gv?.bolumler?.[kod];
+  if (!b) return { metin: "Bu bölüm bu hafta hazırlanamadı.", klavye: [[gundemTusu]] };
+  const bas = `<b>${esc(b.ad)}</b>\n${esc(gv.hafta)} · ${b.aday} aday tarandı`;
+  const son = "<i>Başlık ve özetler yapay zekâ ile Türkçeleştirildi; ayrıntı için kaynağa bak.</i>";
+  // HTML'i ortadan kesmemek için sığmayan haberler bütün olarak dışarıda kalır
+  const bloklar = [];
+  for (const [i, o] of b.ogeler.entries()) {
+    const blok = haberBlogu(i + 1, o);
+    if ([bas, ...bloklar, blok, son].join("\n\n").length > SINIR) break;
+    bloklar.push(blok);
+  }
+  if (!bloklar.length) bloklar.push("<i>Bu hafta bu bölümde kayda değer bir gelişme yok.</i>");
+  return { metin: [bas, ...bloklar, son].join("\n\n"), klavye: [[gundemTusu, geriTusu]] };
+}
 
 // ---------------------------------------------------------- ayrıntılı özet
 const DETAY_TALIMATI = `Sen genel cerrahi alanında deneyimli bir akademisyensin ve
@@ -674,9 +740,11 @@ async function guncellemeIsle(env, u) {
     }
 
     await tg(env, "answerCallbackQuery", { callback_query_id: q.id });
+    if (veri === "h") return ekranGoster(env, sohbet, gundemMenuEkrani(await gundemVerisi(env)), mesajId);
+    if (tur === "h") return ekranGoster(env, sohbet, haberBolumEkrani(await gundemVerisi(env), kalan[0]), mesajId);
     const hafta = await haftaVerisi(env);
     if (veri === "m") return ekranGoster(env, sohbet, menuEkrani(hafta), mesajId);
-    if (veri === "g") return ekranGoster(env, sohbet, gundemEkrani(hafta), mesajId);
+    if (veri === "g") return ekranGoster(env, sohbet, oneCikanlarEkrani(hafta), mesajId);
     if (tur === "a") return ekranGoster(env, sohbet, alanEkrani(hafta, kalan[0]), mesajId);
     return;
   }
@@ -698,8 +766,9 @@ async function guncellemeIsle(env, u) {
     }
   }
 
+  if (metin.startsWith("/gundem")) return ekranGoster(env, sohbet, gundemMenuEkrani(await gundemVerisi(env)));
   const hafta = await haftaVerisi(env);
-  if (metin.startsWith("/gundem")) return ekranGoster(env, sohbet, gundemEkrani(hafta));
+  if (metin.startsWith("/onecikanlar")) return ekranGoster(env, sohbet, oneCikanlarEkrani(hafta));
   return ekranGoster(env, sohbet, menuEkrani(hafta));
 }
 
@@ -719,7 +788,8 @@ export default {
       const k = await tg(env, "setMyCommands", {
         commands: [
           { command: "start", description: "Alan menüsü" },
-          { command: "gundem", description: "Bu hafta gündemde" },
+          { command: "gundem", description: "Haberler ve gelişmeler (perşembe)" },
+          { command: "onecikanlar", description: "Haftanın en yüksek puanlı makaleleri" },
           { command: "istatistik", description: "Oylarının özeti" },
           { command: "iptal", description: "Soru modunu kapat" },
         ],

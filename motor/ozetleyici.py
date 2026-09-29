@@ -149,6 +149,12 @@ class SahteGemini:
     model = "sahte"
 
     def uret(self, metin, sema=None, sicaklik=0.2):
+        idler = [s.split(":", 1)[1].strip()
+                 for s in metin.splitlines() if s.startswith("id:")]
+        if idler:  # gündem adayları (gundem.py)
+            return [{"id": i, "baslik_tr": f"(test başlığı {i})",
+                     "ozet": f"(test özeti {i})", "ilgi": 0 if n % 3 == 2 else 2}
+                    for n, i in enumerate(idler)]
         pmidler = [s.split(":", 1)[1].strip()
                    for s in metin.splitlines() if s.startswith("pmid:")]
         # Testte her 3. makale "ilgisiz" sayılır ki filtre denenebilsin
