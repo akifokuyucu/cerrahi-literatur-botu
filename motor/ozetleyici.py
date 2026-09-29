@@ -70,6 +70,8 @@ class Gemini:
     def __init__(self, api_key=None, model=None, yogun_deneme=2, yogun_bekleme=10):
         # Ana model yoğunken (503) kaç kez, kaç saniye arayla denensin
         self.yogun_deneme, self.yogun_bekleme = yogun_deneme, yogun_bekleme
+        # Yedek modele geçiş nedenleri (çıktı dosyasına yazılır)
+        self.notlar = []
         self.api_key = api_key or os.environ["GEMINI_API_KEY"]
         # Boş değişken ("") de varsayılana düşsün
         self.model = model or os.getenv("GEMINI_MODEL") or VARSAYILAN_MODEL
@@ -102,21 +104,28 @@ class Gemini:
                 if r.status_code == 429:
                     if "PerDay" in r.text or "per day" in r.text.lower():
                         print(f"  {model}: günlük kota dolu, sonraki modele geçiliyor")
+                        self._not(f"{model}: günlük kota dolu")
                         break
                     bekle = min(_bekleme_suresi(r) or 20, 90)
                 elif r.status_code in (500, 503):
                     # Model yoğun: kısa bekle, 2. denemeden sonra yedeğe geç
                     if deneme >= self.yogun_deneme - 1:
                         print(f"  {model} yoğun (503), yedek modele geçiliyor")
+                        self._not(f"{model}: yoğun ({r.status_code})")
                         break
                     bekle = self.yogun_bekleme
                 else:
                     # 404 (model yok), 400 vb.: bu modeli bırak
                     print(f"  {model} hata {r.status_code}: {r.text[:200]}")
+                    self._not(f"{model}: hata {r.status_code}")
                     break
                 print(f"  {model} {r.status_code}, {bekle} sn bekleniyor...")
                 time.sleep(bekle)
         raise RuntimeError(f"Hiçbir Gemini modeli yanıt vermedi. Son hata: {son_hata}")
+
+    def _not(self, metin):
+        if metin not in self.notlar:
+            self.notlar.append(metin)
 
 
 def _bekleme_suresi(r):

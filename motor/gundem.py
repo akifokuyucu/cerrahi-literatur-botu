@@ -312,12 +312,21 @@ Bu bölümün ölçütü:
 """
 
 BOLUM_TALIMATI = {
-    "kilavuz": """Cerrahi derneklerinin (WSES, ESCP, ASCRS, EAES, SAGES, ACS vb.)
-duyuruları. 2: yeni ya da güncellenen kılavuz, konsensus, pozisyon bildirisi;
-kongre tarihleri, bildiri/burs/kurs başvuru duyuruları. 1: dernek eğitim
-programları, önemli kurumsal kararlar. 0: üye tanıtımları, podcast bölümleri,
-içeriği olmayan başkan mesajları, kitap/ürün tanıtımları, dernek dışı
-hastane haberleri.""",
+    "kilavuz": """GENEL CERRAHİ kılavuzları ve cerrahi dernek/kongre duyuruları.
+Genel cerrahi alanları: kolorektal, hepatobilier, pankreas, üst GİS,
+bariatrik, meme, herni, transplantasyon, cerrahi onkoloji, acil cerrahi ve
+travma, MIS ve robotik, endokrin cerrahi, cerrahi enfeksiyonlar, perioperatif
+bakım, cerrahi eğitim.
+2: bu alanlarda yeni ya da güncellenen kılavuz, konsensus, pozisyon
+bildirisi (WSES, ESCP, ASCRS, EAES, SAGES, ACS, ESSO, IFSO, EHS vb.); genel
+cerrahi kongre tarihleri, bildiri/burs/kurs başvuru duyuruları.
+1: cerrahi derneklerinin eğitim programları ve önemli kurumsal kararları;
+cerrahi hastayı doğrudan ilgilendiren perioperatif kılavuzlar.
+0: başka branşların kılavuzları (kardiyoloji, damar cerrahisi, göğüs
+cerrahisi, jinekoloji/üreme, üroloji, pediatri, göz, dermatoloji vb.),
+tek olgu sunumları ve derleme makaleleri, ödül ve atama haberleri, üye
+tanıtımları, podcast bölümleri, içeriği olmayan başkan mesajları,
+kitap/ürün tanıtımları, hastane haberleri.""",
     "teknoloji": """Cerrahi teknoloji. 2: genel cerrahide kullanılan cihaz ya da
 platform için FDA onayı/510(k)/De Novo ve CE işareti, yeni robotik cerrahi
 sistemleri, cerrahide yapay zekâ uygulamalarına dair somut gelişmeler (onay,
@@ -495,6 +504,7 @@ def main():
                              )[:GORULEN_SINIRI]
         time.sleep(0 if a.sahte_ozet else 5)
     cikti["model"] = getattr(gem, "son_model", gem.model)
+    cikti["model_notlari"] = getattr(gem, "notlar", [])
 
     with open(os.path.join(CIKTI, "gundem.json"), "w", encoding="utf-8") as f:
         json.dump(cikti, f, ensure_ascii=False, indent=1)
