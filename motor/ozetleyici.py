@@ -67,7 +67,9 @@ KISA_OZET_SEMASI = {
 
 
 class Gemini:
-    def __init__(self, api_key=None, model=None):
+    def __init__(self, api_key=None, model=None, yogun_deneme=2, yogun_bekleme=10):
+        # Ana model yoğunken (503) kaç kez, kaç saniye arayla denensin
+        self.yogun_deneme, self.yogun_bekleme = yogun_deneme, yogun_bekleme
         self.api_key = api_key or os.environ["GEMINI_API_KEY"]
         # Boş değişken ("") de varsayılana düşsün
         self.model = model or os.getenv("GEMINI_MODEL") or VARSAYILAN_MODEL
@@ -87,7 +89,7 @@ class Gemini:
         son_hata = ""
         for model in self.modeller:
             url = f"{API}/{model}:generateContent"
-            for deneme in range(3):
+            for deneme in range(max(3, self.yogun_deneme)):
                 r = requests.post(url, json=govde, timeout=180,
                                   headers={"x-goog-api-key": self.api_key})
                 if r.ok:
@@ -104,10 +106,10 @@ class Gemini:
                     bekle = min(_bekleme_suresi(r) or 20, 90)
                 elif r.status_code in (500, 503):
                     # Model yoğun: kısa bekle, 2. denemeden sonra yedeğe geç
-                    if deneme >= 1:
+                    if deneme >= self.yogun_deneme - 1:
                         print(f"  {model} yoğun (503), yedek modele geçiliyor")
                         break
-                    bekle = 10
+                    bekle = self.yogun_bekleme
                 else:
                     # 404 (model yok), 400 vb.: bu modeli bırak
                     print(f"  {model} hata {r.status_code}: {r.text[:200]}")

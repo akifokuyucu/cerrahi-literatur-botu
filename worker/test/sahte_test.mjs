@@ -82,6 +82,8 @@ const rct = giden.find((g) => g.metod === "editMessageText");
 kontrol("RCT listesi ClinicalTrials.gov bağlantılı", rct && rct.govde.text.includes("clinicaltrials.gov/study/NCT") && rct.govde.text.length <= 4096);
 kontrol("RCT listesinde ← Gündem tuşu", JSON.stringify(rct.govde.reply_markup).includes('"h"'));
 console.log("\n--- Gündem önizleme ---\n" + rct.govde.text + "\n---\n");
+giden.length = 0; await gonder(tik(111, "h:teknoloji"));
+kontrol("Birleştirilen haberde '+2 kaynak daha'", giden.some((g) => g.govde?.text?.includes("+2 kaynak daha")));
 giden.length = 0; await gonder(tik(111, "h:yerli"));
 kontrol("Boş bölümde açıklama", giden.some((g) => g.govde?.text?.includes("kayda değer bir gelişme yok")));
 // Çok uzun liste: HTML ortadan kesilmez, sığmayan haber dışarıda kalır

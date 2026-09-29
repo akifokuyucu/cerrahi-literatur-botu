@@ -188,7 +188,8 @@ function haberBlogu(no, o) {
   return (
     `<b>${no}. ${esc(o.baslik_tr || o.baslik)}</b>\n` +
     esc(o.ozet || "") + rct + "\n" +
-    `<a href="${esc(o.url)}">${esc(o.nct || o.kaynak)}</a>${tarih}`
+    `<a href="${esc(o.url)}">${esc(o.nct || o.kaynak)}</a>` +
+    (o.benzer ? ` · +${o.benzer} kaynak daha` : "") + tarih
   );
 }
 

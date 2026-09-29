@@ -302,9 +302,14 @@ GUNDEM_KAYNAKLARI = [
      "desen": "/News-Articles/"},
     {"bolum": "kilavuz", "ad": "EAES", "tur": "rss", "url": "https://eaes.eu/feed/"},
     {"bolum": "kilavuz", "ad": "SAGES", "tur": "rss", "url": "https://www.sages.org/feed/"},
+    # Google Haberler uzun VEYA'lı sorgularda tarih sınırını (when:7d) yok
+    # sayıp yıllar öncesini getiriyor; kısa sorgular sınıra uyuyor
     {"bolum": "kilavuz", "ad": "Google Haberler", "tur": "haber", "dil": "en",
-     "sorgu": '(WSES OR ESCP OR ASCRS OR EAES OR SAGES OR "surgical society") '
-              '(guideline OR guidelines OR consensus OR congress)'},
+     "sorgu": "surgical guideline"},
+    {"bolum": "kilavuz", "ad": "Google Haberler", "tur": "haber", "dil": "en",
+     "sorgu": "surgery guidelines"},
+    {"bolum": "kilavuz", "ad": "Google Haberler", "tur": "haber", "dil": "en",
+     "sorgu": "surgical society congress"},
     # --- Teknoloji: FDA/CE onayları, robotik, yapay zekâ ---
     {"bolum": "teknoloji", "ad": "FDA 510(k)", "tur": "openfda",
      # SU: Genel ve Plastik Cerrahi, GU: Gastroenteroloji-Üroloji
@@ -340,6 +345,21 @@ RCT_TERIMLERI = [
     "kidney transplantation", "peritoneal metastases", "HIPEC",
     "emergency laparotomy", "thyroidectomy", "parathyroidectomy", "ERAS",
 ]
+
+# Başlığında bunlar geçen adaylar Gemini'ye gitmeden elenir (DIGER_BRANSLAR
+# ile birlikte). "ASCRS" aynı zamanda bir göz cerrahisi derneğinin kısaltması.
+GUNDEM_DISLANAN = DIGER_BRANSLAR + [
+    "cardiac", "heart", "cardio*", "valve", "Mohs", "dermatolog*",
+    "skin cancer", "cosmetic", "aesthetic", "ophthalm*", "eye", "EyeWorld",
+    "refractive", "glaucoma", "orthop*", "veterinar*", "pediatric urolog*",
+    "kalp", "kardiyak", "kardiyolo*", "diş", "göz", "estetik", "ortopedi*",
+    "kadın doğum", "jinekolo*", "üroloji*",
+]
+# Aynı olayı anlatan haberleri birleştirme eşiği: iki başlığın anlamlı
+# kelime köklerinin en az bu oranı ortaksa (kısa başlığa göre) aynı haber
+BENZERLIK_ESIGI = 0.5
+# Gösterilen kısa özetin üst sınırı (karakter)
+GUNDEM_OZET_SINIRI = 260
 
 GUNDEM_PENCERE_GUN = 7
 # Gemini'ye bölüm başına gönderilen en fazla aday

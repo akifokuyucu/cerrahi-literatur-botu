@@ -84,6 +84,67 @@ def _aday(bolum, kaynak, baslik, url, tarih="", metin="", **ek):
             "metin": _sade(metin, 700), **ek}
 
 
+def _desen(terimler):
+    """["cardio*", "eye"] → kelime sınırlı, büyük/küçük harf duyarsız ifade."""
+    parca = [re.escape(t).replace(r"\*", r"\w*") for t in terimler]
+    return re.compile(r"\b(?:" + "|".join(parca) + r")\b", re.I)
+
+
+DISLANAN = _desen(config.GUNDEM_DISLANAN)
+DURAK = {"için", "ile", "olan", "olarak", "sonrası", "sonra", "yeni", "daha",
+         "üzerine", "karşı", "arasında", "tarafından", "with", "from", "after",
+         "their", "this", "that", "into"}
+# Neredeyse her başlıkta geçen alan kelimeleri: iki farklı haberi yalnızca
+# bunlar ortak diye aynı saymamak için benzerlik hesabına girmez
+GENEL_KOKLER = {"cerra", "robot", "yapay", "zekâ", "zeka", "ameli", "hasta",
+                "tedav", "siste", "onayı", "tekno", "klini", "çalış", "sağlı",
+                "hekim", "doktor"}
+
+
+def _kokler(baslik):
+    """Başlığın anlamlı kelimelerinin ilk 5 harfi (Türkçe ekleri kabaca atar)."""
+    kelimeler = re.findall(r"\w+", baslik.lower().replace("'", " ").replace("’", " "))
+    return {k[:5] for k in kelimeler if len(k) >= 4 and k not in DURAK} - GENEL_KOKLER
+
+
+def _ayni_olay(a, b):
+    ka, kb = _kokler(a), _kokler(b)
+    ortak = len(ka & kb)
+    return ortak >= 2 and ortak / max(1, min(len(ka), len(kb))) >= config.BENZERLIK_ESIGI
+
+
+def birlestir(ogeler):
+    """Aynı olayı anlatan haberlerden ilkini tutar; diğerlerinin sayısını
+    "benzer" alanına yazar (Telegram'da "+2 kaynak daha")."""
+    kumeler = []
+    for o in ogeler:
+        for k in kumeler:
+            if any(_ayni_olay(o["baslik_tr"], u["baslik_tr"]) for u in k):
+                k.append(o)
+                break
+        else:
+            kumeler.append([o])
+    sonuc = []
+    for k in kumeler:
+        bas = dict(k[0])
+        if len(k) > 1:
+            bas["benzer"] = len(k) - 1
+        sonuc.append(bas)
+    return sonuc
+
+
+def kisalt(metin, sinir=None):
+    """Özeti cümle, olmazsa kelime sınırında keser."""
+    sinir = sinir or config.GUNDEM_OZET_SINIRI
+    if len(metin) <= sinir:
+        return metin
+    parca = metin[:sinir]
+    nokta = parca.rfind(". ")
+    if nokta > sinir * 0.5:
+        return parca[:nokta + 1]
+    return parca[:parca.rfind(" ")].rstrip(",;:") + "…"
+
+
 def _tarih(rfc822):
     try:
         return email.utils.parsedate_to_datetime(rfc822).date().isoformat()
@@ -320,11 +381,14 @@ def suz(gem, bolum, adaylar):
         if not s or s.get("ilgi", 0) < 1:
             continue
         o = {k: a[k] for k in ("kaynak", "baslik", "url", "tarih")}
-        o.update(baslik_tr=s["baslik_tr"], ozet=s["ozet"], ilgi=s["ilgi"])
+        o.update(baslik_tr=s["baslik_tr"], ozet=kisalt(s["ozet"]), ilgi=s["ilgi"])
         if a.get("nct"):
             o.update({k: a[k] for k in ("nct", "n", "ulke", "sponsor")})
         ogeler.append(o)
     ogeler.sort(key=lambda o: (o["ilgi"], o["tarih"]), reverse=True)
+    # Her RCT ayrı bir kayıt; birleştirme yalnızca haberlerde
+    if bolum != "rct":
+        ogeler = birlestir(ogeler)
     return ogeler[:config.GUNDEM_BOLUMLERI[bolum]["en_fazla"]]
 
 
@@ -367,6 +431,8 @@ def adaylari_topla(bolumler, gorulen, hatalar):
             anahtar = re.sub(r"\W+", "", a["baslik"].lower())[:80]
             if a["id"] in once or anahtar in basliklar or not a["url"]:
                 continue
+            if DISLANAN.search(a["baslik"]):
+                continue
             basliklar.add(anahtar)
             tekil.append(a)
         adaylar[b] = tekil[:config.GUNDEM_ADAY_SINIRI]
@@ -400,7 +466,11 @@ def main():
         gorulen_yaz()
         return
 
-    gem = ozetleyici.SahteGemini() if a.sahte_ozet else ozetleyici.Gemini()
+    # Gündem acil değil: ana model yoğunsa zayıf yedeğe geçmeden önce
+    # 5 kez, 30 sn arayla dene (yedek modeller tekrarları ve branş dışı
+    # haberleri daha kötü eliyor)
+    gem = (ozetleyici.SahteGemini() if a.sahte_ozet
+           else ozetleyici.Gemini(yogun_deneme=5, yogun_bekleme=30))
     bolumler = [a.bolum] if a.bolum else list(config.GUNDEM_BOLUMLERI)
     bugun = dt.date.today()
     cikti = {"hafta": hafta_etiketi(bugun), "hazirlanma": bugun.isoformat(),
