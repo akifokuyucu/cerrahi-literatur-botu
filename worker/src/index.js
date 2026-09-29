@@ -156,7 +156,11 @@ Kurallar:
   RAKAMLA yaz (750 hasta, %59); asla yazıyla yazma.
 - "pratige_etkisi" kısmında, bulguların klinik pratiği değiştirip
   değiştirmeyeceğini kanıt düzeyiyle birlikte dengeli biçimde değerlendir.
-- "journal_club_sorulari": çalışmayı eleştirel okumaya yönelten 2-3 soru.`;
+- "journal_club_sorulari": çalışmayı eleştirel okumaya yönelten 2-3 soru.
+- "pico": dört alanın HER BİRİNİ kısa bir ifadeyle doldur (en fazla 1 cümle).
+  Gözlemsel çalışmalarda I = incelenen yaklaşım/maruziyet, C = karşılaştırma
+  grubu; meta-analizde dahil edilen çalışmaların PICO'sunu yaz. Alanlara
+  asla talimat, açıklama veya "belirtilmemiş" dışında meta yorum yazma.`;
 
 const DETAY_SEMASI = {
   type: "OBJECT",
