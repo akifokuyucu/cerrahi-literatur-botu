@@ -237,6 +237,15 @@ DIGER_BRANSLAR = [
     "caesarean",
 ]
 
+# Geniş kapsamlı dergiler: puan alırlar ama makaleleri alana OTOMATİK
+# girmez; yalnızca alanın terimleriyle eşleşen makaleleri alınır
+GENIS_DERGILER = [
+    "Ann Surg Oncol", "Eur J Surg Oncol", "J Surg Oncol", "J Gastrointest Surg",
+    "J Hosp Infect", "Infect Control Hosp Epidemiol", "Transplantation",
+    "Int J Comput Assist Radiol Surg", "Surg Laparosc Endosc Percutan Tech",
+    "J Laparoendosc Adv Surg Tech A", "J Robot Surg", "HPB (Oxford)",
+]
+
 # Her alanda gösterilecek makale sayısı
 ALAN_BASINA = 5
 # Kaç günlük pencere taransın

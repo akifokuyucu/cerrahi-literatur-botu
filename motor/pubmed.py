@@ -36,7 +36,7 @@ def alan_sorgusu(alan_kodu):
     konu = _veya(a["anahtar"], lambda t: _terim(t, etiket))
     if a["cerrahi"]:
         konu = f"({konu} AND {_veya(a['cerrahi'], _terim)})"
-    dergiler = a["alan_dergileri"]
+    dergiler = [d for d in a["alan_dergileri"] if d not in config.GENIS_DERGILER]
     if dergiler:
         dergi_ifadesi = _veya(dergiler, lambda d: '"' + d + '"[ta]')
         konu = f"({konu} OR {dergi_ifadesi})"
@@ -66,11 +66,20 @@ class PubMed:
 
     def _post(self, uc, veri):
         time.sleep(self.bekleme)
-        for deneme in range(3):
-            r = requests.post(f"{EUTILS}/{uc}", data={**self.ortak, **veri},
-                              timeout=60)
-            if r.status_code == 429:
-                time.sleep(2 * (deneme + 1))
+        for deneme in range(4):
+            try:
+                r = requests.post(f"{EUTILS}/{uc}", data={**self.ortak, **veri},
+                                  timeout=90)
+            except requests.RequestException as e:
+                if deneme == 3:
+                    raise
+                print(f"  PubMed bağlantı hatası ({e}), yeniden deneniyor...")
+                time.sleep(5 * (deneme + 1))
+                continue
+            if r.status_code == 429 or r.status_code >= 500:
+                # Hız sınırı ya da PubMed'in geçici sunucu hatası
+                print(f"  PubMed {r.status_code}, yeniden deneniyor...")
+                time.sleep(5 * (deneme + 1))
                 continue
             r.raise_for_status()
             return r
