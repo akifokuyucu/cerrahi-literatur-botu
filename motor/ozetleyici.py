@@ -58,22 +58,39 @@ class Gemini:
             govde["generationConfig"]["responseMimeType"] = "application/json"
             govde["generationConfig"]["responseSchema"] = sema
         url = f"{API}/{self.model}:generateContent"
-        bekle = 20
-        for deneme in range(5):
+        for deneme in range(4):
             r = requests.post(url, json=govde, timeout=180,
                               headers={"x-goog-api-key": self.api_key})
             if r.status_code in (429, 500, 503):
-                # Ücretsiz katman sınırı ya da geçici yoğunluk: bekle, tekrar dene
-                print(f"  Gemini {r.status_code}, {bekle} sn bekleniyor...")
-                time.sleep(bekle)
-                bekle *= 2
+                hata = r.text[:600]
+                # Günlük kota bittiyse beklemenin anlamı yok
+                if "PerDay" in hata or "per day" in hata.lower():
+                    raise RuntimeError(f"Gemini günlük kotası dolu: {hata}")
+                bekle = _bekleme_suresi(r) or 15 * (deneme + 1)
+                print(f"  Gemini {r.status_code}, {bekle} sn bekleniyor... "
+                      f"({hata[:200]})")
+                time.sleep(min(bekle, 90))
                 continue
-            r.raise_for_status()
+            if not r.ok:
+                # Anahtar değil, yalnızca hata metni yazdırılır
+                raise RuntimeError(f"Gemini {r.status_code} ({self.model}): "
+                                   f"{r.text[:500]}")
             veri = r.json()
             parcalar = veri["candidates"][0]["content"]["parts"]
             yanit = "".join(p.get("text", "") for p in parcalar)
             return json.loads(yanit) if sema else yanit
         r.raise_for_status()
+
+
+def _bekleme_suresi(r):
+    """429 yanıtındaki RetryInfo'dan önerilen bekleme süresini (sn) okur."""
+    try:
+        for d in r.json()["error"].get("details", []):
+            if "retryDelay" in d:
+                return int(float(d["retryDelay"].rstrip("s"))) + 2
+    except Exception:
+        pass
+    return None
 
 
 def _makale_metni(m):

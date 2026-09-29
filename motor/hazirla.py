@@ -12,6 +12,7 @@ import datetime as dt
 import json
 import os
 import sys
+import time
 import traceback
 
 import requests
@@ -85,9 +86,11 @@ def main():
                        if m and m["pmid"] not in ozet_onbellek]
         try:
             ozet_onbellek.update(ozetleyici.kisa_ozetle(gem, ozetlenecek))
-        except Exception:
-            traceback.print_exc()
+            print(f"  {len(ozetlenecek)} makale özetlendi")
+        except Exception as e:
+            print(f"  ÖZET HATASI: {e}")
             cikti["hatalar"].append(f"{kod}: özet üretilemedi")
+        time.sleep(0 if a.sahte_ozet else 5)  # dakika başı istek sınırına saygı
 
         def ekle(m):
             if not m:
