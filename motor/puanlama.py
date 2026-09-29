@@ -111,11 +111,11 @@ def puanla(kayit, alan_kodu):
 
 def ilk_n(kayitlar, alan_kodu, n=config.ALAN_BASINA):
     """Puanlar, Türk dergisini ana listeden ayırır, en iyi n'i döndürür."""
-    turk = _norm(config.TURK_DERGISI)
+    turk = {_norm(d) for d in config.TUM_TURK_DERGILERI}
     puanli = []
     gorulen = set()
     for k in kayitlar:
-        if k["pmid"] in gorulen or _norm(k["dergi"]) == turk:
+        if k["pmid"] in gorulen or _norm(k["dergi"]) in turk:
             continue
         gorulen.add(k["pmid"])
         p = puanla(k, alan_kodu)

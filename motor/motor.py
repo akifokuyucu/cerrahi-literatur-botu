@@ -28,10 +28,11 @@ def _oku_json(yol, varsayilan):
 
 
 def turk_makalesi_sec(kayitlar, alan_kodu):
-    """Bu alan için henüz gösterilmemiş en yeni Turk J Surg makalesi."""
+    """Bu alan için henüz gösterilmemiş en yeni Türk dergisi makalesi."""
     gosterilen = _oku_json(TURK_GOSTERILEN, {})
     daha_once = set(gosterilen.get(alan_kodu, []))
-    for k in kayitlar:  # PubMed en yeniden eskiye sıralı döner
+    # Birden çok dergi olabilir: en yeni (en büyük PMID) önce
+    for k in sorted(kayitlar, key=lambda k: int(k["pmid"]), reverse=True):
         if k["pmid"] not in daha_once and puanlama.calisma_tipi(k):
             return {**k, "tip_etiketi":
                     config.TIP_ETIKETI[puanlama.calisma_tipi(k)]}
@@ -46,7 +47,8 @@ def turk_gosterildi_isaretle(alan_kodu, pmid):
         json.dump(gosterilen, f, ensure_ascii=False, indent=1)
 
 
-def alan_hazirla(alan_kodu, pm=None, girdi_xml=None, turk_xml=None):
+def alan_hazirla(alan_kodu, pm=None, girdi_xml=None, turk_xml=None,
+                 n=config.ALAN_BASINA):
     if girdi_xml:
         with open(girdi_xml, encoding="utf-8") as f:
             kayitlar = pubmed.xml_ayristir(f.read())
@@ -54,7 +56,7 @@ def alan_hazirla(alan_kodu, pm=None, girdi_xml=None, turk_xml=None):
         pmidler = pm.ara(pubmed.alan_sorgusu(alan_kodu), config.PENCERE_GUN)
         kayitlar = pm.getir(pmidler)
 
-    secilen, tum_puanli = puanlama.ilk_n(kayitlar, alan_kodu)
+    secilen, tum_puanli = puanlama.ilk_n(kayitlar, alan_kodu, n)
 
     turk = None
     if turk_xml:

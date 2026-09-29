@@ -10,10 +10,10 @@ VERI_URL = "https://raw.githubusercontent.com/akifokuyucu/cerrahi-literatur-botu
 # Gizli değerler (TELEGRAM_TOKEN, GEMINI_API_KEY, WEBHOOK_SECRET,
 # IZINLI_KULLANICI) buraya YAZILMAZ; Cloudflare panelinden "Secret" olarak girilir.
 
-# KV önbelleği: panelde oluşturulan KV alanının kimliği (id) buraya yazılır.
-# [[kv_namespaces]]
-# binding = "ONBELLEK"
-# id = "..."
+# KV önbelleği: ayrıntılı özetler 120 gün saklanır, tekrar istenince anında gelir
+[[kv_namespaces]]
+binding = "ONBELLEK"
+id = "39f59024e88a4c3a92666c0ef65adb7e"
 
 # Hata ayıklama için Worker günlükleri (panelde "Observability" sekmesi)
 [observability]

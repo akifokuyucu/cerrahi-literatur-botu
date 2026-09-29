@@ -29,7 +29,8 @@ AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
 # Botun ihtiyaç duyduğu alanlar (hafta.json'u küçük tutmak için)
 TUTULAN = ["pmid", "baslik", "baslik_tr", "kisa_ozet", "ozet", "dergi",
            "dergi_tam", "yil", "doi", "pmc", "tip", "tip_etiketi", "toplam",
-           "dergi_puani", "tip_puani", "cok_merkezli", "orneklem"]
+           "dergi_puani", "tip_puani", "cok_merkezli", "orneklem",
+           "cerrahi_ilgi"]
 
 
 def hafta_etiketi(bugun):
@@ -75,7 +76,7 @@ def main():
     for kod in alanlar:
         print(f"\n== {config.ALANLAR[kod]['ad']} ==")
         try:
-            s = motor.alan_hazirla(kod, pm, a.girdi)
+            s = motor.alan_hazirla(kod, pm, a.girdi, n=config.ADAY_SAYISI)
         except Exception:
             traceback.print_exc()
             cikti["hatalar"].append(f"{kod}: PubMed hatası")
@@ -97,11 +98,20 @@ def main():
                 return None
             o = ozet_onbellek.get(m["pmid"], {})
             return sadelestir({**m, "baslik_tr": o.get("baslik_tr", ""),
-                               "kisa_ozet": o.get("kisa_ozet", "")})
+                               "kisa_ozet": o.get("kisa_ozet", ""),
+                               "cerrahi_ilgi": o.get("cerrahi_ilgi")})
+
+        # Cerrahi ilgi filtresi: Gemini'nin "ilgisiz" (0) dediği adaylar elenir,
+        # kalanlar puan sırasını koruyarak ilk 5'e girer
+        uygun = [m for m in s["makaleler"]
+                 if ozet_onbellek.get(m["pmid"], {}).get("cerrahi_ilgi", 1) != 0]
+        elenen = len(s["makaleler"]) - len(uygun)
+        if elenen:
+            print(f"  {elenen} aday cerrahiyle ilgisiz bulunup elendi")
 
         cikti["alanlar"][kod] = {
             "ad": s["ad"], "taranan": s["taranan"],
-            "makaleler": [ekle(m) for m in s["makaleler"]],
+            "makaleler": [ekle(m) for m in uygun[:config.ALAN_BASINA]],
             "turk": ekle(s["turk"]),
         }
         if s["turk"] and not a.girdi:

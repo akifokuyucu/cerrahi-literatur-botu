@@ -53,6 +53,16 @@ ELENEN_TIPLER = [
 # ---------------------------------------------------------------------------
 TURK_DERGISI = "Turk J Surg"
 TURK_DERGISI_GERIYE_GUN = 200  # üç ayda bir çıktığı için geniş pencere
+# Bazı alanlarda ek Türk dergileri (TJTES aylık çıkar)
+ALAN_TURK_DERGILERI = {
+    "acil": ["Turk J Surg", "Ulus Travma Acil Cerrahi Derg"],
+}
+TUM_TURK_DERGILERI = {TURK_DERGISI} | {
+    d for liste in ALAN_TURK_DERGILERI.values() for d in liste}
+
+
+def turk_dergileri(alan_kodu):
+    return ALAN_TURK_DERGILERI.get(alan_kodu, [TURK_DERGISI])
 
 # ---------------------------------------------------------------------------
 # 4) ALT ALANLAR
@@ -177,7 +187,9 @@ ALANLAR = {
                     "acute appendicitis", "appendectomy",
                     "acute cholecystitis", "small bowel obstruction",
                     "perforat*", "acute care surgery", "trauma laparotomy",
-                    "damage control", "REBOA"],
+                    "damage control", "REBOA", "abdominal trauma",
+                    "blunt trauma", "penetrating trauma", "splenic injur*",
+                    "liver injur*", "incarcerated"],
         "cerrahi": None,
         "ust": [],
         "alan_dergileri": ["World J Emerg Surg", "J Trauma Acute Care Surg",
@@ -248,5 +260,7 @@ GENIS_DERGILER = [
 
 # Her alanda gösterilecek makale sayısı
 ALAN_BASINA = 5
+# Cerrahi ilgi kontrolü için Gemini'ye gönderilen aday sayısı
+ADAY_SAYISI = 10
 # Kaç günlük pencere taransın
 PENCERE_GUN = 7

@@ -48,8 +48,10 @@ def alan_sorgusu(alan_kodu):
 def turk_dergisi_sorgusu(alan_kodu):
     a = config.ALANLAR[alan_kodu]
     konu = _veya(a["anahtar"], _terim)
+    dergi = _veya(config.turk_dergileri(alan_kodu), lambda d: '"' + d + '"[ta]')
     elenen = _veya(config.ELENEN_TIPLER, lambda p: f'"{p}"[pt]')
-    return f'"{config.TURK_DERGISI}"[ta] AND {konu} NOT {elenen}'
+    brans = _veya(config.DIGER_BRANSLAR, lambda t: _terim(t, "ti"))
+    return f"{dergi} AND {konu} NOT {elenen} NOT {brans}"
 
 
 # ---------------------------------------------------------------------------

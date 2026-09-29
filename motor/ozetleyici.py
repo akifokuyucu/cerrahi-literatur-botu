@@ -1,8 +1,9 @@
 """
 Gemini ile Türkçe kısa özet üretimi (haftalık toplu hazırlık için).
 
-Ücretsiz katmanda dakika başına istek sınırı olduğu için her alanın 5-6
-makalesi TEK istekte özetlenir (haftada ~15 istek).
+Ücretsiz katmanda dakika başına istek sınırı olduğu için her alanın aday
+makaleleri (en fazla 10 + Türk dergisi) TEK istekte özetlenir ve cerrahi
+ilgi puanı alır (haftada ~15 istek).
 """
 import json
 import os
@@ -19,6 +20,13 @@ Aşağıda PubMed'den alınmış makaleler var. Her biri için:
 
 1. "baslik_tr": Başlığın kısa, doğal Türkçe karşılığı (en fazla 12 kelime).
 2. "kisa_ozet": Türkçe, 2-3 cümlelik kısa özet (en fazla 350 karakter).
+3. "cerrahi_ilgi": Makalenin GENEL CERRAHIN pratiği için önemi:
+   2 = doğrudan ilgili: ameliyat endikasyonu, cerrahi teknik, perioperatif
+       bakım, cerrahi komplikasyonlar ya da cerrahi sonuçlar
+   1 = dolaylı ilgili: cerrahi hastanın onkolojik/medikal tedavisi, tanı,
+       cerrahi eğitim, cerrahide teknoloji veya sağlık sistemi
+   0 = ilgisiz: cerrahi bağlamı olmayan radyoterapi/ilaç çalışması, temel
+       bilim, başka bir branşın konusu
 
 Kurallar:
 - Tıbbi terimleri ve kısaltmaları İngilizce bırak (ör. anastomotic leak,
@@ -44,8 +52,9 @@ KISA_OZET_SEMASI = {
             "pmid": {"type": "STRING"},
             "baslik_tr": {"type": "STRING"},
             "kisa_ozet": {"type": "STRING"},
+            "cerrahi_ilgi": {"type": "INTEGER"},
         },
-        "required": ["pmid", "baslik_tr", "kisa_ozet"],
+        "required": ["pmid", "baslik_tr", "kisa_ozet", "cerrahi_ilgi"],
     },
 }
 
@@ -135,5 +144,8 @@ class SahteGemini:
     def uret(self, metin, sema=None, sicaklik=0.2):
         pmidler = [s.split(":", 1)[1].strip()
                    for s in metin.splitlines() if s.startswith("pmid:")]
+        # Testte her 3. makale "ilgisiz" sayılır ki filtre denenebilsin
         return [{"pmid": p, "baslik_tr": f"(test başlığı {p})",
-                 "kisa_ozet": f"(test özeti {p})"} for p in pmidler]
+                 "kisa_ozet": f"(test özeti {p})",
+                 "cerrahi_ilgi": 0 if i % 3 == 2 else 2}
+                for i, p in enumerate(pmidler)]
