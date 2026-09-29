@@ -247,7 +247,9 @@ DIGER_BRANSLAR = [
     "aortic valve", "mitral", "lung cancer", "lobectomy", "pneumonectomy",
     "thoracic surgery", "neurosurg*", "craniotomy", "cataract", "retina*",
     "dental", "orthodont*", "tonsillectomy", "rhinoplasty", "cesarean",
-    "caesarean",
+    "caesarean", "orbit*", "ocular", "uveal", "conjunctiv*", "eyelid",
+    "uterine", "uterus", "cervix", "vulvar", "pyeloplasty", "hypospadias",
+    "nephrolithotomy", "ureteroscopy", "laryn*", "head and neck",
 ]
 
 # Geniş kapsamlı dergiler: puan alırlar ama makaleleri alana OTOMATİK
