@@ -14,3 +14,7 @@ VERI_URL = "https://raw.githubusercontent.com/akifokuyucu/cerrahi-literatur-botu
 # [[kv_namespaces]]
 # binding = "ONBELLEK"
 # id = "..."
+
+# Hata ayıklama için Worker günlükleri (panelde "Observability" sekmesi)
+[observability]
+enabled = true
