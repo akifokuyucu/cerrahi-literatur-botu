@@ -112,6 +112,7 @@ def main():
     for kod, s in cikti["alanlar"].items():
         for m in s["makaleler"]:
             havuz.setdefault(m["pmid"], {**m, "alan": s["ad"]})
+    cikti["model"] = getattr(gem, "son_model", gem.model)
     cikti["gundem"] = sorted(
         havuz.values(), reverse=True,
         key=lambda m: (m["toplam"], m["cok_merkezli"], m["orneklem"]))[:5]

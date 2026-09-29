@@ -177,29 +177,37 @@ const DETAY_SEMASI = {
     "sinirliliklar", "pratige_etkisi"],
 };
 
+const YEDEK_MODELLER = ["gemini-flash-lite-latest", "gemini-2.5-flash", "gemini-2.5-flash-lite"];
+
 async function gemini(env, metin, sema) {
-  const model = env.GEMINI_MODEL || "gemini-flash-latest";
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
-  const govde = {
+  // Ana model yoğunsa (503) ya da kotası dolduysa sıradaki modele geçilir
+  const ana = env.GEMINI_MODEL || "gemini-flash-latest";
+  const modeller = [ana, ...YEDEK_MODELLER.filter((m) => m !== ana)];
+  const govde = JSON.stringify({
     contents: [{ role: "user", parts: [{ text: metin }] }],
     generationConfig: { temperature: 0.2, responseMimeType: "application/json", responseSchema: sema },
-  };
-  for (let deneme = 0; deneme < 3; deneme++) {
-    const r = await fetch(url, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-      body: JSON.stringify(govde),
-    });
-    if (r.status === 429 || r.status === 503) {
-      await new Promise((ok) => setTimeout(ok, 4000 * (deneme + 1)));
-      continue;
+  });
+  let sonHata = "";
+  for (const model of modeller) {
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
+    for (let deneme = 0; deneme < 2; deneme++) {
+      const r = await fetch(url, {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+        body: govde,
+      });
+      if (r.ok) {
+        const j = await r.json();
+        const parca = j.candidates?.[0]?.content?.parts?.map((p) => p.text || "").join("") || "";
+        return JSON.parse(parca);
+      }
+      sonHata = `${model} ${r.status}`;
+      console.log("Gemini hatası", sonHata, (await r.text()).slice(0, 300));
+      if (![429, 500, 503].includes(r.status)) break; // 404/400: sıradaki model
+      if (deneme === 0) await new Promise((ok) => setTimeout(ok, 3000));
     }
-    if (!r.ok) throw new Error(`Gemini ${r.status}: ${(await r.text()).slice(0, 200)}`);
-    const j = await r.json();
-    const parca = j.candidates?.[0]?.content?.parts?.map((p) => p.text || "").join("") || "";
-    return JSON.parse(parca);
   }
-  throw new Error("Gemini kotası dolu (429). Birkaç dakika sonra tekrar dene.");
+  throw new Error(`Yapay zekâ şu an yanıt vermiyor (${sonHata}). Birkaç dakika sonra tekrar dene.`);
 }
 
 function jatsMetne(xml) {

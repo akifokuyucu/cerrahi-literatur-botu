@@ -12,6 +12,7 @@ import requests
 
 API = "https://generativelanguage.googleapis.com/v1beta/models"
 VARSAYILAN_MODEL = "gemini-flash-latest"
+YEDEK_MODELLER = ["gemini-flash-lite-latest", "gemini-2.5-flash", "gemini-2.5-flash-lite"]
 
 KISA_OZET_TALIMATI = """Sen genel cerrahi alanında deneyimli bir akademisyensin.
 Aşağıda PubMed'den alınmış makaleler var. Her biri için:
@@ -48,6 +49,10 @@ class Gemini:
         self.api_key = api_key or os.environ["GEMINI_API_KEY"]
         # Boş değişken ("") de varsayılana düşsün
         self.model = model or os.getenv("GEMINI_MODEL") or VARSAYILAN_MODEL
+        # Ana model yoğun/erişilemezse sırayla denenecek yedekler
+        yedek = os.getenv("GEMINI_YEDEK") or ",".join(YEDEK_MODELLER)
+        self.modeller = [self.model] + [m.strip() for m in yedek.split(",")
+                                        if m.strip() and m.strip() != self.model]
 
     def uret(self, metin, sema=None, sicaklik=0.2):
         govde = {
@@ -57,29 +62,37 @@ class Gemini:
         if sema:
             govde["generationConfig"]["responseMimeType"] = "application/json"
             govde["generationConfig"]["responseSchema"] = sema
-        url = f"{API}/{self.model}:generateContent"
-        for deneme in range(4):
-            r = requests.post(url, json=govde, timeout=180,
-                              headers={"x-goog-api-key": self.api_key})
-            if r.status_code in (429, 500, 503):
-                hata = r.text[:600]
-                # Günlük kota bittiyse beklemenin anlamı yok
-                if "PerDay" in hata or "per day" in hata.lower():
-                    raise RuntimeError(f"Gemini günlük kotası dolu: {hata}")
-                bekle = _bekleme_suresi(r) or 15 * (deneme + 1)
-                print(f"  Gemini {r.status_code}, {bekle} sn bekleniyor... "
-                      f"({hata[:200]})")
-                time.sleep(min(bekle, 90))
-                continue
-            if not r.ok:
-                # Anahtar değil, yalnızca hata metni yazdırılır
-                raise RuntimeError(f"Gemini {r.status_code} ({self.model}): "
-                                   f"{r.text[:500]}")
-            veri = r.json()
-            parcalar = veri["candidates"][0]["content"]["parts"]
-            yanit = "".join(p.get("text", "") for p in parcalar)
-            return json.loads(yanit) if sema else yanit
-        r.raise_for_status()
+        son_hata = ""
+        for model in self.modeller:
+            url = f"{API}/{model}:generateContent"
+            for deneme in range(3):
+                r = requests.post(url, json=govde, timeout=180,
+                                  headers={"x-goog-api-key": self.api_key})
+                if r.ok:
+                    veri = r.json()
+                    parcalar = veri["candidates"][0]["content"]["parts"]
+                    yanit = "".join(p.get("text", "") for p in parcalar)
+                    self.son_model = model
+                    return json.loads(yanit) if sema else yanit
+                son_hata = f"{model} {r.status_code}: {r.text[:300]}"
+                if r.status_code == 429:
+                    if "PerDay" in r.text or "per day" in r.text.lower():
+                        print(f"  {model}: günlük kota dolu, sonraki modele geçiliyor")
+                        break
+                    bekle = min(_bekleme_suresi(r) or 20, 90)
+                elif r.status_code in (500, 503):
+                    # Model yoğun: kısa bekle, 2. denemeden sonra yedeğe geç
+                    if deneme >= 1:
+                        print(f"  {model} yoğun (503), yedek modele geçiliyor")
+                        break
+                    bekle = 10
+                else:
+                    # 404 (model yok), 400 vb.: bu modeli bırak
+                    print(f"  {model} hata {r.status_code}: {r.text[:200]}")
+                    break
+                print(f"  {model} {r.status_code}, {bekle} sn bekleniyor...")
+                time.sleep(bekle)
+        raise RuntimeError(f"Hiçbir Gemini modeli yanıt vermedi. Son hata: {son_hata}")
 
 
 def _bekleme_suresi(r):
