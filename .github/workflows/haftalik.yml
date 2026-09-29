@@ -42,5 +42,8 @@ jobs:
           git config user.name "haftalik-hazirlik"
           git config user.email "actions@users.noreply.github.com"
           git add cikti/
-          git diff --cached --quiet || git commit -m "Haftalık liste: $(date +%F)"
+          git diff --cached --quiet && exit 0
+          git commit -m "Haftalık liste: $(date +%F)"
+          # Çalışma sürerken depoya başka değişiklik geldiyse üstüne ekle
+          git pull --rebase origin main
           git push
