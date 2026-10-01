@@ -1,345 +1,259 @@
 {
- "hafta": "22–29 Eylül 2026",
- "hazirlanma": "2026-09-29",
+ "hafta": "24 Eylül – 1 Ekim 2026",
+ "hazirlanma": "2026-10-01",
  "model": "gemini-flash-lite-latest",
  "bolumler": {
   "kilavuz": {
    "ad": "📘 Kılavuz & Kongre",
-   "aday": 60,
+   "aday": 45,
    "ogeler": [
     {
-     "kaynak": "American College of Cardiology",
-     "baslik": "ACC/AHA Joint Guideline Committee Reaffirms Perioperative Guideline",
-     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNaXRKWWUxWGhPLXlBbThqenkyb2d0T29qaFo2a0xJZzdLQjBiOG10LThVejJiNXVpWWU2UG9zTTdLbmVWVWgtWnloZ3dGT0lLaHBmU3FlYWJhejJWckliOFlfSE93R3V2UGdGZFZSRUlWMTVtN0NHSlZNZkUtd0U5YkxHLWhabmtvZ0J5WFlsVUM?oc=5",
-     "tarih": "2026-09-29",
-     "baslik_tr": "ACC ve AHA Perioperatif Kılavuzu Yeniden Onayladı",
-     "ozet": "ACC/AHA Ortak Kılavuz Komitesi, perioperatif kılavuzunu yeniden onayladığını duyurdu.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "Mesothelioma.net",
-     "baslik": "New NCCN Guidelines Reshape Mesothelioma Care",
-     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQbnpyc0VHa1RuUkh0bm5kNm1MLW9BQXZvcmVFSkZzSUVVeFNPVTFyRDdoSHd1elZBTHlySVNGUFlmajZ2b1BSVktheE83N3l6Y3pPUTRzckdDclNlaURIWDFsRzdkSHJ6OHVZRzA1dmhwa1prOWFpSjRjNlNnTEpIb3hIZl9NUXh2MzFVQ1Ewc3hFY1E?oc=5",
-     "tarih": "2026-09-29",
-     "baslik_tr": "Yeni NCCN Kılavuzları Mezotelyoma Tedavisini Şekillendiriyor",
-     "ozet": "Yeni NCCN kılavuzlarının mezotelyoma bakım standartlarını yeniden şekillendirdiği belirtildi.",
-     "ilgi": 2,
-     "benzer": 1
-    },
-    {
-     "kaynak": "Medical Dialogues",
-     "baslik": "New WHO Guideline Redefines Infertility as a Universal Health Priority",
-     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxOaFJGOG5oaWpLYnd5S0FWeU5wSmU1eXc2bVJVMGlJcktoWUUxeGl4REk3ZFlhZG9KaklBWWdoSFZrMjVWdGo5bDl5MGkwaW04dzlIWlRhd1I0QzZLZGNPaU0xbWhaNy14cUUxUmd0d3JoS0lRc1R0bG1yRXIzc2tsU3VGRDFsUkc5ellBbUJvZHY3V3hvTFBTZm55eVFuMm1RZ2cyQmhMZXltSTFVRkVTRXFrRzdZMFkxMy1IYm9VUWZ4bGVSakNuMlpIZWXSAcwBQVVfeXFMTmhSRjhuaGlqS2J3eUtBVnlOcEplNXl3Nm1SVTBpSXJLaFlFMXhpeERJN2RZYWRvSmpJQVlnaEhWazI1VnRqOWw5eTBpMGltOHc5SFpUYXdSNEM2S2RjT2lNMW1oWjcteHFFMVJndHdyaEtJUXNUdGxtckVyM3NrbFN1RkQxbFJHOXpZQW1Cb2R2N1d4b0xQU2ZueXlRbjJtUWdnMkJoTGV5bUkxVUZFU0Vxa0c3WTBZMTMtSGJvVVFmeGxlUmpDbjJaSGVl?oc=5",
-     "tarih": "2026-09-28",
-     "baslik_tr": "WHO'dan Yeni Kısırlık Kılavuzu",
-     "ozet": "Yeni WHO kılavuzu, kısırlığı evrensel bir sağlık önceliği olarak yeniden tanımladı.",
-     "ilgi": 2
-    },
-    {
      "kaynak": "Cureus",
-     "baslik": "Pancreatic Intraductal Papillary Mucinous Neoplasm in a Carrier of a Reported Pathogenic BRCA2 Variant: Diagnostic Considerations and Management Using European and International Guidelines",
-     "url": "https://news.google.com/rss/articles/CBMiygJBVV95cUxPbmJ3dHBNeFJqTGkzdjZMbmVqRlRxNnZhVGQ1dTR0bG1iVHlVNkVSdG1oR0tWcE1WMXdxVjh4cWJUd2JRd3MwSVQwM1I5cFlQa1dpYXZ1MkVHYnY2RmZTZEZReFZNVEZvRUd2cmVicVBTajYwQTFDYXYyYnRhdF9fWXl2UHhrS05fay13NjM4emQ0LTdsOEFxajFRekFhWC1QOEd2aU5WYnNxakp5Rnl2WThuY2lnb2hERTViLUhBejBobzdsREp1Ymt5QmphX0M3bWVCVDhNU1VxbjM5aGp0OVdxVzFBZy11bFNzTHdJUEJYUTBSTGlyaXpacHhNNURENkVoaFMxT29MNnlsNzFubkF6a28wcWRGMHljUmg1UDJyZ3VmTHprd3hoNXNGYVFoZTF6QlNDYUdwOGhTR3FVdWVkaGQ2X3hDVkE?oc=5",
-     "tarih": "2026-09-25",
-     "baslik_tr": "BRCA Varyantında Pankreas IPMN Yönetimi",
-     "ozet": "BRCA varyantı taşıyan bir hastada pankreatik IPMN yönetiminde Avrupa ve uluslararası kılavuzlar ele alındı.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "Bioengineer.org",
-     "baslik": "China Updates National Playbook for Robot-Assisted Colorectal Cancer Surgery",
-     "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQYzFKS21XMWJrcGZMUjZySjV2S3NMOVdMNnVYTW92ejFPRUJpZzBmNTBHODZ4Nko0aktOSFVHUzdXSUFLMWhJYTc0SldSNnFnZmhsUG5HZ3dBLUlfdzdwN2xRUEFZckpwWkFqSkJ6NjN1WDVHQ3kzQzAzRHpnV0w4OFRzWDRXSU1fY0ZCUzdRNmhaOS1WZzNGbnVmQVdtaXJHWTZR?oc=5",
-     "tarih": "2026-09-24",
-     "baslik_tr": "Çin'den Robotik Kolorektal Kanser Cerrahisi Kılavuzu",
-     "ozet": "Çin, robot destekli kolorektal kanser cerrahisi için ulusal kılavuzunu güncelledi.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "Vascular News",
-     "baslik": "SWEDEPAD 2 sparks guideline update for asymptomatic PAD and intermittent claudication",
-     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPenZOSEw2NWVHcEs5TnJwTm9WZ1ZlbS1ZdllBVkdwbjN1OExjbDRoTjBJeHJidzBfMTZ1bm1vam03TjgwYmN3eGRVVjQ3RUZBbTZhaHZVSkROZU4ydGlSVXdkUEVMUTJWQmN3QVpoMW56TU9UMDhDb2FBbFBnMVVTdVRmTmxwN2dLdUhGSXdlbVNUN3lZSkhEdENVZF9Lc3lVZzZ3VWQwYlJXUU12VGk5VQ?oc=5",
-     "tarih": "2026-09-23",
-     "baslik_tr": "SWEDEPAD 2 Çalışması Kılavuz Güncellemesini Tetikledi",
-     "ozet": "SWEDEPAD 2 çalışması, asemptomatik PAD ve intermitan claudication kılavuzlarının güncellenmesini sağladı.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "stuttgartdailyleader.com",
-     "baslik": "Charles Mabry receives ACS Distinguished Service Award",
-     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQNl9POHJsLUJ0M08tYUhwSmUwX2tPeF8yM0xxblIxd3NaR2tRdnE5ZTA1UW9BQkxnSG5kTjFWcGxlajlNVHd2NmZIQTctNHhoUW9tVTQtTGpDaWtDZTRvUkc2Z01WRE4wWkZWemt2cTJDR1Zxckl5X19nWVhiNlFwdzVDNDZNQ0VKSGNWeS05QzBiNVh6WU8w?oc=5",
-     "tarih": "2026-09-29",
-     "baslik_tr": "Charles Mabry'ye ACS Ödülü",
-     "ozet": "Charles Mabry, ACS Üstün Hizmet Ödülü'ne layık görüldü.",
+     "baslik": "Evaluating the Clinical Impact of an Enhanced Recovery After Surgery (ERAS) Program: A Quality Improvement and Practice Change Study at Al-hada Armed Forces Hospital",
+     "url": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxPRzdDQUh4aS0zR0MzV2xKOE1HbmVZUklhR3hUZGgwYlIwVVgwcnB0TnFXY2hOaHJMWGtZN0pNdWdiaDhlOHNzb3liaHhILXY0bUVDZTVIU3plTXBzQlIyVWN3eDI1aGVEempyWFJBaTVudGtOZUE0czFUUWVCcERMcDYwa3k2X0R6VnNtcFd2VUVrV2hVT0g5R0xsSGVuWGREYVNTelhJLUNpcTloWklkanJvZmFlV1dJRUpXQ2NLTjJHZzZocHU1NnU0UE1kTXBmRFlJM1FwNF9pejhqcmNPQzlqeFBHWDRsM3J5RUo4TVBwT0dyWW9wVkZJMUtRUW9YXzdkRmk1VGZwUHZrMUJWNnhuaG1tMm9MZ19LQ25KU3hfY0tBQ2dCWQ?oc=5",
+     "tarih": "2026-09-30",
+     "baslik_tr": "ERAS Programının Klinik Etkisinin Değerlendirilmesi",
+     "ozet": "Al-hada Silahlı Kuvvetler Hastanesi'nde yürütülen bir kalite iyileştirme ve uygulama değişikliği çalışmasıyla ERAS programının klinik etkisi değerlendirildi.",
      "ilgi": 1
     },
     {
-     "kaynak": "facs.org",
-     "baslik": "Standing-Room-Only Crowd Discusses Unionization, Professional Autonomy",
-     "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxPUTZWY3Z1UkQ0NTNpU09rVGRPOHRYVEUyZGw2WDRhU1JxWnlVT0Z2ajRVMmxzZEdKcWY5RXFOTmVzYzFERFo0UmdmMUUydFZyMG5kNUhqdmdOWUpqb3lkZThOSFh2Ny1SN245NUdTN1pkaE1WdVIxdGhhOTh4YmJ1WDM1Q2d4NHNwTHZBTG12TGw5a21UajIwcEhqX3ZwV3I5TXpldmM2d0E5VGtLX29iclN0bjlTMmJPU0Y2N0xVekswXy1RZjlkWVFzRzRKbVRkLUFPc01NMm9OU3Iyc20zdGhfQ1B2dFdXbEZ5VGpoUkxIVXU4WHhlUk9lZnBZMUxEd0VvaFZJaDU?oc=5",
-     "tarih": "2026-09-28",
-     "baslik_tr": "Sendikalaşma ve Mesleki Özerklik Tartışıldı",
-     "ozet": "Kalabalık bir katılımla sendikalaşma ve mesleki özerklik konuları ele alındı.",
+     "kaynak": "CancerNetwork",
+     "baslik": "SBRT Matches Chemoradiation, Preserves QOL Before Pancreatic Surgery",
+     "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQdW0ySWM1eXRGMW5lcFVhNHY4SnM1b0M1M0hJWEczbmhRbUxOV1BQUTB0RUJFRmhwMXFDNU8xMV9XSWJGeS01WlFZVnhFdVNDYmNEamVXRVlRTm54NGhycEVHTEdnUl9GV2l1ajhHUVhONGMtVkFFNUFWemFCbnBwYVhCcmowNTdKWURhMWRsdWdGaGpFOW5pcVg0WFg4QVlMZWdrVg?oc=5",
+     "tarih": "2026-09-30",
+     "baslik_tr": "Pankreas Cerrahisi Öncesi SBRT ve Yaşam Kalitesi",
+     "ozet": "Pankreas cerrahisi öncesinde uygulanan SBRT tedavisinin kemoradyoterapi ile benzer sonuçlar gösterdiği ve yaşam kalitesini koruduğu belirtildi.",
+     "ilgi": 1
+    },
+    {
+     "kaynak": "Medical Dialogues",
+     "baslik": "NBE adopts NMC PwBD guidelines for PG medical admissions 2026, maps courses",
+     "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNOHVoMkZvWjZoc2ZfLW1JeDl5WFk4YTR5S3JEUnRjTzhGWXUzckJLRFI0a3NoM0QtWkxXSkR1a2RJUC1Ebjh6cGp4ZUN6bktsNVBteThETHhrOEVxSHVja2oyUWdOQmtqQzdfTkJrMVNpekh0aVIxOHlhVWpzTTBzVF9FT3pYN3gtVGJPaDY4UUJsTDNpOEo1SmJPT04yNjV5d1lKQzVhX1RUcENqZGNlV3IyMXZLVHEtQUR0QVpKMmY1LVhGS0xJeXdfam1iR3lscFNOa0tKVkV3U1Q2VHVxdtIB4AFBVV95cUxNOHVoMkZvWjZoc2ZfLW1JeDl5WFk4YTR5S3JEUnRjTzhGWXUzckJLRFI0a3NoM0QtWkxXSkR1a2RJUC1Ebjh6cGp4ZUN6bktsNVBteThETHhrOEVxSHVja2oyUWdOQmtqQzdfTkJrMVNpekh0aVIxOHlhVWpzTTBzVF9FT3pYN3gtVGJPaDY4UUJsTDNpOEo1SmJPT04yNjV5d1lKQzVhX1RUcENqZGNlV3IyMXZLVHEtQUR0QVpKMmY1LVhGS0xJeXdfam1iR3lscFNOa0tKVkV3U1Q2VHVxdg?oc=5",
+     "tarih": "2026-09-30",
+     "baslik_tr": "NBE Tıpta Uzmanlık Eğitimi İçin NMC Kılavuzlarını Kabul Etti",
+     "ozet": "NBE, iki bin yirmi altı dönemi tıpta uzmanlık eğitimi girişleri için NMC PwBD kılavuzlarını benimsedi.",
+     "ilgi": 1
+    },
+    {
+     "kaynak": "Medical Dialogues",
+     "baslik": "NEET PG 2026 Evaluation Sparks Transparency Debate, Doctors' Body Raises Security Concerns",
+     "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQZFFpQW1ycFdtbTJXN0lBRW5qQXpHX3hwTnlsa2g3ZkxrLTdOaS01MGgwNVlCbmFwSVloVzJ6MVJ0R3VkMEVwY3QyTE5vcm95S3F0aUUzS2NDZDY2SFRtZjRlZFFxaGZiblNPVE13MXNsR2Y4bS1XQkNTS2F4RHJHQ05ENXRCQUczMWV3UmlMU19qdEZ3b0pkN1FHckJqU3lXblNPUEhlZWZWeXVuSjJkMF9sRFRGclBxMDRhZmhfVmNzOXRQZmxVeXdBSDJrWjhUR1JvZzJOQ2ZlMUQzZlHSAd4BQVVfeXFMUGRRaUFtcnBXbW0yVzdJQUVuakF6R194cE55bGtoN2ZMay03TmktNTBoMDVZQm5hcElZaFcyejFSdEd1ZDBFcGN0MkxOb3JveUtxdGlFM0tjQ2Q2NkhUbWY0ZWRRcWhmYm5TT1RNdzFzbEdmOG0tV0JDU0theERyR0NORDV0QkFHMzFld1JpTFNfanRGd29KZDdRR3JCalN5V25TT1BIZWVmVnl1bkoyZDBfbERURnJQcTA0YWZoX1Zjczl0UGZsVXl3QUgya1o4VEdSb2cyTkNmZTFEM2ZR?oc=5",
+     "tarih": "2026-09-29",
+     "baslik_tr": "NEET PG İki Bin Yirmi Altı Sınav Değerlendirmesi Tartışmaları",
+     "ozet": "NEET PG sınav değerlendirme süreci şeffaflık tartışmalarına yol açarken, doktorlar kurulu güvenlik kaygılarını dile getirdi.",
      "ilgi": 1
     }
    ]
   },
   "teknoloji": {
    "ad": "🤖 Teknoloji & Onaylar",
-   "aday": 60,
+   "aday": 57,
    "ogeler": [
     {
-     "kaynak": "Medical Device and Diagnostic industry",
-     "baslik": "Navigating Regulatory Changes When AI Moves from Screen to Surgical Robot",
-     "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOc0EzemNQQ2prZHc2Y3VhcW9ZWWRhc1lHVWJlUngtX3FEdzA3ZlBLTXB3b0xWTVVkZzVMbU8xTHFZaUxHbGlPSk9EZW5jOERNNy11QTlaUGRjdW53eWRPMkVqa3VlbmVrcmFlMzRDRENFQS1YM2RBYno4QTZlTl9UZFZNQ2JHN3hRTWlWTDByUTA2azhyRU1Fc0ROYkdDM3FfMzIydGI3OTdiVGphMGx1UHp6eDZtcjZsMmQtTEZYMmdFZw?oc=5",
-     "tarih": "2026-09-29",
-     "baslik_tr": "Yapay Zeka Cerrahi Robotlara Geçerken Düzenleyici Değişiklikler",
-     "ozet": "Yapay zekanın ekranlardan cerrahi robotlara geçiş sürecindeki düzenleyici ve yasal değişiklikler ele alındı.",
+     "kaynak": "Yahoo Finance",
+     "baslik": "Medtronic (MDT) Gets FDA Clearance For LigaSure RAS Device In The U.S.",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQcUY5MDhHZFBNNnd1RG5XZ3NoTXR6MnhsN3V0NGRzRWRWeWJ5dGRHMFBieTlvaXhEeHlkS2J1NEUzZnRPXzBmSC1CcXZmSzJwYXEyRkZTc1ROZ0ZaZzJsckhvUHZRRkZ4Nk0xNjBmRVNjazhNU0pjZUFRdS15WFUtUE54N2ZRRlhkV1RCMGpjd2JXWC03eUlOMQ?oc=5",
+     "tarih": "2026-09-30",
+     "baslik_tr": "Medtronic LigaSure RAS Cihazı İçin FDA Onayı Aldı",
+     "ozet": "Medtronic, ABD'de LigaSure RAS cihazı için FDA onayı aldı.",
      "ilgi": 2
     },
     {
-     "kaynak": "AllSci",
-     "baslik": "Alume wins FDA Breakthrough Therapy Designation for nerve-visualization agent bevonescein",
-     "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQU09kOGZKNjB0QWVnNWpKczFPNm5Ib1JOZEVaaXpFaUw0TVl6SVdfVF9jamJaSEowVnhoQXIzbnNNRzhUd0tOYXNHbkQxN29CRlNFY1Bsemo5RmZoWl9Zd05hVHBSZE1sOHNEaWMyUXJfR042SFNNUXE5QlZ5cGNkQ0VNUHBHOUROTVBDSnBvY0l2b0I1Y0lQMlFReFZzMjlMbllaS0d4aw?oc=5",
-     "tarih": "2026-09-29",
-     "baslik_tr": "Alume Sinir Görselleştirme Ajanı İçin FDA Onayı Aldı",
-     "ozet": "Alume, sinir görselleştirme ajanı bevonescein için FDA Çığır Açan Terapi Tanımı unvanını kazandı.",
+     "kaynak": "Wowtale",
+     "baslik": "Fully Autonomous Surgical Robot Maker Aleph Surgical Raises $7.5M Pre-Seed",
+     "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE43WGlza2hxVkp5eU5JNDZPem0tS19Oa19PWl82SmVvbWdHZXZva01ScDk1empqWmljZHVRa2lXbUc4TTVCbC1FVnB6UXZzcHAzazY0?oc=5",
+     "tarih": "2026-09-30",
+     "baslik_tr": "Otonom Cerrahi Robot Üreticisi Yatırım Aldı",
+     "ozet": "Tam otonom cerrahi robot üreticisi Aleph Surgical, pre-seed turunda yatırım aldı.",
      "ilgi": 2
     },
     {
-     "kaynak": "Medical Device and Diagnostic industry",
-     "baslik": "Ottava Surgical Robot: Table-Integrated Design Saves OR Space",
-     "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQSTExTGhUM29nUHM3Z3VUZUZqaXFvQ1RwY0JDZ2xFOUJCdTV6TTJpRUpJLWFnNk9NOVNHc3lkYkhRQ2JtVkV4dzBVcHRoOVVPVVJkNGdkbXdVa280UEJ2Sm92QkNIb21JazUwbzhKTGJNcWtwUHBfX1BaR0x3bmEtOTJnRWplUXZaMUVWdjBQX0FTamZHU2Y5SWJ4U2QtYnVBTWM0c0ZidFRSY3YwamZPWWFB?oc=5",
+     "kaynak": "scanx.trade",
+     "baslik": "Cuprina stock swings 112% on FDA clearance for MEDIFLY",
+     "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOV1pVX1pJeTNaVmUzYl9adXo3WU00TkxmZ2o0TmhJODJtS3lEMHZwaWhOS25haHdnT1JQQnRHV2hhOElfZ1d5QUpEU1Yzb3EwYXRnYjFNUFhJeGZNUDRCRkJuUGJMZkt3ZE55T3BzQk41ZHdTMWRHWUJhMU92UXVWRkphR2VYNWcxTGZkUk11dnM2RDRRa2FodlM1R0djTXFNWnZ5MlprcE40T0s5YTh3Y2NtR3JpcFVvVTZhNg?oc=5",
+     "tarih": "2026-09-30",
+     "baslik_tr": "MEDIFLY İçin FDA Onayı",
+     "ozet": "Cuprina hisseleri, MEDIFLY ürünü için gelen FDA onayı sonrasında hareketlilik yaşadı.",
+     "ilgi": 2
+    },
+    {
+     "kaynak": "openPR.com",
+     "baslik": "Artificial Intelligence in Operating Room Market Size to Reach",
+     "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNcjlqSklIMjVDamcwSURNTC1NbVR2YkwzUTBwVUVVWmY1Vk53dzl1SmdFUFFwX2tMeU1kaG5XV09nN2dqeEFtZWZvQXFsdjBvcGVJVmQ3a0QzSjY3U2RUQUFXZ190Nkt0N21haXctTDlSQmk4NDJrUEJKWUpIMTZEZ0hhZUx5dmRrYkpuUXMxWXFyWnNCRUpoVWY4RW83UEk?oc=5",
      "tarih": "2026-09-28",
-     "baslik_tr": "Ottava Cerrahi Robotun Masaya Entegre Tasarımı Tanıtıldı",
-     "ozet": "Medikal cihaz sektörü haberlerine göre Ottava cerrahi robot, ameliyathane alanından tasarruf sağlayan masaya entegre bir tasarıma sahip.",
+     "baslik_tr": "Ameliyathanede Yapay Zekâ Piyasası Büyüyor",
+     "ozet": "Ameliyathanede yapay zekâ pazar büyüklüğüne dair öngörüler paylaşıldı.",
      "ilgi": 2
     },
     {
-     "kaynak": "UA.NEWS",
-     "baslik": "In Lviv, a teenager underwent surgery performed by an AI-powered surgical robot",
-     "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQeTdmMndoRGJSc2VjWUh2QWM3QTd6VWVfS1hYZ3BBVkQ0c2ZFcDEyZklIbWN3TlFrV3lBVXBmNTZuX19ncEp4REk1V1RZNGQxbS1HQmFWam9XTDE3NHBCZXB0bGV3Qjg4X0lNX1R1aTdPQzkzYXUxM1hmem5meW9leGxoVnFnMnlIWTNuVnBnRjlvd3E5RzlkekpLRQ?oc=5",
-     "tarih": "2026-09-28",
-     "baslik_tr": "Yapay Zeka Destekli Cerrahi Robotla Genç Hasta Ameliyat Edildi",
-     "ozet": "Lviv'de bir genç, yapay zeka destekli bir cerrahi robot yardımıyla gerçekleştirilen operasyonla ameliyat edildi.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "MedTech Dive",
-     "baslik": "FDA issues draft guidance for surgical robots",
-     "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNX0o5SEpvWlgzRFg0TkhPVnNBR0U3SkZsWGM5MFF4MVVDd1VSaGg3Y05ycm1MYTFQc0hHM0djZGRjQ09ESTBsUkY5NU5RV1dpTkNfQ1VIUkZaZUFiZGxndThVMmQwZ2M1NkJ3TFg5WTczcDBZRVRmOWljcVZ1S2kxLVlhdEJkcXdlMXplNWlZcw?oc=5",
-     "tarih": "2026-09-28",
-     "baslik_tr": "FDA Cerrahi Robotlar İçin Taslak Kılavuz Yayımladı",
-     "ozet": "FDA, cerrahi robot sistemlerine yönelik yeni düzenleyici gereklilikleri içeren taslak kılavuz yayımladı.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "insights.citeline.com",
-     "baslik": "New FDA Guidance Opens A Common Playbook For Surgical Robot Makers",
-     "url": "https://news.google.com/rss/articles/CBMihwJBVV95cUxNYm1sMUpFNVRwVGNZQzFwX0pfaGtuN0FRdEpzSEpRMVJuUHRXajJZckJoZkx0TUhEbWFKcUdoRGFRbjg1RzUtV2Z2QlJnaG13TlFCd3dJSDJac2QxUFBKVWQ0cmh0Rk9Ob3dTY0hEZU9TOW4xVFNGdmhpSjRrcjN0ZGZ4dENwRTZpTmhkM01nbEh3SHNUV2w4aXptM2QxRVY1VUNHS0tGR2VMb0Y2Rmt6MEFhWDlWNnBWb2tidFBFRm1STHVrQ2dtVFQ5MU0zSVV5OWhILTVmc1JzTnBRRlU1ZFk0T1lGNDRuWFpMOHNMZmpJeVB1NlFPbFgtNjFrZDh3NEtLRzF1bw?oc=5",
-     "tarih": "2026-09-25",
-     "baslik_tr": "FDA'dan Cerrahi Robot Üreticileri İçin Yeni Kılavuz",
-     "ozet": "FDA, cerrahi robot üreticileri için ortak bir düzenleyici çerçeve sunan yeni bir taslak kılavuz yayımladı.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "NDTV",
-     "baslik": "Indian Doctors Conduct Live Cross-Border Robotic Telesurgery",
-     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPV0dWYXZPNDdGMmpQY2RyY3UwTXhOMVhaOTdGZnVuSHpoSzlTOHhYQUE4emJmWHBESEFzREY1RW1YcWlQV1hrczZyMlUzYVY2ZlpnRDBUb2tPRHdXYW1TZmRYXzl2RWlpTjUyWVlDcGUtZVhyOWNkdWVFUXBFWGxIRlVaQVlYWkkxWVE4ZThwWUQ1MUxscy04UTBtdE8wUQ?oc=5",
+     "kaynak": "ad-hoc-news.de",
+     "baslik": "Medtronic Lifts Guidance as FDA Clears Robot Instrument and MiniMed Spinoff Advances - ad-hoc-news.de",
+     "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxNUTM5RU5OS3VCR0VOM2hHdHJ1N0JRa0U4VnVyQlZET3VVV0kyVjFfNVY3R3h6WWxIVjVSY0t4Z190RThtbmFWOUZfcEstcXluX3BCeURuenVlM05pa2lRME9xcTVsNDdPQ0lrczA1RU51Q3hVeXBHN0I4bnRQQUhSU2JweG5uRTMyOHJ2VFVZZC1GYkgxcWpwSzVCaFlNcXNuU0ptWU5Wb0NuU3JTc3JXVHhUajlBcHlldnU3Mkpaa0FoS1JHM2ItaEk5ODlyQ1kzaWhrcS1R?oc=5",
      "tarih": "2026-09-24",
-     "baslik_tr": "Hint Doktorlar Canlı Sınırlar Ötesi Robotik Teleserji Gerçekleştirdi",
-     "ozet": "Hindistan'daki doktorlar, ülkeler arası mesafeleri aşarak canlı bir robotik teleserji operasyonuna imza attı.",
+     "baslik_tr": "Medtronic Robot Enstrümanına FDA Onayı",
+     "ozet": "Medtronic, robot enstrümanı için FDA onayı aldıktan sonra beklentilerini yükseltti.",
      "ilgi": 2
     },
     {
-     "kaynak": "GlobeNewswire",
-     "baslik": "VCD Medical Receives U.S. FDA 510(k) Clearance for VEnice™ Vein Closure Device",
-     "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOSkdPbWFmeUhVTllrWm1WYmo1TlY4NFJfd2NCdHlyWEw4RXdKUkRwUnRYam1rdVFlNFRzOHJtbmxXa0hwdC0yM1JVUklvZXBtZTZIUHZxMXprTndGMklIQVFqbGV3MzQyeHBVel9iRlFTTW5obE5DcU5CUnYtaFhsem9Vcm9yaFVyQU9SR0FHcE41THZmWUhDZDhkam5USmQ0SDFYZHcyUnk5bExsM2ZjTzU4ZWdXaERFTXpBTTRyNHhmVjVELWJJcUU3bTltSTE2RFo1RmpCQzliODlTQWtIYQ?oc=5",
-     "tarih": "2026-09-29",
-     "baslik_tr": "VCD Medical VEnice Damar Kapatma Cihazına FDA Onayı",
-     "ozet": "VCD Medical, VEnice damar kapatma cihazı için FDA 510(k) onayı aldığını duyurdu.",
-     "ilgi": 1
+     "kaynak": "FDA 510(k)",
+     "baslik": "HARMONIC 1100 Shears (HAR1120); HARMONIC 1100 Shears (HAR1136)",
+     "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K254196",
+     "tarih": "2026-09-17",
+     "baslik_tr": "HARMONIC 1100 Makasları İçin 510(k) Onayı",
+     "ozet": "Ethicon Endo-Surgery üretimi HARMONIC 1100 makasları için FDA 510(k) onayı çıktı.",
+     "ilgi": 2
+    },
+    {
+     "kaynak": "FDA 510(k)",
+     "baslik": "SOLTIVE Laser System (SOLTIVE Pro SuperPulsed Laser, SOLTIVE Premium SuperPulsed Laser, SOLTIVE Laser Fibers, and Accessories)",
+     "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K262877",
+     "tarih": "2026-09-16",
+     "baslik_tr": "SOLTIVE Lazer Sistemi İçin 510(k) Onayı",
+     "ozet": "Olympus Surgical Technologies America üretimi SOLTIVE lazer sistemi için FDA 510(k) onayı alındı.",
+     "ilgi": 2
+    },
+    {
+     "kaynak": "FDA 510(k)",
+     "baslik": "LigaSure RAS Maryland Jaw Vessel Sealer/Divider, Nano-coated",
+     "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K261070",
+     "tarih": "2026-09-15",
+     "baslik_tr": "LigaSure RAS Damar Mühürleyici İçin 510(k) Onayı",
+     "ozet": "Covidien tarafından üretilen kaplamalı damar mühürleyici ve bölücü için FDA 510(k) onayı alındı.",
+     "ilgi": 2
     }
    ]
   },
   "yerli": {
    "ad": "🇹🇷 Türkiye",
-   "aday": 60,
+   "aday": 37,
    "ogeler": [
     {
-     "kaynak": "24 Saat Gazetesi Ankara",
-     "baslik": "TTB'den muayenehanelerde \"tek personel\" uygulamasına itiraz",
-     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPSzE3aXlWYy1ScUJxeGdRRTNRVlA2cmN1NTVUdHh3NEhsMkI5VXY0SXhaOTlDMG9TdHZOTWJSTVBCbjQxN3hIU2Q0dmcxYzhVQWxwdkNOSkJRM091V3hOOXl2Y2V1amZEMXNyUkhnbEdtWGJEWFhwZlhDMHVUaWJjYkxsZ3BHVEV2bFBHb3JqcW0?oc=5",
-     "tarih": "2026-09-25",
-     "baslik_tr": "TTB'den Muayenehanelerde Tek Personel Uygulamasına İtiraz ve Başvuru",
-     "ozet": "Türk Tabipleri Birliği, muayenehanelerdeki tek çalışan sınırlamasının kaldırılması için Bakanlığa başvurdu.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "Tekirdağ Yeni Haber Gazetesi",
-     "baslik": "Genel Cerrahlar Tekirdağ’da Buluştu: Canlı Cerrahi Proktoloji Akademisi Gerçekleştirildi",
-     "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOYkpPUWc5aGhhdjRscTRLNzRSN0h4cG1sNzBEZnp6am5fRzdSMThfNVZnNkxnTS05MFBhb0gwclR0ckdlRTVnVnRBTE5sUDJXRGJleFFCaU1wcGg5eVl3dWl0VlB3a0VxbVBBUWRJOENySWk3SHpBS1p3SXZNVk5SUWRnbmg4bUZBOEtFM1ZjU1ZxLXY3VDIwblVNbkhGd1Y1Y21DVUhXc1ZEdFJDdndOYUI2dV9TYzdWY0VYVUVFc1FGcUNyanB3?oc=5",
+     "kaynak": "WinAlly",
+     "baslik": "TTB, Sağlık Bakanlığı ve SGK’ye Yazdığı Yazı ile MEDULA Sistemi Üzerinden Hekimlere Getirilen Kontrol ve Onay Yükümlülüğünün Sonlanmasını İstedi",
+     "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxPOGxQaVRFd2RNQnZkMWdDcmxtR3hkaElxam1seUItcVFZUGZsNWpoZjc1RDZnMnVZdXhTSTdNUnl3aXVZVlpESGJnMzBTSE1ya0c0NmNWVFBQbUkxVGRqZGlzVGpQdm1oVmJEdXBERHFvY3ZtandzQkFIVl9oTVRUbFlSeUNuQTVtWjB0aFpCM0N3a01nWi00SzlfMjhmX1FMXzRUdGpzU3YzdGxrSnMyV2tQakRWbkgybmxvd3V6MERwc1h0ams2X1Rick5nTjJoVXpuWFUtMm42WUZVVm9nMVNCaEI1My1Sekd6U2VpdTlqamRTSzlYa1UwWQ?oc=5",
      "tarih": "2026-09-24",
-     "baslik_tr": "Genel Cerrahlar Tekirdağ'da Canlı Cerrahi Proktoloji Akademisinde Buluştu",
-     "ozet": "Tekirdağ'da düzenlenen Canlı Cerrahi Proktoloji Akademisi kapsamında genel cerrahlar bir araya geldi.",
+     "baslik_tr": "TTB'den MEDULA Onay Yükümlülüğünün Kaldırılması Talebi",
+     "ozet": "TTB, Sağlık Bakanlığı ve SGK’ye başvurarak MEDULA sistemi üzerinden hekimlere getirilen kontrol ve onay yükümlülüğünün sonlandırılmasını talep etti.",
      "ilgi": 2
     },
     {
      "kaynak": "Türk Tabipleri Birliği",
-     "baslik": "TTB, Sağlık Bakanlığı ve SGK’ye Yazdığı Yazı ile MEDULA Sistemi Üzerinden Hekimlere Getirilen Kontrol ve Onay Yükümlülüğünün Sonlanmasını İstedi",
-     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPZFFrSlR1ak9zRWkzM3p6VFlkZ2h5MWg5dEZfa3JtRkdCX2tQM0U2ckROdGdrZ2wxVDI1c1FHSWRxTnUxVFpqbmMtUTA1SFNnZkxvcXdwYWFDZ1M1eWE0bEt4eHpFNzdCOGtyZFlqbVpETERDa09TMWRGX0ppcTFnU3NfZmxNdU1m?oc=5",
-     "tarih": "2026-09-23",
-     "baslik_tr": "TTB'den MEDULA Üzerinden Getirilen Kontrol ve Onay Yükümlülüğüne Son Verilmesi Çağrısı",
-     "ozet": "Türk Tabipleri Birliği, Sağlık Bakanlığı ve SGK'ye yazarak MEDULA sistemi üzerinden hekimlere getirilen kontrol ve onay yükümlülüğünün sonlanmasını istedi.",
-     "ilgi": 2
+     "baslik": "Emeklilikte Emeğimizin Karşılığını Almak, Güvenceli ve Onurlu Yaşam İstiyoruz!",
+     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPZl83LUVpZmY1SmhpQ0pZS09VZ0tFVjdNTDFubDE3UkdGTzQtWGdBZkpaTjlVWU9GOG56ZlBDdnJiREplY092M0owSk56VEk2UjlUNzNyQldtYVA0Qmh0WmloYWRYZWttT0lrOE92R0hlWmxRRF9TMzhjZGp5Sy1uNWxVUkpLSHRlMUE?oc=5",
+     "tarih": "2026-10-01",
+     "baslik_tr": "TTB'den Hekimler İçin Güvenceli Emeklilik Talebi",
+     "ozet": "Türk Tabipleri Birliği, hekimlerin emeklilikte emeklerinin karşılığını alabilmesi ve onurlu bir yaşam sürebilmesi için çağrıda bulundu.",
+     "ilgi": 1
     },
     {
-     "kaynak": "Medimagazin",
-     "baslik": "Ege Üniversitesi geleceğin robotik cerrahlarını yetiştiriyor",
-     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNeGVrS0ZhMDdhVFhGc3JKNTJLeUNzNVpTRFVsTDZQaFN2OU9FODM5S3NNdEswNzBRZGdzRjBLbG1aXzh2enk3UVBLdUdENWtfOXN3YlV1bUNKcEJROTB0bmtTQ0U2dzVFMUp2dFp6UlRRX2hNalhkV3JlV1o4aG5HRlVHZUFUQnZTb3ViWlhDQmJtdlN0cmJhRzkzRlJTR3FpQmc?oc=5",
-     "tarih": "2026-09-23",
-     "baslik_tr": "Ege Üniversitesi Geleceğin Robotik Cerrahlarını Yetiştiriyor",
-     "ozet": "Ege Üniversitesi'nde robotik cerrahi alanında asistan ve hekim eğitimleri gerçekleştiriliyor.",
-     "ilgi": 2
+     "kaynak": "Odatv",
+     "baslik": "Türkiye'den hekim göçü hız kesmiyor: 15 yılda 17 bini aşkın doktor için “Good Standing” belgesi",
+     "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxNV01MSnM4czZQMmdUQkpDVVY2cGlqNE4wQ2tHTE56dVJMdGdQQzFjTmV0LWFfZ3l3VnpMTmNrTWZCSEZCenhUTkN6aEFNR2NCZERLcmdZblBOUnA2cVFWenBYMXBOZWdEMVF0azdmWFNCb3hpNDducDVTNjVjX3p0QVNDaHl2d1BnMUlkUHYxRzdjclRxbkh2WU1Ma2pXYzQyZ3A0ZVBWam9FdVltem1vdl92cWZmUGFhUmNkWmx1bG1JZ1NOaUhDQ3laWUtUa2tNcWc?oc=5",
+     "tarih": "2026-09-30",
+     "baslik_tr": "Türkiye'den Hekim Göçünde 15 Yıllık Veriler",
+     "ozet": "Türkiye'den hekim göçü kapsamında son 15 yılda 17 binden fazla hekime 'Good Standing' belgesi düzenlendiği bildirildi.",
+     "ilgi": 1
+    },
+    {
+     "kaynak": "Cumhuriyet",
+     "baslik": "TTB'den 'tek personel' uygulamasına itiraz: 'Yönetmelikte böyle bir sınır yok'",
+     "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOaGR6U09QQWRqN2xRNHJjN2dGMUo4VF9aRV9qY2RLWFpveTNocDR6bDdHdEtjamh5R3BGUHhDMmhUX1ZTTWk0M21ySUNoQ1Q2N0U5S2NBRDhpQW1FeVNmU1I2eEdjT3ByYUZRenh5R3ZoeWlpT2hOTUgxMFkzejg1cnFKSTVzTHctQnhFbF9PUGE4ZGFPYTJHNVczS29KaDdYUF9GV3ZMRXRnYl9SNmFLS1RsVDBlZXpGZ29R?oc=5",
+     "tarih": "2026-09-25",
+     "baslik_tr": "TTB'den Sağlıkta 'Tek Personel' Uygulamasına İtiraz",
+     "ozet": "TTB, ilgili yönetmelikte böyle bir sınır olmadığını belirterek kurumlardaki tek personel uygulamasına itiraz etti.",
+     "ilgi": 1
     }
    ]
   },
   "rct": {
    "ad": "🧪 Yeni RCT'ler",
-   "aday": 25,
+   "aday": 9,
    "ogeler": [
     {
      "kaynak": "ClinicalTrials.gov",
-     "baslik": "Endoscopic (EID) Versus Surgical (TAMIS) Local Excision for Early Stage Rectal Cancer",
-     "url": "https://clinicaltrials.gov/study/NCT07846046",
-     "tarih": "2026-09-29",
-     "baslik_tr": "Erken Evre Rektum Kanserinde Endoskopik ve Cerrahi Rezeksiyon",
-     "ozet": "Erken evre rektum kanseri tedavisinde endoskopik intermusküler diseksiyon ile transanal minimal invaziv cerrahi tekniklerini kanser temizliği ve iyileşme açısından karşılaştıran 246 hastalıklı çalışmadır.",
+     "baslik": "Impact of Robotic Versus Endoscopic Surgery on Nipple Nerve Function Following Nipple-Sparing Mastectomy for Breast Cancer",
+     "url": "https://clinicaltrials.gov/study/NCT07850154",
+     "tarih": "2026-09-30",
+     "baslik_tr": "Meme Kanserinde Robotik ve Endoskopik Cerrahi Karşılaştırması",
+     "ozet": "Meme kanseri nedeniyle nipple-sparing mastektomi yapılacak 374 hastada robotik destekli ve endoskopik destekli cerrahi yöntemlerinin meme sinir fonksiyonları üzerindeki etkileri karşılaştırılmaktadır.",
      "ilgi": 2,
-     "nct": "NCT07846046",
-     "n": 246,
-     "ulke": "Netherlands",
-     "sponsor": "Amsterdam UMC, location VUmc"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "A Prospective, Biomarker-Stratified Phase 2 Study: β-Hydroxybutyrate as a Predictive Biomarker for Short-Course Radiotherapy Followed by Chemotherapy Plus PD-1 Inhibitor Versus Chemotherapy Alone in Locally Advanced Rectal Cancer",
-     "url": "https://clinicaltrials.gov/study/NCT07847229",
-     "tarih": "2026-09-29",
-     "baslik_tr": "Rektum Kanserinde Biyobelirteç Stratifikasyonlu Faz 2 Çalışma",
-     "ozet": "Lokal ilerlemiş rektum kanserli 120 hastada kısa süreli radyoterapi sonrası beta-hidroksibutirat düzeyine göre perioperatif kemoterapi artı immünoterapi veya kemoterapinin karşılaştırıldığı Faz 2 çalışmadır.",
-     "ilgi": 2,
-     "nct": "NCT07847229",
-     "n": 120,
+     "nct": "NCT07850154",
+     "n": 374,
      "ulke": "China",
-     "sponsor": "Tao Zhang"
+     "sponsor": "Guangzhou Women and Children's Medical Center"
     },
     {
      "kaynak": "ClinicalTrials.gov",
-     "baslik": "Laser Hemorrhoidoplasty Versus Open Hemorrhoidectomy for Postoperative Pain",
-     "url": "https://clinicaltrials.gov/study/NCT07846904",
-     "tarih": "2026-09-29",
-     "baslik_tr": "Lazer Hemoroidektomi ve Açık Hemoroidektominin Karşılaştırılması",
-     "ozet": "Semptomatik evre II, III veya IV iç hemoroidi olan 68 hastada lazer hemoroidektomi ile açık Milligan-Morgan hemoroidektomi yöntemlerinin postoperatif ağrı üzerindeki etkilerini karşılaştıran çalışmadır.",
+     "baslik": "Application of Precision Partial Intersphincteric Resection (PPISR)",
+     "url": "https://clinicaltrials.gov/study/NCT07849023",
+     "tarih": "2026-09-30",
+     "baslik_tr": "Alçak Rektum Kanserinde Hassas Parsiyel İntersfinkterik Rezeksiyon",
+     "ozet": "Alçak rektum kanseri tanısı alan 100 hastada Precision Partial Intersphincteric Resection (PPISR) yöntemi ile geleneksel intersfinkterik rezeksiyon cerrahi güvenlik ve işlevsel sonuçlar açısından karşılaştırılmaktadır.",
      "ilgi": 2,
-     "nct": "NCT07846904",
-     "n": 68,
-     "ulke": "",
-     "sponsor": "Allied Hospital Faisalabad"
+     "nct": "NCT07849023",
+     "n": 100,
+     "ulke": "China",
+     "sponsor": "First Affiliated Hospital of Wenzhou Medical University"
     },
     {
      "kaynak": "ClinicalTrials.gov",
-     "baslik": "Topical Tranexamic Acid Spray Versus No Spray on Postoperative Outcomes Following Mesh Repair of Umbilical Hernia",
-     "url": "https://clinicaltrials.gov/study/NCT07845370",
-     "tarih": "2026-09-28",
-     "baslik_tr": "Umblikal Herni Onarımında Topikal Traneksamik Asit Spreyi",
-     "ozet": "Umblikal herni onarımında yama kullanımı sonrası seroma, hematom ve yara yeri enfeksiyonu gibi komplikasyonları azaltmak için topikal traneksamik asit spreyinin etkinliğini inceleyen 252 hastalıklı çalışmadır.",
-     "ilgi": 2,
-     "nct": "NCT07845370",
-     "n": 252,
-     "ulke": "Pakistan",
-     "sponsor": "Dr Mudassar Saeed Pansota"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Comparing Rectal Artery Embolization and Surgery for Treatment of Bleeding Grade 2 and 3 Internal Hemorrhoids",
-     "url": "https://clinicaltrials.gov/study/NCT07844629",
-     "tarih": "2026-09-28",
-     "baslik_tr": "İç Hemoroid Tedavisinde Rektal Arter Embolizasyonu ve Cerrahi",
-     "ozet": "Semptomatik kanamalı evre 2 ve 3 iç hemoroidi olan 102 yetişkin hastada rektal arter embolizasyonu ile operatif hemoroidektominin yaşam kalitesi ve iyileşme süresine etkisini karşılaştıran çalışmadır.",
-     "ilgi": 2,
-     "nct": "NCT07844629",
-     "n": 102,
+     "baslik": "Patient Priorities Aligned Discrete Decision Making for Older Adults With Multiple Chronic Conditions.",
+     "url": "https://clinicaltrials.gov/study/NCT07848386",
+     "tarih": "2026-09-30",
+     "baslik_tr": "Yaşlı Hastalarda Elektif Fıtık Cerrahisi Karar Desteği",
+     "ozet": "Çoklu kronik rahatsızlığı olan 80 yaşlı hastada elektif herni cerrahisi öncesinde hasta önceliklerini belirlemek için yapay zeka destekli bir sohbet botu test edilmektedir.",
+     "ilgi": 1,
+     "nct": "NCT07848386",
+     "n": 80,
      "ulke": "United States",
-     "sponsor": "University of Colorado, Denver"
+     "sponsor": "The University of Texas Health Science Center, Houston"
     },
     {
      "kaynak": "ClinicalTrials.gov",
-     "baslik": "Ice Packing Versus Warm Sitz Baths After Hemorrhoidectomy",
-     "url": "https://clinicaltrials.gov/study/NCT07843563",
-     "tarih": "2026-09-28",
-     "baslik_tr": "Hemoroidektomi Sonrası Buz Uygulaması ve Sıcak Oturma Banyosu",
-     "ozet": "Ferguson hemoroidektomi geçiren 89 hastada postoperatif erken dönemde buz uygulaması ile sıcak oturma banyosunun ağrı ve şişlik üzerine etkilerini 1:1 oranında karşılaştıran randomize kontrollü çalışmadır.",
-     "ilgi": 2,
-     "nct": "NCT07843563",
-     "n": 89,
+     "baslik": "Postbiotics for GI Recovery After Malignant Bowel Obstruction Surgery",
+     "url": "https://clinicaltrials.gov/study/NCT07850089",
+     "tarih": "2026-09-30",
+     "baslik_tr": "Malign Bağırsak Tıkanıklığı Cerrahisi Sonrası Postbiyotik Kullanımı",
+     "ozet": "Malign mekanik bağırsak tıkanıklığı nedeniyle ameliyat edilen 80 hastada postbiyotik preparatı JK-5G ile plasebo, gastrointestinal fonksiyonların iyileşmesi açısından karşılaştırılmaktadır.",
+     "ilgi": 1,
+     "nct": "NCT07850089",
+     "n": 80,
+     "ulke": "",
+     "sponsor": "First Affiliated Hospital of Wenzhou Medical University"
+    },
+    {
+     "kaynak": "ClinicalTrials.gov",
+     "baslik": "Nurse-Led First-Night Preparation After Thyroidectomy",
+     "url": "https://clinicaltrials.gov/study/NCT07849946",
+     "tarih": "2026-09-30",
+     "baslik_tr": "Tiroidektomi Sonrası Hemşire Destekli İlk Gece Bakımı",
+     "ozet": "Elektif total tiroidektomi geçiren 44 hastada hemşire liderliğinde uygulanan ilk gece hazırlık girişiminin iyileşme kalitesi ve uyku üzerindeki etkileri değerlendirilmektedir.",
+     "ilgi": 1,
+     "nct": "NCT07849946",
+     "n": 44,
      "ulke": "Turkey (Türkiye)",
-     "sponsor": "Memorial Atasehir Hospital"
+     "sponsor": "Volkan Gokmen"
     },
     {
      "kaynak": "ClinicalTrials.gov",
-     "baslik": "Laparoscopic vs Open Appendectomy",
-     "url": "https://clinicaltrials.gov/study/NCT07841444",
-     "tarih": "2026-09-25",
-     "baslik_tr": "Laparoskopik ve Açık Apendektominin Karşılaştırılması",
-     "ozet": "Akut apandisiti olan 276 hastada laparoskopik apendektomi ile açık apendektomi sonrası gelişen Yüzeyel Cerrahi Alan Enfeksiyonlarının sıklığını karşılaştıran randomize kontrollü bir çalışmadır.",
-     "ilgi": 2,
-     "nct": "NCT07841444",
-     "n": 276,
-     "ulke": "Pakistan",
-     "sponsor": "Quaid-e-Azam Medical College"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Tafolecimab Combined With Chemoimmunotherapy as Neoadjuvant Treatment for pMMR/MSS Locally Advanced Colon Cancer",
-     "url": "https://clinicaltrials.gov/study/NCT07840677",
-     "tarih": "2026-09-25",
-     "baslik_tr": "Lokal İlerlemiş Kolon Kanserinde Neoadjuvan Kemoimmünoterapi",
-     "ozet": "pMMR/MSS lokal ilerlemiş kolon kanserli 70 hastada tolecizumab ve sintilimab/CapeOX kombinasyonunun neoadjuvan tedavisindeki etkinlik ve güvenliğini değerlendiren Faz II çalışmadır.",
-     "ilgi": 2,
-     "nct": "NCT07840677",
-     "n": 70,
-     "ulke": "China",
-     "sponsor": "Daping Hospital and the Research Institute of Surgery of the Third Military Medical University"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "NAUTILUS-04: No Axillary Surgical Treatment in Low-Risk Clinically Node-Negative Breast Cancer Without Whole-Breast Radiotherapy - A Prospective, Randomized, Phase III, Non-inferiority Clinical Trial",
-     "url": "https://clinicaltrials.gov/study/NCT07841704",
-     "tarih": "2026-09-25",
-     "baslik_tr": "Düşük Riskli Meme Kanserinde Aksiller Cerrahi Tedavinin İhmali",
-     "ozet": "Tüm meme radyoterapisi almayacak düşük riskli, klinik olarak nod negatif 1520 postmenopozal meme kanseri hastasında sentinel lenf nodu biyopsisinin (SLNB) atlanmasının onkolojik güvenliğini değerlendiren Faz III çalışmadır.",
-     "ilgi": 2,
-     "nct": "NCT07841704",
-     "n": 1520,
-     "ulke": "South Korea",
-     "sponsor": "Wonshik Han"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Randomised Controlled Trial of Fluorescent Urography Using Intravenous Methylene Blue Compared to White Light Alone in Left-sided Colorectal Surgery",
-     "url": "https://clinicaltrials.gov/study/NCT07835932",
-     "tarih": "2026-09-23",
-     "baslik_tr": "Sol Kolorektal Cerrahide Metilen Mavisi ile Floresan Ürografi",
-     "ozet": "Sol taraflı bağırsak cerrahisi geçiren 108 yetişkin hastada, intravenöz metilen mavisi ve özel kamera ışığının sol üreteri bulma hızına etkisinin standart beyaz ışıkla karşılaştırıldığı randomize çalışmadır.",
-     "ilgi": 2,
-     "nct": "NCT07835932",
-     "n": 108,
-     "ulke": "Hong Kong",
-     "sponsor": "Chinese University of Hong Kong"
+     "baslik": "Laparoscopic-Assisted TAP Block VErsus Trocar-site Infiltration After Laparoscopic Appendectomy",
+     "url": "https://clinicaltrials.gov/study/NCT07849751",
+     "tarih": "2026-09-30",
+     "baslik_tr": "Laporoskopik Apendektomide TAP Blok ve Trokar Yeri İnfiltrasyonu",
+     "ozet": "Akut apandisit nedeniyle laparoskopik apendektomi yapılan 60 yetişkin hastada laparoskopik yardımlı TAP blok ile trokar yeri lokal anestezik infiltrasyonu karşılaştırılmaktadır.",
+     "ilgi": 1,
+     "nct": "NCT07849751",
+     "n": 60,
+     "ulke": "Turkey (Türkiye)",
+     "sponsor": "Fatih Sultan Mehmet Training and Research Hospital"
     }
    ]
   }
  },
  "hatalar": [
   "EAES (kilavuz): not well-formed (invalid token): line 1, column 119"
+ ],
+ "model_notlari": [
+  "gemini-flash-latest: yoğun (503)"
  ]
 }
