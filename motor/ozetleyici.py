@@ -1,10 +1,14 @@
 """
 Türkçe kısa özet üretimi (haftalık toplu hazırlık için).
 
-Ücretsiz katmanda dakika başına istek sınırı olduğu için her alanın aday
-makaleleri (en fazla 12 + Türk dergisi) TEK istekte özetlenir ve cerrahi
-ilgi puanı alır (haftada ~15 istek). İstekler llm.Zincir üzerinden gider.
+Her alanın aday makaleleri (en fazla 12 + Türk dergisi) config.OZET_PARTI
+büyüklüğünde partilerle (alan başına 2, haftada ~28 istek) özetlenir ve
+cerrahi ilgi puanı alır. Küçük parti: bozuk ya da yarım yanıt tüm alanı boş
+bırakmaz ve ücretsiz katmanların istek başı token sınırına sığar. İstekler
+llm.Zincir üzerinden gider.
 """
+import time
+
 import denetim
 
 KISA_OZET_TALIMATI = """Sen genel cerrahi alanında deneyimli bir akademisyensin.
@@ -72,7 +76,38 @@ def _kaynak(m):
 def _istek(zincir, makaleler, ek_not=""):
     metin = KISA_OZET_TALIMATI + ek_not + "\n\n---\n\n" + "\n\n---\n\n".join(
         _makale_metni(m) for m in makaleler)
-    return {s["pmid"]: s for s in zincir.uret(metin, sema=KISA_OZET_SEMASI)}
+    istenen = {m["pmid"] for m in makaleler}
+    # Modelin uydurduğu ya da yanlış yazdığı pmid'ler alınmaz
+    return {str(s["pmid"]): s for s in zincir.uret(metin, sema=KISA_OZET_SEMASI)
+            if str(s["pmid"]) in istenen}
+
+
+def _partiler(zincir, makaleler, parti, bekleme):
+    """Makaleleri küçük partilerle özetler; bir parti başarısız olsa da
+    diğerleri denenir. Modelin atladığı makaleler bir kez daha istenir."""
+    sonuc, son_hata = {}, None
+    # Eşit büyüklükte gruplar (ör. 13 makale, parti 6 → 5 + 5 + 3; 6 + 6 + 1 değil)
+    boy = -(-len(makaleler) // -(-len(makaleler) // parti))
+    gruplar = [makaleler[i:i + boy] for i in range(0, len(makaleler), boy)]
+    for n, grup in enumerate(gruplar):
+        if n:
+            time.sleep(bekleme)  # dakika başı istek sınırına saygı
+        try:
+            sonuc.update(_istek(zincir, grup))
+        except Exception as e:
+            son_hata = e
+            print(f"  Parti {n + 1}/{len(gruplar)} özetlenemedi: {str(e)[:120]}")
+    eksik = [m for m in makaleler if m["pmid"] not in sonuc]
+    if eksik and len(eksik) < len(makaleler):
+        print(f"  {len(eksik)} makalenin özeti eksik, yeniden deneniyor")
+        time.sleep(bekleme)
+        try:
+            sonuc.update(_istek(zincir, eksik[:parti * 2]))
+        except Exception as e:
+            print(f"  Eksikler özetlenemedi: {str(e)[:120]}")
+    if not sonuc:
+        raise son_hata or RuntimeError("hiçbir özet üretilemedi")
+    return sonuc
 
 
 def _hatali_sayilar(s, m):
@@ -80,13 +115,13 @@ def _hatali_sayilar(s, m):
                                   _kaynak(m))
 
 
-def kisa_ozetle(zincir, makaleler):
+def kisa_ozetle(zincir, makaleler, parti=6, bekleme=5):
     """{pmid: {"baslik_tr", "kisa_ozet", "cerrahi_ilgi"[, "sayi_uyarisi"]}}.
     Metinde olmayan sayı yazılan özetler bir kez uyarıyla yeniden üretilir;
     yine düzelmezse "sayi_uyarisi" alanıyla işaretlenir."""
     if not makaleler:
         return {}
-    sonuc = _istek(zincir, makaleler)
+    sonuc = _partiler(zincir, makaleler, parti, bekleme)
     hatali = {m["pmid"]: _hatali_sayilar(sonuc[m["pmid"]], m)
               for m in makaleler if m["pmid"] in sonuc}
     hatali = {p: s for p, s in hatali.items() if s}

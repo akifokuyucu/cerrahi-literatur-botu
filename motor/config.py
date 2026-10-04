@@ -269,8 +269,10 @@ KISISEL_ADIM = 0.25
 KISISEL_SINIR = 0.5
 BOT_URL = "https://cerrahi-literatur-botu.akif-okuyucu.workers.dev"
 
-# Cerrahi ilgi kontrolü için Gemini'ye gönderilen aday sayısı
+# Cerrahi ilgi kontrolü için yapay zekâya gönderilen aday sayısı
 ADAY_SAYISI = 12
+# Kısa özet isteği başına en fazla makale (12 aday + Türk dergisi → 7 + 6)
+OZET_PARTI = 7
 # Kaç günlük pencere taransın
 PENCERE_GUN = 7
 # Ayrıntılı özetlerin pazartesi toplu hazırlanmasına ayrılan süre (dakika);
@@ -365,5 +367,7 @@ BENZERLIK_ESIGI = 0.5
 GUNDEM_OZET_SINIRI = 260
 
 GUNDEM_PENCERE_GUN = 7
-# Gemini'ye bölüm başına gönderilen en fazla aday
+# Yapay zekâya bölüm başına gönderilen en fazla aday
 GUNDEM_ADAY_SINIRI = 60
+# Gündem isteği başına aday (60 aday → 3 istek; ücretsiz yedeklerin sınırına sığar)
+GUNDEM_PARTI = 20

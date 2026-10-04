@@ -379,13 +379,26 @@ def _aday_metni(a):
             f"Başlık: {a['baslik']}\nMetin: {a['metin'] or '(yok)'}{ek}")
 
 
-def suz(gem, bolum, adaylar):
-    """Yapay zekâ ile süz ve Türkçeleştir; ilgi sırasına göre dizilmiş öğeler."""
+def suz(gem, bolum, adaylar, bekleme=5):
+    """Yapay zekâ ile süz ve Türkçeleştir; ilgi sırasına göre dizilmiş öğeler.
+    Adaylar partilerle gönderilir ki istek ücretsiz yedek sağlayıcıların
+    sınırına sığsın; partiler arası tekrarları birlestir() ayıklar."""
     if not adaylar:
         return []
-    metin = (ORTAK_TALIMAT + BOLUM_TALIMATI[bolum] + "\n\n---\n\n" +
-             "\n\n---\n\n".join(_aday_metni(a) for a in adaylar))
-    yanit = {s["id"]: s for s in gem.uret(metin, sema=GUNDEM_SEMASI)}
+    yanit, son_hata = {}, None
+    p = config.GUNDEM_PARTI
+    for i in range(0, len(adaylar), p):
+        if i:
+            time.sleep(bekleme)
+        metin = (ORTAK_TALIMAT + BOLUM_TALIMATI[bolum] + "\n\n---\n\n" +
+                 "\n\n---\n\n".join(_aday_metni(a) for a in adaylar[i:i + p]))
+        try:
+            yanit.update({s["id"]: s for s in gem.uret(metin, sema=GUNDEM_SEMASI)})
+        except Exception as e:
+            son_hata = e
+            print(f"  Parti {i // p + 1} süzülemedi: {str(e)[:120]}")
+    if not yanit and son_hata:
+        raise son_hata
     ogeler = []
     for a in adaylar:
         s = yanit.get(a["id"])
@@ -500,7 +513,7 @@ def main():
         ad = config.GUNDEM_BOLUMLERI[b]["ad"]
         print(f"\n== {ad}: {len(adaylar[b])} aday ==")
         try:
-            ogeler = suz(gem, b, adaylar[b])
+            ogeler = suz(gem, b, adaylar[b], bekleme=0 if a.sahte_ozet else 5)
         except Exception as e:
             print(f"  SÜZGEÇ HATASI: {e}")
             cikti["hatalar"].append(f"{ad}: özet üretilemedi")

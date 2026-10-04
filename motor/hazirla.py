@@ -147,7 +147,9 @@ def main():
         ozetlenecek = [m for m in s["makaleler"] + [s["turk"]]
                        if m and m["pmid"] not in ozet_onbellek]
         try:
-            ozet_onbellek.update(ozetleyici.kisa_ozetle(gem, ozetlenecek))
+            ozet_onbellek.update(ozetleyici.kisa_ozetle(
+                gem, ozetlenecek, parti=config.OZET_PARTI,
+                bekleme=0 if a.sahte_ozet else 5))
             print(f"  {len(ozetlenecek)} makale özetlendi")
         except Exception as e:
             print(f"  ÖZET HATASI: {e}")

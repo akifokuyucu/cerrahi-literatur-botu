@@ -226,5 +226,74 @@ class SayiDenetimiTesti(unittest.TestCase):
         self.assertEqual(ozetleyici.kisa_ozetle(z, [m])["1"]["sayi_uyarisi"], ["0,7"])
 
 
+class PartiTesti(unittest.TestCase):
+    @staticmethod
+    def makaleler(n):
+        return [{"pmid": str(i), "dergi": "D", "baslik": "T", "ozet": "x"} for i in range(n)]
+
+    @staticmethod
+    def yanitla(metin, sema=None):
+        # İstekteki her pmid için özet döndürür
+        return [{"pmid": s[6:], "baslik_tr": "T", "kisa_ozet": "ö", "cerrahi_ilgi": 2}
+                for s in metin.splitlines() if s.startswith("pmid: ")]
+
+    def setUp(self):
+        mock.patch("ozetleyici.time.sleep").start()
+        self.addCleanup(mock.patch.stopall)
+
+    def test_esit_partiler(self):
+        import ozetleyici
+        z = mock.Mock()
+        z.uret.side_effect = self.yanitla
+        sonuc = ozetleyici.kisa_ozetle(z, self.makaleler(13), parti=7)
+        self.assertEqual(len(sonuc), 13)
+        boylar = [c.args[0].count("pmid: ") for c in z.uret.call_args_list]
+        self.assertEqual(boylar, [7, 6])
+
+    def test_bir_parti_bozulsa_digeri_kalir_ve_eksikler_tekrar_istenir(self):
+        import ozetleyici
+        z = mock.Mock()
+        cagri = {"n": 0}
+
+        def uret(metin, sema=None):
+            cagri["n"] += 1
+            if cagri["n"] == 1:
+                raise RuntimeError("bozuk")
+            return self.yanitla(metin)
+        z.uret.side_effect = uret
+        sonuc = ozetleyici.kisa_ozetle(z, self.makaleler(10), parti=5)
+        self.assertEqual(len(sonuc), 10)  # 2. parti + eksiklerin tekrarı
+        self.assertEqual(z.uret.call_count, 3)
+
+    def test_uydurma_pmid_alinmaz(self):
+        import ozetleyici
+        z = mock.Mock()
+        z.uret.return_value = [{"pmid": "999", "baslik_tr": "T", "kisa_ozet": "ö", "cerrahi_ilgi": 2},
+                               {"pmid": 0, "baslik_tr": "T", "kisa_ozet": "ö", "cerrahi_ilgi": 2}]
+        sonuc = ozetleyici.kisa_ozetle(z, self.makaleler(1))
+        self.assertEqual(list(sonuc), ["0"])
+
+    def test_hepsi_bozuksa_hata(self):
+        import ozetleyici
+        z = mock.Mock()
+        z.uret.side_effect = RuntimeError("bozuk")
+        with self.assertRaises(RuntimeError):
+            ozetleyici.kisa_ozetle(z, self.makaleler(3))
+
+
+class GundemPartiTesti(unittest.TestCase):
+    def test_adaylar_partilerle_suzulur(self):
+        import gundem
+        import ozetleyici
+        adaylar = [gundem._aday("teknoloji", "K", f"Başlık {i} robotik sistem onayı {i * 7}",
+                                f"https://ornek.com/{i}", "2026-10-01", "metin")
+                   for i in range(45)]
+        z = ozetleyici.SahteGemini()
+        with mock.patch.object(z, "uret", wraps=z.uret) as uret:
+            ogeler = gundem.suz(z, "teknoloji", adaylar, bekleme=0)
+        self.assertEqual(uret.call_count, 3)  # 20 + 20 + 5
+        self.assertTrue(ogeler)
+
+
 if __name__ == "__main__":
     unittest.main()
