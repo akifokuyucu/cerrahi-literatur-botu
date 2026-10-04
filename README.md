@@ -71,6 +71,8 @@ Sırayı değiştirmek için GitHub'da Settings → Secrets and variables → Ac
 
 Hangi modelin kullanıldığı ve yedeğe neden geçildiği `cikti/hafta.json` dosyasında görünür (`model_kullanimi`, `model_notlari`).
 
+**Uydurma sayı denetimi (`motor/denetim.py`):** Özetteki her sayı (oran, HR, p değeri, hasta sayısı) kaynak metinde aranır. Ondalık virgül/nokta farkı, binlik ayırıcılar ve İngilizce yazıyla geçen sayılar ("Thirty-six patients") hesaba katılır. Kaynakta olmayan sayı varsa özet bir kez uyarı notuyla yeniden ürettirilir. Yine düzelmezse botta ⚠️ ile işaretlenir; ayrıntılı özette hangi sayıların doğrulanamadığı yazar.
+
 **Bot (anlık ayrıntılı özet ve soru-cevap)** sırası: Gemini modelleri → Groq (Cloudflare'de `GROQ_API_KEY` secret'ı varsa) → Workers AI (`wrangler.toml` içindeki `AI` bağlantısı, günde 10.000 neuron ücretsiz) → `gemini-2.5-flash-lite`.
 
 ## Kurulum

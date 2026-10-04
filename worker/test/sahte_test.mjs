@@ -1,6 +1,6 @@
 // Worker'ı sahte Telegram/Gemini/GitHub ile uçtan uca dener.
 import fs from "node:fs";
-import worker from "../src/index.js";
+import worker, { sayiDenetimi } from "../src/index.js";
 
 const hafta = JSON.parse(fs.readFileSync(new URL("../../cikti/hafta.json", import.meta.url)));
 const gundem = JSON.parse(fs.readFileSync(new URL("./gundem_ornek.json", import.meta.url)));
@@ -219,3 +219,23 @@ kontrol("Hazır özet yapay zekâsız gönderildi", !giden.some((g) => ["GEMINI"
   giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Pazartesi hazırlanan özet") && g.govde.text.includes("🔓 Tam metin")));
 kontrol("Hazır özet KV'ye kopyalandı (makale bilgisiyle)", JSON.parse(kv.get(`detay:${hazirPmid}`)).m.pmid === hazirPmid);
 detayDosyasi = null;
+
+// 26) Uydurma sayı denetimi (motor/denetim.py ile aynı sonuçlar)
+const KAYNAK = "In this RCT of 1,250 patients, leak rate was 4.8% vs 13.50% (RR 0.35; 95% CI 0.12-0.98; P = .047). Median follow-up 24 months.";
+kontrol("Sayı denetimi: biçim farkları kabul", sayiDenetimi("1.250 hastalık RCT'de kaçak %4,8'e karşı %13,5 (RR 0,35; %95 CI 0,12-0,98; p=0,047); 24 ay izlem, 3 kol.", KAYNAK).length === 0);
+kontrol("Sayı denetimi: binlik ayırıcısız", sayiDenetimi("1250 hasta", KAYNAK).length === 0);
+kontrol("Sayı denetimi: uydurmalar bulunur", JSON.stringify(sayiDenetimi("HR 0,72 bulundu; %13,5 ve 1.300 hasta; NNT 12.", KAYNAK)) === '["0,72","1.300","12"]');
+kontrol("Sayı denetimi: yazıyla sayı ve boşluklu binlik", sayiDenetimi("36 hasta, 17 çalışma, 53562 €, 90", "Thirty-six patients and Seventeen studies; cost €53 562 vs ninety.").length === 0);
+// 27) Uyarılı özetler listede ⚠️ ile işaretlenir
+hafta.alanlar.kolorektal.makaleler[0].sayi_uyarisi = ["0,7"];
+giden.length = 0; await gonder(tik(111, "a:kolorektal"));
+const uyariliListe = giden.find((g) => g.metod === "editMessageText").govde.text;
+kontrol("Listede ⚠️ işareti ve açıklama", uyariliListe.includes(" ⚠️\n") && uyariliListe.includes("kaynak metinde bulunamadı"));
+delete hafta.alanlar.kolorektal.makaleler[0].sayi_uyarisi;
+// 28) Anlık üretilen ayrıntılı özette uydurma sayı uyarısı
+geminiYogun = true; globalThis.setTimeout = (f) => f();
+kv.delete("detay:42776522");
+giden.length = 0; await gonder(tik(111, "d:42776522"));
+const uyariliDetay = giden.filter((g) => g.metod === "sendMessage").map((g) => g.govde.text).join("\n");
+kontrol("Ayrıntılı özette doğrulanamayan sayı uyarısı", uyariliDetay.includes("Şu sayılar kaynak metinde bulunamadı") && JSON.parse(kv.get("detay:42776522")).sayi_uyarisi?.length > 0);
+geminiYogun = false; globalThis.setTimeout = eskiZamanlayici;

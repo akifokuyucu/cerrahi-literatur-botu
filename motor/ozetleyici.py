@@ -5,6 +5,7 @@ Türkçe kısa özet üretimi (haftalık toplu hazırlık için).
 makaleleri (en fazla 12 + Türk dergisi) TEK istekte özetlenir ve cerrahi
 ilgi puanı alır (haftada ~15 istek). İstekler llm.Zincir üzerinden gider.
 """
+import denetim
 
 KISA_OZET_TALIMATI = """Sen genel cerrahi alanında deneyimli bir akademisyensin.
 Aşağıda PubMed'den alınmış makaleler var. Her biri için:
@@ -63,14 +64,50 @@ def _makale_metni(m):
             f"Başlık: {m['baslik']}\nÖzet:\n{m['ozet'] or '(özet yok)'}")
 
 
+def _kaynak(m):
+    """Sayı denetiminde özetin karşılaştırılacağı metin (talimat hariç)."""
+    return f"{m['dergi']} {m.get('tip_etiketi', '')} {m['baslik']} {m.get('ozet') or ''}"
+
+
+def _istek(zincir, makaleler, ek_not=""):
+    metin = KISA_OZET_TALIMATI + ek_not + "\n\n---\n\n" + "\n\n---\n\n".join(
+        _makale_metni(m) for m in makaleler)
+    return {s["pmid"]: s for s in zincir.uret(metin, sema=KISA_OZET_SEMASI)}
+
+
+def _hatali_sayilar(s, m):
+    return denetim.dogrulanamayan(f"{s.get('baslik_tr', '')} {s.get('kisa_ozet', '')}",
+                                  _kaynak(m))
+
+
 def kisa_ozetle(zincir, makaleler):
-    """{pmid: {"baslik_tr", "kisa_ozet"}} döndürür."""
+    """{pmid: {"baslik_tr", "kisa_ozet", "cerrahi_ilgi"[, "sayi_uyarisi"]}}.
+    Metinde olmayan sayı yazılan özetler bir kez uyarıyla yeniden üretilir;
+    yine düzelmezse "sayi_uyarisi" alanıyla işaretlenir."""
     if not makaleler:
         return {}
-    metin = KISA_OZET_TALIMATI + "\n\n---\n\n" + "\n\n---\n\n".join(
-        _makale_metni(m) for m in makaleler)
-    sonuc = zincir.uret(metin, sema=KISA_OZET_SEMASI)
-    return {s["pmid"]: s for s in sonuc}
+    sonuc = _istek(zincir, makaleler)
+    hatali = {m["pmid"]: _hatali_sayilar(sonuc[m["pmid"]], m)
+              for m in makaleler if m["pmid"] in sonuc}
+    hatali = {p: s for p, s in hatali.items() if s}
+    if hatali:
+        print(f"  Sayı denetimi: {len(hatali)} özette doğrulanamayan sayı, yeniden deneniyor")
+        tekrar = [m for m in makaleler if m["pmid"] in hatali]
+        sayilar = sorted({x for s in hatali.values() for x in s})
+        try:
+            yeni = _istek(zincir, tekrar, denetim.uyari_notu(sayilar))
+        except Exception as e:
+            print(f"  Yeniden deneme başarısız: {str(e)[:120]}")
+            yeni = {}
+        for m in tekrar:
+            p = m["pmid"]
+            if p in yeni:
+                kalan = _hatali_sayilar(yeni[p], m)
+                if len(kalan) < len(hatali[p]):
+                    sonuc[p], hatali[p] = yeni[p], kalan
+            if hatali[p]:
+                sonuc[p]["sayi_uyarisi"] = hatali[p]
+    return sonuc
 
 
 class SahteGemini:

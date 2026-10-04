@@ -30,6 +30,7 @@ from urllib.parse import quote, urljoin
 import requests
 
 import config
+import denetim
 import llm
 import ozetleyici
 from hazirla import hafta_etiketi, telegram_bildir
@@ -392,6 +393,12 @@ def suz(gem, bolum, adaylar):
             continue
         o = {k: a[k] for k in ("kaynak", "baslik", "url", "tarih")}
         o.update(baslik_tr=s["baslik_tr"], ozet=kisalt(s["ozet"]), ilgi=s["ilgi"])
+        # Haber metninde olmayan sayı yazıldıysa bot özeti ⚠️ ile işaretler
+        kaynak = " ".join(str(a.get(k) or "") for k in
+                          ("kaynak", "baslik", "metin", "tarih", "n", "sponsor", "ulke", "nct"))
+        hatali = denetim.dogrulanamayan(f"{o['baslik_tr']} {o['ozet']}", kaynak)
+        if hatali:
+            o["sayi_uyarisi"] = hatali
         if a.get("nct"):
             o.update({k: a[k] for k in ("nct", "n", "ulke", "sponsor")})
         ogeler.append(o)

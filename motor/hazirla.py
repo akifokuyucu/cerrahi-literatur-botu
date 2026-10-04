@@ -34,7 +34,7 @@ AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
 TUTULAN = ["pmid", "baslik", "baslik_tr", "kisa_ozet", "ozet", "dergi",
            "dergi_tam", "yil", "doi", "pmc", "tip", "tip_etiketi", "toplam",
            "dergi_puani", "tip_puani", "cok_merkezli", "orneklem",
-           "cerrahi_ilgi", "kisisel"]
+           "cerrahi_ilgi", "kisisel", "sayi_uyarisi"]
 
 
 def hafta_etiketi(bugun):
@@ -160,7 +160,10 @@ def main():
             o = ozet_onbellek.get(m["pmid"], {})
             return sadelestir({**m, "baslik_tr": o.get("baslik_tr", ""),
                                "kisa_ozet": o.get("kisa_ozet", ""),
-                               "cerrahi_ilgi": o.get("cerrahi_ilgi")})
+                               "cerrahi_ilgi": o.get("cerrahi_ilgi"),
+                               # yalnızca doğrulanamayan sayı varsa yazılır
+                               **({"sayi_uyarisi": o["sayi_uyarisi"]}
+                                  if o.get("sayi_uyarisi") else {})})
 
         # Cerrahi ilgi filtresi: yapay zekânın "ilgisiz" (0) dediği adaylar elenir,
         # kalanlar puan sırasını koruyarak ilk 5'e girer

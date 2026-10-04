@@ -12,6 +12,8 @@ import time
 
 import requests
 
+import denetim
+
 DETAY_TALIMATI = """Sen genel cerrahi alanında deneyimli bir akademisyensin ve
 yeni mezun bir hekime journal club tarzında makale anlatıyorsun.
 Aşağıdaki makaleyi Türkçe olarak yapılandırılmış biçimde özetle.
@@ -99,10 +101,28 @@ def girdi_metni(m, tam):
 
 
 def detay_hazirla(zincir, m, tam_metin_al=True):
-    """{"d": özet, "tam": bool, "model": ad} döndürür."""
+    """{"d": özet, "tam": bool, "model": ad[, "sayi_uyarisi": [...]]}.
+    Metinde olmayan sayı yazılırsa bir kez uyarıyla yeniden üretilir."""
     tam = tam_metin(m.get("pmc")) if tam_metin_al else ""
-    d = zincir.uret(girdi_metni(m, tam), sema=DETAY_SEMASI)
-    return {"d": d, "tam": bool(tam), "model": zincir.son_model}
+    girdi = girdi_metni(m, tam)
+    kaynak = (f"{m['dergi']} {m.get('yil') or ''} {m.get('tip_etiketi') or ''} "
+              f"{m['baslik']} {m.get('ozet') or ''} {tam}")
+    d = zincir.uret(girdi, sema=DETAY_SEMASI)
+    model = zincir.son_model
+    hatali = denetim.dogrulanamayan(denetim.metinler(d), kaynak)
+    if hatali:
+        print(f"  {m['pmid']}: doğrulanamayan sayılar {hatali}, yeniden deneniyor")
+        try:
+            d2 = zincir.uret(girdi + denetim.uyari_notu(hatali), sema=DETAY_SEMASI)
+            kalan = denetim.dogrulanamayan(denetim.metinler(d2), kaynak)
+            if len(kalan) < len(hatali):
+                d, hatali, model = d2, kalan, zincir.son_model
+        except Exception as e:
+            print(f"  Yeniden deneme başarısız: {str(e)[:120]}")
+    kayit = {"d": d, "tam": bool(tam), "model": model}
+    if hatali:
+        kayit["sayi_uyarisi"] = hatali
+    return kayit
 
 
 def hepsini_hazirla(zincir, makaleler, onceki, sure_dk, bekleme=4, tam_metin_al=True):

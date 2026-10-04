@@ -176,5 +176,55 @@ class DetayTesti(unittest.TestCase):
         self.assertEqual(detay.hepsini_hazirla(z, makaleler, {}, 0, tam_metin_al=False), {})
 
 
+class SayiDenetimiTesti(unittest.TestCase):
+    KAYNAK = ("In this RCT of 1,250 patients, leak rate was 4.8% vs 13.50% "
+              "(RR 0.35; 95% CI 0.12-0.98; P = .047). Median follow-up 24 months.")
+
+    def test_bicim_farklari_kabul_edilir(self):
+        import denetim
+        ozet = ("1.250 hastalık RCT'de kaçak %4,8'e karşı %13,5 (RR 0,35; %95 CI "
+                "0,12-0,98; p=0,047); 24 ay izlem, 3 kol.")
+        self.assertEqual(denetim.dogrulanamayan(ozet, self.KAYNAK), [])
+
+    def test_binlik_ayiricisiz_yazim(self):
+        import denetim
+        self.assertEqual(denetim.dogrulanamayan("1250 hasta", self.KAYNAK), [])
+
+    def test_uydurma_sayilar_bulunur(self):
+        import denetim
+        ozet = "HR 0,72 bulundu; %13,5 ve 1.300 hasta; NNT 12."
+        self.assertEqual(denetim.dogrulanamayan(ozet, self.KAYNAK), ["0,72", "1.300", "12"])
+
+    def test_yaziyla_sayilar_ve_bosluklu_binlik(self):
+        import denetim
+        kaynak = "Thirty-six patients and Seventeen studies; cost €53 562 vs ninety."
+        self.assertEqual(denetim.dogrulanamayan("36 hasta, 17 çalışma, 53562 €, 90", kaynak), [])
+
+    def test_ic_ice_metinler(self):
+        import denetim
+        self.assertIn("b\nc", denetim.metinler({"a": "b", "x": ["c", {"y": 1}]}))
+
+    def test_kisa_ozet_hatalisi_yeniden_uretilir(self):
+        import ozetleyici
+        m = {"pmid": "1", "dergi": "D", "baslik": "T", "ozet": "OR 0.5 in 300 patients"}
+        z = mock.Mock()
+        z.uret.side_effect = [
+            [{"pmid": "1", "baslik_tr": "T", "kisa_ozet": "300 hasta, OR 0,7", "cerrahi_ilgi": 2}],
+            [{"pmid": "1", "baslik_tr": "T", "kisa_ozet": "300 hasta, OR 0,5", "cerrahi_ilgi": 2}],
+        ]
+        sonuc = ozetleyici.kisa_ozetle(z, [m])
+        self.assertEqual(sonuc["1"]["kisa_ozet"], "300 hasta, OR 0,5")
+        self.assertNotIn("sayi_uyarisi", sonuc["1"])
+        self.assertIn("0,7", z.uret.call_args_list[1].args[0])  # uyarı notu gitti
+
+    def test_duzelmezse_uyari_isaretlenir(self):
+        import ozetleyici
+        m = {"pmid": "1", "dergi": "D", "baslik": "T", "ozet": "OR 0.5"}
+        hatali = [{"pmid": "1", "baslik_tr": "T", "kisa_ozet": "OR 0,7", "cerrahi_ilgi": 2}]
+        z = mock.Mock()
+        z.uret.side_effect = [hatali, hatali]
+        self.assertEqual(ozetleyici.kisa_ozetle(z, [m])["1"]["sayi_uyarisi"], ["0,7"])
+
+
 if __name__ == "__main__":
     unittest.main()

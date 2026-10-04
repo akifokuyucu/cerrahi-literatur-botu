@@ -113,10 +113,14 @@ function makaleBlogu(no, m, ekEtiket = "") {
   return (
     `<b>${no}. ${esc(m.tip_etiketi)} · ${esc(m.dergi)}</b>${ekEtiket}\n` +
     `<i>${esc(baslik)}</i>\n` +
-    (m.kisa_ozet ? `${esc(m.kisa_ozet)}\n` : "") +
+    (m.kisa_ozet ? `${esc(m.kisa_ozet)}${m.sayi_uyarisi ? " ⚠️" : ""}\n` : "") +
     `<a href="${pubmedLink(m.pmid)}">PubMed</a>${acik}`
   );
 }
+
+// Listede ⚠️ işaretli özet varsa altta tek satırlık açıklama
+const uyariNotu = (ogeler) => ogeler.some((o) => o?.sayi_uyarisi)
+  ? "\n<i>⚠️ Özetteki bazı sayılar kaynak metinde bulunamadı; teyit et.</i>" : "";
 
 function sigdir(bloklar, bas, son) {
   // Toplam uzunluk sınırı aşılırsa kısa özetleri kısaltır
@@ -144,11 +148,12 @@ function alanEkrani(veri, kod) {
       "─────────────\n" +
         `🇹🇷 <b>Turkish J Surg'dan</b> · ${esc(a.turk.tip_etiketi)}\n` +
         `<i>${esc(a.turk.baslik_tr || a.turk.baslik)}</i>\n` +
-        (a.turk.kisa_ozet ? `${esc(a.turk.kisa_ozet)}\n` : "") +
+        (a.turk.kisa_ozet ? `${esc(a.turk.kisa_ozet)}${a.turk.sayi_uyarisi ? " ⚠️" : ""}\n` : "") +
         `<a href="${pubmedLink(a.turk.pmid)}">PubMed</a> · 🔓 tam metin açık`
     );
   }
-  const son = a.makaleler.length || a.turk ? "📄 Ayrıntılı özet için numaraya bas." : "";
+  const son = (a.makaleler.length || a.turk ? "📄 Ayrıntılı özet için numaraya bas." : "") +
+    uyariNotu([...a.makaleler, a.turk]);
   const detay = a.makaleler.map((m, i) => ({ text: `📄 ${i + 1}`, callback_data: `d:${m.pmid}` }));
   if (a.turk) detay.push({ text: "📄 🇹🇷", callback_data: `d:${a.turk.pmid}` });
   const klavye = [];
@@ -163,7 +168,7 @@ function oneCikanlarEkrani(veri) {
     makaleBlogu(i + 1, m, ` · ${esc(m.alan)}`));
   const detay = (veri.gundem || []).map((m, i) => ({ text: `📄 ${i + 1}`, callback_data: `d:${m.pmid}` }));
   return {
-    metin: sigdir(bloklar, bas, "📄 Ayrıntılı özet için numaraya bas."),
+    metin: sigdir(bloklar, bas, "📄 Ayrıntılı özet için numaraya bas." + uyariNotu(veri.gundem || [])),
     klavye: [detay, [geriTusu]].filter((s) => s.length),
   };
 }
@@ -202,7 +207,7 @@ function haberBlogu(no, o) {
     : "";
   return (
     `<b>${no}. ${esc(o.baslik_tr || o.baslik)}</b>\n` +
-    esc(o.ozet || "") + rct + "\n" +
+    esc(o.ozet || "") + (o.sayi_uyarisi ? " ⚠️" : "") + rct + "\n" +
     `<a href="${esc(o.url)}">${esc(o.nct || o.kaynak)}</a>` +
     (o.benzer ? ` · +${o.benzer} kaynak daha` : "") + tarih
   );
@@ -212,7 +217,8 @@ function haberBolumEkrani(gv, kod) {
   const b = gv?.bolumler?.[kod];
   if (!b) return { metin: "Bu bölüm bu hafta hazırlanamadı.", klavye: [[gundemTusu]] };
   const bas = `<b>${esc(b.ad)}</b>\n${esc(gv.hafta)} · ${b.aday} aday tarandı`;
-  const son = "<i>Başlık ve özetler yapay zekâ ile Türkçeleştirildi; ayrıntı için kaynağa bak.</i>";
+  const son = "<i>Başlık ve özetler yapay zekâ ile Türkçeleştirildi; ayrıntı için kaynağa bak." +
+    (b.ogeler.some((o) => o.sayi_uyarisi) ? " ⚠️: özetteki bazı sayılar kaynak metinde yok." : "") + "</i>";
   // HTML'i ortadan kesmemek için sığmayan haberler bütün olarak dışarıda kalır
   const bloklar = [];
   for (const [i, o] of b.ogeler.entries()) {
@@ -380,6 +386,64 @@ async function yz(env, metin, sema) {
   throw new Error(`Yapay zekâ şu an yanıt vermiyor (${sonHata}). Birkaç dakika sonra tekrar dene.`);
 }
 
+// ------------------------------------------------- uydurma sayı denetimi
+// motor/denetim.py ile aynı mantık: özetteki her sayı kaynak metinde geçiyor
+// mu? Ondalık virgül/nokta, binlik ayırıcı, sondaki sıfırlar ve İngilizce
+// yazıyla sayılar ("Thirty-six") farkı yok sayılır; tek basamaklılar denetlenmez.
+const BIRLER = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
+  "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+  "seventeen", "eighteen", "nineteen"];
+const ONLAR = ["twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+const SOZCUK_SAYI = new RegExp(`\\b(?:(${ONLAR.join("|")})(?:[- ](${BIRLER.slice(1, 10).join("|")}))?|(${BIRLER.join("|")}))\\b`, "gi");
+const SAYI = /\d+(?:[.,]\d+)*/g;
+const tamSayi = (x) => x.replace(/^0+(?=\d)/, "");
+const ondalikNokta = (t) => String(t || "").replace(/(?<![\d.,])[.,](\d)/g, "0.$1"); // ".047" → "0.047"
+
+function bicimler(s) {
+  const b = new Set();
+  const nokta = s.replace(/,/g, ".");
+  const parca = nokta.split(".");
+  if (parca.length === 2) {
+    const kesir = parca[1].replace(/0+$/, "");
+    b.add(kesir ? `${tamSayi(parca[0])}.${kesir}` : tamSayi(parca[0]));
+  }
+  if (/^\d{1,3}([.,]\d{3})+$/.test(s)) b.add(tamSayi(s.replace(/[.,]/g, "")));
+  if (!b.size) b.add(/^\d+$/.test(nokta) ? tamSayi(nokta) : nokta);
+  return b;
+}
+
+function kaynakSayilari(metin) {
+  metin = ondalikNokta(metin);
+  const k = new Set();
+  for (const [, onlar, birler, tek] of metin.matchAll(SOZCUK_SAYI)) {
+    k.add(String(tek ? BIRLER.indexOf(tek.toLowerCase())
+      : 20 + 10 * ONLAR.indexOf(onlar.toLowerCase()) + (birler ? BIRLER.indexOf(birler.toLowerCase()) : 0)));
+  }
+  for (const s of metin.match(SAYI) || []) for (const x of bicimler(s)) k.add(x);
+  for (const [, bas, son] of metin.matchAll(/(?<![\d.,])(\d{1,3})[   ](\d{3})(?![\d.,]\d)/g)) {
+    k.add(tamSayi(bas + son)); // "€53 562"
+  }
+  return k;
+}
+
+// Özetteki, kaynakta bulunamayan sayılar
+function sayiDenetimi(ozet, kaynak) {
+  const kaynaktaki = kaynakSayilari(kaynak);
+  const sonuc = [];
+  for (const s of ondalikNokta(ozet).match(SAYI) || []) {
+    if (/^\d$/.test(s) || sonuc.includes(s)) continue;
+    if (![...bicimler(s)].some((x) => kaynaktaki.has(x))) sonuc.push(s);
+  }
+  return sonuc;
+}
+
+const tumMetin = (v) => typeof v === "string" ? v
+  : Array.isArray(v) ? v.map(tumMetin).join("\n")
+    : v && typeof v === "object" ? Object.values(v).map(tumMetin).join("\n") : "";
+
+const sayiUyarisi = (sayilar) => sayilar?.length
+  ? `⚠️ Şu sayılar kaynak metinde bulunamadı: ${sayilar.join(", ")} — makaleden teyit et.` : "";
+
 function jatsMetne(xml) {
   // JATS tam metninden kaynakça ve tabloları atıp düz metin çıkarır
   const govde = (xml.match(/<body[\s\S]*<\/body>/) || [""])[0];
@@ -434,11 +498,12 @@ async function pubmeddenGetir(pmid) {
   };
 }
 
-function detayMetni(m, d, tamMetinVar) {
+function detayMetni({ m, d, tam: tamMetinVar, sayi_uyarisi: hatali }) {
   const liste = (x) => (x || []).map((s) => `• ${esc(s)}`).join("\n");
-  const kaynak = tamMetinVar
+  const kaynak = (tamMetinVar
     ? "🔓 Tam metin üzerinden hazırlandı"
-    : "⚠️ Yalnızca özet (abstract) üzerinden hazırlandı";
+    : "⚠️ Yalnızca özet (abstract) üzerinden hazırlandı") +
+    (hatali?.length ? `\n<b>${esc(sayiUyarisi(hatali))}</b>` : "");
   const p = d.pico || {};
   const bolumler = [
     `📄 <b>${esc(d.baslik_tr || m.baslik)}</b>\n<i>${esc(m.baslik)}</i>\n` +
@@ -511,6 +576,9 @@ async function detayHazirla(env, pmid, sohbet) {
     (tam ? `\n\nTAM METİN:\n${tam}` : "");
   const { veri: d, model } = await yz(env, girdi, DETAY_SEMASI);
   const kayit = { m, d, tam: Boolean(tam), model };
+  const hatali = sayiDenetimi(tumMetin(d),
+    `${m.dergi} ${m.yil || ""} ${m.tip_etiketi || ""} ${m.baslik} ${m.ozet || ""} ${tam}`);
+  if (hatali.length) kayit.sayi_uyarisi = hatali;
   await kvYaz(env, `detay:${pmid}`, kayit);
   if (env.ONBELLEK) await env.ONBELLEK.delete(`kilit:${pmid}`);
   return kayit;
@@ -534,7 +602,7 @@ async function detayGonder(env, sohbet, pmid) {
   const k = await detayHazirla(env, pmid, sohbet);
   if (!k) return;
   const oy = (await kvJson(env, `oy:${pmid}`))?.oy;
-  const parcalar = parcala(detayMetni(k.m, k.d, k.tam));
+  const parcalar = parcala(detayMetni(k));
   for (let i = 0; i < parcalar.length; i++) {
     const son = i === parcalar.length - 1;
     await tg(env, "sendMessage", {
@@ -637,7 +705,8 @@ function detayBloklari(k) {
   const b = [
     blok.not(`${m.dergi}${m.yil ? " · " + m.yil : ""}${m.tip_etiketi ? " · " + m.tip_etiketi : ""} — ` +
       (k.tam ? "Tam metin üzerinden hazırlandı." : "Yalnızca özet (abstract) üzerinden hazırlandı.") +
-      " Yapay zekâ özetidir; klinik karar için makalenin kendisine başvur."),
+      " Yapay zekâ özetidir; klinik karar için makalenin kendisine başvur." +
+      (k.sayi_uyarisi?.length ? " " + sayiUyarisi(k.sayi_uyarisi) : "")),
     blok.baslik("Bir cümlede"), blok.paragraf(d.tek_cumle),
     blok.baslik("Tasarım"), blok.paragraf(d.tasarim),
   ];
@@ -877,6 +946,8 @@ async function guncellemeIsle(env, u) {
 }
 
 // ------------------------------------------------------------------ giriş
+export { sayiDenetimi }; // test için
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
