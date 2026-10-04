@@ -239,3 +239,16 @@ giden.length = 0; await gonder(tik(111, "d:42776522"));
 const uyariliDetay = giden.filter((g) => g.metod === "sendMessage").map((g) => g.govde.text).join("\n");
 kontrol("Ayrıntılı özette doğrulanamayan sayı uyarısı", uyariliDetay.includes("Şu sayılar kaynak metinde bulunamadı") && JSON.parse(kv.get("detay:42776522")).sayi_uyarisi?.length > 0);
 geminiYogun = false; globalThis.setTimeout = eskiZamanlayici;
+
+// 29) Yedek model kullanıldıysa menüde not, ayrıntılı özette model adı
+hafta.ana_model = "gemini-flash-latest";
+hafta.model_kullanimi = { "gemini-flash-latest": 20, "groq/llama-3.3-70b-versatile": 8 };
+giden.length = 0; await gonder(mesaj(111, "/start"));
+const yedekMenu = giden.find((g) => g.metod === "sendMessage").govde.text;
+kontrol("Menüde yedek model notu", yedekMenu.includes("yedek modelle") && yedekMenu.includes("groq/llama-3.3-70b-versatile (8 istek)") && !yedekMenu.includes("gemini-flash-latest (20"));
+hafta.model_kullanimi = { "gemini-flash-latest": 28 };
+giden.length = 0; await gonder(mesaj(111, "/start"));
+kontrol("Yedek yoksa not yok", !giden.find((g) => g.metod === "sendMessage").govde.text.includes("yedek modelle"));
+delete hafta.ana_model; delete hafta.model_kullanimi;
+giden.length = 0; await gonder(tik(111, "d:42776522"));
+kontrol("Ayrıntılı özette model adı", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Yapay zekâ özetidir (groq/llama-3.3-70b-versatile)")));

@@ -91,10 +91,18 @@ function makaleBul(veri, pmid) {
 
 const pubmedLink = (pmid) => `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
 
+// Bu hafta yedek modele geçildiyse kısa not (hafta.json / gundem.json)
+function modelNotu(v) {
+  const yedek = Object.entries(v?.model_kullanimi || {}).filter(([m]) => m !== v.ana_model);
+  if (!yedek.length) return "";
+  return `\n\n<i>🤖 Bu hafta bazı özetler yedek modelle hazırlandı: ` +
+    `${yedek.map(([m, n]) => `${esc(m)} (${n} istek)`).join(", ")}.</i>`;
+}
+
 // ------------------------------------------------------------------ ekranlar
 function menuEkrani(veri) {
   const metin =
-    `🩺 <b>Cerrahi Literatür</b>\n${esc(veri.hafta)}\n\nHangi alana bakalım?`;
+    `🩺 <b>Cerrahi Literatür</b>\n${esc(veri.hafta)}\n\nHangi alana bakalım?` + modelNotu(veri);
   const tuslar = Object.entries(veri.alanlar).map(([kod, a]) => ({
     text: a.ad, callback_data: `a:${kod}`,
   }));
@@ -194,7 +202,7 @@ function gundemMenuEkrani(gv) {
   klavye.push([geriTusu]);
   return {
     metin: `📰 <b>Gündem</b>\n${esc(gv.hafta)} · kılavuzlar, teknoloji, Türkiye ve yeni RCT'ler\n\n` +
-      satirlar.join("\n") + uyari,
+      satirlar.join("\n") + uyari + modelNotu(gv),
     klavye,
   };
 }
@@ -498,7 +506,7 @@ async function pubmeddenGetir(pmid) {
   };
 }
 
-function detayMetni({ m, d, tam: tamMetinVar, sayi_uyarisi: hatali }) {
+function detayMetni({ m, d, tam: tamMetinVar, sayi_uyarisi: hatali, model }) {
   const liste = (x) => (x || []).map((s) => `• ${esc(s)}`).join("\n");
   const kaynak = (tamMetinVar
     ? "🔓 Tam metin üzerinden hazırlandı"
@@ -521,7 +529,7 @@ function detayMetni({ m, d, tam: tamMetinVar, sayi_uyarisi: hatali }) {
       : "",
     `🔗 <a href="${pubmedLink(m.pmid)}">PubMed</a>` +
       (m.doi ? ` · <a href="https://doi.org/${esc(m.doi)}">Makale</a>` : "") +
-      `\n<i>Yapay zekâ özetidir; klinik karar için makalenin kendisine başvur.</i>`,
+      `\n<i>Yapay zekâ özetidir${model ? ` (${esc(model)})` : ""}; klinik karar için makalenin kendisine başvur.</i>`,
   ];
   return bolumler.filter(Boolean).join("\n\n");
 }
