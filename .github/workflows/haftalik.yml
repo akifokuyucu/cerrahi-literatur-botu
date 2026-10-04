@@ -3,6 +3,7 @@ name: Haftalık hazırlık
 on:
   schedule:
     - cron: "0 4 * * 1"   # Her pazartesi 04:00 UTC = 07:00 Türkiye
+    - cron: "0 7 * * 1"   # 10:00 yedek: sabahki çalışma olmadıysa ya da başarısız olduysa
   workflow_dispatch:       # "Run workflow" tuşuyla elle çalıştırma
 
 permissions:
@@ -20,14 +21,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # 10:00'daki yedek çalışma, sabah liste zaten hazırlandıysa hiçbir şey yapmaz
+      - name: Bugün zaten hazırlandı mı?
+        id: kontrol
+        if: github.event_name == 'schedule'
+        run: |
+          if [ "$(jq -r .hazirlanma cikti/hafta.json 2>/dev/null)" = "$(date +%F)" ]; then
+            echo "Bugünün dosyası zaten var, atlanıyor."
+            echo "atla=true" >> "$GITHUB_OUTPUT"
+          fi
+
       - uses: actions/setup-python@v5
+        if: steps.kontrol.outputs.atla != 'true'
         with:
           python-version: "3.12"
 
       - name: Bağımlılıkları kur
+        if: steps.kontrol.outputs.atla != 'true'
         run: pip install -r motor/requirements.txt
 
       - name: 14 alanı tara, puanla, özetle (kısa ve ayrıntılı)
+        if: steps.kontrol.outputs.atla != 'true'
         working-directory: motor
         env:
           PYTHONUNBUFFERED: "1"
@@ -47,6 +61,7 @@ jobs:
         run: python hazirla.py
 
       - name: Sonuçları depoya kaydet
+        if: steps.kontrol.outputs.atla != 'true'
         run: |
           git config user.name "haftalik-hazirlik"
           git config user.email "actions@users.noreply.github.com"

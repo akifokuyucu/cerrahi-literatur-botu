@@ -28,6 +28,8 @@ Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Teleg
 | `.github/workflows/haftalik.yml` | Pazartesi zamanlaması (makaleler) |
 | `.github/workflows/gundem.yml` | Perşembe zamanlaması (gündem) |
 
+İki iş akışı da saat 10:00'da bir kez daha tetiklenir. O günün dosyası sabah hazırlandıysa bu çalışma hiçbir şey yapmadan biter. Sabahki çalışma GitHub tarafından atlandıysa ya da başarısız olduysa liste 10:00'da hazırlanır.
+
 ## Puanlama
 
 Toplam puan = dergi puanı + çalışma tipi puanı.
