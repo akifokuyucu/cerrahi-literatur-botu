@@ -4,7 +4,7 @@ Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Teleg
 
 - **Her pazartesi 07:00:** GitHub Actions, PubMed'deki son 7 günün makalelerini tarar ve dergi ağırlığı ile çalışma tipine göre puanlar. Her alanda en iyi 5 makaleyi seçer, Turkish Journal of Surgery'den bir makale ekler, yapay zekâ ile (önce Gemini, yoğunsa ücretsiz yedekler) Türkçe kısa özetlerini yazar ve sonucu `cikti/hafta.json` dosyasına kaydeder. Ardından listedeki makalelerin ayrıntılı özetlerini en fazla 20 dakika boyunca hazırlar (önce öne çıkanlar) ve `cikti/detay.json` dosyasına yazar.
 - **Her perşembe 07:00 (📰 Gündem):** GitHub Actions dört bölüm hazırlar ve sonucu `cikti/gundem.json` dosyasına kaydeder:
-  - 📘 Kılavuz & Kongre: WSES, ESCP ve ASCRS haber sayfaları, EAES ve SAGES RSS akışları, Google Haberler
+  - 📘 Kılavuz & Kongre: WSES, ESCP ve ASCRS haber sayfaları, EAES ve SAGES RSS akışları (okunamazsa sitelerin Google Haberler'deki sayfaları), Google Haberler
   - 🤖 Teknoloji & Onaylar: FDA 510(k) kararları (openFDA), FDA/CE onayı, cerrahi robotik ve yapay zekâ haberleri
   - 🇹🇷 Türkiye: Türk Cerrahi Derneği, TTB ve ulusal kongre haberleri
   - 🧪 Yeni RCT'ler: ClinicalTrials.gov'a o hafta kaydedilen cerrahi randomize çalışmalar

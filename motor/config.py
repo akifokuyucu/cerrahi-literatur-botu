@@ -305,8 +305,12 @@ GUNDEM_KAYNAKLARI = [
     {"bolum": "kilavuz", "ad": "ASCRS", "tur": "sayfa",
      "url": "https://fascrs.org/Web/Web/About/News/News.aspx?hkey=42b0d20c-5761-4127-8824-e5c4ca208603",
      "desen": "/News-Articles/"},
-    {"bolum": "kilavuz", "ad": "EAES", "tur": "rss", "url": "https://eaes.eu/feed/"},
-    {"bolum": "kilavuz", "ad": "SAGES", "tur": "rss", "url": "https://www.sages.org/feed/"},
+    # yedek_sorgu: akış GitHub Actions'tan okunamazsa (bot koruması vb.)
+    # sitenin Google Haberler'deki sayfaları kullanılır
+    {"bolum": "kilavuz", "ad": "EAES", "tur": "rss", "url": "https://eaes.eu/feed/",
+     "yedek_sorgu": "site:eaes.eu"},
+    {"bolum": "kilavuz", "ad": "SAGES", "tur": "rss", "url": "https://www.sages.org/feed/",
+     "yedek_sorgu": "site:sages.org"},
     # Google Haberler uzun VEYA'lı sorgularda tarih sınırını (when:7d) yok
     # sayıp yıllar öncesini getiriyor; kısa sorgular sınıra uyuyor
     {"bolum": "kilavuz", "ad": "Google Haberler", "tur": "haber", "dil": "en",

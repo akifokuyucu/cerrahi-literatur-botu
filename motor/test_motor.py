@@ -295,5 +295,35 @@ class GundemPartiTesti(unittest.TestCase):
         self.assertTrue(ogeler)
 
 
+class AkisTesti(unittest.TestCase):
+    def test_kucuk_bozukluklar_temizlenir(self):
+        import gundem
+        bozuk = (b"\xef\xbb\xbf\n  <?xml version=\"1.0\"?><rss><channel><item>"
+                 b"<title>Hernia & mesh\x0b</title></item></channel></rss>")
+        kok = gundem.xml_coz(bozuk)
+        self.assertEqual(kok.find(".//title").text, "Hernia & mesh")
+
+    def test_html_sayfasi_anlasilir_hata(self):
+        import gundem
+        with self.assertRaisesRegex(ValueError, "HTML"):
+            gundem.xml_coz(b"<!DOCTYPE html><html><head><title>Just a moment...</title>"
+                           b"<meta charset=utf-8></head></html>")
+
+    def test_akis_okunamazsa_google_haberler_yedegi(self):
+        import gundem
+        kaynak = {"bolum": "kilavuz", "ad": "EAES", "tur": "rss", "url": "u",
+                  "yedek_sorgu": "site:eaes.eu"}
+        hatalar = []
+        yedek = [gundem._aday("kilavuz", "EAES", "RISE-UK 2026 course", "https://eaes.eu/x")]
+        with mock.patch.object(gundem.config, "GUNDEM_KAYNAKLARI", [kaynak]), \
+                mock.patch.dict(gundem.OKUYUCULAR, {"rss": mock.Mock(side_effect=ValueError("bot"))}), \
+                mock.patch.object(gundem, "haber_oku", return_value=yedek) as haber, \
+                mock.patch("traceback.print_exc"):
+            adaylar = gundem.adaylari_topla(["kilavuz"], {"ogeler": [], "sayfa": {}}, hatalar)
+        self.assertEqual(haber.call_args.args[0]["sorgu"], "site:eaes.eu")
+        self.assertEqual(len(adaylar["kilavuz"]), 1)
+        self.assertEqual(hatalar, [])
+
+
 if __name__ == "__main__":
     unittest.main()

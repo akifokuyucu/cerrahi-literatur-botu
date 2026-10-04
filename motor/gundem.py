@@ -157,9 +157,26 @@ def _tarih(rfc822):
 # ---------------------------------------------------------------------------
 # Kaynak türleri
 # ---------------------------------------------------------------------------
+def xml_coz(icerik):
+    """Akışı ayrıştırır; küçük bozuklukları (kaçışsız &, yasak denetim
+    karakterleri, baştaki boşluk/BOM) temizleyip yeniden dener."""
+    try:
+        return ET.fromstring(icerik)
+    except ET.ParseError:
+        bas = icerik[:1500].lower()
+        if b"<html" in bas or b"<!doctype html" in bas:
+            # Bazı siteler veri merkezi IP'lerine (GitHub Actions) bot
+            # koruması sayfası döndürür
+            raise ValueError("RSS yerine HTML sayfası döndü (bot koruması olabilir)")
+        temiz = icerik.lstrip(b"\xef\xbb\xbf \t\r\n")
+        temiz = re.sub(rb"&(?!#?\w+;)", b"&amp;", temiz)
+        temiz = re.sub(rb"[\x00-\x08\x0b\x0c\x0e-\x1f]", b"", temiz)
+        return ET.fromstring(temiz)
+
+
 def rss_oku(k, url=None, kaynak_ad=None):
     """RSS 2.0 akışından son GUNDEM_PENCERE_GUN günün kayıtları."""
-    kok = ET.fromstring(_getir(url or k["url"]).content)
+    kok = xml_coz(_getir(url or k["url"]).content)
     sinir = dt.date.today() - dt.timedelta(days=config.GUNDEM_PENCERE_GUN)
     sonuc = []
     for it in kok.iter("item"):
@@ -442,6 +459,16 @@ def adaylari_topla(bolumler, gorulen, hatalar):
             kaynaklar[k["bolum"]].append(yeni)
         except Exception as e:
             traceback.print_exc()
+            if k.get("yedek_sorgu"):
+                # Akış okunamazsa sitenin Google Haberler'deki sayfaları
+                try:
+                    yeni = haber_oku({**k, "sorgu": k["yedek_sorgu"]})
+                    print(f"  {k['bolum']:9} {k['ad']:22} {len(yeni)} aday "
+                          f"(yedek: Google Haberler, {str(e)[:60]})")
+                    kaynaklar[k["bolum"]].append(yeni)
+                    continue
+                except Exception:
+                    traceback.print_exc()
             hatalar.append(f"{k['ad']} ({k['bolum']}): {str(e)[:80]}")
     if "rct" in bolumler:
         try:
