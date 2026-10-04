@@ -3,8 +3,8 @@ Haftalık hazırlık: 14 alanı tara, puanla, özetle, cikti/hafta.json'a yaz,
 Telegram'dan "liste hazır" bildirimi gönder.
 
 GitHub Actions her pazartesi bunu çalıştırır. Elle deneme:
-  python hazirla.py                      # canlı (GEMINI_API_KEY gerekir)
-  python hazirla.py --sahte-ozet         # Gemini'siz deneme
+  python hazirla.py                      # canlı (en az GEMINI_API_KEY gerekir)
+  python hazirla.py --sahte-ozet         # yapay zekâsız deneme
   python hazirla.py --alan kolorektal --girdi test_verisi/x.xml --sahte-ozet
 """
 import argparse
@@ -18,6 +18,7 @@ import traceback
 import requests
 
 import config
+import llm
 import motor
 import ozetleyici
 import pubmed
@@ -82,7 +83,7 @@ def main():
 
     pm = None if a.girdi else pubmed.PubMed(
         email=os.getenv("NCBI_EMAIL"), api_key=os.getenv("NCBI_API_KEY"))
-    gem = ozetleyici.SahteGemini() if a.sahte_ozet else ozetleyici.Gemini()
+    gem = ozetleyici.SahteGemini() if a.sahte_ozet else llm.Zincir()
     alanlar = [a.alan] if a.alan else list(config.ALANLAR)
 
     bugun = dt.date.today()
@@ -124,7 +125,7 @@ def main():
                                "kisa_ozet": o.get("kisa_ozet", ""),
                                "cerrahi_ilgi": o.get("cerrahi_ilgi")})
 
-        # Cerrahi ilgi filtresi: Gemini'nin "ilgisiz" (0) dediği adaylar elenir,
+        # Cerrahi ilgi filtresi: yapay zekânın "ilgisiz" (0) dediği adaylar elenir,
         # kalanlar puan sırasını koruyarak ilk 5'e girer
         uygun = [m for m in s["makaleler"]
                  if ozet_onbellek.get(m["pmid"], {}).get("cerrahi_ilgi", 1) != 0]
@@ -145,7 +146,10 @@ def main():
     for kod, s in cikti["alanlar"].items():
         for m in s["makaleler"]:
             havuz.setdefault(m["pmid"], {**m, "alan": s["ad"]})
-    cikti["model"] = getattr(gem, "son_model", gem.model)
+    cikti["model"] = gem.son_model
+    cikti["ana_model"] = gem.model
+    cikti["model_kullanimi"] = gem.kullanim
+    cikti["model_notlari"] = gem.notlar
     cikti["gundem"] = sorted(
         havuz.values(), reverse=True,
         key=lambda m: (m["toplam"] + (m.get("kisisel") or 0),

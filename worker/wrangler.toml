@@ -21,3 +21,7 @@ id = "39f59024e88a4c3a92666c0ef65adb7e"
 # Hata ayıklama için Worker günlükleri (panelde "Observability" sekmesi)
 [observability]
 enabled = true
+
+# Workers AI: Gemini yoğunken ücretsiz yedek (günde 10.000 neuron, anahtar gerekmez)
+[ai]
+binding = "AI"

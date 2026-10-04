@@ -7,6 +7,7 @@ const gundem = JSON.parse(fs.readFileSync(new URL("./gundem_ornek.json", import.
 const giden = [];
 const kv = new Map();
 let gundemYok = false; // perşembeden önce gundem.json henüz yoksa
+let geminiYogun = false; // tüm Gemini modelleri 503 versin
 globalThis.fetch = async (url, opt = {}) => {
   url = String(url);
   const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { "content-type": "application/json" } });
@@ -17,6 +18,15 @@ globalThis.fetch = async (url, opt = {}) => {
     const metod = url.split("/").pop();
     giden.push({ metod, govde: JSON.parse(opt.body) });
     return json({ ok: true, result: {} });
+  }
+  if (url.includes("generativelanguage") && geminiYogun) {
+    giden.push({ metod: "GEMINI_503", model: url.split("/models/")[1].split(":")[0] });
+    return new Response("overloaded", { status: 503 });
+  }
+  if (url.includes("api.groq.com")) {
+    const g = JSON.parse(opt.body);
+    giden.push({ metod: "GROQ", model: g.model, json: g.response_format?.type, semaVar: g.messages[0].content.includes('"ana_bulgular"') });
+    return json({ choices: [{ message: { content: "```json\n" + JSON.stringify({ baslik_tr: "Groq başlığı", tek_cumle: "Groq özeti", tasarim: "RCT", ana_bulgular: ["HR 0,8"], sinirliliklar: ["Tek merkez"], pratige_etkisi: "Sınırlı" }) + "\n```" } }] });
   }
   if (url.includes("generativelanguage")) {
     const g = JSON.parse(opt.body);
@@ -39,7 +49,7 @@ globalThis.fetch = async (url, opt = {}) => {
   }
   throw new Error("beklenmeyen istek " + url);
 };
-const env = { TELEGRAM_TOKEN: "T", GEMINI_API_KEY: "G", WEBHOOK_SECRET: "S", IZINLI_KULLANICI: "111",
+const env = { TELEGRAM_TOKEN: "T", GEMINI_API_KEY: "G", GROQ_API_KEY: "Q", WEBHOOK_SECRET: "S", IZINLI_KULLANICI: "111",
   VERI_URL: "https://raw.githubusercontent.com/x/y/main/cikti/hafta.json",
   NOTION_TOKEN: "N", NOTION_ARSIV_DB: "arsivdb", NOTION_ICERIK_DB: "icerikdb",
   ONBELLEK: { get: async (k) => kv.get(k) ?? null, put: async (k, v) => kv.set(k, v), delete: async (k) => kv.delete(k),
@@ -164,3 +174,32 @@ kontrol("Geri bildirim ucu oyları döndürür", gb.length === 1 && gb[0].dergi 
 // 21) Notion token yoksa uyarı
 giden.length = 0; await worker.fetch(new Request("https://bot.example/telegram", { method: "POST", headers: { "X-Telegram-Bot-Api-Secret-Token": "S" }, body: JSON.stringify(tik(111, "n:42776522")) }), { ...env, NOTION_TOKEN: "" }, {});
 kontrol("Notion yoksa açıklayıcı uyarı", giden.some((g) => g.metod === "answerCallbackQuery" && g.govde.text?.includes("NOTION_TOKEN")));
+
+// 22) Gemini yoğunken Google dışı yedeğe geçilir
+const eskiZamanlayici = globalThis.setTimeout;
+globalThis.setTimeout = (f) => f(); // yeniden deneme beklemesini atla
+geminiYogun = true;
+kv.delete("detay:42776522");
+giden.length = 0; await gonder(tik(111, "d:42776522"));
+const gemDenenen = [...new Set(giden.filter((g) => g.metod === "GEMINI_503").map((g) => g.model))];
+kontrol("Gemini yoğunken önce tüm güçlü Gemini modelleri denendi", ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest"].every((m) => gemDenenen.includes(m)));
+const groq = giden.find((g) => g.metod === "GROQ");
+kontrol("Sonra Groq'a JSON modu ve şemayla gidildi", groq && groq.json === "json_object" && groq.semaVar);
+kontrol("Groq yanıtıyla ayrıntılı özet gönderildi", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Groq özeti")));
+kontrol("Kayıtta modeli tutuldu", JSON.parse(kv.get("detay:42776522")).model === "groq/llama-3.3-70b-versatile");
+// 23) Groq anahtarı yoksa Workers AI devreye girer
+kv.delete("detay:42776522");
+let aiGirdi = null;
+const aiEnv = { ...env, GROQ_API_KEY: "", AI: { run: async (model, g) => { aiGirdi = { model, g }; return { response: { cevap: "Workers AI cevabı" } }; } } };
+await worker.fetch(new Request("https://bot.example/telegram", { method: "POST", headers: { "X-Telegram-Bot-Api-Secret-Token": "S" }, body: JSON.stringify(tik(111, "s:42778806")) }), aiEnv, {});
+giden.length = 0;
+await worker.fetch(new Request("https://bot.example/telegram", { method: "POST", headers: { "X-Telegram-Bot-Api-Secret-Token": "S" }, body: JSON.stringify(mesaj(111, "Hasta sayısı?")) }), aiEnv, {});
+kontrol("Workers AI'a JSON şemasıyla gidildi", aiGirdi && aiGirdi.g.response_format.type === "json_schema" && aiGirdi.g.response_format.json_schema.type === "object");
+kontrol("Workers AI cevabı gönderildi", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Workers AI cevabı")));
+// 24) Hiçbiri yanıt vermezse anlaşılır hata
+kv.delete("detay:42776522");
+giden.length = 0;
+await worker.fetch(new Request("https://bot.example/telegram", { method: "POST", headers: { "X-Telegram-Bot-Api-Secret-Token": "S" }, body: JSON.stringify(tik(111, "d:42776522")) }), { ...env, GROQ_API_KEY: "" }, {});
+kontrol("Hepsi yoğunken kullanıcıya açıklama", giden.some((g) => g.govde?.text?.includes("yanıt vermiyor")));
+geminiYogun = false;
+globalThis.setTimeout = eskiZamanlayici;

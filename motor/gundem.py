@@ -4,11 +4,11 @@
 Dört bölüm: kılavuz ve kongre duyuruları, teknoloji (FDA/CE onayları,
 robotik, yapay zekâ), yerli gelişmeler ve ClinicalTrials.gov'a o hafta
 kaydedilen cerrahi RCT'ler. Kaynaklar config.GUNDEM_KAYNAKLARI'nda.
-Adaylar Gemini'nin genel cerrahi süzgecinden geçer, Türkçe başlık ve kısa
+Adaylar yapay zekânın genel cerrahi süzgecinden geçer, Türkçe başlık ve kısa
 özet alır, sonuç cikti/gundem.json'a yazılır.
 
 GitHub Actions her perşembe bunu çalıştırır. Elle deneme:
-  python gundem.py --sahte-ozet --bildirim-yok   # Gemini'siz deneme
+  python gundem.py --sahte-ozet --bildirim-yok   # yapay zekâsız deneme
   python gundem.py --tohum                       # yalnızca dernek sayfalarının
                                                  # mevcut bağlantılarını kaydet
 """
@@ -30,6 +30,7 @@ from urllib.parse import quote, urljoin
 import requests
 
 import config
+import llm
 import ozetleyici
 from hazirla import hafta_etiketi, telegram_bildir
 
@@ -287,7 +288,7 @@ def rct_oku():
 
 
 # ---------------------------------------------------------------------------
-# Gemini süzgeci
+# Yapay zekâ süzgeci
 # ---------------------------------------------------------------------------
 ORTAK_TALIMAT = """Sen genel cerrahi alanında deneyimli bir akademisyensin ve
 genel cerrahi asistanları için haftalık bir "gündem" bülteni hazırlıyorsun.
@@ -378,7 +379,7 @@ def _aday_metni(a):
 
 
 def suz(gem, bolum, adaylar):
-    """Gemini ile süz ve Türkçeleştir; ilgi sırasına göre dizilmiş öğeler."""
+    """Yapay zekâ ile süz ve Türkçeleştir; ilgi sırasına göre dizilmiş öğeler."""
     if not adaylar:
         return []
     metin = (ORTAK_TALIMAT + BOLUM_TALIMATI[bolum] + "\n\n---\n\n" +
@@ -479,7 +480,7 @@ def main():
     # 5 kez, 30 sn arayla dene (yedek modeller tekrarları ve branş dışı
     # haberleri daha kötü eliyor)
     gem = (ozetleyici.SahteGemini() if a.sahte_ozet
-           else ozetleyici.Gemini(yogun_deneme=5, yogun_bekleme=30))
+           else llm.Zincir(yogun_deneme=5, yogun_bekleme=30))
     bolumler = [a.bolum] if a.bolum else list(config.GUNDEM_BOLUMLERI)
     bugun = dt.date.today()
     cikti = {"hafta": hafta_etiketi(bugun), "hazirlanma": bugun.isoformat(),
@@ -503,8 +504,10 @@ def main():
         gorulen["ogeler"] = ([x["id"] for x in adaylar[b]] + gorulen["ogeler"]
                              )[:GORULEN_SINIRI]
         time.sleep(0 if a.sahte_ozet else 5)
-    cikti["model"] = getattr(gem, "son_model", gem.model)
-    cikti["model_notlari"] = getattr(gem, "notlar", [])
+    cikti["model"] = gem.son_model
+    cikti["ana_model"] = gem.model
+    cikti["model_kullanimi"] = gem.kullanim
+    cikti["model_notlari"] = gem.notlar
 
     with open(os.path.join(CIKTI, "gundem.json"), "w", encoding="utf-8") as f:
         json.dump(cikti, f, ensure_ascii=False, indent=1)

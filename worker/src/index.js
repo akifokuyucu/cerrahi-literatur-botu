@@ -9,11 +9,14 @@
  *   GUNDEM_URL         (isteğe bağlı) gundem.json adresi; boşsa VERI_URL'in yanındaki dosya
  *   IZINLI_KULLANICI   Telegram kullanıcı numaran (boşsa bot numaranı söyler)
  *   GEMINI_MODEL       (isteğe bağlı) varsayılan: gemini-flash-latest
+ *   GROQ_API_KEY       (gizli, isteğe bağlı) Gemini yoğunken ücretsiz yedek
+ *   GROQ_MODEL         (isteğe bağlı) varsayılan: llama-3.3-70b-versatile
  *   NOTION_TOKEN       (gizli, isteğe bağlı) Notion entegrasyon anahtarı
  *   NOTION_ARSIV_DB    Okuma Arşivi veritabanı kimliği
  *   NOTION_ICERIK_DB   İçerik Havuzu veritabanı kimliği
  * Bağlantı (Binding):
  *   ONBELLEK           KV alanı — ayrıntılı özetler, oylar, arşiv kayıtları
+ *   AI                 Workers AI — Gemini yoğunken ücretsiz yedek (günde 10.000 neuron)
  */
 
 const TG = (env, metod) => `https://api.telegram.org/bot${env.TELEGRAM_TOKEN}/${metod}`;
@@ -252,34 +255,113 @@ const DETAY_SEMASI = {
     "sinirliliklar", "pratige_etkisi"],
 };
 
-const YEDEK_MODELLER = ["gemini-flash-lite-latest", "gemini-2.5-flash", "gemini-2.5-flash-lite"];
+// ------------------------------------------------------ yapay zekâ zinciri
+// Sırayla denenir: biri yoğunsa (503), kotası dolduysa ya da bozuk yanıt
+// verirse sıradakine geçilir. Groq (GROQ_API_KEY varsa) ve Cloudflare'in kendi
+// Workers AI'ı (AI bağlantısı varsa) Google dışı ücretsiz yedeklerdir.
+const GEMINI_YEDEK = ["gemini-2.5-flash", "gemini-flash-lite-latest", "gemini-2.5-flash-lite"];
+const WORKERS_AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
+const YOGUN_BEKLEME = 3000;
 
-async function gemini(env, metin, sema) {
-  // Ana model yoğunsa (503) ya da kotası dolduysa sıradaki modele geçilir
-  const ana = env.GEMINI_MODEL || "gemini-flash-latest";
-  const modeller = [ana, ...YEDEK_MODELLER.filter((m) => m !== ana)];
-  const govde = JSON.stringify({
-    contents: [{ role: "user", parts: [{ text: metin }] }],
-    generationConfig: { temperature: 0.2, responseMimeType: "application/json", responseSchema: sema },
-  });
-  let sonHata = "";
-  for (const model of modeller) {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
-    for (let deneme = 0; deneme < 2; deneme++) {
-      const r = await fetch(url, {
+class YzHatasi extends Error {
+  constructor(mesaj, tekrar = false) { super(mesaj); this.tekrar = tekrar; }
+}
+
+// Gemini şeması (type: "OBJECT") → standart JSON Schema (type: "object")
+const jsonSemasi = (s) => Array.isArray(s) ? s.map(jsonSemasi)
+  : s && typeof s === "object"
+    ? Object.fromEntries(Object.entries(s).map(([k, v]) =>
+      [k, k === "type" && typeof v === "string" ? v.toLowerCase() : jsonSemasi(v)]))
+    : s;
+
+function jsonCoz(metin) {
+  const t = String(metin).trim().replace(/^```(?:json)?\s*|\s*```$/g, "");
+  try { return JSON.parse(t); } catch (e) {
+    const m = t.match(/[[{][\s\S]*[\]}]/);
+    if (!m) throw e;
+    return JSON.parse(m[0]);
+  }
+}
+
+const semaUyuyor = (v, sema) => v && typeof v === "object" && !Array.isArray(v) &&
+  (sema.required || []).every((k) => k in v);
+
+const geminiSaglayici = (env, model) => ({
+  ad: model, azami: Infinity,
+  async cagir(metin, sema) {
+    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
+      body: JSON.stringify({
+        contents: [{ role: "user", parts: [{ text: metin }] }],
+        generationConfig: { temperature: 0.2, responseMimeType: "application/json", responseSchema: sema },
+      }),
+    });
+    if (!r.ok) throw new YzHatasi(`${model} ${r.status}: ${(await r.text()).slice(0, 200)}`, [429, 500, 503].includes(r.status));
+    const j = await r.json();
+    return jsonCoz(j.candidates?.[0]?.content?.parts?.map((p) => p.text || "").join("") || "");
+  },
+});
+
+const groqSaglayici = (env) => {
+  const model = env.GROQ_MODEL || "llama-3.3-70b-versatile";
+  return {
+    ad: `groq/${model}`, azami: 30000, // ücretsiz katmanın dakikalık token sınırı
+    async cagir(metin, sema) {
+      const r = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",
-        headers: { "content-type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-        body: govde,
+        headers: { "content-type": "application/json", authorization: `Bearer ${env.GROQ_API_KEY}` },
+        body: JSON.stringify({
+          model, temperature: 0.2, response_format: { type: "json_object" },
+          messages: [{ role: "user", content: metin +
+            "\n\nYanıtı YALNIZCA şu JSON şemasına uyan tek bir JSON nesnesi olarak ver:\n" +
+            JSON.stringify(jsonSemasi(sema)) }],
+        }),
       });
-      if (r.ok) {
-        const j = await r.json();
-        const parca = j.candidates?.[0]?.content?.parts?.map((p) => p.text || "").join("") || "";
-        return JSON.parse(parca);
+      if (!r.ok) throw new YzHatasi(`groq ${r.status}: ${(await r.text()).slice(0, 200)}`);
+      return jsonCoz((await r.json()).choices?.[0]?.message?.content || "");
+    },
+  };
+};
+
+const workersAiSaglayici = (env) => ({
+  ad: `workers-ai/${WORKERS_AI_MODEL.split("/").pop()}`, azami: 80000, // ~24k token bağlam
+  async cagir(metin, sema) {
+    const r = await env.AI.run(WORKERS_AI_MODEL, {
+      messages: [{ role: "user", content: metin }],
+      response_format: { type: "json_schema", json_schema: jsonSemasi(sema) },
+      max_tokens: 2500, temperature: 0.2,
+    });
+    return typeof r.response === "string" ? jsonCoz(r.response) : r.response;
+  },
+});
+
+function saglayicilar(env) {
+  const ana = env.GEMINI_MODEL || "gemini-flash-latest";
+  const gemini = [ana, ...GEMINI_YEDEK.filter((m) => m !== ana)].map((m) => geminiSaglayici(env, m));
+  const disari = [];
+  if (env.GROQ_API_KEY) disari.push(groqSaglayici(env));
+  if (env.AI) disari.push(workersAiSaglayici(env));
+  // Güçlü Gemini modelleri → Google dışı yedekler → en zayıf Gemini
+  return [...gemini.slice(0, -1), ...disari, ...gemini.slice(-1)];
+}
+
+// {veri, model} döndürür
+async function yz(env, metin, sema) {
+  let sonHata = "";
+  for (const s of saglayicilar(env)) {
+    if (metin.length > s.azami) continue; // ücretsiz sınırı aşan metin gönderilmez
+    for (let deneme = 0; deneme < 2; deneme++) {
+      try {
+        const veri = await s.cagir(metin, sema);
+        if (!semaUyuyor(veri, sema)) throw new YzHatasi(`${s.ad}: yanıt şemaya uymuyor`);
+        return { veri, model: s.ad };
+      } catch (e) {
+        sonHata = e.message.slice(0, 120);
+        console.log("Yapay zekâ hatası", s.ad, e.message.slice(0, 300));
+        if (!e.tekrar || deneme === 1) break; // sıradaki sağlayıcı
+        await new Promise((ok) => setTimeout(ok, YOGUN_BEKLEME));
       }
-      sonHata = `${model} ${r.status}`;
-      console.log("Gemini hatası", sonHata, (await r.text()).slice(0, 300));
-      if (![429, 500, 503].includes(r.status)) break; // 404/400: sıradaki model
-      if (deneme === 0) await new Promise((ok) => setTimeout(ok, 3000));
     }
   }
   throw new Error(`Yapay zekâ şu an yanıt vermiyor (${sonHata}). Birkaç dakika sonra tekrar dene.`);
@@ -406,8 +488,8 @@ async function detayHazirla(env, pmid, sohbet) {
     `Çalışma tipi (PubMed): ${m.tip_etiketi || "belirtilmemiş"}\n` +
     `Başlık: ${m.baslik}\n\nÖzet (abstract):\n${m.ozet || "(yok)"}` +
     (tam ? `\n\nTAM METİN:\n${tam}` : "");
-  const d = await gemini(env, girdi, DETAY_SEMASI);
-  const kayit = { m, d, tam: Boolean(tam) };
+  const { veri: d, model } = await yz(env, girdi, DETAY_SEMASI);
+  const kayit = { m, d, tam: Boolean(tam), model };
   await kvYaz(env, `detay:${pmid}`, kayit);
   if (env.ONBELLEK) await env.ONBELLEK.delete(`kilit:${pmid}`);
   return kayit;
@@ -657,7 +739,7 @@ async function soruCevapla(env, sohbet, pmid, soru) {
   const girdi = `${SORU_TALIMATI}\n\n---\nBaşlık: ${k.m.baslik}\nDergi: ${k.m.dergi}\n\n` +
     `Özet:\n${k.m.ozet || "(yok)"}` + (metin ? `\n\nTAM METİN:\n${metin}` : "") +
     `\n\n---\nSORU: ${soru}`;
-  const c = await gemini(env, girdi, {
+  const { veri: c } = await yz(env, girdi, {
     type: "OBJECT", properties: { cevap: { type: "STRING" } }, required: ["cevap"],
   });
   const uyari = metin ? "" : "\n\n<i>⚠️ Tam metin açık değil; cevap yalnızca özete dayanıyor.</i>";
