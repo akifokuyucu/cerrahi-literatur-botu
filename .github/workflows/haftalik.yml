@@ -16,7 +16,7 @@ concurrency:
 jobs:
   hazirla:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60   # ~20 dk ayrıntılı özetler dahil
     steps:
       - uses: actions/checkout@v4
 
@@ -27,7 +27,7 @@ jobs:
       - name: Bağımlılıkları kur
         run: pip install -r motor/requirements.txt
 
-      - name: 14 alanı tara, puanla, özetle
+      - name: 14 alanı tara, puanla, özetle (kısa ve ayrıntılı)
         working-directory: motor
         env:
           PYTHONUNBUFFERED: "1"

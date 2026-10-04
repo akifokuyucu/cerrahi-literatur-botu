@@ -1,5 +1,6 @@
 """
 Haftalık hazırlık: 14 alanı tara, puanla, özetle, cikti/hafta.json'a yaz,
+listedeki makalelerin ayrıntılı özetlerini cikti/detay.json'a yaz,
 Telegram'dan "liste hazır" bildirimi gönder.
 
 GitHub Actions her pazartesi bunu çalıştırır. Elle deneme:
@@ -18,6 +19,7 @@ import traceback
 import requests
 
 import config
+import detay
 import llm
 import motor
 import ozetleyici
@@ -73,12 +75,47 @@ def telegram_bildir(metin):
     print("Telegram bildirimi:", r.status_code)
 
 
+def ayrintili_ozetler(gem, cikti, sahte=False):
+    """Listedeki makalelerin ayrıntılı özetlerini cikti/detay.json'a yazar.
+    Sıra: önce öne çıkanlar, sonra alanlar; süre dolarsa kalanları bot
+    tuşa basılınca üretir."""
+    sira = list(cikti["gundem"])
+    for s in cikti["alanlar"].values():
+        sira += s["makaleler"] + ([s["turk"]] if s["turk"] else [])
+    tekil = {}
+    for m in sira:
+        tekil.setdefault(m["pmid"], m)
+    makaleler = list(tekil.values())
+
+    yol = os.path.join(CIKTI, "detay.json")
+    onceki = {}
+    try:
+        with open(yol, encoding="utf-8") as f:
+            eski = json.load(f)
+        # Aynı gün yeniden çalıştırılırsa hazır özetler tekrar üretilmez
+        if eski.get("hazirlanma") == cikti["hazirlanma"]:
+            onceki = eski.get("detaylar", {})
+    except (FileNotFoundError, json.JSONDecodeError):
+        pass
+
+    print(f"\n== Ayrıntılı özetler: {len(makaleler)} makale ==")
+    detaylar = detay.hepsini_hazirla(
+        gem, makaleler, onceki, config.DETAY_SURE_DK,
+        bekleme=0 if sahte else 4, tam_metin_al=not sahte)
+    with open(yol, "w", encoding="utf-8") as f:
+        json.dump({"hafta": cikti["hafta"], "hazirlanma": cikti["hazirlanma"],
+                   "detaylar": detaylar}, f, ensure_ascii=False, indent=1)
+    print(f"  {len(detaylar)}/{len(makaleler)} ayrıntılı özet hazır")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--alan", help="yalnızca bu alan (deneme için)")
     ap.add_argument("--girdi", help="kayıtlı PubMed XML (deneme için)")
     ap.add_argument("--sahte-ozet", action="store_true")
     ap.add_argument("--bildirim-yok", action="store_true")
+    ap.add_argument("--detay-yok", action="store_true",
+                    help="ayrıntılı özetleri hazırlama (bot anlık üretir)")
     a = ap.parse_args()
 
     pm = None if a.girdi else pubmed.PubMed(
@@ -160,6 +197,9 @@ def main():
         json.dump(cikti, f, ensure_ascii=False, indent=1)
     toplam = sum(len(s["makaleler"]) for s in cikti["alanlar"].values())
     print(f"\nTamam: {len(cikti['alanlar'])} alan, {toplam} makale.")
+
+    if not a.detay_yok and cikti["alanlar"]:
+        ayrintili_ozetler(gem, cikti, sahte=a.sahte_ozet)
 
     if not a.bildirim_yok:
         ek = (f"\n⚠️ Sorunlu alanlar: {', '.join(cikti['hatalar'])}"

@@ -80,6 +80,11 @@ class SahteGemini:
     kullanim = {}
 
     def uret(self, metin, sema=None, sicaklik=0.2):
+        if sema and sema.get("type") == "OBJECT":  # ayrıntılı özet (detay.py)
+            baslik = next((s[8:] for s in metin.splitlines() if s.startswith("Başlık: ")), "")
+            return {"baslik_tr": f"(test) {baslik[:60]}", "tek_cumle": "(test cümlesi)",
+                    "tasarim": "(test tasarımı)", "ana_bulgular": ["(test bulgusu)"],
+                    "sinirliliklar": ["(test sınırlılığı)"], "pratige_etkisi": "(test)"}
         idler = [s.split(":", 1)[1].strip()
                  for s in metin.splitlines() if s.startswith("id:")]
         if idler:  # gündem adayları (gundem.py)

@@ -132,5 +132,49 @@ class ZincirTesti(unittest.TestCase):
         self.assertEqual([s.ad for s in z.saglayicilar], ["ollama/qwen3:8b", "z"])
 
 
+class DetayTesti(unittest.TestCase):
+    def setUp(self):
+        mock.patch("detay.time.sleep").start()
+        self.addCleanup(mock.patch.stopall)
+
+    def test_jats_kaynakca_ve_tablolari_atar(self):
+        import detay
+        xml = ("<article><front>X</front><body><sec><title>Methods</title>"
+               "<p>Hasta &amp; yöntem <xref>[1]</xref>.</p><table-wrap>T</table-wrap>"
+               "</sec><ref-list>KAYNAK</ref-list></body></article>")
+        metin = detay.jats_metne(xml)
+        self.assertIn("## Methods", metin)
+        self.assertIn("Hasta & yöntem", metin)
+        self.assertNotIn("KAYNAK", metin)
+        self.assertNotIn("T\n", metin)
+
+    def test_onceki_ozet_yeniden_uretilmez(self):
+        import detay
+        z = mock.Mock(son_model="m")
+        z.uret.return_value = {"tek_cumle": "yeni"}
+        makaleler = [{"pmid": "1", "dergi": "D", "baslik": "B"},
+                     {"pmid": "2", "dergi": "D", "baslik": "B"}]
+        sonuc = detay.hepsini_hazirla(z, makaleler, {"1": {"d": "eski"}}, 5,
+                                      tam_metin_al=False)
+        self.assertEqual(sonuc["1"], {"d": "eski"})
+        self.assertEqual(sonuc["2"]["d"], {"tek_cumle": "yeni"})
+        self.assertEqual(z.uret.call_count, 1)
+
+    def test_art_arda_hatada_durur(self):
+        import detay
+        z = mock.Mock(son_model="m")
+        z.uret.side_effect = RuntimeError("hiçbiri yanıt vermedi")
+        makaleler = [{"pmid": str(i), "dergi": "D", "baslik": "B"} for i in range(5)]
+        self.assertEqual(detay.hepsini_hazirla(z, makaleler, {}, 5, tam_metin_al=False), {})
+        self.assertEqual(z.uret.call_count, 2)
+
+    def test_sure_dolunca_kalanlar_birakilir(self):
+        import detay
+        z = mock.Mock(son_model="m")
+        z.uret.return_value = {}
+        makaleler = [{"pmid": str(i), "dergi": "D", "baslik": "B"} for i in range(3)]
+        self.assertEqual(detay.hepsini_hazirla(z, makaleler, {}, 0, tam_metin_al=False), {})
+
+
 if __name__ == "__main__":
     unittest.main()

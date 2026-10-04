@@ -2,7 +2,7 @@
 
 Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Telegram'da sunan kişisel bot. Perşembeleri ayrıca cerrahi haberlerini ve gelişmeleri (📰 Gündem) derler.
 
-- **Her pazartesi 07:00:** GitHub Actions, PubMed'deki son 7 günün makalelerini tarar ve dergi ağırlığı ile çalışma tipine göre puanlar. Her alanda en iyi 5 makaleyi seçer, Turkish Journal of Surgery'den bir makale ekler, yapay zekâ ile (önce Gemini, yoğunsa ücretsiz yedekler) Türkçe kısa özetlerini yazar ve sonucu `cikti/hafta.json` dosyasına kaydeder.
+- **Her pazartesi 07:00:** GitHub Actions, PubMed'deki son 7 günün makalelerini tarar ve dergi ağırlığı ile çalışma tipine göre puanlar. Her alanda en iyi 5 makaleyi seçer, Turkish Journal of Surgery'den bir makale ekler, yapay zekâ ile (önce Gemini, yoğunsa ücretsiz yedekler) Türkçe kısa özetlerini yazar ve sonucu `cikti/hafta.json` dosyasına kaydeder. Ardından listedeki makalelerin ayrıntılı özetlerini en fazla 20 dakika boyunca hazırlar (önce öne çıkanlar) ve `cikti/detay.json` dosyasına yazar.
 - **Her perşembe 07:00 (📰 Gündem):** GitHub Actions dört bölüm hazırlar ve sonucu `cikti/gundem.json` dosyasına kaydeder:
   - 📘 Kılavuz & Kongre: WSES, ESCP ve ASCRS haber sayfaları, EAES ve SAGES RSS akışları, Google Haberler
   - 🤖 Teknoloji & Onaylar: FDA 510(k) kararları (openFDA), FDA/CE onayı, cerrahi robotik ve yapay zekâ haberleri
@@ -10,7 +10,7 @@ Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Teleg
   - 🧪 Yeni RCT'ler: ClinicalTrials.gov'a o hafta kaydedilen cerrahi randomize çalışmalar
 
   Adaylar yapay zekânın genel cerrahi süzgecinden geçer; tanıtım, borsa ve başka branş haberleri elenir. Kalanlara Türkçe başlık ve kısa özet yazılır. Dernek sayfalarında yalnızca önceki haftadan sonra eklenen bağlantılar alınır. Daha önce gösterilen haberler `cikti/gundem_gorulen.json` sayesinde tekrar gelmez.
-- **Telegram'da:** `/start` → alan seç → 5 makale ve kısa özetleri görünür → 📄 tuşuna basınca ayrıntılı özet gelir. Makale açık erişimliyse ayrıntılı özet tam metinden, değilse özetten (abstract) hazırlanır.
+- **Telegram'da:** `/start` → alan seç → 5 makale ve kısa özetleri görünür → 📄 tuşuna basınca ayrıntılı özet gelir. Pazartesi hazırlanmışsa anında gelir; hazırlanmamışsa bot o anda üretir. Makale açık erişimliyse ayrıntılı özet tam metinden, değilse özetten (abstract) hazırlanır.
 - Ayrıntılı özetin altında: **👍 / 👎** (oylar sonraki haftaların puanlamasına küçük bir kişisel katkı ekler), **📌 Arşive ekle** (Notion Okuma Arşivi), **📸 İçerik adayı** (Notion İçerik Havuzu'na "fikir"), **❓ Soru sor** (makale metnine dayalı soru-cevap; /iptal ile çıkılır). `/istatistik` oyların özetini gösterir. `/gundem` ya da menüdeki **📰 Gündem** tuşu haber bölümlerini açar. `/onecikanlar` ya da **🔥 Haftanın öne çıkanları** tuşu tüm alanlardan en yüksek puanlı 5 makaleyi gösterir.
 - Bot yalnızca sahibine cevap verir.
 
@@ -21,6 +21,7 @@ Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Teleg
 | `motor/config.py` | **Ayarlar:** dergi kademeleri, puanlar, alan arama terimleri |
 | `motor/` | PubMed'den çekme, puanlama, özetleme (Python) |
 | `motor/llm.py` | Yapay zekâ sağlayıcı zinciri (Gemini ve ücretsiz yedekler) |
+| `motor/detay.py` | Ayrıntılı (journal club) özetlerin pazartesi toplu hazırlanması |
 | `motor/gundem.py` | 📰 Gündem: haber kaynaklarını tarama ve süzme (kaynak listesi `config.py` içinde) |
 | `worker/` | Telegram botu (Cloudflare Worker, JavaScript) |
 | `cikti/` | Haftalık sonuç dosyası (otomatik oluşur) |

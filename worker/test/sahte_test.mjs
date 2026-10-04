@@ -8,11 +8,14 @@ const giden = [];
 const kv = new Map();
 let gundemYok = false; // perşembeden önce gundem.json henüz yoksa
 let geminiYogun = false; // tüm Gemini modelleri 503 versin
+let detayDosyasi = null; // pazartesi hazırlanan detay.json (null: henüz yok)
 globalThis.fetch = async (url, opt = {}) => {
   url = String(url);
   const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { "content-type": "application/json" } });
   if (url.includes("raw.githubusercontent") && url.endsWith("gundem.json"))
     return gundemYok ? new Response("404: Not Found", { status: 404 }) : json(gundem);
+  if (url.includes("raw.githubusercontent") && url.endsWith("detay.json"))
+    return detayDosyasi ? json(detayDosyasi) : new Response("404: Not Found", { status: 404 });
   if (url.includes("raw.githubusercontent")) return json(hafta);
   if (url.includes("api.telegram.org")) {
     const metod = url.split("/").pop();
@@ -203,3 +206,16 @@ await worker.fetch(new Request("https://bot.example/telegram", { method: "POST",
 kontrol("Hepsi yoğunken kullanıcıya açıklama", giden.some((g) => g.govde?.text?.includes("yanıt vermiyor")));
 geminiYogun = false;
 globalThis.setTimeout = eskiZamanlayici;
+
+// 25) Pazartesi hazırlanan ayrıntılı özet yapay zekâ çağırmadan gelir
+const hazirPmid = hafta.alanlar.kolorektal.makaleler.map((m) => m.pmid)
+  .find((p) => !["42778806", "42776522"].includes(p));
+detayDosyasi = { hazirlanma: "2026-09-29", detaylar: { [hazirPmid]: {
+  d: { baslik_tr: "Hazır başlık", tek_cumle: "Pazartesi hazırlanan özet", tasarim: "RCT",
+    ana_bulgular: ["OR 0,5"], sinirliliklar: ["Kısa izlem"], pratige_etkisi: "Orta" },
+  tam: true, model: "gemini-flash-latest" } } };
+giden.length = 0; await gonder(tik(111, `d:${hazirPmid}`));
+kontrol("Hazır özet yapay zekâsız gönderildi", !giden.some((g) => ["GEMINI", "GEMINI_503", "GROQ"].includes(g.metod)) &&
+  giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Pazartesi hazırlanan özet") && g.govde.text.includes("🔓 Tam metin")));
+kontrol("Hazır özet KV'ye kopyalandı (makale bilgisiyle)", JSON.parse(kv.get(`detay:${hazirPmid}`)).m.pmid === hazirPmid);
+detayDosyasi = null;

@@ -273,6 +273,9 @@ BOT_URL = "https://cerrahi-literatur-botu.akif-okuyucu.workers.dev"
 ADAY_SAYISI = 12
 # Kaç günlük pencere taransın
 PENCERE_GUN = 7
+# Ayrıntılı özetlerin pazartesi toplu hazırlanmasına ayrılan süre (dakika);
+# yetişmeyenler bot tuşa basılınca anlık üretir
+DETAY_SURE_DK = 20
 
 # ---------------------------------------------------------------------------
 # 5) 📰 GÜNDEM (haber modülü — her perşembe, gundem.py)

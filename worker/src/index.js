@@ -70,6 +70,18 @@ async function gundemVerisi(env) {
   return r.json();
 }
 
+// Pazartesi önceden hazırlanan ayrıntılı özetler (motor/detay.py). Yoksa null.
+async function detayVerisi(env) {
+  const url = env.VERI_URL.replace(/hafta\.json$/, "detay.json");
+  try {
+    const r = await fetch(url, { cf: { cacheTtl: 300 } });
+    return r.ok ? await r.json() : null;
+  } catch (e) {
+    console.log("detay.json okunamadı", e.message);
+    return null;
+  }
+}
+
 function makaleBul(veri, pmid) {
   for (const a of Object.values(veri.alanlar || {})) {
     for (const m of [...a.makaleler, a.turk]) if (m && m.pmid === pmid) return { ...m, alan: a.ad };
@@ -213,6 +225,7 @@ function haberBolumEkrani(gv, kod) {
 }
 
 // ---------------------------------------------------------- ayrıntılı özet
+// Talimat ve şema motor/detay.py ile aynı tutulmalı (pazartesi toplu hazırlık)
 const DETAY_TALIMATI = `Sen genel cerrahi alanında deneyimli bir akademisyensin ve
 yeni mezun bir hekime journal club tarzında makale anlatıyorsun.
 Aşağıdaki makaleyi Türkçe olarak yapılandırılmış biçimde özetle.
@@ -471,10 +484,18 @@ async function makaleGetir(env, pmid) {
   return m;
 }
 
-// Ayrıntılı özet: {m, d, tam} — KV'de 120 gün saklanır
+// Ayrıntılı özet: {m, d, tam, model} — KV'de 120 gün saklanır
 async function detayHazirla(env, pmid, sohbet) {
   const kayitli = await kvJson(env, `detay:${pmid}`);
   if (kayitli) return kayitli;
+  // Pazartesi hazırlandıysa yapay zekâ çağrılmaz; KV'ye de yazılır ki liste
+  // değiştikten sonra da (arşiv, soru-cevap) kalsın
+  const hazir = (await detayVerisi(env))?.detaylar?.[pmid];
+  if (hazir) {
+    const kayit = { m: await makaleGetir(env, pmid), ...hazir };
+    await kvYaz(env, `detay:${pmid}`, kayit);
+    return kayit;
+  }
   if (env.ONBELLEK) {
     if (await env.ONBELLEK.get(`kilit:${pmid}`)) return null; // aynı istek zaten işleniyor
     await env.ONBELLEK.put(`kilit:${pmid}`, "1", { expirationTtl: 120 });
