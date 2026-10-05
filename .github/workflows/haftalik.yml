@@ -16,10 +16,10 @@ concurrency:
 
 jobs:
   hazirla:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04   # ubuntu-latest 19 Ekim 2026'da Ubuntu 26'ya geçiyor; sabit tutuldu
     timeout-minutes: 60   # ~20 dk ayrıntılı özetler dahil
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # 10:00'daki yedek çalışma, sabah liste zaten hazırlandıysa hiçbir şey yapmaz
       - name: Bugün zaten hazırlandı mı?
@@ -31,7 +31,7 @@ jobs:
             echo "atla=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         if: steps.kontrol.outputs.atla != 'true'
         with:
           python-version: "3.12"
