@@ -10,7 +10,7 @@
  *   IZINLI_KULLANICI   Telegram kullanıcı numaran (boşsa bot numaranı söyler)
  *   GEMINI_MODEL       (isteğe bağlı) varsayılan: gemini-flash-latest
  *   GROQ_API_KEY       (gizli, isteğe bağlı) Gemini yoğunken ücretsiz yedek
- *   GROQ_MODEL         (isteğe bağlı) varsayılan: llama-3.3-70b-versatile
+ *   GROQ_MODEL         (isteğe bağlı) varsayılan: openai/gpt-oss-120b (ücretsiz planda)
  *   NOTION_TOKEN       (gizli, isteğe bağlı) Notion entegrasyon anahtarı
  *   NOTION_ARSIV_DB    Okuma Arşivi veritabanı kimliği
  *   NOTION_ICERIK_DB   İçerik Havuzu veritabanı kimliği
@@ -333,9 +333,9 @@ const geminiSaglayici = (env, model) => ({
 });
 
 const groqSaglayici = (env) => {
-  const model = env.GROQ_MODEL || "llama-3.3-70b-versatile";
+  const model = env.GROQ_MODEL || "openai/gpt-oss-120b";
   return {
-    ad: `groq/${model}`, azami: 30000, // ücretsiz katmanın dakikalık token sınırı
+    ad: `groq/${model}`, azami: 20000, // ücretsiz plan: dakikada 8 bin token
     async cagir(metin, sema) {
       const r = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST",

@@ -6,7 +6,7 @@ dolduysa (429) ya da bozuk yanıt verirse sıradakine geçilir. Tüm yedekler
 aynı şirkette olmasın diye zincirde farklı sağlayıcılar var.
 
 Zincir LLM_ZINCIRI değişkeniyle değiştirilebilir ("saglayici:model" listesi):
-  LLM_ZINCIRI="gemini:gemini-flash-latest,groq:llama-3.3-70b-versatile,ollama:gemma3:4b"
+  LLM_ZINCIRI="gemini:gemini-flash-latest,groq:openai/gpt-oss-120b,ollama:gemma3:4b"
 Anahtarı tanımlı olmayan sağlayıcılar zincirden sessizce çıkarılır.
 
 Sağlayıcılar ve anahtarları:
@@ -34,9 +34,10 @@ VARSAYILAN_ZINCIR = [
     "gemini:gemini-3.7-flash",
     "gemini:gemini-3.6-flash",
     "gemini:gemini-3.5-flash",
-    "groq:llama-3.3-70b-versatile",
+    "groq:openai/gpt-oss-120b",
     "gemini:gemini-flash-lite-latest",
     "gemini:gemini-3.5-flash-lite",
+    "groq:qwen/qwen3.8-27b",
     "cerebras:gpt-oss-120b",
     "openrouter:meta-llama/llama-3.3-70b-instruct:free",
     "gemini:gemini-3.1-flash-lite",
@@ -47,7 +48,8 @@ VARSAYILAN_ZINCIR = [
 # Azami girdi, ücretsiz katmanın istek başı token sınırına göre kaba bir
 # karşılık; daha uzun metinler (ör. tam metin) bu sağlayıcıya gönderilmez.
 OPENAI_UYUMLU = {
-    "groq": ("https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY", 30000),
+    # Groq ücretsiz plan: dakikada 8 bin token (girdi + çıktı)
+    "groq": ("https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY", 20000),
     "cerebras": ("https://api.cerebras.ai/v1/chat/completions", "CEREBRAS_API_KEY", 24000),
     "openrouter": ("https://openrouter.ai/api/v1/chat/completions", "OPENROUTER_API_KEY", 60000),
 }
@@ -234,7 +236,7 @@ class OllamaSaglayici:
 # Zincir
 # ---------------------------------------------------------------------------
 def saglayici_kur(tanim):
-    """"groq:llama-3.3-70b-versatile" → sağlayıcı nesnesi (anahtar yoksa None)."""
+    """"groq:openai/gpt-oss-120b" → sağlayıcı nesnesi (anahtar yoksa None)."""
     tur, _, model = tanim.strip().partition(":")
     if tur == "gemini":
         anahtar = os.getenv("GEMINI_API_KEY")

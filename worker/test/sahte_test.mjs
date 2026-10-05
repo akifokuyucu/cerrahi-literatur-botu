@@ -191,7 +191,7 @@ kontrol("Lite modellerden önce Google dışı yedeğe geçildi", !gemDenenen.so
 const groq = giden.find((g) => g.metod === "GROQ");
 kontrol("Sonra Groq'a JSON modu ve şemayla gidildi", groq && groq.json === "json_object" && groq.semaVar);
 kontrol("Groq yanıtıyla ayrıntılı özet gönderildi", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Groq özeti")));
-kontrol("Kayıtta modeli tutuldu", JSON.parse(kv.get("detay:42776522")).model === "groq/llama-3.3-70b-versatile");
+kontrol("Kayıtta modeli tutuldu", JSON.parse(kv.get("detay:42776522")).model === "groq/openai/gpt-oss-120b");
 // 23) Groq anahtarı yoksa Workers AI devreye girer
 kv.delete("detay:42776522");
 let aiGirdi = null;
@@ -244,14 +244,14 @@ geminiYogun = false; globalThis.setTimeout = eskiZamanlayici;
 
 // 29) Yedek model kullanıldıysa menüde not, ayrıntılı özette model adı
 hafta.ana_model = "gemini-flash-latest";
-hafta.model_kullanimi = { "gemini-flash-latest": 20, "groq/llama-3.3-70b-versatile": 8 };
+hafta.model_kullanimi = { "gemini-flash-latest": 20, "groq/openai/gpt-oss-120b": 8 };
 giden.length = 0; await gonder(mesaj(111, "/start"));
 const yedekMenu = giden.find((g) => g.metod === "sendMessage").govde.text;
-kontrol("Menüde yedek model notu", yedekMenu.includes("yedek modelle") && yedekMenu.includes("groq/llama-3.3-70b-versatile (8 istek)") && !yedekMenu.includes("gemini-flash-latest (20"));
+kontrol("Menüde yedek model notu", yedekMenu.includes("yedek modelle") && yedekMenu.includes("groq/openai/gpt-oss-120b (8 istek)") && !yedekMenu.includes("gemini-flash-latest (20"));
 hafta.model_kullanimi = { "gemini-flash-latest": 28 };
 giden.length = 0; await gonder(mesaj(111, "/start"));
 kontrol("Yedek yoksa not yok", !giden.find((g) => g.metod === "sendMessage").govde.text.includes("yedek modelle"));
 delete hafta.ana_model; delete hafta.model_kullanimi;
 giden.length = 0; await gonder(tik(111, "d:42776522"));
-kontrol("Ayrıntılı özette model adı", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Yapay zekâ özetidir (groq/llama-3.3-70b-versatile)")));
+kontrol("Ayrıntılı özette model adı", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Yapay zekâ özetidir (groq/openai/gpt-oss-120b)")));
 kontrol("Sayı denetimi: %95 CI kalıbı denetlenmez", JSON.stringify(sayiDenetimi("%95 CI belirtilmemiş; 95% CI ve %95 güven aralığı da yok. Ama %95 başarı.", "no numbers here")) === '["95"]');

@@ -63,16 +63,16 @@ Gemini'nin ücretsiz kotası **model başına ayrı** tutulur. `gemini-flash-lat
 
 **Haftalık hazırlık (GitHub Actions)** varsayılan sırası:
 1. Gemini: `gemini-flash-latest`, `gemini-3.7-flash`, `gemini-3.6-flash`, `gemini-3.5-flash`
-2. Groq: `llama-3.3-70b-versatile` (`GROQ_API_KEY`, [console.groq.com](https://console.groq.com))
+2. Groq: `openai/gpt-oss-120b` (`GROQ_API_KEY`, [console.groq.com](https://console.groq.com); ücretsiz planda günde 1.000 istek)
 3. Gemini: `gemini-flash-lite-latest`, `gemini-3.5-flash-lite`
-4. Cerebras: `gpt-oss-120b` (`CEREBRAS_API_KEY`)
+4. Groq: `qwen/qwen3.8-27b` (aynı anahtar, ayrı kota); Cerebras: `gpt-oss-120b` (`CEREBRAS_API_KEY`)
 5. OpenRouter: ücretsiz Llama 3.3 70B (`OPENROUTER_API_KEY`)
 6. Gemini: `gemini-3.1-flash-lite`
 7. Ollama: yerel model (`OLLAMA_URL`; yalnızca kendi bilgisayarında çalıştırırken)
 
 Not: GitHub Models 30 Temmuz 2026'da kapatıldı; Gemini 2.5 modelleri Eylül 2026'dan beri yeni projelere kapalı. Bu yüzden ikisi de zincirde yok.
 
-Sırayı değiştirmek için GitHub'da Settings → Secrets and variables → Actions → **Variables** altına `LLM_ZINCIRI` ekle. Örnek: `gemini:gemini-flash-latest,groq:llama-3.3-70b-versatile,gemini:gemini-flash-lite-latest`.
+Sırayı değiştirmek için GitHub'da Settings → Secrets and variables → Actions → **Variables** altına `LLM_ZINCIRI` ekle. Örnek: `gemini:gemini-flash-latest,groq:openai/gpt-oss-120b,gemini:gemini-flash-lite-latest`.
 
 Hangi modelin kullanıldığı ve yedeğe neden geçildiği `cikti/hafta.json` dosyasında görünür (`model_kullanimi`, `model_notlari`).
 
