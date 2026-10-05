@@ -11,7 +11,6 @@ Anahtarı tanımlı olmayan sağlayıcılar zincirden sessizce çıkarılır.
 
 Sağlayıcılar ve anahtarları:
   gemini      GEMINI_API_KEY      (Google AI Studio)
-  github      GITHUB_TOKEN        (GitHub Models; Actions'ta otomatik gelir)
   groq        GROQ_API_KEY
   cerebras    CEREBRAS_API_KEY
   openrouter  OPENROUTER_API_KEY
@@ -24,17 +23,23 @@ import time
 
 import requests
 
-# Sıra: önce Türkçe tıbbi özette en iyi sonuç verenler; Google genel olarak
-# yoğunken de çalışsın diye farklı şirketlerin modelleri araya serpiştirildi.
+# Sıra: önce Türkçe tıbbi özette en iyi sonuç verenler. Gemini'nin ücretsiz
+# kotası model başına ayrı tutulur: birkaç Flash sürümü art arda denenince
+# biri günlük kotasını doldurduğunda (gemini-flash-latest günde birkaç
+# istekte doluyor) diğerleri devreye girer. Google genel olarak yoğunken de
+# çalışsın diye başka şirketlerin modelleri (anahtar varsa) araya girer.
+# Kaldırılan modeller (404) ilk denemede o çalışma için devre dışı kalır.
 VARSAYILAN_ZINCIR = [
     "gemini:gemini-flash-latest",
-    "gemini:gemini-2.5-flash",
-    "github:openai/gpt-4.1-mini",
-    "gemini:gemini-flash-lite-latest",
+    "gemini:gemini-3.7-flash",
+    "gemini:gemini-3.6-flash",
+    "gemini:gemini-3.5-flash",
     "groq:llama-3.3-70b-versatile",
+    "gemini:gemini-flash-lite-latest",
+    "gemini:gemini-3.5-flash-lite",
     "cerebras:gpt-oss-120b",
     "openrouter:meta-llama/llama-3.3-70b-instruct:free",
-    "gemini:gemini-2.5-flash-lite",
+    "gemini:gemini-3.1-flash-lite",
     "ollama:gemma3:4b",
 ]
 
@@ -42,7 +47,6 @@ VARSAYILAN_ZINCIR = [
 # Azami girdi, ücretsiz katmanın istek başı token sınırına göre kaba bir
 # karşılık; daha uzun metinler (ör. tam metin) bu sağlayıcıya gönderilmez.
 OPENAI_UYUMLU = {
-    "github": ("https://models.github.ai/inference/chat/completions", "GITHUB_TOKEN", 24000),
     "groq": ("https://api.groq.com/openai/v1/chat/completions", "GROQ_API_KEY", 30000),
     "cerebras": ("https://api.cerebras.ai/v1/chat/completions", "CEREBRAS_API_KEY", 24000),
     "openrouter": ("https://openrouter.ai/api/v1/chat/completions", "OPENROUTER_API_KEY", 60000),
@@ -50,8 +54,9 @@ OPENAI_UYUMLU = {
 
 
 class SaglayiciHatasi(Exception):
-    """tur: "yogun" (tekrar denenebilir), "kota" (bekle), "gunluk" ya da
-    "kalici" (sıradaki sağlayıcıya geç)."""
+    """tur: "yogun" (tekrar denenebilir), "kota" (bekle), "kalici" (bu istek
+    için sıradakine geç), "gunluk" ya da "yok" (model kaldırılmış/erişim yok:
+    bu çalışma boyunca bir daha denenmez)."""
 
     def __init__(self, tur, mesaj, bekle=None):
         super().__init__(mesaj)
@@ -133,6 +138,9 @@ def _hata(ad, r):
         return SaglayiciHatasi("kota", f"{ad} 429: {govde}", _bekleme_suresi(r))
     if r.status_code in (500, 502, 503, 504):
         return SaglayiciHatasi("yogun", f"{ad} {r.status_code}: {govde}")
+    if r.status_code in (401, 403, 404):
+        # Model kaldırılmış ya da anahtarın erişimi yok: her istekte yeniden denenmesin
+        return SaglayiciHatasi("yok", f"{ad}: erişilemiyor ({r.status_code})")
     return SaglayiciHatasi("kalici", f"{ad} hata {r.status_code}: {govde}")
 
 
@@ -286,15 +294,18 @@ class Zincir:
                     return veri
                 except (SaglayiciHatasi, ValueError, KeyError,
                         requests.RequestException) as e:
-                    tur = getattr(e, "tur", "yogun" if isinstance(
-                        e, requests.RequestException) else "kalici")
+                    # Bağlantı/zaman aşımı → yoğun; JSON olmayan ya da bozuk
+                    # yanıt (requests'in JSON hatası da ValueError) → kalıcı
+                    tur = getattr(e, "tur", None) or (
+                        "kalici" if isinstance(e, (ValueError, KeyError)) else "yogun")
                     son_hata = str(e)[:300]
                     onerilen = getattr(e, "bekle", None)
                 deneme += 1
-                if tur == "gunluk":
-                    print(f"  {s.ad}: günlük kota dolu, sıradakine geçiliyor")
+                if tur in ("gunluk", "yok"):
+                    neden = "günlük kota dolu" if tur == "gunluk" else "erişilemiyor"
+                    print(f"  {s.ad}: {neden}, bu çalışmada bir daha denenmeyecek")
                     self._devre_disi.add(s.ad)
-                    self._not(f"{s.ad}: günlük kota dolu")
+                    self._not(f"{s.ad}: {neden}")
                     break
                 bekle = None
                 if tur == "kota" and deneme < 3:

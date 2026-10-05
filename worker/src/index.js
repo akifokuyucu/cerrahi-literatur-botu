@@ -286,7 +286,9 @@ const DETAY_SEMASI = {
 // Sırayla denenir: biri yoğunsa (503), kotası dolduysa ya da bozuk yanıt
 // verirse sıradakine geçilir. Groq (GROQ_API_KEY varsa) ve Cloudflare'in kendi
 // Workers AI'ı (AI bağlantısı varsa) Google dışı ücretsiz yedeklerdir.
-const GEMINI_YEDEK = ["gemini-2.5-flash", "gemini-flash-lite-latest", "gemini-2.5-flash-lite"];
+// Ücretsiz kota model başına ayrı: biri günlük kotasını doldurunca diğeri
+// devreye girer. Gemini 2.5 modelleri Eylül 2026'da yeni projelere kapandı.
+const GEMINI_YEDEK = ["gemini-3.7-flash", "gemini-3.5-flash", "gemini-flash-lite-latest", "gemini-3.5-flash-lite"];
 const WORKERS_AI_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
 const YOGUN_BEKLEME = 3000;
 
@@ -369,8 +371,11 @@ function saglayicilar(env) {
   const disari = [];
   if (env.GROQ_API_KEY) disari.push(groqSaglayici(env));
   if (env.AI) disari.push(workersAiSaglayici(env));
-  // Güçlü Gemini modelleri → Google dışı yedekler → en zayıf Gemini
-  return [...gemini.slice(0, -1), ...disari, ...gemini.slice(-1)];
+  // Güçlü Gemini modelleri → Google dışı yedekler → Lite modeller. Google
+  // genel olarak yoğunken kullanıcı tüm Gemini listesini beklemesin diye
+  // dış yedekler Lite'lardan önce
+  const lite = gemini.filter((s) => s.ad.includes("lite"));
+  return [...gemini.filter((s) => !lite.includes(s)), ...disari, ...lite];
 }
 
 // {veri, model} döndürür
@@ -435,10 +440,13 @@ function kaynakSayilari(metin) {
 }
 
 // Özetteki, kaynakta bulunamayan sayılar
+// "%95 CI", "95% CI", "%95 güven aralığı" veri değil kalıp ifade
+const GUVEN_ARALIGI = /%\s?95\s?(?=CI|GA|güven)|95\s?%\s?(?=CI|GA|güven)/gi;
+
 function sayiDenetimi(ozet, kaynak) {
   const kaynaktaki = kaynakSayilari(kaynak);
   const sonuc = [];
-  for (const s of ondalikNokta(ozet).match(SAYI) || []) {
+  for (const s of ondalikNokta(String(ozet || "").replace(GUVEN_ARALIGI, "")).match(SAYI) || []) {
     if (/^\d$/.test(s) || sonuc.includes(s)) continue;
     if (![...bicimler(s)].some((x) => kaynaktaki.has(x))) sonuc.push(s);
   }

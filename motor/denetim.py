@@ -63,10 +63,16 @@ def kaynak_sayilari(metin):
     return sayilar
 
 
+# "%95 CI", "95% CI", "%95 güven aralığı" bir veri değil kalıp ifade
+# ("%95 CI belirtilmemiş" gibi cümlelerde de geçer)
+GUVEN_ARALIGI = re.compile(r"%\s?95\s?(?=CI|GA|güven)|95\s?%\s?(?=CI|GA|güven)", re.I)
+
+
 def dogrulanamayan(ozet, kaynak):
     """Özetteki, kaynakta bulunamayan sayılar (sırayla, tekrarsız)."""
     kaynaktaki = kaynak_sayilari(kaynak)
-    ozet = re.sub(r"(?<![\d.,])[.,](\d)", r"0.\1", ozet or "")
+    ozet = GUVEN_ARALIGI.sub("", ozet or "")
+    ozet = re.sub(r"(?<![\d.,])[.,](\d)", r"0.\1", ozet)
     sonuc = []
     for s in SAYI.findall(ozet):
         if re.fullmatch(r"\d", s):

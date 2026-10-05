@@ -145,7 +145,9 @@ def hepsini_hazirla(zincir, makaleler, onceki, sure_dk, bekleme=4, tam_metin_al=
         except Exception as e:
             print(f"  {m['pmid']}: ayrıntılı özet hatası ({str(e)[:150]})")
             ardisik_hata += 1
-            if ardisik_hata >= 2:  # hiçbir sağlayıcı yanıt vermiyor
+            # Tek makaleye özgü hatalar (bozuk JSON vb.) döngüyü durdurmasın;
+            # art arda 4 hata ise sağlayıcıların hepsinin düştüğünü gösterir
+            if ardisik_hata >= 4:
                 print("  Art arda hata; kalanlar bota bırakıldı")
                 break
         time.sleep(bekleme)

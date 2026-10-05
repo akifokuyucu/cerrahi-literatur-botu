@@ -33,7 +33,7 @@ def openai_ok(metin):
 
 
 def zincir(*tanimlar, **kw):
-    ortam = {"GEMINI_API_KEY": "g", "GROQ_API_KEY": "q", "GITHUB_TOKEN": "h",
+    ortam = {"GEMINI_API_KEY": "g", "GROQ_API_KEY": "q", "CEREBRAS_API_KEY": "c",
              "OLLAMA_URL": "http://localhost:11434"}
     with mock.patch.dict(os.environ, ortam, clear=True):
         return llm.Zincir([llm.saglayici_kur(t) for t in tanimlar], **kw)
@@ -92,7 +92,7 @@ class ZincirTesti(unittest.TestCase):
         self.assertEqual(z.son_model, "b")
 
     def test_uzun_metin_kucuk_sinirli_saglayiciya_gitmez(self):
-        z = zincir("github:openai/gpt-4.1-mini", "gemini:a")
+        z = zincir("cerebras:gpt-oss-120b", "gemini:a")
         _, giden = self.calistir(z, [gemini_ok([{"pmid": "1"}])], metin="x" * 30000)
         self.assertIn("generativelanguage", giden[0][0])
 
@@ -112,6 +112,22 @@ class ZincirTesti(unittest.TestCase):
         self.assertEqual(giden[0][1]["model"], "gemma3:4b")
         self.assertEqual(giden[0][1]["format"]["type"], "array")
         self.assertEqual(giden[0][1]["format"]["items"]["type"], "object")
+
+    def test_kaldirilan_model_bir_daha_denenmez(self):
+        z = zincir("gemini:eski", "gemini:yeni")
+        self.calistir(z, [Yanit(404, "models/eski is not found"), gemini_ok([{"pmid": "1"}])])
+        _, giden = self.calistir(z, [gemini_ok([{"pmid": "2"}])])
+        self.assertEqual(len(giden), 1)
+        self.assertIn("/yeni:generateContent", giden[0][0])
+        self.assertIn("eski: erişilemiyor", z.notlar)
+
+    def test_json_olmayan_yanit_beklemeden_gecer(self):
+        # Kapanan bir servis 200 + düz metin "OK" döndürebiliyor (GitHub Models)
+        z = zincir("groq:b", "gemini:a", yogun_deneme=3)
+        veri, giden = self.calistir(z, [Yanit(200, "OK"), gemini_ok([{"pmid": "1"}])])
+        self.assertEqual(veri, [{"pmid": "1"}])
+        self.assertEqual(len(giden), 2)
+        self.uyku.assert_not_called()
 
     def test_hepsi_basarisizsa_hata(self):
         z = zincir("gemini:a", yogun_deneme=1)
@@ -166,7 +182,7 @@ class DetayTesti(unittest.TestCase):
         z.uret.side_effect = RuntimeError("hiçbiri yanıt vermedi")
         makaleler = [{"pmid": str(i), "dergi": "D", "baslik": "B"} for i in range(5)]
         self.assertEqual(detay.hepsini_hazirla(z, makaleler, {}, 5, tam_metin_al=False), {})
-        self.assertEqual(z.uret.call_count, 2)
+        self.assertEqual(z.uret.call_count, 4)
 
     def test_sure_dolunca_kalanlar_birakilir(self):
         import detay
@@ -199,6 +215,11 @@ class SayiDenetimiTesti(unittest.TestCase):
         import denetim
         kaynak = "Thirty-six patients and Seventeen studies; cost €53 562 vs ninety."
         self.assertEqual(denetim.dogrulanamayan("36 hasta, 17 çalışma, 53562 €, 90", kaynak), [])
+
+    def test_guven_araligi_kalibi_denetlenmez(self):
+        import denetim
+        ozet = "%95 CI belirtilmemiş; 95% CI ve %95 güven aralığı da yok. Ama %95 başarı."
+        self.assertEqual(denetim.dogrulanamayan(ozet, "no numbers here"), ["95"])
 
     def test_ic_ice_metinler(self):
         import denetim

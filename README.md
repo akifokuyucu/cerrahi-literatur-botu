@@ -57,17 +57,20 @@ Toplam puan = dergi puanı + çalışma tipi puanı.
 
 ## Yapay zekâ sağlayıcıları
 
-Özetler sırayla denenen bir sağlayıcı zinciriyle üretilir. Biri yoğunsa (503), kotası dolduysa (429) ya da bozuk yanıt verirse sıradakine geçilir. Anahtarı tanımlı olmayan sağlayıcı atlanır, bu yüzden yalnızca `GEMINI_API_KEY` ile de çalışır.
+Özetler sırayla denenen bir sağlayıcı zinciriyle üretilir. Biri yoğunsa (503), kotası dolduysa (429) ya da bozuk yanıt verirse sıradakine geçilir. Günlük kotası dolan ya da kaldırılmış (404) model o çalışma boyunca bir daha denenmez. Anahtarı tanımlı olmayan sağlayıcı atlanır, bu yüzden yalnızca `GEMINI_API_KEY` ile de çalışır.
+
+Gemini'nin ücretsiz kotası **model başına ayrı** tutulur. `gemini-flash-latest` günde yalnızca birkaç istekte doluyor (5 Ekim 2026: 5 istek). Bu yüzden zincirde birkaç Flash sürümü art arda yer alıyor.
 
 **Haftalık hazırlık (GitHub Actions)** varsayılan sırası:
-1. Gemini: `gemini-flash-latest`, `gemini-2.5-flash`
-2. GitHub Models: `openai/gpt-4.1-mini`. Anahtar gerekmez; Actions'taki `GITHUB_TOKEN` yeterli.
-3. Gemini: `gemini-flash-lite-latest`
-4. Groq: `llama-3.3-70b-versatile` (`GROQ_API_KEY`, [console.groq.com](https://console.groq.com))
-5. Cerebras: `gpt-oss-120b` (`CEREBRAS_API_KEY`)
-6. OpenRouter: ücretsiz Llama 3.3 70B (`OPENROUTER_API_KEY`)
-7. Gemini: `gemini-2.5-flash-lite`
-8. Ollama: yerel model (`OLLAMA_URL`; yalnızca kendi bilgisayarında çalıştırırken)
+1. Gemini: `gemini-flash-latest`, `gemini-3.7-flash`, `gemini-3.6-flash`, `gemini-3.5-flash`
+2. Groq: `llama-3.3-70b-versatile` (`GROQ_API_KEY`, [console.groq.com](https://console.groq.com))
+3. Gemini: `gemini-flash-lite-latest`, `gemini-3.5-flash-lite`
+4. Cerebras: `gpt-oss-120b` (`CEREBRAS_API_KEY`)
+5. OpenRouter: ücretsiz Llama 3.3 70B (`OPENROUTER_API_KEY`)
+6. Gemini: `gemini-3.1-flash-lite`
+7. Ollama: yerel model (`OLLAMA_URL`; yalnızca kendi bilgisayarında çalıştırırken)
+
+Not: GitHub Models 30 Temmuz 2026'da kapatıldı; Gemini 2.5 modelleri Eylül 2026'dan beri yeni projelere kapalı. Bu yüzden ikisi de zincirde yok.
 
 Sırayı değiştirmek için GitHub'da Settings → Secrets and variables → Actions → **Variables** altına `LLM_ZINCIRI` ekle. Örnek: `gemini:gemini-flash-latest,groq:llama-3.3-70b-versatile,gemini:gemini-flash-lite-latest`.
 
@@ -75,7 +78,7 @@ Hangi modelin kullanıldığı ve yedeğe neden geçildiği `cikti/hafta.json` d
 
 **Uydurma sayı denetimi (`motor/denetim.py`):** Özetteki her sayı (oran, HR, p değeri, hasta sayısı) kaynak metinde aranır. Ondalık virgül/nokta farkı, binlik ayırıcılar ve İngilizce yazıyla geçen sayılar ("Thirty-six patients") hesaba katılır. Kaynakta olmayan sayı varsa özet bir kez uyarı notuyla yeniden ürettirilir. Yine düzelmezse botta ⚠️ ile işaretlenir; ayrıntılı özette hangi sayıların doğrulanamadığı yazar.
 
-**Bot (anlık ayrıntılı özet ve soru-cevap)** sırası: Gemini modelleri → Groq (Cloudflare'de `GROQ_API_KEY` secret'ı varsa) → Workers AI (`wrangler.toml` içindeki `AI` bağlantısı, günde 10.000 neuron ücretsiz) → `gemini-2.5-flash-lite`.
+**Bot (anlık ayrıntılı özet ve soru-cevap)** sırası: Gemini Flash modelleri → Groq (Cloudflare'de `GROQ_API_KEY` secret'ı varsa) → Workers AI (`wrangler.toml` içindeki `AI` bağlantısı, günde 10.000 neuron ücretsiz) → Gemini Flash-Lite modelleri.
 
 ## Kurulum
 

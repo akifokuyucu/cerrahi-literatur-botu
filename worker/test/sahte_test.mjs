@@ -1,8 +1,9 @@
 // Worker'ı sahte Telegram/Gemini/GitHub ile uçtan uca dener.
+// hafta_ornek.json: 29 Eylül 2026 listesinin sabit kopyası (cikti/hafta.json her hafta değişir)
 import fs from "node:fs";
 import worker, { sayiDenetimi } from "../src/index.js";
 
-const hafta = JSON.parse(fs.readFileSync(new URL("../../cikti/hafta.json", import.meta.url)));
+const hafta = JSON.parse(fs.readFileSync(new URL("./hafta_ornek.json", import.meta.url)));
 const gundem = JSON.parse(fs.readFileSync(new URL("./gundem_ornek.json", import.meta.url)));
 const giden = [];
 const kv = new Map();
@@ -185,7 +186,8 @@ geminiYogun = true;
 kv.delete("detay:42776522");
 giden.length = 0; await gonder(tik(111, "d:42776522"));
 const gemDenenen = [...new Set(giden.filter((g) => g.metod === "GEMINI_503").map((g) => g.model))];
-kontrol("Gemini yoğunken önce tüm güçlü Gemini modelleri denendi", ["gemini-flash-latest", "gemini-2.5-flash", "gemini-flash-lite-latest"].every((m) => gemDenenen.includes(m)));
+kontrol("Gemini yoğunken önce güçlü Gemini modelleri denendi", ["gemini-flash-latest", "gemini-3.7-flash", "gemini-3.5-flash"].every((m) => gemDenenen.includes(m)));
+kontrol("Lite modellerden önce Google dışı yedeğe geçildi", !gemDenenen.some((m) => m.includes("lite")));
 const groq = giden.find((g) => g.metod === "GROQ");
 kontrol("Sonra Groq'a JSON modu ve şemayla gidildi", groq && groq.json === "json_object" && groq.semaVar);
 kontrol("Groq yanıtıyla ayrıntılı özet gönderildi", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Groq özeti")));
@@ -252,3 +254,4 @@ kontrol("Yedek yoksa not yok", !giden.find((g) => g.metod === "sendMessage").gov
 delete hafta.ana_model; delete hafta.model_kullanimi;
 giden.length = 0; await gonder(tik(111, "d:42776522"));
 kontrol("Ayrıntılı özette model adı", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Yapay zekâ özetidir (groq/llama-3.3-70b-versatile)")));
+kontrol("Sayı denetimi: %95 CI kalıbı denetlenmez", JSON.stringify(sayiDenetimi("%95 CI belirtilmemiş; 95% CI ve %95 güven aralığı da yok. Ama %95 başarı.", "no numbers here")) === '["95"]');
