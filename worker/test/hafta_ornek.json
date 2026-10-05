@@ -121,6 +121,24 @@
     "pmc": "PMC13549086",
     "tip_etiketi": "⚪ Retrospektif/Diğer",
     "cerrahi_ilgi": 1
+   },
+   "tez": {
+    "pmid": "tez1028802",
+    "tez_no": 1028802,
+    "baslik": "Distal rektum tümörü tanılı hastalarda inflamatuar belirteçler ve nutrisyonel indekslerin patolojik yanıtla ilişkisi",
+    "baslik_tr": "Distal rektum tümöründe inflamatuar belirteçler ve patolojik yanıt",
+    "kisa_ozet": "Neoadjuvan tedavi alan 124 distal rektum kanserli hastada NLR ve PNI düzeyleri patolojik tam yanıtla ilişkili bulundu (p=0,02).",
+    "ozet": "Amaç: Neoadjuvan kemoradyoterapi alan 124 distal rektum tümörlü hastada inflamatuar belirteçlerin (NLR) ve prognostik nutrisyonel indeksin (PNI) patolojik tam yanıtla ilişkisi araştırıldı. Bulgular: Düşük NLR patolojik tam yanıtla ilişkiliydi (p=0,02).",
+    "dergi": "YÖK Tez",
+    "dergi_tam": "ÖRNEK ÜNİVERSİTESİ / TIP FAKÜLTESİ / GENEL CERRAHİ ANABİLİM DALI",
+    "yil": "2026",
+    "tip": "tez",
+    "tip_etiketi": "Tıpta Uzmanlık tezi",
+    "cerrahi_ilgi": 2,
+    "yazar": "ÖRNEK YAZAR",
+    "danisman": "PROF. DR. ÖRNEK DANIŞMAN",
+    "universite": "ÖRNEK ÜNİVERSİTESİ",
+    "url": "https://tez.yok.gov.tr/UlusalTezMerkezi/tarama.jsp"
    }
   },
   "hepatobilier": {

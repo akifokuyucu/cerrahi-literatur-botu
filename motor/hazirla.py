@@ -1,6 +1,6 @@
 """
-Haftalık hazırlık: 14 alanı tara, puanla, özetle, cikti/hafta.json'a yaz,
-listedeki makalelerin ayrıntılı özetlerini cikti/detay.json'a yaz,
+Haftalık hazırlık: 14 alanı tara, puanla, her alana 1 YÖK Tez ekle, özetle,
+cikti/hafta.json'a yaz, ayrıntılı özetleri cikti/detay.json'a yaz,
 Telegram'dan "liste hazır" bildirimi gönder.
 
 GitHub Actions her pazartesi bunu çalıştırır. Elle deneme:
@@ -25,6 +25,7 @@ import motor
 import ozetleyici
 import pubmed
 import puanlama
+import yoktez
 
 CIKTI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "cikti")
 AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
@@ -34,7 +35,9 @@ AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
 TUTULAN = ["pmid", "baslik", "baslik_tr", "kisa_ozet", "ozet", "dergi",
            "dergi_tam", "yil", "doi", "pmc", "tip", "tip_etiketi", "toplam",
            "dergi_puani", "tip_puani", "cok_merkezli", "orneklem",
-           "cerrahi_ilgi", "kisisel", "sayi_uyarisi"]
+           "cerrahi_ilgi", "kisisel", "sayi_uyarisi",
+           # 🎓 YÖK Tez satırı
+           "tez_no", "yazar", "danisman", "universite", "url"]
 
 
 def hafta_etiketi(bugun):
@@ -81,7 +84,7 @@ def ayrintili_ozetler(gem, cikti, sahte=False):
     tuşa basılınca üretir."""
     sira = list(cikti["gundem"])
     for s in cikti["alanlar"].values():
-        sira += s["makaleler"] + ([s["turk"]] if s["turk"] else [])
+        sira += s["makaleler"] + [x for x in (s["turk"], s.get("tez")) if x]
     tekil = {}
     for m in sira:
         tekil.setdefault(m["pmid"], m)
@@ -116,6 +119,8 @@ def main():
     ap.add_argument("--bildirim-yok", action="store_true")
     ap.add_argument("--detay-yok", action="store_true",
                     help="ayrıntılı özetleri hazırlama (bot anlık üretir)")
+    ap.add_argument("--tez-yok", action="store_true",
+                    help="YÖK Tez satırını atla (--girdi ile kendiliğinden atlanır)")
     a = ap.parse_args()
 
     pm = None if a.girdi else pubmed.PubMed(
@@ -132,6 +137,9 @@ def main():
     cikti["oy_sayisi"] = len(oylar)
     if tercih:
         print(f"{len(oylar)} oy okundu; kişisel tercihler: {tercih}")
+    # 🎓 Her alana fazladan 1 YÖK Tez; site erişilemezse o hafta atlanır
+    yt = None if (a.girdi or a.tez_yok) else yoktez.YokTez()
+    secilen_tezler = []
 
     for kod in alanlar:
         print(f"\n== {config.ALANLAR[kod]['ad']} ==")
@@ -144,7 +152,20 @@ def main():
             continue
         print(f"  {s['taranan']} tarandı, {s['puanlanan']} puanlandı")
 
-        ozetlenecek = [m for m in s["makaleler"] + [s["turk"]]
+        tez = None
+        if yt:
+            try:
+                tez = yoktez.tez_sec(yt, kod, haric=secilen_tezler)
+                print(f"  YÖK Tez: {tez['tez_no']} {tez['baslik'][:60]}" if tez
+                      else "  YÖK Tez: uygun tez yok")
+            except Exception as e:
+                print(f"  YÖK Tez okunamadı, bu hafta atlanıyor: {str(e)[:150]}")
+                cikti["hatalar"].append("YÖK Tez okunamadı")
+                yt = None
+        if tez:
+            secilen_tezler.append(tez["tez_no"])
+
+        ozetlenecek = [m for m in s["makaleler"] + [s["turk"], tez]
                        if m and m["pmid"] not in ozet_onbellek]
         try:
             ozet_onbellek.update(ozetleyici.kisa_ozetle(
@@ -179,9 +200,12 @@ def main():
             "ad": s["ad"], "taranan": s["taranan"],
             "makaleler": [ekle(m) for m in uygun[:config.ALAN_BASINA]],
             "turk": ekle(s["turk"]),
+            "tez": ekle(tez),
         }
         if s["turk"] and not a.girdi:
             motor.turk_gosterildi_isaretle(kod, s["turk"]["pmid"])
+        if tez:
+            yoktez.gosterildi_isaretle(kod, tez["tez_no"])
 
     # 🔥 Bu hafta gündemde: tüm alanlardan en yüksek puanlı 5 makale
     havuz = {}

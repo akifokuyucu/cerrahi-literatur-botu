@@ -2,7 +2,7 @@
 
 Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Telegram'da sunan kişisel bot. Perşembeleri ayrıca cerrahi haberlerini ve gelişmeleri (📰 Gündem) derler.
 
-- **Her pazartesi 07:00:** GitHub Actions, PubMed'deki son 7 günün makalelerini tarar ve dergi ağırlığı ile çalışma tipine göre puanlar. Her alanda en iyi 5 makaleyi seçer, Turkish Journal of Surgery'den bir makale ekler, yapay zekâ ile (önce Gemini, yoğunsa ücretsiz yedekler) Türkçe kısa özetlerini yazar ve sonucu `cikti/hafta.json` dosyasına kaydeder. Ardından listedeki makalelerin ayrıntılı özetlerini en fazla 20 dakika boyunca hazırlar (önce öne çıkanlar) ve `cikti/detay.json` dosyasına yazar.
+- **Her pazartesi 07:00:** GitHub Actions, PubMed'deki son 7 günün makalelerini tarar ve dergi ağırlığı ile çalışma tipine göre puanlar. Her alanda en iyi 5 makaleyi seçer, Turkish Journal of Surgery'den bir makale ve YÖK Ulusal Tez Merkezi'nden bir genel cerrahi tezi ekler, yapay zekâ ile (önce Gemini, yoğunsa ücretsiz yedekler) Türkçe kısa özetlerini yazar ve sonucu `cikti/hafta.json` dosyasına kaydeder. Ardından listedeki makalelerin ayrıntılı özetlerini en fazla 20 dakika boyunca hazırlar (önce öne çıkanlar) ve `cikti/detay.json` dosyasına yazar.
 - **Her perşembe 07:00 (📰 Gündem):** GitHub Actions dört bölüm hazırlar ve sonucu `cikti/gundem.json` dosyasına kaydeder:
   - 📘 Kılavuz & Kongre: WSES, ESCP ve ASCRS haber sayfaları, EAES ve SAGES RSS akışları (okunamazsa sitelerin Google Haberler'deki sayfaları), Google Haberler
   - 🤖 Teknoloji & Onaylar: FDA 510(k) kararları (openFDA), FDA/CE onayı, cerrahi robotik ve yapay zekâ haberleri
@@ -22,6 +22,7 @@ Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Teleg
 | `motor/` | PubMed'den çekme, puanlama, özetleme (Python) |
 | `motor/llm.py` | Yapay zekâ sağlayıcı zinciri (Gemini ve ücretsiz yedekler) |
 | `motor/detay.py` | Ayrıntılı (journal club) özetlerin pazartesi toplu hazırlanması |
+| `motor/yoktez.py` | 🎓 Her alana YÖK Ulusal Tez Merkezi'nden bir tez |
 | `motor/gundem.py` | 📰 Gündem: haber kaynaklarını tarama ve süzme (kaynak listesi `config.py` içinde) |
 | `worker/` | Telegram botu (Cloudflare Worker, JavaScript) |
 | `cikti/` | Haftalık sonuç dosyası (otomatik oluşur) |
@@ -50,6 +51,8 @@ Toplam puan = dergi puanı + çalışma tipi puanı.
 **Cerrahi ilgi filtresi:** Her alanda en yüksek puanlı 12 aday yapay zekâya gönderilir (7 ve 6 makalelik iki istekle; bozuk bir yanıt bütün alanı boş bırakmaz, atlanan makaleler bir kez daha istenir). Yapay zekâ, genel cerrahi pratiğiyle ilgisiz bulduklarını (cerrahi bağlamı olmayan radyoterapi/ilaç çalışması, temel bilim, başka branş) eler. Kalanlardan puan sırasıyla ilk 5 gösterilir.
 
 **Türk dergisi satırı:** Turkish Journal of Surgery; Acil Cerrahi alanında ayrıca Ulusal Travma ve Acil Cerrahi Dergisi (TJTES).
+
+**🎓 YÖK Tez satırı (kural: her alanda fazladan 1 tez):** Her alanın Türkçe başlık terimleri (`config.YOKTEZ_TERIMLERI`) Ulusal Tez Merkezi'nde aranır. Konusu "Genel Cerrahi" olan, bu yılın ya da geçen yılın tıpta uzmanlık, yan dal uzmanlık ve doktora tezlerinden henüz gösterilmemiş en yenisi (en büyük Tez No) seçilir; hemşirelik tezleri alınmaz. Aynı tez iki alanda ya da sonraki haftalarda tekrar gelmez (`cikti/tez_gosterilen.json`). Kısa ve ayrıntılı özet tezin kendi özetinden yazılır. Tezlerin herkese açık sayfası olmadığı için botta Tez No ve Ulusal Tez Merkezi arama sayfasının bağlantısı gösterilir; tez, Tez No ile aranarak bulunur. Site o hafta erişilemezse satır atlanır, liste yine hazırlanır.
 
 **Kişisel puan:** Bottaki her net 👍/👎, o dergi ve çalışma tipi için ±0,25 puan; dergi ve tip başına en fazla ±0,5. Yalnızca sıralamayı etkiler, gösterilen puan değişmez.
 

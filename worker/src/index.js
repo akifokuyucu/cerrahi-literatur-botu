@@ -84,7 +84,7 @@ async function detayVerisi(env) {
 
 function makaleBul(veri, pmid) {
   for (const a of Object.values(veri.alanlar || {})) {
-    for (const m of [...a.makaleler, a.turk]) if (m && m.pmid === pmid) return { ...m, alan: a.ad };
+    for (const m of [...a.makaleler, a.turk, a.tez]) if (m && m.pmid === pmid) return { ...m, alan: a.ad };
   }
   return null;
 }
@@ -131,12 +131,38 @@ const uyariNotu = (ogeler) => ogeler.some((o) => o?.sayi_uyarisi)
   ? "\n<i>⚠️ Özetteki bazı sayılar kaynak metinde bulunamadı; teyit et.</i>" : "";
 
 function sigdir(bloklar, bas, son) {
-  // Toplam uzunluk sınırı aşılırsa kısa özetleri kısaltır
-  let metin = [bas, ...bloklar, son].filter(Boolean).join("\n\n");
-  if (metin.length <= SINIR) return metin;
-  const kisalt = bloklar.map((b) => b.replace(/\n([^<\n][^\n]{220})[^\n]+\n/, "\n$1…\n"));
-  return [bas, ...kisalt, son].filter(Boolean).join("\n\n").slice(0, SINIR);
+  // Sınır aşılırsa önce kısa özetler giderek kısaltılır; yine sığmazsa sondaki
+  // bloklar bütün olarak çıkarılır (metni kesmek HTML etiketini bozabilir)
+  const birlestir = (b) => [bas, ...b, son].filter(Boolean).join("\n\n");
+  if (birlestir(bloklar).length <= SINIR) return birlestir(bloklar);
+  for (const n of [220, 150, 90]) {
+    const kisa = bloklar.map((b) => b.replace(new RegExp(`\\n([^<\\n][^\\n]{${n}})[^\\n]+\\n`), (_, ilk) =>
+      "\n" + ilk.replace(/&[#\w]*$/, "") + "…\n")); // yarım HTML varlığı (&lt) kalmasın
+    if (birlestir(kisa).length <= SINIR) return birlestir(kisa);
+    bloklar = kisa;
+  }
+  while (bloklar.length > 1 && birlestir(bloklar).length > SINIR) bloklar = bloklar.slice(0, -1);
+  return birlestir(bloklar);
 }
+
+// 🎓 YÖK Ulusal Tez Merkezi satırı (motor/yoktez.py). Tezlerin herkese açık
+// sayfası yok: Tez No ve arama sayfası bağlantısı verilir.
+function tezBlogu(t) {
+  return (
+    "─────────────\n" +
+    `🎓 <b>YÖK Tez'den</b> · ${esc(t.tip_etiketi)}\n` +
+    `<i>${esc(t.baslik)}</i>\n` +
+    (t.kisa_ozet ? `${esc(t.kisa_ozet)}${t.sayi_uyarisi ? " ⚠️" : ""}\n` : "") +
+    `${esc(t.universite)}${t.yil ? " · " + esc(t.yil) : ""} · ` +
+    `<a href="${esc(t.url)}">Ulusal Tez Merkezi</a> (Tez No ${esc(t.tez_no)})`
+  );
+}
+
+// Makale ya da tezin kaynak bağlantısı: {url, ad}
+const kaynakBag = (m) => m.tez_no
+  ? { url: m.url || YOKTEZ_ARAMA, ad: `Ulusal Tez Merkezi (Tez No ${m.tez_no})` }
+  : { url: pubmedLink(m.pmid), ad: "PubMed" };
+const YOKTEZ_ARAMA = "https://tez.yok.gov.tr/UlusalTezMerkezi/tarama.jsp";
 
 function alanEkrani(veri, kod) {
   const a = veri.alanlar[kod];
@@ -160,10 +186,12 @@ function alanEkrani(veri, kod) {
         `<a href="${pubmedLink(a.turk.pmid)}">PubMed</a> · 🔓 tam metin açık`
     );
   }
-  const son = (a.makaleler.length || a.turk ? "📄 Ayrıntılı özet için numaraya bas." : "") +
-    uyariNotu([...a.makaleler, a.turk]);
+  if (a.tez) bloklar.push(tezBlogu(a.tez));
+  const son = (a.makaleler.length || a.turk || a.tez ? "📄 Ayrıntılı özet için numaraya bas." : "") +
+    uyariNotu([...a.makaleler, a.turk, a.tez]);
   const detay = a.makaleler.map((m, i) => ({ text: `📄 ${i + 1}`, callback_data: `d:${m.pmid}` }));
   if (a.turk) detay.push({ text: "📄 🇹🇷", callback_data: `d:${a.turk.pmid}` });
+  if (a.tez) detay.push({ text: "📄 🎓", callback_data: `d:${a.tez.pmid}` });
   const klavye = [];
   if (detay.length) klavye.push(detay);
   klavye.push([geriTusu]);
@@ -535,8 +563,9 @@ function detayMetni({ m, d, tam: tamMetinVar, sayi_uyarisi: hatali, model }) {
     d.journal_club_sorulari?.length
       ? `<b>Journal club soruları</b>\n${d.journal_club_sorulari.map((s, i) => `${i + 1}. ${esc(s)}`).join("\n")}`
       : "",
-    `🔗 <a href="${pubmedLink(m.pmid)}">PubMed</a>` +
+    `🔗 <a href="${esc(kaynakBag(m).url)}">${esc(kaynakBag(m).ad)}</a>` +
       (m.doi ? ` · <a href="https://doi.org/${esc(m.doi)}">Makale</a>` : "") +
+      (m.tez_no ? `\n${esc(m.yazar)}${m.danisman ? " · Danışman: " + esc(m.danisman) : ""}` : "") +
       `\n<i>Yapay zekâ özetidir${model ? ` (${esc(model)})` : ""}; klinik karar için makalenin kendisine başvur.</i>`,
   ];
   return bolumler.filter(Boolean).join("\n\n");
@@ -561,6 +590,11 @@ async function makaleGetir(env, pmid) {
   try {
     m = makaleBul(await haftaVerisi(env), pmid);
   } catch (e) { /* aşağıda PubMed'den denenir */ }
+  if (pmid.startsWith("tez")) {
+    // YÖK tezleri PubMed'de yok; liste değiştiyse KV'deki kayıt kullanılır
+    if (!m) throw new Error("Bu tez artık haftanın listesinde değil");
+    return m;
+  }
   if (!m || !m.ozet) m = { ...(await pubmeddenGetir(pmid)), alan: m?.alan || "" };
   return m;
 }
@@ -759,10 +793,10 @@ async function arsiveEkle(env, sohbet, pmid) {
   const ozellik = {
     "Başlık": { title: yazi(d.baslik_tr || m.baslik) },
     "Orijinal başlık": { rich_text: yazi(m.baslik) },
-    "Dergi": { rich_text: yazi(m.dergi) },
+    "Dergi": { rich_text: yazi(m.tez_no ? `YÖK Tez · ${m.universite || ""} · Tez No ${m.tez_no}` : m.dergi) },
     "Kaynak": { select: { name: k.tam ? "Tam metin" : "Yalnızca özet" } },
     "Durum": { select: { name: "Okunacak" } },
-    "PubMed": urlOz(pubmedLink(pmid)),
+    "PubMed": urlOz(kaynakBag(m).url),
     "DOI": urlOz(m.doi ? `https://doi.org/${m.doi}` : null),
   };
   if (m.alan) ozellik["Alan"] = { select: { name: m.alan.replace(", ", " - ") } };
@@ -800,7 +834,7 @@ async function icerikAdayi(env, sohbet, pmid) {
       "Köken": { select: { name: "Literatür botu" } },
       "Kategori": { select: { name: "Bilimsel" } },
       "Eksen": { select: { name: "E3 Haber" } },
-      "Kaynak linki": urlOz(m.doi ? `https://doi.org/${m.doi}` : pubmedLink(pmid)),
+      "Kaynak linki": urlOz(m.doi ? `https://doi.org/${m.doi}` : kaynakBag(m).url),
       "Teyit gerekiyor": { checkbox: true },
       "Notlar": { rich_text: yazi(`${m.dergi} · ${m.tip_etiketi || ""} · ${m.alan || ""}. ${d.tek_cumle || ""}`) },
     },

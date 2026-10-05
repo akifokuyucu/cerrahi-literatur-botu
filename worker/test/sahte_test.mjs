@@ -255,3 +255,24 @@ delete hafta.ana_model; delete hafta.model_kullanimi;
 giden.length = 0; await gonder(tik(111, "d:42776522"));
 kontrol("Ayrıntılı özette model adı", giden.some((g) => g.metod === "sendMessage" && g.govde.text.includes("Yapay zekâ özetidir (groq/openai/gpt-oss-120b)")));
 kontrol("Sayı denetimi: %95 CI kalıbı denetlenmez", JSON.stringify(sayiDenetimi("%95 CI belirtilmemiş; 95% CI ve %95 güven aralığı da yok. Ama %95 başarı.", "no numbers here")) === '["95"]');
+
+// 30) 🎓 YÖK Tez satırı: blok, ayrıntı tuşu, PubMed'siz ayrıntılı özet
+giden.length = 0; await gonder(tik(111, "a:kolorektal"));
+const tezListe = giden.find((g) => g.metod === "editMessageText").govde;
+kontrol("Listede 🎓 YÖK Tez bloğu (Tez No ve Ulusal Tez Merkezi bağlantısı)", tezListe.text.includes("🎓 <b>YÖK Tez'den</b>") && tezListe.text.includes("Tez No 1028802") && tezListe.text.includes("tez.yok.gov.tr"));
+kontrol("Tezli liste 4096 sınırında", tezListe.text.length <= 4096);
+kontrol("📄 🎓 ayrıntı tuşu", JSON.stringify(tezListe.reply_markup).includes("d:tez1028802"));
+giden.length = 0; await gonder(tik(111, "d:tez1028802"));
+const tezGem = giden.find((g) => g.metod === "GEMINI");
+const tezDetay = giden.filter((g) => g.metod === "sendMessage").map((g) => g.govde.text).join("\n");
+kontrol("Tez ayrıntısı PubMed'e gitmeden üretildi", tezGem && !tezDetay.includes("pubmed.ncbi") && tezDetay.includes("Ulusal Tez Merkezi (Tez No 1028802)") && tezDetay.includes("Danışman: PROF. DR. ÖRNEK DANIŞMAN"));
+giden.length = 0; await gonder(tik(111, "d:tez999"));
+kontrol("Listede olmayan tez için açıklama", giden.some((g) => g.govde?.text?.includes("artık haftanın listesinde değil")));
+// 31) Çok uzun alan listesi: HTML bozulmadan sığdırılır
+const eskiMakaleler = hafta.alanlar.kolorektal.makaleler;
+hafta.alanlar.kolorektal.makaleler = eskiMakaleler.map((m) => ({ ...m, kisa_ozet: "Uzun & <özet> metni ".repeat(60) }));
+giden.length = 0; await gonder(tik(111, "a:kolorektal"));
+const sigan = giden.find((g) => g.metod === "editMessageText").govde.text;
+const acik = (sigan.match(/<(b|i|a)\b/g) || []).length, kapali = (sigan.match(/<\/(b|i|a)>/g) || []).length;
+kontrol("Uzun liste 4096 sınırında, etiketler dengeli, yarım &-varlığı yok", sigan.length <= 4096 && acik === kapali && !/&[#\w]*…/.test(sigan));
+hafta.alanlar.kolorektal.makaleler = eskiMakaleler;

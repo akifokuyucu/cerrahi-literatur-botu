@@ -53,6 +53,30 @@ ELENEN_TIPLER = [
 # ---------------------------------------------------------------------------
 TURK_DERGISI = "Turk J Surg"
 TURK_DERGISI_GERIYE_GUN = 200  # üç ayda bir çıktığı için geniş pencere
+
+# 🎓 YÖK Ulusal Tez Merkezi: her alana fazladan 1 tez (motor/yoktez.py).
+# Terimler tez BAŞLIĞINDA aranır (kelimenin içinde geçmesi yeter: "pankrea"
+# → pankreas, pankreatit). Sonuçlar konusu "Genel Cerrahi" olanlarla süzülür,
+# bu yüzden geniş terimler başka branşların tezlerini getirmez.
+YOKTEZ_TERIMLERI = {
+    "kolorektal": ["kolorektal", "rektum", "hemoroid", "pilonidal", "anal fistül"],
+    "hepatobilier": ["karaciğer", "safra", "kolesist", "hepatoselüler"],
+    "pankreas": ["pankrea"],
+    "ust_gis": ["mide", "gastrektomi", "özofag"],
+    "bariatrik": ["bariatrik", "obezite", "sleeve", "metabolik cerrahi"],
+    "meme": ["meme", "aksiller"],
+    "herni": ["herni", "fıtık", "karın duvarı"],
+    "transplantasyon": ["transplant", "nakli"],
+    "onkoloji": ["sitoredüktif", "HIPEC", "periton", "sarkom", "melanom", "nöroendokrin"],
+    "acil": ["travma", "apandisit", "ileus", "akut batın", "perforasyon", "mezenter"],
+    "mis": ["laparoskopik", "robotik", "endoskopik", "minimal invaziv"],
+    "egitim": ["cerrahi eğitim", "simülasyon", "asistan", "öğrenme eğrisi"],
+    "yapay_zeka": ["yapay zeka", "yapay zekâ", "makine öğren", "derin öğren"],
+    "enfeksiyon": ["cerrahi alan enfeksiyonu", "yara enfeksiyonu", "sepsis", "antibiyotik"],
+}
+YOKTEZ_TURLER = {"Tıpta Uzmanlık", "Tıpta Yan Dal Uzmanlık", "Doktora"}
+# Bu yılın ve önceki YOKTEZ_YIL_GERI yılın tezleri (YÖK'e yükleme aylar sürebiliyor)
+YOKTEZ_YIL_GERI = 1
 # Bazı alanlarda ek Türk dergileri (TJTES aylık çıkar)
 ALAN_TURK_DERGILERI = {
     "acil": ["Turk J Surg", "Ulus Travma Acil Cerrahi Derg"],

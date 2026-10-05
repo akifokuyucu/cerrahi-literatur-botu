@@ -346,5 +346,86 @@ class AkisTesti(unittest.TestCase):
         self.assertEqual(hatalar, [])
 
 
+class YokTezTesti(unittest.TestCase):
+    SAYFA = """
+    <div class="result-card" data-index="0"
+         data-kayitno="AAA" data-tezno="BBB">
+        <div class="card-title">
+           Pilonidal sinüste Limberg flep
+        </div>
+        <div class="card-info" style="font-style: italic">
+           Limberg flap in pilonidal sinus
+        </div>
+        <div class="card-info" style="white-space: nowrap;"><strong>Tez No:</strong> 1000961</div>
+    </div>
+    <script>
+    referenceData = {
+        "0": {
+                "meta": {
+                    "author": "AD SOYAD", "year": "2026", "subject": "Genel Cerrahi",
+                    "type": "Tıpta Uzmanlık", "lang": "Türkçe",
+                    "yer": "DÜZCE ÜNİVERSİTESİ / ", "title": "Pilonidal sinüste Limberg flep"
+                }
+            }
+    };
+    </script>"""
+
+    def setUp(self):
+        import tempfile
+        import yoktez
+        self.gecici = tempfile.mkdtemp()
+        mock.patch.object(yoktez, "GOSTERILEN", os.path.join(self.gecici, "g.json")).start()
+        mock.patch.object(yoktez, "CIKTI", self.gecici).start()
+        self.addCleanup(mock.patch.stopall)
+
+    def test_sonuc_sayfasi_ayristirilir(self):
+        import yoktez
+        t = yoktez.sonuclari_ayristir(self.SAYFA)[0]
+        self.assertEqual((t["kayit"], t["anahtar"], t["no"]), ("AAA", "BBB", 1000961))
+        self.assertEqual(t["baslik_en"], "Limberg flap in pilonidal sinus")
+        self.assertEqual((t["konu"], t["tur"], t["yil"], t["universite"]),
+                         ("Genel Cerrahi", "Tıpta Uzmanlık", "2026", "DÜZCE ÜNİVERSİTESİ"))
+
+    @staticmethod
+    def tez(no, konu="Genel Cerrahi", tur="Tıpta Uzmanlık", yil="2026"):
+        return {"kayit": f"k{no}", "anahtar": f"a{no}", "no": no, "baslik": f"Tez {no}",
+                "baslik_en": "", "yazar": "Y", "yil": yil, "konu": konu, "tur": tur,
+                "universite": "U"}
+
+    def test_secim_kurallari(self):
+        import datetime as dt
+        import yoktez
+        yt = mock.Mock()
+        yt.ara.return_value = [
+            self.tez(9, konu="Çocuk Cerrahisi"),                 # başka branş
+            self.tez(8, konu="Hemşirelik; Genel Cerrahi", tur="Doktora"),  # hemşirelik
+            self.tez(7, tur="Yüksek Lisans"),                    # tür dışı
+            self.tez(6, yil="2023"),                             # eski
+            self.tez(5),                                         # başka alanda seçildi
+            self.tez(4),                                         # özeti yok
+            self.tez(3),                                         # ✓
+            self.tez(2),
+        ]
+        ozetler = {4: "", 3: "Amaç: " + "x" * 200}
+        yt.ayrinti.side_effect = lambda t: {"ozet_tr": ozetler.get(t["no"], "y" * 200), "ozet_en": "",
+                                            "danisman": "PROF. DR. D", "kurum": "U / TIP / GENEL CERRAHİ"}
+        with mock.patch.dict(yoktez.config.YOKTEZ_TERIMLERI, {"kolorektal": ["a", "b"]}):
+            m = yoktez.tez_sec(yt, "kolorektal", haric=[5], bugun=dt.date(2026, 10, 5))
+        self.assertEqual((m["pmid"], m["tez_no"], m["dergi"]), ("tez3", 3, "YÖK Tez"))
+        self.assertEqual(m["tip_etiketi"], "Tıpta Uzmanlık tezi")
+        self.assertTrue(m["ozet"].startswith("Amaç"))
+
+    def test_gosterilen_tez_tekrar_secilmez(self):
+        import datetime as dt
+        import yoktez
+        yt = mock.Mock()
+        yt.ara.return_value = [self.tez(3), self.tez(2)]
+        yt.ayrinti.return_value = {"ozet_tr": "x" * 200, "ozet_en": "", "danisman": "", "kurum": ""}
+        yoktez.gosterildi_isaretle("meme", 3)  # başka alanda daha önce gösterildi
+        with mock.patch.dict(yoktez.config.YOKTEZ_TERIMLERI, {"kolorektal": ["a"]}):
+            m = yoktez.tez_sec(yt, "kolorektal", bugun=dt.date(2026, 10, 5))
+        self.assertEqual(m["tez_no"], 2)
+
+
 if __name__ == "__main__":
     unittest.main()
