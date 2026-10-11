@@ -23,8 +23,10 @@ const TG = (env, metod) => `https://api.telegram.org/bot${env.TELEGRAM_TOKEN}/${
 const SINIR = 4000; // Telegram mesaj sınırı 4096
 
 // ---------------------------------------------------------------- yardımcılar
+// Tırnaklar da kaçırılır: href="..." içindeki bir " Telegram'ın HTML ayrıştırmasını bozar, mesaj hiç gitmez
 const esc = (s) =>
-  String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
 
 async function tg(env, metod, govde) {
   const r = await fetch(TG(env, metod), {
@@ -996,7 +998,7 @@ async function guncellemeIsle(env, u) {
 }
 
 // ------------------------------------------------------------------ giriş
-export { sayiDenetimi }; // test için
+export { sayiDenetimi, esc }; // test için
 
 export default {
   async fetch(request, env, ctx) {
@@ -1004,7 +1006,9 @@ export default {
 
     // Tek seferlik kurulum: tarayıcıda /kurulum?anahtar=WEBHOOK_SECRET aç
     if (url.pathname === "/kurulum") {
-      if (url.searchParams.get("anahtar") !== env.WEBHOOK_SECRET)
+      // Ayrı anahtar: adresteki değer tarayıcı geçmişine ve Worker günlüklerine düşer, WEBHOOK_SECRET'ı açığa
+      // çıkarmasın. KURULUM_ANAHTARI tanımlı değilse bu yol kapalıdır; kurulumdan sonra silinebilir.
+      if (!env.KURULUM_ANAHTARI || url.searchParams.get("anahtar") !== env.KURULUM_ANAHTARI)
         return new Response("Yetkisiz", { status: 403 });
       const w = await tg(env, "setWebhook", {
         url: `${url.origin}/telegram`, secret_token: env.WEBHOOK_SECRET,

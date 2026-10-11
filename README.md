@@ -95,7 +95,7 @@ Hangi modelin kullanıldığı ve yedeğe neden geçildiği `cikti/hafta.json` d
    - İsteğe bağlı yedek yapay zekâ anahtarları: `GROQ_API_KEY`, `CEREBRAS_API_KEY`, `OPENROUTER_API_KEY`
 3. **Cloudflare Worker:** Workers & Pages → Create → Import a repository yolunu izle. Bu depoyu seç ve kök klasör olarak `worker` yaz.
    - Settings → Variables and Secrets altına **Secret** olarak şunları ekle: `TELEGRAM_TOKEN`, `GEMINI_API_KEY`, `WEBHOOK_SECRET` (kendi uydurduğun uzun bir parola), `IZINLI_KULLANICI`, isteğe bağlı `GROQ_API_KEY` ve `NOTION_TOKEN` (Notion entegrasyon anahtarı; Okuma Arşivi ve İçerik Havuzu veritabanları bu entegrasyonla paylaşılmalı).
-4. **Webhook'u bağla:** Tarayıcıda `https://<worker-adresin>/kurulum?anahtar=<WEBHOOK_SECRET>` adresini bir kez aç.
+4. **Webhook'u bağla:** Cloudflare'e geçici bir `KURULUM_ANAHTARI` Secret'ı ekle (WEBHOOK_SECRET'tan farklı, uzun rastgele bir değer). Tarayıcıda `https://<worker-adresin>/kurulum?anahtar=<KURULUM_ANAHTARI>` adresini bir kez aç. Kurulum bitince `KURULUM_ANAHTARI`'nı silebilirsin; tanımlı değilken bu sayfa kapalıdır. (Adresteki anahtar tarayıcı geçmişine ve Worker günlüklerine düşer; bu yüzden WEBHOOK_SECRET kullanılmaz.)
 5. **İlk listeyi oluştur:** GitHub'da Actions → Haftalık hazırlık → Run workflow yolunu izle. Gündem için Actions → Haftalık gündem → Run workflow.
 
 ## Elle deneme (isteğe bağlı)

@@ -1,7 +1,7 @@
 // Worker'ı sahte Telegram/Gemini/GitHub ile uçtan uca dener.
 // hafta_ornek.json: 29 Eylül 2026 listesinin sabit kopyası (cikti/hafta.json her hafta değişir)
 import fs from "node:fs";
-import worker, { sayiDenetimi } from "../src/index.js";
+import worker, { sayiDenetimi, esc } from "../src/index.js";
 
 const hafta = JSON.parse(fs.readFileSync(new URL("./hafta_ornek.json", import.meta.url)));
 const gundem = JSON.parse(fs.readFileSync(new URL("./gundem_ornek.json", import.meta.url)));
@@ -131,8 +131,14 @@ kontrol("Kapalı erişimde 'yalnızca özet' uyarısı", giden.some((g) => g.met
 giden.length = 0; await worker.fetch(new Request("https://bot.example/telegram", { method: "POST", headers: { "X-Telegram-Bot-Api-Secret-Token": "S" }, body: JSON.stringify(mesaj(222, "/start")) }), { ...env, IZINLI_KULLANICI: "" }, {});
 kontrol("Kurulum modunda numara söylenir", giden[0]?.govde.text.includes("222"));
 // 10) /kurulum sayfası
-const r = await worker.fetch(new Request("https://bot.example/kurulum?anahtar=S"), env, {});
+const r = await worker.fetch(new Request("https://bot.example/kurulum?anahtar=K"), { ...env, KURULUM_ANAHTARI: "K" }, {});
 kontrol("Kurulum sayfası çalışır", (await r.text()).includes("Kurulum tamam"));
+const r2 = await worker.fetch(new Request("https://bot.example/kurulum?anahtar=S"), { ...env, KURULUM_ANAHTARI: "K" }, {});
+kontrol("Kurulum WEBHOOK_SECRET ile açılmaz", r2.status === 403);
+const r3 = await worker.fetch(new Request("https://bot.example/kurulum?anahtar="), env, {});
+kontrol("KURULUM_ANAHTARI yoksa kurulum kapalı", r3.status === 403);
+// Tırnak kaçırma: bağlantıdaki " Telegram HTML'ini bozmasın
+kontrol("esc tırnakları kaçırır", esc(`a"b'c<&>`) === "a&quot;b&#39;c&lt;&amp;&gt;");
 
 // 11) Ayrıntılı özetin altında yeni tuşlar
 giden.length = 0; await gonder(tik(111, "d:42778806"));
