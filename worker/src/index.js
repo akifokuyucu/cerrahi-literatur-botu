@@ -57,27 +57,33 @@ function parcala(metin) {
   return parcalar;
 }
 
-async function haftaVerisi(env) {
-  const r = await fetch(env.VERI_URL, { cf: { cacheTtl: 300 } });
-  if (!r.ok) throw new Error("hafta.json okunamadı: " + r.status);
-  return r.json();
+// Veri dosyaları Worker belleğinde de tutulur: her tuşta ~260 KB'lık hafta.json'u yeniden indirip
+// ayrıştırmamak için. Süre Cloudflare önbelleğiyle (cacheTtl) aynı, yani güncellik değişmez.
+// Dönen nesne istekler arasında paylaşılır: değiştirilmemeli (kopyası alınmalı).
+const veriOnbellegi = new Map();
+
+async function veriGetir(env, url, ad, yoksaNull) {
+  const sure = Number(env.VERI_ONBELLEK_SN ?? 300) * 1000;
+  const kayit = veriOnbellegi.get(url);
+  if (kayit && Date.now() - kayit.zaman < sure) return kayit.veri;
+  const r = await fetch(url, { cf: { cacheTtl: 300 } });
+  let veri = null;
+  if (r.ok) veri = await r.json();
+  else if (!(yoksaNull && r.status === 404)) throw new Error(`${ad} okunamadı: ${r.status}`);
+  veriOnbellegi.set(url, { zaman: Date.now(), veri });
+  return veri;
 }
 
+const haftaVerisi = (env) => veriGetir(env, env.VERI_URL, "hafta.json", false);
+
 // 📰 Gündem (perşembe hazırlanır). İlk hazırlıktan önce dosya yoksa null.
-async function gundemVerisi(env) {
-  const url = env.GUNDEM_URL || env.VERI_URL.replace(/hafta\.json$/, "gundem.json");
-  const r = await fetch(url, { cf: { cacheTtl: 300 } });
-  if (r.status === 404) return null;
-  if (!r.ok) throw new Error("gundem.json okunamadı: " + r.status);
-  return r.json();
-}
+const gundemVerisi = (env) =>
+  veriGetir(env, env.GUNDEM_URL || env.VERI_URL.replace(/hafta\.json$/, "gundem.json"), "gundem.json", true);
 
 // Pazartesi önceden hazırlanan ayrıntılı özetler (motor/detay.py). Yoksa null.
 async function detayVerisi(env) {
-  const url = env.VERI_URL.replace(/hafta\.json$/, "detay.json");
   try {
-    const r = await fetch(url, { cf: { cacheTtl: 300 } });
-    return r.ok ? await r.json() : null;
+    return await veriGetir(env, env.VERI_URL.replace(/hafta\.json$/, "detay.json"), "detay.json", true);
   } catch (e) {
     console.log("detay.json okunamadı", e.message);
     return null;
@@ -669,9 +675,15 @@ async function detayGonder(env, sohbet, pmid) {
 async function oyVer(env, q, pmid, oy) {
   const k = await kvJson(env, `detay:${pmid}`);
   const m = k?.m || (await makaleGetir(env, pmid));
-  await kvYaz(env, `oy:${pmid}`, {
-    oy, dergi: m.dergi, tip: m.tip || "", alan: m.alan || "", tarih: new Date().toISOString(),
-  }, 730);
+  const kayit = { oy, dergi: m.dergi, tip: m.tip || "", alan: m.alan || "", tarih: new Date().toISOString() };
+  // Oy anahtarın metadata'sına da yazılır: listeleme her oy için ayrı KV okuması yapmasın.
+  // (KV metadata sınırı 1024 bayt; aşan kayıt metadata'sız yazılır, listede ayrıca okunur.)
+  if (env.ONBELLEK) {
+    const metin = JSON.stringify(kayit);
+    await env.ONBELLEK.put(`oy:${pmid}`, metin, {
+      expirationTtl: GUN * 730, ...(new TextEncoder().encode(metin).length <= 1000 ? { metadata: kayit } : {}),
+    });
+  }
   await tg(env, "answerCallbackQuery", {
     callback_query_id: q.id, text: oy ? "👍 Kaydedildi, benzerlerini öne çıkaracağım" : "👎 Kaydedildi",
   });
@@ -696,7 +708,17 @@ async function oylariListele(env) {
   do {
     const l = await env.ONBELLEK.list({ prefix: "oy:", cursor });
     for (const k of l.keys) {
-      const v = await kvJson(env, k.name);
+      let v = k.metadata;
+      if (!v) {
+        // Metadata'sız eski oy: bir kez okunur ve metadata'yla (aynı son kullanma tarihiyle) yeniden yazılır
+        v = await kvJson(env, k.name);
+        const metin = v && JSON.stringify(v);
+        if (metin && new TextEncoder().encode(metin).length <= 1000) {
+          await env.ONBELLEK.put(k.name, metin, {
+            metadata: v, ...(k.expiration ? { expiration: k.expiration } : { expirationTtl: GUN * 730 }),
+          });
+        }
+      }
       if (v) oylar.push({ pmid: k.name.slice(3), ...v });
     }
     cursor = l.list_complete ? null : l.cursor;
@@ -998,7 +1020,7 @@ async function guncellemeIsle(env, u) {
 }
 
 // ------------------------------------------------------------------ giriş
-export { sayiDenetimi, esc }; // test için
+export { sayiDenetimi, esc, veriOnbellegi }; // test için
 
 export default {
   async fetch(request, env, ctx) {

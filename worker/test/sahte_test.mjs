@@ -1,12 +1,14 @@
 // Worker'ı sahte Telegram/Gemini/GitHub ile uçtan uca dener.
 // hafta_ornek.json: 29 Eylül 2026 listesinin sabit kopyası (cikti/hafta.json her hafta değişir)
 import fs from "node:fs";
-import worker, { sayiDenetimi, esc } from "../src/index.js";
+import worker, { sayiDenetimi, esc, veriOnbellegi } from "../src/index.js";
 
 const hafta = JSON.parse(fs.readFileSync(new URL("./hafta_ornek.json", import.meta.url)));
 const gundem = JSON.parse(fs.readFileSync(new URL("./gundem_ornek.json", import.meta.url)));
 const giden = [];
 const kv = new Map();
+const kvEk = new Map(); // anahtar → { metadata, expiration }
+const kvOkuma = []; // ONBELLEK.get çağrıları
 let gundemYok = false; // perşembeden önce gundem.json henüz yoksa
 let geminiYogun = false; // tüm Gemini modelleri 503 versin
 let detayDosyasi = null; // pazartesi hazırlanan detay.json (null: henüz yok)
@@ -56,8 +58,20 @@ globalThis.fetch = async (url, opt = {}) => {
 const env = { TELEGRAM_TOKEN: "T", GEMINI_API_KEY: "G", GROQ_API_KEY: "Q", WEBHOOK_SECRET: "S", IZINLI_KULLANICI: "111",
   VERI_URL: "https://raw.githubusercontent.com/x/y/main/cikti/hafta.json",
   NOTION_TOKEN: "N", NOTION_ARSIV_DB: "arsivdb", NOTION_ICERIK_DB: "icerikdb",
-  ONBELLEK: { get: async (k) => kv.get(k) ?? null, put: async (k, v) => kv.set(k, v), delete: async (k) => kv.delete(k),
-    list: async ({ prefix }) => ({ keys: [...kv.keys()].filter((k) => k.startsWith(prefix)).map((name) => ({ name })), list_complete: true }) } };
+  // Testler veri dosyalarını çalışırken değiştirir: bellek önbelleği kapalı (31. bölümde ayrıca denenir)
+  VERI_ONBELLEK_SN: "0",
+  ONBELLEK: {
+    get: async (k) => { kvOkuma.push(k); return kv.get(k) ?? null; },
+    put: async (k, v, o = {}) => { kv.set(k, v); kvEk.set(k, { metadata: o.metadata, expiration: o.expiration }); },
+    delete: async (k) => { kv.delete(k); kvEk.delete(k); },
+    list: async ({ prefix }) => ({
+      keys: [...kv.keys()].filter((k) => k.startsWith(prefix)).map((name) => {
+        const { metadata, expiration } = kvEk.get(name) || {};
+        return { name, ...(metadata ? { metadata } : {}), ...(expiration ? { expiration } : {}) };
+      }),
+      list_complete: true,
+    }),
+  } };
 
 const gonder = (u, sirr = "S") => worker.fetch(new Request("https://bot.example/telegram", {
   method: "POST", headers: { "X-Telegram-Bot-Api-Secret-Token": sirr }, body: JSON.stringify(u) }), env, {});
@@ -282,3 +296,44 @@ const sigan = giden.find((g) => g.metod === "editMessageText").govde.text;
 const acik = (sigan.match(/<(b|i|a)\b/g) || []).length, kapali = (sigan.match(/<\/(b|i|a)>/g) || []).length;
 kontrol("Uzun liste 4096 sınırında, etiketler dengeli, yarım &-varlığı yok", sigan.length <= 4096 && acik === kapali && !/&[#\w]*…/.test(sigan));
 hafta.alanlar.kolorektal.makaleler = eskiMakaleler;
+
+// 32) Veri dosyaları Worker belleğinde 5 dakika tutulur (her tuşta yeniden indirilmez)
+{
+  const envOnbellek = { ...env, VERI_ONBELLEK_SN: "300" };
+  const gonderO = (u) => worker.fetch(new Request("https://bot.example/telegram", {
+    method: "POST", headers: { "X-Telegram-Bot-Api-Secret-Token": "S" }, body: JSON.stringify(u) }), envOnbellek, {});
+  const asilFetch = globalThis.fetch;
+  let haftaIndirme = 0;
+  globalThis.fetch = (url, opt) => { if (String(url).endsWith("hafta.json")) haftaIndirme++; return asilFetch(url, opt); };
+  veriOnbellegi.clear();
+  await gonderO(tik(111, "m")); await gonderO(tik(111, "a:kolorektal")); await gonderO(mesaj(111, "/start"));
+  kontrol("hafta.json üç ekranda bir kez indirildi", haftaIndirme === 1);
+  const eski = veriOnbellegi.get(env.VERI_URL); eski.zaman -= 301 * 1000; // süre doldu
+  giden.length = 0; await gonderO(tik(111, "m"));
+  kontrol("Süre dolunca yeniden indirildi", haftaIndirme === 2 && giden.some((g) => g.metod === "editMessageText"));
+  gundemYok = true; veriOnbellegi.clear();
+  giden.length = 0; await gonderO(tik(111, "h")); await gonderO(tik(111, "h"));
+  kontrol("gundem.json yokken (404) de açıklayıcı mesaj, önbellekli", giden.filter((g) => g.govde?.text?.includes("henüz çıkmadı")).length === 2);
+  gundemYok = false; veriOnbellegi.clear();
+  globalThis.fetch = asilFetch;
+}
+
+// 33) Oylar metadata'da: /istatistik ve /geri-bildirim her oy için ayrı KV okuması yapmaz
+{
+  giden.length = 0; await gonder(tik(111, "o:0:42776522"));
+  kontrol("Yeni oy metadata'yla yazıldı", kvEk.get("oy:42776522")?.metadata?.oy === 0);
+  // Metadata'sız eski oy (bu değişiklikten önce yazılmış)
+  const eskiSure = Math.floor(Date.now() / 1000) + 3600;
+  kv.set("oy:11111111", JSON.stringify({ oy: 1, dergi: "Eski Dergi", tip: "rct", alan: "Kolorektal", tarih: "2026-09-01" }));
+  kvEk.set("oy:11111111", { expiration: eskiSure });
+  kvOkuma.length = 0; giden.length = 0; await gonder(mesaj(111, "/istatistik"));
+  const ist = giden.find((g) => g.metod === "sendMessage")?.govde.text || "";
+  kontrol("Eski oy sayıldı ve bir kez okundu", ist.includes("Eski Dergi") && kvOkuma.filter((k) => k.startsWith("oy:")).join() === "oy:11111111");
+  kontrol("Eski oy metadata'yla, aynı son kullanma tarihiyle yeniden yazıldı",
+    kvEk.get("oy:11111111")?.metadata?.dergi === "Eski Dergi" && kvEk.get("oy:11111111")?.expiration === eskiSure);
+  kvOkuma.length = 0;
+  const gb2 = await (await worker.fetch(new Request("https://bot.example/geri-bildirim", { headers: { "X-Bot-Anahtar": "S" } }), env, {})).json();
+  kontrol("Geri bildirim ucu KV'yi tek tek okumadan tüm oyları verdi",
+    !kvOkuma.some((k) => k.startsWith("oy:")) && gb2.length >= 3 && gb2.some((o) => o.pmid === "11111111" && o.dergi === "Eski Dergi"));
+  kv.delete("oy:11111111"); kvEk.delete("oy:11111111");
+}
