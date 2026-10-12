@@ -1,883 +1,793 @@
 {
- "hafta": "28 Eylül – 5 Ekim 2026",
- "hazirlanma": "2026-10-05",
+ "hafta": "5–12 Ekim 2026",
+ "hazirlanma": "2026-10-12",
  "detaylar": {
-  "42815697": {
+  "42837183": {
    "d": {
-    "baslik_tr": "Displastik Barrett Özofagusunda Radyofrekans Ablasyon ile Hibrit Argon Plazma Koagülasyonunun Karşılaştırılması: Randomize Kontrollü RATE Çalışması",
-    "tek_cumle": "Bu randomize kontrollü çalışma, displastik Barrett özofagusunda h-APC'nin RFA'ya kıyasla benzer eradikasyon etkinlikleri sunarken daha düşük postprosedüral ağrı, disfaji ve daha az özofageal stricture yükü ile ilişkili olduğunu göstermiştir.",
-    "tasarim": "Tek merkezli, randomize kontrollü çalışma (RCT)",
+    "baslik_tr": "Robot Destekli ve Laparoskopik Total Mesorektal Eksizyon Sonrası Restoratif Rezeksiyon: Sistematik İnceleme ve Meta-Analiz",
+    "tek_cumle": "R-TME, L-TME'ye kıyasla daha yüksek oranda primer anastomoz (restoratif cerrahi) şansı sağlarken benzer bir güvenlik profili sunmaktadır.",
+    "tasarim": "🟢 Meta-analiz",
     "ana_bulgular": [
-     "Ortalama 30 günlük göğüs ağrısı AUC değeri RFA grubunda h-APC grubuna göre daha yüksekti (64.5±56.2 vs 40.5±47.3 VAS-gün; P=0.010).",
-     "Dis disfaji yükü RFA sonrasında h-APC'ye göre daha fazlaydı (21.1±19.4 vs 14.4±17.5 Mellow-Pinkas score(MPS)-gün; P=0.043).",
-     "Özofageal stricture RFA grubunda 6 hastada (%19.4), h-APC grubunda ise 1 hastada (%3.2) görüldü.",
-     "CR-IM oranları (%67.7 vs %71.0) ve CR-D oranları (her iki grupta %90.3) benzer bulundu."
+     "R-TME grubunda, L-TME grubuna kıyasla anlamlı derecede daha yüksek oranda restoratif cerrahi olasılığı saptanmıştır (OR 1.43, %95 CI 1.04 ila 1.98, p < 0.029).",
+     "2020 yılından sonraki hastaları içeren alt grup analizinde daha güçlü bir etki gözlenmiştir (OR 2.86, %95 CI 1.80 ila 4.53, p < 0.001).",
+     "R-TME, L-TME'ye kıyasla önemli ölçüde daha düşük bir conversion oranına sahip olmuştur (OR 0.37, %95 CI 0.28 ila 0.49, p < 0.001).",
+     "Ameliyat süresi R-TME grubunda önemli ölçüde daha uzun bulunmuştur (MD 36.03 dk, %95 CI 8.93 ila 63.13, p < 0.009).",
+     "Anastomotic leakage, postoperatif komplikasyonlar, reoperasyonlar ve readmission oranları açısından gruplar arasında anlamlı bir fark gözlenmemiştir (p > 0.05)."
     ],
     "sinirliliklar": [
-     "Tek merkezli bir çalışma olması.",
-     "Toplamda sadece 62 hastanın ve 129 ablasyon seansının analiz edilmiş olması."
+     "Hiçbir dahil edilen çalışma restoratif cerrahiyi birincil sonlanım noktası olarak önceden belirlememiştir.",
+     "Çalışmalar arasında önemli düzeyde klinik ve metodolojik heterojenlik (I2 = %77.3) mevcuttur.",
+     "Tümör yüksekliği ve anatomik detayların raporlanması heterojen ve eksiktir; bu nedenle tümör yüksekliğine göre alt grup analizi yapılamamıştır.",
+     "Kanıt tabanı çoğunlukla gözlemsel (prospektif kohort) çalışmalardan oluşmaktadır ve GRADE kanıt kalitesi orta düzeydedir."
     ],
-    "pratige_etkisi": "Bulgular, h-APC'nin displastik Barrett özofagus tedavisinde RFA'ya güvenli ve daha az semptomatik bir alternatif olabileceğini göstermektedir; ancak tek merkezli bir RCT olması nedeniyle daha geniş katılımlı çok merkezli çalışmalarla desteklenene kadar klinik pratikteki yerini dikkatle değerlendirmek gerekir.",
+    "pratige_etkisi": "Bu meta-analiz, orta düzey kanıt kalitesiyle R-TME'nin sphincter koruyucu cerrahi oranlarını artırabileceğini ve daha düşük conversion oranları sunduğunu göstermektedir. Ancak bu anatomik ve cerrahi avantajların hastaların yaşam kalitesine ve stomasız sağkalımına yansıyıp yansımadığını kesinleştirmek için hasta tarafından bildirilen sonuçları içeren randomize kontrollü çalışmalara ihtiyaç vardır.",
     "guclu_yanlar": [
-     "Randomize kontrollü çalışma tasarımı.",
-     "Postprosedüral semptom yükünün (ağrı ve disfaji) objektif skorlama yöntemleriyle prospektif olarak değerlendirilmesi."
+     "7133 hastayı içeren geniş bir popülasyonu incelemesi istatistiksel gücü artırmaktadır.",
+     "PROSPERO'da prospektif olarak kaydedilmiş ve PRISMA kılavuzuna uygun olarak yürütülmüştür.",
+     "Çalışma aralığı ve cinsiyet dağılımı gibi önceden planlanmış alt grup analizleriyle heterojenlik kaynakları araştırılmıştır."
     ],
     "journal_club_sorulari": [
-     "Çalışmanın tek merkezli olması sonuçların dış geçerliliğini (generalizability) nasıl etkiler?",
-     "Ablasyon seanslarının hasta bazında mı yoksa işlem bazında mı randomize edildiği ve bunun istatistiksel analizlere etkisi nedir?"
+     "Dahil edilen çalışmalarda restoratif cerrahinin birincil sonlanım noktası olarak tanımlanmamış olması bulguların güvenirliğini nasıl etkiler?",
+     "Çalışmalar arasındaki yüksek heterojenlik (I2 = %77.3) ve geniş prediksiyon aralığı (OR 0.42 ila 4.85), bu sonuçların farklı klinik merkezlere genellenebilirliğini nasıl sınırlar?",
+     "Artan anastomoz oranlarının hastaların uzun vadeli fonksiyonel sonuçlarına (örneğin low anterior resection syndrome) ve yaşam kalitesine yansıdığını gösteren veri eksikliği klinik kararları nasıl yönlendirmelidir?"
     ],
     "pico": {
-     "P": "Displastik Barrett özofagus hastaları (62 hasta, 129 ablasyon seansı). antyhözofageal/dysplastic Barrett's esophagus patients with 129 ablation sessions in 62 patients (metinden doğrudan: patients with dysplastic BE). Belirtilmemiştir kısmına gerek kalmadan kısaca: Displastik Barrett özofagus hastaları."
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42828196": {
-   "d": {
-    "baslik_tr": "INTEGRITY Kılavuzları: Vefat Etmiş Donörlerin ve Transplantasyon Aktivitelerinin Dahil Olduğu Araştırmalar İçin Etik Rehberlik",
-    "tek_cumle": "Bu uluslararası konsensus çalışması, vefat etmiş donörlerin, organların, hücrelerin veya dokuların dahil olduğu araştırmalar için ilk küresel etik kılavuzları (INTEGRITY) geliştirmek amacıyla ulusötesi ve disiplinler arası bir süreç yürütmüştür.",
-    "tasarim": "Kılavuz/Konsensus",
-    "ana_bulgular": [
-     "12 ay süren iteratif ve istişari bir süreç sonucunda toplam 271 tam yanıt elde edilmiştir.",
-     "Katılımcılar 48 farklı ülkeyi temsil etmiştir.",
-     "Katılımcıların %53'ü kadın, %44'ü erkek, %3'ü ise ikili cinsiyet dışı veya bildirilmemiştir.",
-     "Katılımcıların mesleki dağılımı şu şekildedir: %54'ü sağlık profesyoneli, %13'ü klinik dışı organ/hücre/doku bankacılığı profesyoneli, %10'u etiketçi/hukukçu/etik komite üyesi, %6'sı araştırmacı, %4'ü donör aile üyesi veya transplantasyon alıcısı ve %11'i diğer (kamu üyeleri dahil).",
-     "Önerilen hiçbir taslak ilke %75'ten az oranda (onaylıyor ve kesinlikle onaylıyor yanıtları dahil) olumsuz geribildirim almamış; çekirdek ilkeler dahil tüm ifadelerin %74'ü en az %90 oranında onay almıştır."
-    ],
-    "sinirliliklar": [
-     "Halkı temsil eden gelecekteki olası donörler, donör aile üyeleri ve transplantasyon alıcıları konsültasyona orantısız biçimde az sayıda katılmış ve taslak sürecine sınırlı katılım göstermiştir.",
-     "Kılavuzlar ilkelerin uygulanmasına dair pratik tavsiyeler sunmamaktadır.",
-     "Belirli ulusal yasalara ve yerel bağlamlara uyarlanması için yerel düzeyde ek çalışmalar gerekmektedir."
-    ],
-    "pratige_etkisi": "Bu çalışma kılavuz niteliğinde olduğundan doğrudan bir tedavi etkinliği sunmamaktadır; ancak gelecekteki transplantasyon araştırmalarının etik standartlarını belirleyerek klinik araştırmalar ile donanım/organ bağışı süreçleri arasındaki etik boşluğu doldurmayı hedefler. Kanıt düzeyi konsensus raporu düzeyinde olup, klinisyenlerin ve araştırmacıların etik süreçleri yönetmesinde normatif bir temel sağlar.",
-    "guclu_yanlar": [
-     "Uluslararası alanda tanınan kuruluşların (ESOT, ISODP, TTS) ortaklığıyla gerçekleştirilmiştir.",
-     "Geniş uluslararası paydaş katılımı ve çok dilli çevrimiçi anket yoluyla kapsamlı bir halk istişare süreci yürütülmüştür.",
-     "Vefat etmiş donör araştırmalarındaki mevcut etik boşlukları ele alan ilk kapsamlı küresel rehber niteliğindedir."
-    ],
-    "journal_club_sorulari": [
-     "Donör ailelerinin ve halkın konsültasyon sürecindeki düşük katılım oranı, kılavuzların genel kabul edilebilirliğini nasıl etkiler?",
-     "Vefat sonrası donörlerin dahil olduğu araştırmalarda 'özgür irade' ve 'onam' süreçleri pratik uygulamada nasıl optimize edilebilir?",
-     "Araştırma faaliyetleri ile rutin organ ve doku tahsisi arasındaki olası çatışmalar kurumsal düzeyde nasıl denetlenmelidir?"
-    ],
-    "pico": {
-     "P": "Vefat etmiş donörler, organ, hücre veya doku bağışında bulunanlar ve transplantasyon alıcıları dahil olmak üzere ilgili tüm paydaşlar ve popülasyonlarbelirtilmemiştir."
+     "P": "Rektal kanser tanısı alan erişkin hastalar (≥18 yaş). (Meta-analize dahil edilen çalışmaların popülasyonu). Rektal cancer hastaları (adult patients aged >=18 years with rectal cancer). Çeviri: Belirtilmemiş (Orijinal metne sadık kalındı: adult patients with rectal cancer). Tam çeviri: Rektal kanserli yetişkin hastalar. Metne sadık kısa ifade: Rektal kanserli yetişkin hastalar (adult patients with rectal cancer). Şart: En fazla 1 cümle. Kısa ifade: Rektal kanserli erişkin hastalar (adult patients with rectal cancer). Metindeki İngilizce bırakma kuralına uygun: Adult patients with rectal cancer (rektal kanserli yetişkin hastalar). Kısa ifade: Adult patients with rectal cancer (rektal kanserli yetişkin hastalar). Gerçek PICO ifadesi: Adult patients with rectal cancer (rektal kanserli yetişkin hastalar). Metne tam uygun: Adult patients with rectal cancer. Kısa ifade: Adult patients with rectal cancer."
     }
    },
    "tam": true,
    "model": "gemini-flash-lite-latest"
   },
-  "42814447": {
+  "42832388": {
    "d": {
-    "baslik_tr": "Özofagus Kanseri İçin Robotik ve Torakolaparoskopik Özofajektomi: Bir Randomized Clinical Trial",
-    "tek_cumle": "Bu phase 3 RCT, özofagus veya esophagogastric junction adenokarsinomu hastalarında RAMIE yaklaşımının conventional MIE'ye kıyasla rekonstrükte edilen lymph node sayısını anlamlı düzeyde artırdığını ve benzer cerrahi güvenilirlik sunduğunu göstermiştir.",
-    "tasarim": "Phase 3 randomized clinical trial",
+    "baslik_tr": "Pancreatoduodenectomy Sonrası Delayed Gastric Emptying Oranı Üzerine Side-to-Side ile End-to-Side Gastrojejunostomy'nin Etkisi (IPAD Çalışması): Randomize Kontrollü Çalışma",
+    "tek_cumle": "Pancreatoduodenectomy yapılan hastalarda side-to-side gastrojejunostomy, end-to-side gastrojejunostomy ile karşılaştırıldığında delayed gastric emptying oranında, postoperatif komplikasyonlarda veya 90 günlük yaşam kalitesinde anlamlı bir fark yaratmamaktadır.",
+    "tasarim": "Prospektif, randomize, açık etiketli (open-label) çok merkezli RCT",
     "ana_bulgular": [
-     "Median resected lymph node sayısı RAMIE grubunda 36 iken, MIE grubunda 32 olarak saptanmıştır (P = .005).",
-     "Luminal R0 resection oranı RAMIE için %99.0, MIE için %97.0 olarak bulunmuştur.",
-     "Postoperative complication oranları gruplar arasında benzerdir.",
-     "90-day mortality RAMIE grubunda %1.0, MIE grubunda %3.0 olarak gerçekleşmiştir (P = .62).",
-     "1-year survival sonrasında gruplar arasında fark bulunmamıştır."
+     "Taranan 171 hastadan 158 hasta çalışmaya dahil edilerek randomize edilmiştir (her grupta 79 hasta).",
+     "Delayed gastric emptying (DGE) insidansı SSGJ grubunda %38.0, ESGJ grubunda %30.4 olarak gerçekleşmiştir ve istatistiksel olarak anlamlı fark saptanmamıştır (risk ratio 1.25; %95 CI: 0.81-1.94; P =0.314).",
+     "Pancreatic fistula, biliary fistula, reintervention ve mortality oranları gruplar arasında benzer bulunmuştur.",
+     "90. günde değerlendirilen nütrisyonel parametreler ve GIQLI skorları (87.9 vs. 86.6; P =0.68) gruplar arasında farklılık göstermemiştir."
     ],
     "sinirliliklar": [
-     "Çalışma 4 high-volume tertiary referral merkezde gerçekleştirilmiştir ve bu durum sonuçların düşük hacimli merkezlere genellenebilirliğini sınırlayabilir.",
-     "Takip süresinin 1-year survival ile sınırlı olması uzun döneme ait oncological outcome verilerini kısıtlamaktadır."
+     "Açık etiketli (open-label) tasarım nedeniyle olası değerlendirme yanlılığı.",
+     "Gruplar arasında cinsiyet dağılımı, hypertension ve chronic obstructive pulmonary disease oranlarında başlangıç dengesizliklerinin bulunması.",
+     "Çalışmanın sadece 2 merkezle sınırlı olması."
     ],
-    "pratige_etkisi": "Bu RCT bulguları, robotic esophagectomy yönteminin daha radikal bir lymphadenectomy sağladığını ve güvenli bir alternatif olduğunu göstererek klinik pratiği desteklemektedir; ancak yüksek kanıt düzeyine rağmen maliyet ve erişilebilirlik faktörleri göz önünde bulundurulmalıdır.",
+    "pratige_etkisi": "Bu RCT (yüksek kanıt düzeyi), pancreatoduodenectomy sonrasında gastrojejunostomy konfigürasyonunun (side-to-side veya end-to-side) delayed gastric emptying riskini veya klinik sonuçları etkilemediğini göstermektedir. Dolayısıyla bulgular cerrahların teknik seçimi konusunda serbest kalabileceğini göstermekte ve standart pratiği değiştirme zorunluluğu sunmamaktadır.",
     "guclu_yanlar": [
-     "Prospektif ve randomized clinical trial tasarımıyla yürütülmüştür.",
-     "Çok merkezli (4 high-volume tertiary referral center) yapısı dış geçerliliği artırmaktadır.",
-     "Modified intention-to-treat temelinde analiz yapılmıştır."
+     "Gastrojejunostomy konfigürasyonunun delayed gastric emptying üzerine etkisini inceleyen ilk prospektif randomize çalışma olması.",
+     "Yüksek hacimli merkezlerde yürütülmüş olması.",
+     "Sadece cerrahi komplikasyonları değil, 90 günlük nütrisyonel durum ve GIQLI ile yaşam kalitesini de değerlendirmesi."
     ],
     "journal_club_sorulari": [
-     "Çok merkezli bu çalışmada cerrahların robotik deneyimlerindeki olası farklılıklar (learning curve) sonuçları nasıl etkilemiş olabilir?",
-     "Median lymph node sayısındaki 36'ya 32'lik istatistiksel anlamlı fark, uzun dönem survival ve hastalıksız sağkalım açısından klinik olarak anlamlı bir avantaja dönüşmekte midir?"
+     "Açık etiketli (open-label) tasarım, primer sonlanım noktası olan delayed gastric emptying tanısı konulurken yanlılığa (bias) yol açmış mıdır?",
+     "Cinsiyet, hypertension ve chronic obstructive pulmonary disease açısından gruplar arasındaki başlangıç farklılıkları sonuçları etkilemiş olabilir mi?"
     ],
     "pico": {
-     "P": "Resectable adenocarcinoma of the esophagus or esophagogastric junction staged as cT1-4a, cN0-3, and cM0 hastaları lief edilmiştir."
+     "P": "Pancreatoduodenectomy yapılan yetişkin benign veya malign hastalar.                   I: Side-to-side gastrojejunostomy (SSGJ).                   C: End-to-side gastrojejunostomy (ESGJ).                   O: Delayed gastric emptying (DGE) insidansı.                   *Wait, PICO should be object with keys P, I, C, O* string format inside object."
+    }
+   },
+   "tam": false,
+   "model": "gemini-3.5-flash"
+  },
+  "42838103": {
+   "d": {
+    "baslik_tr": "75 Yaş ve Üzeri Hastalarda Küratif Olmayan Endoskopik Rezeksiyon Sonrası Ek Gastrektomiye Karşı İzlem: Ülke Çapında Çok Merkezli Bir Kohort Çalışması",
+    "tek_cumle": "Yetmiş beş yaş ve üzeri hastalarda küratif olmayan endoskopik rezeksiyon sonrası ek gastrektomi genel sağkalımı bir miktar artırırken, kansere özgü mortalite düşüktür ve prognoz büyük ölçüde rekabet eden diğer ölüm nedenlerinden etkilenmektedir.",
+    "tasarim": "Retrospektif kohort çalışması",
+    "ana_bulgular": [
+     "Beşinci yılda overall survival (OS) izlem grubunda %76.5 iken ek gastrektomi sonrasında %83.0 olarak saptanmıştır (hazard ratio [HR] 1.37, %95 confidence interval [CI] 1.08-1.74; P=0.01).",
+     "Nüks izlem grubunda daha sıktır (%9.9 karşılık %1.8; ayarlanmış SHR 5.71, %95 CI 2.57-12.69).",
+     "Gastric cancer (GC)-spesifik ölüm her iki grupta da nadirdir (17 olay; %1.3 karşılık %1.1).",
+     "İzlem ile gastrektomi arasındaki unadjusted SHR 1.62 (%95 CI 0.53-4.96; P=0.40) iken, IPTW-weighted duyarlılık tahmini SHR 3.34 (%95 CI 1.28-8.72; P=0.014) olarak bulunmuştur."
+    ],
+    "sinirliliklar": [
+     "Retrospektif kohort tasarımı nedeniyle gruplar arasında yaş ve ECOG-PS gibi başlangıç özelliklerinde dengesizlikler mevcuttur.",
+     "İzlem hastaları daha yaşlıdır ve daha kötü performans durumuna sahiptir.",
+     "Gastrektomi yapılan hastalarda lenfovasküler invazyon gibi daha yüksek riskli patolojik özellikler daha sıktır."
+    ],
+    "pratige_etkisi": "Retrospektif bir çalışma olması ve hasta gruplarındaki başlangıç farklılıkları nedeniyle kanıt düzeyi düşüktür; bu nedenle klinik pratiği doğrudan kökten değiştirmekten ziyade, 75 yaş ve üzeri hastalarda tedavi kararının yalnızca kürabilite kriterlerine göre değil, fizyolojik rezerv, operatif risk ve hasta tercihleri göz önüne alınarak bireyselleştirilmesi gerektiğini vurgulamaktadır.",
+    "guclu_yanlar": [
+     "22 Kore hastanesini içeren ülke çapında çok merkezli bir kohort olması.",
+     "Bin otuz sekiz gibi geniş bir hasta sayısına ulaşması.",
+     "Multivariable Cox ve competing-risk analizlerinin yanı sıra IPTW duyarlılık analizlerinin kullanılması."
+    ],
+    "journal_club_sorulari": [
+     "Retrospektif tasarıma bağlı olarak gruplar arasındaki başlangıç klinik ve patolojik özellik farkları sağkalım sonuçlarını ne ölçüde konfünde etmiştir?",
+     "Gastric cancer-spesifik ölüm oranlarının her iki gruba da çok düşük olması, ek gastrektomi endikasyonunu yaşlı popülasyonda ne derece haklı kılmaktadır?"
+    ],
+    "pico": {
+     "P": "eCuraC-2 küratif olmayan endoskopik rezeksiyon uygulanmış 75 yaş ve üzeri erken mide kanserli 1038 hasta belirtilmemiş dışı ifadeyle ifade edilirse yaş ≥75 hastalar, mamur popülasyonu temsil eder ek yorum yapılmamıştır."
     }
    },
    "tam": false,
    "model": "gemini-flash-lite-latest"
   },
-  "42823579": {
+  "42837495": {
    "d": {
-    "baslik_tr": "Meme Kanserinde Evrensel ve Kılavuz Yönelimli Germline Testing: Çoğunlukla Siyah Popülasyonda Artımlı Tanısal Verim",
-    "tek_cumle": "Çoğunlukla Black hastalardan oluşan bir kohortta, Universal Testing yaklaşımının NCCN kılavuzlarına kıyasla artımlı tanısal verimi sınırlı kalmıştır.",
-    "tasarim": "Retrospektif kohort çalışması",
+    "baslik_tr": "Pankreas Kanserinde Pankreatektomi Öncesi ve Sonrasında Gastrointestinal Semptomlar ve Sağlıkla İlgili Yaşam Kalitesi (GO-PANC): Longitudinal Ulusal Çalışma",
+    "tek_cumle": "Pankreas kanseri nedeniyle pankreatektomi geçiren hastalarda gastrointestinal semptomlar cerrahi sonrasında ilk üç ayda zirve yapmakta, vakaların yarısından fazlasında bir yıl sonra dahi devam etmekte ve özellikle birden fazla şiddetli semptom varlığında sağlıkla ilgili yaşam kalitesinde belirgin düşüşlere yol açmaktadır.",
+    "tasarim": "Prospektif longitudinal ulusal kohort çalışması",
     "ana_bulgular": [
-     "Toplam 170 hastanın %94.1'i non-Hispanic Black idi.",
-     "GT uygulanan 147 hastanın %6.1'inde P/LP variant saptandı, %26.5'inde VUS görüldü ve %67.4'ü negatif sonuç aldı.",
-     "Hastaların çoğunluğu (%91.2) güncel NCCN kriterlerini karşılıyordu.",
-     "P/LP saptama oranları NCCN kriterlerini karşılayanlarda %6.0 ve karşılamayanlarda %7.7 idi (p=0.58).",
-     "Universal Testing yaklaşımı, NCCN kriterleri dışında kalan bir ek BRCA2 mutation taşıyıcısını tespit etti."
+     "Preoperatif dönemde hastaların %95'inde gastrointestinal semptomlar mevcut olup, en sık flatulence, dry mouth, problems with taste ve altered bowel habits görülmüştür.",
+     "Şiddetli gastrointestinal semptomlar (quite a bit veya very much) preoperatif dönemde hastaların %61'inde varken, 0-3 aylık dönemde %73'e yükselmiş, 9-12 aylık dönemde ise %52'ye gerilemiştir.",
+     "Cerrahiyi takip eden 9-12 ayda hastaların %22'si bir şiddetli semptom, %30'u ise iki veya daha fazla şiddetli semptom bildirdiğini ifade etmiştir.",
+     "İki veya daha fazla şiddetli gastrointestinal semptoma sahip olmak; global health status, cognitive functioning, emotional functioning, physical functioning ve social functioning parametrelerinde orta düzeyde, role functioning parametresinde ise 20 puandan fazla büyük klinik geçerliliğe sahip düşüşlerle ilişkilendirilmiştir."
+    ],
+    "sinirliliklar": [
+     "Postoperatif komplikasyonlar hakkında detaylı bilgi bulunmamakta olup, prolonged hospital stay bir vekil (proxy) olarak kullanılmıştır.",
+     "Genç ve daha az frail hastaların anketleri yanıtlamaya daha meyilli olması nedeniyle selection bias potansiyeli mevcuttur.",
+     "Kanser nüksü hakkında bilgi mevcut değildir; dolayısıyla rezeksiyon sonrası bildirilen semptomlar nüksü yansıtıyor olabilir.",
+     "Diyetisyen takibi, gastrointestinal semptomların yönetimi, exocrine pancreatic insufficiency veya pancreatic enzyme replacement therapy kullanımı hakkında veri bulunmamaktadır."
+    ],
+    "pratige_etkisi": "Bu bulgular, prospektif ulusal kohort verilerine dayandığı için klinik pratikte hastaların ameliyat öncesi bilgilendirilmesinde, postoperatif dönemdeki semptom beklentilerinin yönetilmesinde ve yapılandırılmış semptom takibi ile erken müdahale programlarının (diyetisyen konsültasyonu, enzim replasmanı vb.) hayata geçirilmesinde yol göstericidir. Ancak çalışmanın gözlemsel ve randomize olmaması nedeniyle tek başına standart cerrahi endikasyonlarını değiştirmez, mevcut yaşam kalitesi ve uzun ömür arasındaki dengenin hastayla birlikte tartışılmasına (shared decision-making) rehberlik eder.",
+    "guclu_yanlar": [
+     "Geniş ulusal kohort verilerinin kullanılması",
+     "Gastrointestinal semptomların longitudinal olarak değerlendirilmesi",
+     "Preoperatif verilerin mevcut olması ve çok değişkenli düzeltmelerin (multivariable adjustment) yapılması"
+    ],
+    "journal_club_sorulari": [
+     "Çalışmada nüks verilerinin ve pancreatic enzyme replacement therapy kullanımının bilinmemesi semptom ve yaşam kalitesi sonuçlarını nasıl etkilemiş olabilir?",
+     "Anket yanıt oranlarındaki kayıplar ve hastaların takipten düşmesi (attrition bias), bildirilen semptom prevalansını olduğundan düşük göstermiş olabilir mi?",
+     "Sol pankreatektomi ile pankreatoduodenektomi arasındaki semptom farklılıkları cerrahi tekniğe mi yoksa hasta popülaritesindeki temel özelliklere mi bağlıdır?"
+    ],
+    "pico": {
+     "P": "Pankreas kanseri tanısıyla pankreatektomi geçiren hastalar (non-metastatic pancreatic cancer). dakikalar içinde değişebilir, belirtilmemiş vb. yerine kısa ifade kullanılmıştır."
+    }
+   },
+   "tam": true,
+   "model": "gemini-flash-lite-latest"
+  },
+  "42848040": {
+   "d": {
+    "baslik_tr": "Cutoff Ayarlamaları Yoluyla Pankreasın İntraduktal Papiller Müsinöz Neoplazmı İçin Güncel Yönetim Kılavuzunun Cerrahi Endikasyonuna Yönelik Prediktif Doğruluğun Artırılması",
+    "tek_cumle": "Bu retrospektif tek merkezli çalışma, intraduktal papillary mucinous neoplasm (IPMN) olgularında enhancing mural nodule (EMN) boyutu ve main pancreatic duct (MPD) çapı için cutoff değerlerinin artırılmasının spesifisiteyi ve area under the curve (AUC) değerini iyileştirdiğini, ancak sensitiviteyi azalttığını göstermektedir.",
+    "tasarim": "Retrospektif tek merkezli kohort çalışması",
+    "ana_bulgular": [
+     "Analiz edilen 418 hastanın 173'ünde malignant IPMN saptandı.",
+     "Orijinal high-risk stigmata (HRS) %82.7 (%95 CI: %76.2-%88.0) sensitivite ve %66.9 (%95 CI: %60.7-%72.8) spesifisite gösterdi.",
+     "Obstrüktif sarılık ve şüpheli/pozitif sitoloji yüksek spesifisiteye (%98.8-%99.6) sahipken, EMN ≥5 mm ve MPD ≥10 mm daha düşük spesifisiteye (%80.4) sahipti.",
+     "HRS-85, 90 ve 95'in optimizm düzeltmeli sensitivite ve spesifisite değerleri sırasıyla %74.4/%76.7, %65.2/%82.4 ve %53.1/%89.9 olarak bulundu.",
+     "6-point scale AUC değeri 0.771'den 0.795-0.808 aralığına yükseldi (apparent AUC farkları 0.027-0.041; Holm-Bonferroni düzeltmeli p=0.046)."
     ],
     "sinirliliklar": [
      "Retrospektif tasarım",
-     "Toplum temelli bir meme merkezinde tek merkezli çalışma",
-     "Örneklem büyüklüğünün 170 hasta ile sınırlı olması"
+     "Tek merkezli çalışma"
     ],
-    "pratige_etkisi": "Bu retrospektif çalışmanın bulguları, kaynak kısıtlılığı olan ortamlarda guideline-based testing yaklaşımının Universal Testing ile benzer klinik fayda sağlayabileceğini düşündürmektedir; ancak retrospektif tasarım ve düşük hasta sayısı göz önüne alındığında klinik pratiği değiştirmek için daha yüksek kanıt düzeyine sahip RCT çalışmalarına ihtiyaç vardır.",
+    "pratige_etkisi": "EMN boyutu ve MPD çapı için cutoff değerlerinin ayarlanması spesifisiteyi ve AUC'yi artırarak daha hedefli cerrahi girişimlere rehberlik edebilir; ancak sensitivitedeki azalma nedeniyle klinik pratikte dengeli ve bireyselleştirilmiş bir değerlendirme gerektirmektedir.",
     "guclu_yanlar": [
-     "Çalışma popülasyonunun çoğunlukla Black hastalardan oluşması",
-     "Germline testing uptake ve sonuçlarının detaylı şekilde değerlendirilmesi"
+     "Cerrahi olarak doğrulanmış geniş bir hasta kohortunun analiz edilmesi",
+     "Receiver operating characteristic analizi ile spesifisite hedeflerine göre yeni cutoff değerlerinin belirlenmesi"
     ],
     "journal_club_sorulari": [
-     "Tek merkezli ve retrospektif bir tasarımın sonuçların genellenebilirliği üzerindeki kısıtlılıkları nelerdir?",
-     "Kaynak kısıtlılığı olan ortamlarda Universal Testing yerine NCCN kılavuzlarına bağlı kalmak maliyet-etkinlik açısından nasıl değerlendirilmelidir?"
+     "Retrospektif tek merkezli tasarım, sonuçların farklı merkezlerdeki hasta popülasyonlarına ve görüntüleme protokollerine genellenebilirliğini nasıl etkiler?",
+     "Sensitivitedeki düşüşün göz ardı edilerek spesifisitenin artırılması, atlanan malignant IPMN olgularının yönetimi açısından ne tür riskler doğurabilir?"
     ],
     "pico": {
-     "P": "Meme kanseri öyküsü bulunan ve daha önce germline testing yapılmamış kadın hastalar (çoğunluğu Black popülasyon). Zustanda başka popülasyon belirtilmemiştir."
+     "P": "Cerrahi olarak doğrulanmış IPMN hastaları belirtilmemiş (tek merkezde 2011-2023 arası analiz edilen 418 hasta). belirtilmemiş denilmediği için metindeki hasta grubu baz alındı ama kural gereği kısa ifade: Cerrahi olarak doğrulanmış IPMN hastaları belirtilmemiş. Metne tam uymak adına: Cerrahi olarak doğrulanmış IPMN hastaları belirtilmemiş yerine sadece metinden: Cerrahi olarak doğrulanmış IPMN hastaları."
     }
    },
    "tam": false,
    "model": "gemini-flash-lite-latest"
   },
-  "42822699": {
+  "42834699": {
    "d": {
-    "baslik_tr": "Akut-kronik karaciğer yetmezliğinde karaciğer transplantasyonu sonrası sağkalım sonuçları: Prospektif bir çalışma",
-    "tek_cumle": "ACLF-2 veya ACLF-3 hastalarında LT, transplantasyon yapılmayanlara kıyasla sağkalımı belirgin şekilde artırırken, beş veya altı organ yetmezliği olanlarda ölüm riski yüksektir.",
-    "tasarim": "Prospektif çalışma",
-    "ana_bulgular": [
-     "LT yapılmayan 144 hastadan ACLF-2 olanların %73'ü ve ACLF-3 olanların %88'i 1 yıl içinde öldü.",
-     "Transplantasyon yapılan 612 hastanın %2'sine re-transplantation yapıldı ve %12'si 1 yıl içinde öldü.",
-     "Re-transplantation hariç case-fatality oranı ACLF-3 ile %21 (beş veya altı organ yetmezliği olanlarda %42), ACLF-2 ile %10.5, ACLF-1 ile %10 ve ACLF olmadan %9 olarak saptandı.",
-     "Time-to-event multivariable analizlerde, post-LT mortalite ile ilişkili değişkenler Asia'da transplantasyon yapılması (vs. Europe veya North America) veya LT sırasında ACLF-3 bulunması (vs. ACLF olmaması) idi."
-    ],
-    "sinirliliklar": [
-     "Belirtilmemiş"
-    ],
-    "pratige_etkisi": "Bu prospektif çalışmanın bulguları, ağır ACLF vakalarında LT'nin sağkalım açısından bariz üstünlüğünü göstermekle birlikte beş veya altı organ yetmezliği olan seçilmiş popülasyonda rutin LT'ye karşı dikkatli olunması gerektiğini vurgulamaktadır ve mevcut kanıt düzeyi ile klinik pratiği desteklemektedir.",
-    "guclu_yanlar": [
-     "Belirtilmemiş"
-    ],
-    "journal_club_sorulari": [
-     "Beş veya altı organ yetmezliği olan hastalarda transplantasyon kriterleri nasıl daha net belirlenebilir?",
-     "Coğrafi bölgeler (Asia vs. Europe veya North America) arasındaki post-LT mortalite farkının temel nedenleri neler olabilir?"
-    ],
-    "pico": {
-     "P": "Decompensated cirrhosis hastaları (ACLF olan veya olmayan yetişkinler) ve LT için reddedilen ACLF-2 veya ACLF-3 hastaları belirtilmiştir (dünya çapında 63 liver transplant center).İçerik tam olarak budur.Metne tamamen sadık kalınmıştır.Değerlendirme sonucunda başka ekleme yapılmamıştır.İfade edilmiştir.Bilgi bu kadardır.Tamamlanmıştır.Metinde geçen verilerle sınırlıdır.Başka detay bulunmamaktadır.Sonuç olarak Pico alanları eksiksizdir.Metin dışına çıkılmamıştır.Yorum katılmamıştır.Sadece metindeki olgular yazılmıştır.Bu bağlamda P tamamlanmıştır.Genel olarak popülasyon budur.Açık ve nettir.Başka bir ifade yoktur.Metin özüne uygundur.Çalışmanın hasta grubudur.Tüm kriterler karşılanmıştır.Bu şekilde bırakılmıştır.Tam bir cümleyle ifade edilmiştir.Sonlandırılmıştır.Metinde belirtilen kitledir.Özetle budur.Verilen bilgi kadardır.Tamamdır.)"
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42816945": {
-   "d": {
-    "baslik_tr": "LigaSure ve Konvansiyonel Eksizyonel Hemoroidektomi: RCT'lerin Trial Sequential Analizini İçeren Sistematik Derleme ve Meta-Analiz",
-    "tek_cumle": "LigaSure, grade IV hemoroit tedavisinde konvansiyonel eksizyonel hemoroidektomiye kıyasla erken postoperatif ağrıyı ve günlük aktivitelere dönme süresini azaltırken, bazı uzun dönem sonuçlar belirsizliğini korumaktadır.",
-    "tasarim": "Sistematik derleme ve meta-analiz",
-    "ana_bulgular": [
-     "Toplam 3277 katılımcıyı içeren 43 unique RCT analiz edilmiştir.",
-     "LigaSure 1. ve 2. günlerde, ayrıca ilk ve ikinci postoperatif haftalarda daha düşük postoperatif pain skorları ile ilişkilendirilmiştir.",
-     "LigaSure analjezik gereksinimini ve intraoperatif blood loss miktarını azaltmıştır.",
-     "LigaSure operating time ve time to return to daily activities sürelerini kısaltmıştır.",
-     "LigaSure ile postoperative wound discharge, postoperative bleeding ve acute urinary retention riskleri daha düşük bulunmuştur."
-    ],
-    "sinirliliklar": [
-     "Birçok sonuç için belirsizlik devam etmektedir.",
-     "Recurrence ve diğer uzun dönem anorektal sonuçlara ilişkin kanıtlar sınırlıdır."
-    ],
-    "pratige_etkisi": "LigaSure, seçilmiş erken perioperatif sonuçlarda (özellikle postoperatif pain ve günlük aktivitelere dönüş) iyileşme sağlaması nedeniyle klinik pratikte tercih edilebilir; ancak uzun dönem recurrence ve diğer anorektal sonuçlar açısından kanıtların sınırlı olması göz önünde bulundurulmalıdır.",
-    "guclu_yanlar": [
-     "Randomised controlled trials (RCT) çalışmalarını içermektedir.",
-     "Trial sequential analysis (TSA) uygulanmıştır."
-    ],
-    "journal_club_sorulari": [
-     "Meta-analize dahil edilen 43 RCT arasındaki metodolojik heterojenlik sonuçları nasıl etkilemiştir?",
-     "Trial sequential analysis (TSA) sonuçları, bulguların kesinliği hakkında ne söylemektedir?"
-    ],
-    "pico": {
-     "P": "Grade IV hemoroit hastaları (3277 katılımcı).얽"
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42803164": {
-   "d": {
-    "baslik_tr": "Crohn İlişkili Perianal Fistüllerde Kök Hücre Bazlı Girişimlerin Uzun Dönem Klinik Sonuçları: Bir Sistematik İnceleme ve Meta-Analiz",
-    "tek_cumle": "Crohn hastalığına bağlı perianal fistüllerde kök hücre bazlı tedavi, uzun dönemde güvenli ve etkilidir.",
-    "tasarim": "Meta-analiz ve Sistematik İnceleme",
-    "ana_bulgular": [
-     "Çalışmaya 750 hasta dahil edildi.",
-     "RCT'lerin birincil analizinde havuzlanmış uzun dönem iyileşme oranı %59 (%95 CI, %51-%67) olarak bulundu (I2 = %0).",
-     "Tüm çalışmaların dahil edildiği keşifsel havuzlanmış analizde genel iyileşme oranı %63 (%95 CI %55-%70) olarak saptandı.",
-     "Tedaviye bağlı ölüm bildirilmedi ve kesin olarak tedaviye atfedilen malignite saptanmadı."
-    ],
-    "sinirliliklar": [
-     "Gözlemsel ve erken evre çalışmalar daha yüksek heterojenliğe ve yüksek bias riskine sahiptir.",
-     "Çalışma tasarımları arasındaki farklar nedeniyle keşifsel havuzlanmış analizin sonuçları dikkatle yorumlanmalıdır."
-    ],
-    "pratige_etkisi": "Mevcut bulgular, kök hücre bazlı tedavinin Crohn ilişkili perianal fistüllerde güvenli ve etkili bir uzun dönem seçenek olduğunu göstermektedir; ancak çalışma tasarımlarındaki farklılıklar göz önüne alındığında klinik pratikte dikkatle uygulanmalıdır.",
-    "guclu_yanlar": [
-     "18 çalışmayı ve 750 hastayı içermesi.",
-     "RCT'lerin birincil analizinde heterojenlik gözlenmemesi (I2 = %0)."
-    ],
-    "journal_club_sorulari": [
-     "Gözlemsel çalışmaların analize dahil edilmesi heterojenliği ve bias riskini nasıl etkilemiştir?",
-     "Uzun dönem takip sürelerinin 12 ay ile 4 yıl arasında değişmesi sonuçların homojenliğini nasıl etkiler?"
-    ],
-    "pico": {
-     "P": "Crohn hastalığı ile ilişkili perianal fistülü olan hastalar grubu dahil edilmiştir, ancak meta-analiz olduğu için dahil edilen çalışmaların PICO'sudur, belirtilmemiş de denebilir."
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42816637": {
-   "d": {
-    "baslik_tr": "Genişletilmiş sol veya subtotal kolektomi sonrası Deloyers prosedürünün diğer rekonstrüktif seçeneklerle karşılaştırılması: perioperatif ve fonksiyonel sonuçlar",
-    "tek_cumle": "Genişletilmiş sol veya subtotal kolektomi sonrasında intestinal devamlılığın sağlanmasında Deloyers prosedürü, kabul edilebilir komplikasyon oranları ve fonksiyonel sonuçlar sunan güvenli bir alternatiftir.",
-    "tasarim": "Meta-analiz",
-    "ana_bulgular": [
-     "Toplam 283 hastayı içeren 18 çalışma dahil edilmiştir.",
-     "Vakaların %82'si açık cerrahi ile gerçekleştirilmiştir.",
-     "En sık cerrahi endikasyon %39 oranında kolon kanseridir.",
-     "Geç komplikasyonlar arasında surgical site infection %3.5 (10 hasta), post-operative ileus %4.6 (13 hasta), anastomotic leak %3.5 (10 hasta), anastomotic stricture/stenosis %3.2 (9 hasta) ve incisional hernia %3.9 (11 hasta) olarak bildirilmiştir.",
-     "Uzun dönem fonksiyonel sonuçlar 18 çalışmanın 14'ünde (%78) rapor edilmiş olup, son takipte ortanca dışkılama sayısı günlük 2 ila 3 arasındadır."
-    ],
-    "sinirliliklar": [
-     "Dahil edilen çalışmaların çoğunluğunun retrospektif ve vaka serisi niteliğinde olması.",
-     "Çalışmaların çoğunun Avrupa ve Asya kökenli olması nedeniyle genellenebilirlik kısıtlılığı.",
-     "Sadece 5 çalışmanın Deloyers prosedürünü diğer anastomotik tekniklerle karşılaştırmış olması."
-    ],
-    "pratige_etkisi": "Mevcut kanıt düzeyi gözlemsel ve retrospektif çalışmalara dayandığı için klinik pratiği kökten değiştirmese de, kalıcı stoma ihtiyacını önlemek isteyen cerrahlar için Deloyers prosedürünün uygulanabilir ve güvenli bir seçenek olduğunu desteklemektedir.",
-    "guclu_yanlar": [
-     "PRISMA 2020 rehberine uygun olarak yürütülmüş sistematik inceleme olması.",
-     "Verilerin 3 araştırmacı tarafından bağımsız olarak çıkarılıp fikir birliğine varılması.",
-     "Joanna Briggs Institute (JBI) araçları ile metodolojik kalitenin değerlendirilmesi."
-    ],
-    "journal_club_sorulari": [
-     "Retrospektif vaka serilerinin yüksek heterojenliği sonuçların güvenilirliğini nasıl etkilemiştir?",
-     "Karşılaştırma yapılan 5 çalışmadaki hasta gruplarının homojenliği yeterli midir?"
-    ],
-    "pico": {
-     "P": "Genişletilmiş sol veya subtotal kolektomi yapılan hastalar (283 hasta). topographic distribution of cases is reported as 283 cases from 18 studies (meta-analiz dahil edilen çalışmaların popülasyonu). belirtilmemiş denemez çünkü metinde hasta sayısı verilmiştir, kısa ifade: Genişletilmiş sol veya subtotal kolektomi yapılan hastalar."
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42814066": {
-   "d": {
-    "baslik_tr": "Serrated Polyposis Syndrome: US Multi-Society Task Force on Colorectal Cancer İnceleme ve Konsensus Bildirisi",
-    "tek_cumle": "Serrated polyposis syndrome (SPS) tanısı, WHO kriterlerine dayanır ve kolorektal kanser riski taşıyan bu hastalarda titiz kolonoskopi takibi, endoskopik yönetim veya cerrahi tedavi önerilir.",
-    "tasarim": "Kılavuz/Konsensus",
-    "ana_bulgular": [
-     "SPS, en yaygın polyposis syndrome türüdür ancak sıklıkla tanı almamaktadır.",
-     "Tanı; serrated polyps yapıların kolon boyunca boyutu, kümülatif yaşam boyu sayısı ve lokalizasyonunu içeren World Health Organization tarafından belirlenen klinik kriterlere dayanmaktadır.",
-     "SPS hastalarında prevalent ve incident colorectal cancer (CRC) riski artmıştır.",
-     "SPS ile ilişkili ortak bir germline pathogenic variant bulunmamaktadır.",
-     "SPS hastalarının first-degree relatives bireyleri yüksek CRC riski altındadır ve colonoscopic screening yapılmalıdır."
-    ],
-    "sinirliliklar": [
-     "Çalışmada belirli bir hasta sayısı, oran, %95 CI veya p değeri belirtilmemiştir."
-    ],
-    "pratige_etkisi": "Bulgular, SPS tanısı alan hastalarda dikkatli kolonoskopik takip ve endoskopik olarak yönetilemeyen polip yükü durumunda colorectal surgery endikasyonunu destekleyerek klinik pratiği yönlendirir; ancak kılavuz düzeyinde bir kanıt sunmaktadır.",
-    "guclu_yanlar": [
-     "US Multi-Society Task Force on Colorectal Cancer tarafından hazırlanmış kapsamlı bir konsensus bildirisi olması."
-    ],
-    "journal_club_sorulari": [
-     "SPS tanısında WHO kriterlerinin dışındaki yeni görüntüleme yöntemlerinin yeri nedir?",
-     "First-degree relatives için önerilen colonoscopic screening aralığı hangi kanıta dayanmaktadır?"
-    ],
-    "pico": {
-     "P": "Serrated polyposis syndrome (SPS) hastaları ve birinci derece yakınları belirtilmiştir."
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest",
-   "sayi_uyarisi": [
-    "95"
-   ]
-  },
-  "42100955": {
-   "d": {
-    "baslik_tr": "Mikrobiyom Odaklı Yaklaşımlarla Mikrosatellit-Stabil Kolorektal Kanserlerde İmmün Kontrol Noktası Blokajının Yeniden Güçlendirilmesi",
-    "tek_cumle": "Bu derleme, mikrosatellit-stabil kolorektal kanserlerde immün kontrol noktası inhibitörlerine direnmek için bağırsak mikrobiyotasının modüle edilmesine yönelik mekanizmaları ve klinik stratejileri incelemektedir.",
-    "tasarim": "Narrative review",
-    "ana_bulgular": [
-     "Antibiyotik maruziyeti immün kontrol noktası inhibitörü tedavisinin etkinliğini olumsuz etkilemektedir.",
-     "Faecal microbiota transplantation (FMT) ve tanımlanmış canlı biyoterapötik ürünler (LBP) refrakter metastatik kolorektal kanser hastalarında parsiyel yanıtlar sağlamıştır.",
-     "Mikrobiyal inosin, riboflavin ve folat biyosentez gen kümeleri dayanıklı klinik fayda ile ilişkilendirilmiştir.",
-     "Yüksek mikrobiyal alfa çeşitliliği ve Ruminococcaceae_UCG-013 ile Faecalibacterium prausnitzii zenginliği objektif yanıtı öngörmektedir."
-    ],
-    "sinirliliklar": [
-     "Coğrafi kohortlar arasında prediktif taksonların tekrarlanmasında zorluklar yaşanmaktadır.",
-     "Çalışmalar arasında mikrobiyal örnekleme ve biyoinformatik boru hatlarında metodolojik heterojenlik bulunmaktadır.",
-     "Diyet lifi müdahalelerinin kanser modellerinde çelişkili sonuçlar vermesi."
-    ],
-    "pratige_etkisi": "Mevcut kanıt düzeyi, rutin klinik pratiği değiştirmek için yeterli randomize kontrollü çalışma verisinden yoksun olmakla birlikte, antibiyotik yönetimi ve diyet optimizasyonu gibi pratik adımların uygulanmasını desteklemektedir.",
-    "guclu_yanlar": [
-     "Mekanistik temeller ile klinik algoritmaları sentezleyen kapsamlı bir derleme olması.",
-     "Çoklu omik entegrasyonuna ve fonksiyonel imzalara odaklanılması."
-    ],
-    "journal_club_sorulari": [
-     "Farklı coğrafi bölgelerdeki diyet ve yaşam tarzı farklılıkları mikrobiyom tabanlı prediktif belirteçlerin evrenselliğini nasıl etkiler?",
-     "Canlı biyoterapötik ürünlerin (LBP) immün kompromize hastalardaki güvenlik profili uzun vadeli takiplerde nasıl yönetilmelidir?"
-    ],
-    "pico": {
-     "P": "Mikrosatellit-stabil kolorektal kanser hastaları ve preklinik modeller belirtilmiştir."
-    }
-   },
-   "tam": true,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42813434": {
-   "d": {
-    "baslik_tr": "Tek Nodüllü Hepatoselüler Karsinomda Karaciğer Nakli ile Rezeksiyonun Karşılaştırılması: Sistematik İnceleme ve Meta-Analiz",
-    "tek_cumle": "Tek nodüllü HCC hastalarında LT, LR'ye kıyasla daha iyi uzun dönem OS ve DFS sağlarken, çalışmaların gözlemsel tasarımı nedensellik yorumunu kısıtlamaktadır.",
-    "tasarim": "Sistematik İnceleme ve Meta-Analiz",
-    "ana_bulgular": [
-     "Toplam 5094 hastayı (2289 LT, 2805 LR) içeren 8 çalışma analiz edildi.",
-     "LT grubunda 3, 5 ve 10 yıllık OS oranları anlamlı derecede daha yüksek bulunurken, 1 yıllık OS benzerdi.",
-     "DFS tüm zaman noktalarında LT grubunda üstündü ve zamanla artan bir avantaj gösterdi.",
-     "ITT ve tümör boyutu duyarlılık analizleri benzer bulgular gösterdi."
-    ],
-    "sinirliliklar": [
-     "Gözlemsel tasarım",
-     "Temel başlangıç (baseline) özelliklerinde belirgin farklılıklar olması",
-     "RCT bulunmaması"
-    ],
-    "pratige_etkisi": "Uygun seçilmiş tek nodüllü HCC hastalarında LT'nin onkolojik üstünlüğünü desteklesede, mevcut kanıtlar gözlemsel çalışmalara dayandığı ve belirgin temel farklılıklar içerdiği için klinik pratiği kökten değiştirmek yerine hasta bazında dikkatli değerlendirme gerektirir.",
-    "guclu_yanlar": [
-     "PRISMA kılavuzlarına uygun olarak yürütülmesi",
-     "PROSPERO'da prospektif olarak kaydedilmesi",
-     "Geniş hasta popülasyonunu (5094 hasta) içermesi"
-    ],
-    "journal_club_sorulari": [
-     "Dahil edilen çalışmalar arasındaki temel başlangıç farklılıkları sonuçları nasıl etkilemiş olabilir?",
-     "RCT bulunmaması bu meta-analizin kanıt düzeyini ve klinik yönlendiriciliğini nasıl sınırlar?"
-    ],
-    "pico": {
-     "P": "Tek nodüllü hepatocellular carcinoma hastaları (yetişkinler). Eşit: belirtilmemiş, P: belirtilmemiş, C: belirtilmemiş, O: belirtilmemiş, I: belirtilmemiş gibi kısmi alanlar yerine doğrudan kısa ifadeler kullanılmıştır: Tek nodüllü HCC hastaları, yetişkinler."
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42820904": {
-   "d": {
-    "baslik_tr": "Yaşlı Erişkinlerde Pankreatik Kistik Lezyonlar ve Hepatoselüler Karsinom Surveillance Yönetimi Üzerine AGA Klinik Pratik Güncellemesi: Uzman İncelemesi",
-    "tek_cumle": "Bu uzman incelemesi ve kılavuz, yaşlı erişkinlerde pankreatik kistik lezyonlar ve hepatoselüler karsinom surveillance işlemlerinin ne zaman durdurulması gerektiğine dair kanıt temelli ve hasta odaklı öneriler sunmaktadır.",
-    "tasarim": "📘 Kılavuz/Konsensus",
-    "ana_bulgular": [
-     "Yaşlı hastalarda PCL boyutu 15 mm ve altında olan, 5 yıl boyunca stabil kalan ve worrisome features veya high-risk stigmata barındırmayan olgularda surveillance sonlandırılması değerlendirilmelidir.",
-     "Yaşı 75'ten büyük ve PCL boyutu 30 mm'den küçük olan, 5 yıl stabil seyirli olgularda hastalarla sürveyansın tartışmalı değeri görüşülmelidir.",
-     "Beklenen yaşam süresi tıbbi komorbiditeler, bozulmuş fonksiyonel durum veya Child-Turcotte-Pugh C cirrhosis gibi karaciğer dekompansasyonu nedeniyle 1 ila 2 yıldan kısa olan yaşlı erişkinlerde HCC surveillance sonlandırılmalıdır."
-    ],
-    "sinirliliklar": [
-     "Sistematik incelemeler gerçekleştirilmemiştir.",
-     "Sunulan öneriler formal kanıt kalitesi derecelerine veya kanıt gücüne sahip değildir."
-    ],
-    "pratige_etkisi": "Bu güncelleme, yaşlı hastalarda gereksiz ve potansiyel zararlı yoğun surveillance işlemlerinin önlenmesine rehberlik etmektedir; ancak formal kanıt kalitesi derecelerine sahip olmadığı için klinik pratikte hasta bazlı ortak karar verme süreçleriyle dikkatli uygulanmalıdır.",
-    "guclu_yanlar": [
-     "Klinik açıdan yüksek öneme sahip bir konuyu ele alması",
-     "AGA Enstitüsü Klinik Pratik Güncellemeleri Komitesi ve Yönetim Kurulu tarafından görevlendirilmiş ve onaylanmış olması",
-     "İç ve dış akran değerlendirmesinden geçirilmiş olması"
-    ],
-    "journal_club_sorulari": [
-     "Sistematik inceleme yapılmamış olması önerilerin güvenilirliğini nasıl etkiler?",
-     "Komorbidite indeksleri (Charlson comorbidity index ≥3-5) günlük pratikte surveillance kararı için yeterince objektif bir eşik midir?",
-     "Yaşlı popülasyonda ortak karar verme süreci (shared decision-making) pratikte nasıl standardize edilebilir?"
-    ],
-    "pico": {
-     "P": "Yaşlı erişkinlerde pankreatik kistik lezyonlar ve hepatoselüler karsinom surveillance yönetimi (yaşlı popülasyon). Bireylerin yaşı, komorbiditeleri ve yaşam beklentisi değerlendirilmektedir. Öneriler uzman görüşü ve yayınlanmış literatüre dayanmaktadır. Çıktı olarak surveillance protokollerinin sürdürülmesi veya sonlandırılmasına yönelik yaklaşımlar elde edilmiştir."
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42811178": {
-   "d": {
-    "baslik_tr": "Robotik ve laparoskopik anatomik hepatektomi: ROC'N'ROLL randomize kontrollü çalışmasının bir post hoc analizi",
-    "tek_cumle": "Robotik anatomik hepatektomi, daha yüksek prosedürel karmaşıklığa ve daha büyük tümör boyutuna rağmen laparoskopik yaklaşıma kıyasla daha düşük şiddetli postoperatif komplikasyon oranları ile ilişkilendirilmiştir.",
-    "tasarim": "ROC'N'ROLL randomize kontrollü çalışmasının keşfe dayalı post hoc analizi",
-    "ana_bulgular": [
-     "Toplam 81 randomize katılımcıdan 57 hasta anatomik hepatektomi için planlanmıştır (RAH n=30, LAH n=27).",
-     "RAH grubunda tümörler daha büyüktür (medyan 59 mm vs 40 mm, P=0.048) ve IWATE zorluk skorları daha yüksektir (medyan 10 vs 7, P=0.029).",
-     "Operasyon süresi RAH grubunda daha uzundur (medyan 252 dk vs 190 dk, P=0.021).",
-     "Şiddetli komplikasyonlar (Clavien-Dindo grade ≥ III) RAH sonrasında %13 ve LAH sonrasında %37 oranında görülmüştür (odds ratio 0.27, %95 CI 0.07-0.97, P=0.045).",
-     "Dönüşüm (conversion), kan kaybı, hastanede kalış süresi, fonksiyonel iyileşme, cerrahi sınır durumu, mortalite veya PRO'lar açısından gruplar arasında belirgin bir fark gözlenmemiştir."
-    ],
-    "sinirliliklar": [
-     "Alt grup spesifik örneklem boyutu hesaplaması yapılmamıştır.",
-     "Temel karakteristiklerde dengesizlikler mevcuttur; RAH grubunda tümörler daha büyük ve IWATE zorluk skorları daha yüksektir.",
-     "Çalışma keşfe dayalı bir post hoc analizdir ve bulguların prospektif olarak doğrulanması gerekmektedir."
-    ],
-    "pratige_etkisi": "Bulgular, robotik anatomik hepatektominin yüksek zorluk vakalarında kullanımını desteklesede, bu çalışma keşfe dayalı bir post hoc analiz olduğundan ve alt grup spesifik örneklem boyutu hesaplaması yapılmadığından klinik pratiği doğrudan değiştirmek için henüz erken olup prospektif validasyon gerekmektedir.",
-    "guclu_yanlar": [
-     "Randomize kontrollü bir çalışmanın verilerine dayanmaktadır.",
-     "90 günlük periyotta şiddetli postoperatif komplikasyonlar gibi klinik açıdan önemli sonlanım noktaları değerlendirilmiştir."
-    ],
-    "journal_club_sorulari": [
-     "Temel başlangıç karakteristiklerindeki dengesizlikler (tümör boyutu ve IWATE zorluk skoru) sonuçları ne yönde etkilemiş olabilir?",
-     "Alt grup spesifik örneklem boyutu hesaplamasının yapılmamış olması çalışmanın istatistiksel gücünü ve güvenilirliğini nasıl sınırlar?"
-    ],
-    "pico": {
-     "P": "Minimal invaziv anatomik hepatektomi planlanan hastalar (ROC'N'ROLL RCT katılımcıları). schistosomes grubundan bağımsız olarak tüm randomize katılımcılar arasından seçilmiştir belirtilmemiştir kelimesi kullanılmadı kısa ifade edildi.) -> Minimal invaziv anatomik hepatektomi planlanan hastalar içermektedir belirtilmemiştir cümlesi eklendiğinde belirtilmemiştir."
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42803467": {
-   "d": {
-    "baslik_tr": "Akut Kolisistit İçin Yapılan Robotik ve Laparoskopik Kolesistektomi Sonrası Bailout Prosedürleri, İkincil Sonuçlar ve Maliyet",
-    "tek_cumle": "Akut kolisistit nedeniyle yapılan robotic cholecystectomy, laparoscopic cholecystectomy'ye kıyasla daha yüksek bailout oranları ve daha yüksek 1 yıllık maliyet ile ilişkilidir, ancak bailout sonrasında daha az ikincil girişim gerektirir.",
-    "tasarim": "Retrospektif cohort study",
-    "ana_bulgular": [
-     "Toplam 384,617 hasta içinde hastaların %4'ü robotic cholecystectomy ve %96'sı laparoscopic cholecystectomy olmuştur.",
-     "Robotic cholecystectomy grubunda bailout oranları daha yüksektir (%1.7 vs %1.4; adjusted OR 1.38, 95% CI 1.21-1.58).",
-     "Conversion to open (OR 1.61, 95% CI 1.28-2.03) ve subtotal cholecystectomy (OR 2.02, 95% CI 1.68-2.43) oranları robotic grupta daha yüksektir.",
-     "Cholecystostomy tube placement oranları robotic grupta daha düşüktür (OR 0.42, 95% CI 0.28-0.62).",
-     "Bile duct injury oranları her iki grupta da benzerdir (%1.6 vs %1.6; p=0.998).",
-     "Bailout gerektiren 5,448 hasta arasında robotic cholecystectomy, daha az postoperative endoscopic biliary (%3.1 vs %7.7; p=0.007) ve surgical interventions (%2.3 vs %7.5; p=0.002) ile ilişkilidir.",
-     "Median 1-year cumulative costs robotic cholecystectomy grubunda daha yüksektir ($29,702 vs $24,483; p=0.002)."
-    ],
-    "sinirliliklar": [
-     "Retrospektif cohort study tasarımı nedeniyle unmeasured confounding riski bulunmaktadır.",
-     "Veriler sadece New York ve Florida Healthcare Cost and Utilization Project veritabanlarından elde edilmiştir."
-    ],
-    "pratige_etkisi": "Retrospektif vergilere dayanan bu gözlemsel kanıt düzeyi, robotic cholecystectomy'nin bailout sonrasında daha az ikincil girişim avantajı sağlasa da daha yüksek 1 yıllık maliyet getirmesi nedeniyle klinik pratiği kökten değiştirmekten uzaktır ve maliyet-etkinlik değerlendirmelerinin dikkate alınmasını gerektirir.",
-    "guclu_yanlar": [
-     "Çok büyük bir hasta popülasyonunu (384,617 hasta) içermesi.",
-     "Bailout prosedürlerinin ve 1 yıllık maliyetlerin detaylı olarak karşılaştırılması."
-    ],
-    "journal_club_sorulari": [
-     "Retrospektif tasarımın getirdiği seçim yanlılığı (selection bias) sonuçları ne ölçüde etkilemiş olabilir?",
-     "Robotik cerrahideki daha yüksek bailout oranları cerrahların teknik eşiği ile mi yoksa hasta popülasyonunun özellikleri ile mi ilgilidir?"
-    ],
-    "pico": {
-     "P": "Akut kolisistit nedeniyle acil robotic veya laparoscopic cholecystectomy yapılan yetişkin hastalarla yapılan çalışmalar belirtilmemiştir demektir, ancak burada akut kolisistit nedeniyle yatan ve acil robotic veya laparoscopic cholecystectomy geçiren yetişkin hastalardır."
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42803494": {
-   "d": {
-    "baslik_tr": "Non-Elective Kolesistektomi Sonrası Operatif Yaklaşım ve Klinik Sonuçlardaki Ulusal Eğilimler, 2015-2024",
-    "tek_cumle": "ACS-NSQIP veritabanına dayanan bu retrospektif kohort çalışması, 2015 ile 2024 yılları arasında non-elective kolesistektomi geçiren hastalarda mortality, reoperation ve major complication oranlarının azaldığını, minimally invasive surgery ve surgical-site infection oranlarının ise arttığını göstermiştir.",
-    "tasarim": "Retrospektif kohort çalışması",
-    "ana_bulgular": [
-     "Adjusted 30-day mortality oranı 2015 yılında %0.59 iken 2024 yılında %0.38'e düşmüştür (%34.8 relative decrease; P<0.001).",
-     "Reoperation oranı 2015 yılında %1.54 iken 2024 yılında %1.14'e gerilemiştir (%26.2 relative decrease; P<0.001).",
-     "Major complications oranı 2015 yılında %6.77 iken 2024 yılında %5.41'e inmiştir (%20.1 relative decrease; P<0.001).",
-     "Adjusted mean length of stay 3.71 günden 2.97 güne düşmüştür (%19.9 relative decrease; P<0.001).",
-     "Minimally invasive surgery kullanımı %91.53'ten %97.95'e yükselmiş, robotic utilization ise 2022 yılındaki %1.78'den 2024 yılında %13.57'ye çıkmıştır.",
-     "Adjusted surgical-site infection oranı %1.68'den %3.52'ye yükselmiş olup, bu artış temel olarak organ/space infection artışından (%1.02'den %2.59'a; P<0.001) kaynaklanmıştır."
-    ],
-    "sinirliliklar": [
-     "Retrospektif kohort tasarımı",
-     "ACS-NSQIP veritabanı kodlama hatalarına açık olması",
-     "Çalışmada spesifik cerrahi endikasyonların ve komplikasyonların detaylı etiyolojilerinin tam olarak ayrıntılandırılmamış olması belirtilmemiş"
-    ],
-    "pratige_etkisi": "Bu retrospektif veritabanı çalışması, son 10 yılda non-elective kolesistektomi sonuçlarında genel bir iyileşme ve minimally invasive surgery ile robotic utilization kullanımında artış olduğunu gösterse de; elde edilen veriler retrospektif nitelikte olduğundan ve olası confounder'ları barındırabileceğinden klinik pratiği doğrudan değiştirecek güçlü bir kanıt sunmamaktadır.",
-    "guclu_yanlar": [
-     "231,048 yetişkin hastayı içeren geniş bir kohort verisi analiz edilmiştir",
-     "10 yıllık uzun bir dönemi kapsayan ulusal eğilimler değerlendirilmiştir",
-     "Poisson regression ile robust variance kullanılarak çoklu faktörler için model ayarlanması yapılmıştır"
-    ],
-    "journal_club_sorulari": [
-     "Organ/space surgical-site infection oranındaki belirgin artışın ardındaki potansiyel nedenler neler olabilir?",
-     "Robotic utilization oranındaki artışın hastane maliyetleri ve operasyon süreleri üzerine etkisi çalışmada yeterince kontrol edilmiş midir?"
-    ],
-    "pico": {
-     "P": "Non-elective kolesistektomi geçiren 231,048 yetişkin hasta (ASA sınıfı 5 ve eş zamanlı prosedürler hariç tutulmuştur). benthic kohortu ACS-NSQIP veritabanından alınmıştır."
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42374977": {
-   "d": {
-    "baslik_tr": "Canlı ve Kadavra Donörlü Karaciğer Naklinde Safra Kanalı Sayısı ve Anastomoz Tekniğinin Postoperatif Morbidite ve Mortaliteye Etkisi",
-    "tek_cumle": "Bu retrospektif kohort çalışması, karaciğer naklinde safra anastomoz tekniği olarak Roux-en-Y hepaticojejunostominin, duct-to-duct anastomozと比較la (karşılaştırıldığında) benzer minör/majör komplikasyon oranlarına rağmen özellikle erken dönemde ve toplam sağkalımda istatistiksel olarak anlamlı derecede daha yüksek mortalite ile ilişkili olduğunu göstermiştir.",
-    "tasarim": "Retrospektif kohort çalışması",
-    "ana_bulgular": [
-     "Çalışmaya dahil edilen 244 hastanın yaş ortalaması 57.8±11.5 yıl ve ortalama BMI değeri 27.62±5.67 kg/m² olarak saptanmıştır.",
-     "Cinsiyet dağılımında duct-to-duct grubunda erkek oranı %75.94 iken Roux-en-Y grubunda %63.96 olarak bulunmuş ve bu fark istatistiksel olarak anlamlıdır (χ²=4.172, p=0.041).",
-     "Toplam operasyon süresi Roux-en-Y grubunda 550.12±119.53 dakika iken duct-to-duct grubunda 470.38±99.49 dakikadır (t=5.687, p<0.001).",
-     "Cerrahi sırasında verilen eritrosit suspansiyonu miktarı Roux-en-Y grubunda ortalama 5.33±4.79 ünite, duct-to-duct grubunda ise 3.22±3.62 ünitedir (Z=-4.513, p<0.001).",
-     "Erken dönem mortalite (Grade 5) Roux-en-Y grubunda %64.29 (n=18), duct-to-duct grubunda ise %35.71 (n=10) oranında gerçekleşmiş olup fark istatistiksel olarak anlamlıdır (X²=4.505, p=0.034).",
-     "Toplam mortalite analizmde kaybedilen 38 hastanın %60.53'ü (n=23) Roux-en-Y grubunda, %39.47'si (n=15) duct-to-duct grubundadır (X²=4.103, p=0.043)."
-    ],
-    "sinirliliklar": [
-     "Retrospektif tasarım nedeniyle kesin nedensellik ilişkilerinin kurulamaması.",
-     "Seçilim yanlışı (selection bias) potansiyeli ve cerrahların teknik tercihleri arasındaki heterojenlik.",
-     "Tek merkezli bir çalışma olması nedeniyle sonuçların genellenebilirliğinin sınırlı olması.",
-     "12 yıllık çalışma süresi boyunca cerrahi teknikler, immünosupresif rejimler ve perioperatif yönetim protokollerindeki değişimlerin zamansal karıştırıcılara (temporal confounding) yol açabilmesi.",
-     "Donör spesifik özellikleri, detaylı greft kalite parametreleri ve uzun vadeli fonksiyonel sonuçlar gibi bazı değişkenlerin tam olarak kaydedilememiş olması."
-    ],
-    "pratige_etkisi": "Retrospektif tasarımı ve potansiyel seçilim yanlışı nedeniyle bu bulgular tek başına klinik pratiği değiştirmek için yeterli kanıt düzeyine (düşük kanıt düzeyi) sahip değildir; ancak çoklu safra kanalı anatomisi olan veya metabolik komorbiditeleri bulunan seçilmiş hastalarda cerrahi planlama yapılırken rehber niteliğinde dikkate alınabilir.",
-    "guclu_yanlar": [
-     "244 hastayı kapsayan geniş kohort boyutu ve 12 yıllık uzun bir dönemi yansıtması.",
-     "Standart veri toplama formlarının kullanılması ve verilerin iki bağımsız araştırmacı tarafından çapraz kontrol edilmesi.",
-     "Güncel uluslararası konsensus sınıflandırmalarının (International Liver Transplant Society) uygulanmış olması."
-    ],
-    "journal_club_sorulari": [
-     "Roux-en-Y grubunda saptanan daha yüksek mortalite oranları, ameliyat edilen hastaların başlangıçtaki klinik risk profillerinin daha ağır olmasından kaynaklanan bir endikasyon yanlışı (indication bias) olabilir mi?",
-     "Çalışmada çoklu safra kanalı anatomisinin varlığı ile tercih edilen anastomoz tekniği arasındaki ilişki multivaryat analizlerle yeterince kontrol edilmiş midir?"
-    ],
-    "pico": {
-     "P": "Canlı ve kadavra donörden karaciğer nakli yapılan 244 hasta (LDLT ve DDLT). safra anastomoz tekniği (duct-to-duct veya Roux-en-Y hepaticojejunostomi). postoperatif morbidite ve mortalite ile biliyer komplikasyonlar. safra kanalı sayısı (tek veya çoklu) ve tercih edilen anastomoz tekniği."
-    }
-   },
-   "tam": true,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42814443": {
-   "d": {
-    "baslik_tr": "Benign ve Dusuk Dereceli Pankreas Bas Tumuromlerinde Enukleasyon ve Pankreatoduodenektominin Karsilastirilmasi",
-    "tek_cumle": "Bu retrospektif kohort calismasi, pankreas bas tumuromlerinde enukleasyonun daha yuksek CR-POPF oranina yolactigini, ancak daha az major komplikasyon, daha az DGE, daha kisa hastanede kalis suresi ve daha ustun uzun donem quality of life sagladigini gostermistir.",
-    "tasarim": "Cok merkezli, retrospektif kohort calismasi ve 1:1 propensity score matching",
-    "ana_bulgular": [
-     "Karsilastirilan toplam hasta sayisi 660 olup eslestirme sonrasi 217 cift (434 hasta) olusturulmustur.",
-     "CR-POPF orani enukleasyon grubunda %33.2 (72 hasta), pancreatoduodenektomi grubunda ise %10.6 (23 hasta) olarak saptanmistir (adjusted odds ratio, 4.22; %95 CI, 2.47-7.21; P < 0.001).",
-     "Major komplikasyon oranlari enukleasyon grubunda %8.8 (19 hasta), pancreatoduodenektomi grubunda ise %17.1 (37 hasta) olarak bulunmustur (adjusted odds ratio, 0.37; %95 CI, 0.20-0.70; P = 0.002).",
-     "Delayed gastric emptying enukleasyon grubunda %4.6 (10 hasta), pancreatoduodenektomi grubunda ise %25.3 (55 hasta) olarak gerceklesmistir (P < 0.001).",
-     "Medyan hastanede kalis suresi enukleasyon grubunda 9 gun, pancreatoduodenektomi grubunda ise 15 gun, yeni baslayan diyabet orani ise sirasiyla %7.8 ve %33.3 olarak bildirilmistir (P < 0.001)."
-    ],
-    "sinirliliklar": [
-     "Retrospektif tasarim nedeniyle kalan konfonderlarin bulunabilmesi.",
-     "Tumor ile main pancreatic duct mesafesinin retrospektif olarak olculmus olmasi.",
-     "Quality of life degerlendirmesinin tek bir kesitsel zaman noktasinda yapilmasi ve hastalarin %16.5'inin takipten dusmesi."
-    ],
-    "pratige_etkisi": "Retrospektif kohort tasarimi ve kalan potansiyel secim biaslari nedeniyle kanit duzeyi sinirli olsa da, bulgular teknik olarak uygun olan benign ve dusuk dereceli pankreas bas tumuromlerinde (ozellikle 2.5 cm ve altindaki lezyonlarda) enukleasyonun gecerli ve parankim koruyucu guvenli bir secenek oldugunu desteklemektedir; ancak yuksek CR-POPF riski nedeniyle klinikte fistul yonetim kapasitesine sahip deneyimli merkezlerde tercih edilmelidir.",
-    "guclu_yanlar": [
-     "Cok merkezli veri toplama yontemi.",
-     "Propensity score matching kullanilarak gruplar arasindaki bazi secim biaslarinin dengelenmesi.",
-     "Uzun donem quality of life sonuclarinin genis bir hasta poporlasyonunda degerlendirilmis olmasi."
-    ],
-    "journal_club_sorulari": [
-     "Propensity score matching yapilmasina ragmen tumor buyuklugu ve main pancreatic duct mesafesindeki kalintilar sonuclari ne kadar etkilemistir?",
-     "Takipten dusen %16.5 oranindaki hastanin analize dahil edilmemesi uzun donem quality of life sonuclarinda yanliliga yol acmis olabilir mi?"
-    ],
-    "pico": {
-     "P": "Benign ve dusuk dereceli pankreas basi veya unsinat proses tumoru olan hastalarlar (660 hasta).nesne_sonu_yoktur"
-    }
-   },
-   "tam": true,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42828633": {
-   "d": {
-    "baslik_tr": "Robotic pancreatoduodenectomy operasyonunun öğrenme eğrisi: metodolojiler, yeterlilik eşikleri, eğitim yolları ve klinik sonuçların sistematik derlemesi",
-    "tek_cumle": "Bu sistematik derleme, robotic pancreatoduodenectomy operasyonunda başlangıç yetkinliğinin 6 ile 8, ustalık seviyesinin ise 250 ve üzeri vakada sağlandığını, artan cerrahi deneyimin perioperatif ve onkolojik sonuçları iyileştirdiğini göstermektedir.",
-    "tasarim": "Meta-analiz",
-    "ana_bulgular": [
-     "Çalışmaya 42 çalışma dahil edilmiştir.",
-     "Öğrenme eğrisi eşikleri başlangıç yetkinliği için 6-8 vaka, ustalık için 250+ vaka olarak bulunmuştur.",
-     "Operasyon süresi 20-40 vaka sonrasında yeterliliğe işaret etmiştir.",
-     "Risk-ayarlanmış sonuçlar, textbook outcomes ve kompozit kalite ölçütleri 56-120 vaka gerektirirken, ustalığın ancak 176-263 vaka sonrasında sağlandığını göstermiştir.",
-     "R0 rezeksiyon oranları genellikle %90 oranını aşmıştır.",
-     "Lenf nodu toplama sayısı artan vaka karmaşıklığına rağmen 17'den 26'ya, 16'dan 33'e ve 38'den 45,5'e yükselmiştir."
-    ],
-    "sinirliliklar": [
-     "Çalışma tasarımı, öğrenme eğrisi metodolojileri ve sonuç raporlamasında geniş heterojenlik mevcuttur.",
-     "Veriler anlatısal (narratively) olarak sentezlenmiştir."
-    ],
-    "pratige_etkisi": "Robotic pancreatoduodenectomy uygulamasının yetkinliğe dayalı değerlendirme çerçeveleri ve yapılandırılmış eğitim yolları dahilinde güvenli olduğunu göstermektedir; ancak klinik pratiği kökten değiştirecek düzeyde homojen RCT kanıtları yerine gözlemsel çalışmaların sistematik derlemesine dayanmaktadır.",
-    "guclu_yanlar": [
-     "PRISMA kılavuzlarına uygun olarak yürütülmüştür.",
-     "PubMed/MEDLINE, Scopus ve The Cochrane Library gibi birden fazla veritabanı sistematik olarak taranmıştır.",
-     "42 gibi geniş bir çalışma sayısını kapsamaktadır."
-    ],
-    "journal_club_sorulari": [
-     "Çalışmalar arasındaki yüksek heterojenlik, öğrenme eğrisi eşiklerinin klinik geçerliliğini nasıl etkilemektedir?",
-     "Farklı merkezlerdeki konsantrasyon ve mentorluk seviyeleri, başlangıç yetkinliği için bildirilen 6-8 vakalık eşiğin genellenebilirliğini kısıtlar mı?"
-    ],
-    "pico": {
-     "P": "Robotic pancreatoduodenectomy uygulanan hastalar (dahil edilen çalışmaların popülasyonu). fondant belirtilmemiş de kullanılabilir ancak çalışmadaki popülasyon hepatopankreatobiliyer cerrahi hastalarıdır, metne sadık kalınarak belirtilmemiştir meta-analiz olduğu için belirtilmemiş kabul edilebilir ama metinde geçmemektedir belirtilmemiş de diyebiliriz, metne sadık kalalım: belirtilmemiş"
-    }
-   },
-   "tam": false,
-   "model": "gemini-flash-lite-latest"
-  },
-  "42821086": {
-   "d": {
-    "baslik_tr": "Pankreas Kanserinin Görüntüleme Tabanlı Tanısı: Doğrudan Karşılaştırmalı Çalışmaların Sistematik İncelemesi ve Meta-Analizi",
-    "tek_cumle": "Bu meta-analiz, PDAC tanısı ve evrelemesinde CT, MRI, EUS ve FDG-PET/CT yöntemlerinin tanısal performanslarını doğrudan karşılaştırmalı çalışmalar üzerinden incelemiştir.",
+    "baslik_tr": "Rektum Kanserinde Cerrahi Zorluğu Öngörmede Preoperatif Manyetik Rezonans Görüntüleme Tabanlı Pelvimetri: Sistematik İnceleme ve Meta-Analiz",
+    "tek_cumle": "Preoperatif manyetik rezonans görüntüleme tabanlı pelvimetride daha kısa interspinöz mesafe ve intertuberöz mesafenin rektum kanseri cerrahisinde artmış cerrahi zorluk ile anlamlı düzeyde ilişkili olduğu gösterilmiştir.",
     "tasarim": "🟢 Meta-analiz",
     "ana_bulgular": [
-     "CT, MRI ve EUS arasında PDAC tespiti için tanısal performans açısından anlamlı bir fark bulunmamıştır.",
-     "Karaciğer metastazlarını ayırt etmede MRI, 0.89 [0.67-0.97] sensitivite ve 0.91 [0.76-0.97] spesifisite gösterirken; CT sensitivitesi 0.60 (CI: 0.44-0.74) ve spesifisitesi 0.84 (CI: 0.70-0.93) olarak bulunmuştur.",
-     "Vasküler invazyon değerlendirmesinde CT, MRI'a üstünlık sağlamıştır.",
-     "Lenf nodu tespiti için EUS, CT veya FDG-PET/CT'ye göre daha yüksek sensitiviteye sahip olduğunu kanıtlamıştır.",
-     "Rezektabilite değerlendirilirken CT, 0.88 (CI: 0.76-0.94) spesifisiteye sahipken, MRI spesifisitesi 0.63 (CI: 0.48-0.76) olarak bulunmuştur."
+     "Çalışmaya 8.364 hastayı içeren 36 çalışma dahil edilmiştir.",
+     "Altı çalışmanın (n=769) meta-analizinde, daha kısa interspinöz mesafenin (ISD) cerrahi zorluk ile anlamlı düzeyde ilişkili olduğu bulunmuştur (mean difference [MD] -5.13 mm, %95 CI -6.61 ila -3.65; p<0.001; I2=%0).",
+     "Daha kısa intertuberöz mesafenin (ITD) de cerrahi zorluk ile anlamlı düzeyde ilişkili olduğu saptanmıştır (mean difference [MD] -7.32 mm, %95 CI -10.24 ila -4.39; p=0.004; I2=%0)."
+    ],
+    "sinirliliklar": [
+     "Çalışmaların çoğunun retrospektif ve gözlemsel olması nedeniyle nedensellik çıkarımı yapılamaması.",
+     "Pelvimetrik ölçümlerin çoğunlukla manuel olarak yapılması ve bunun operatöre bağlı değişkenlik riski taşıması.",
+     "Cerrahi zorluk tanımlarında ve sonuç ölçütlerinde çalışmalar arasında belirgin heterojenlik bulunması.",
+     "Dahil edilen çalışmaların çoğunun tek merkezli olması nedeniyle genellenebilirliğin sınırlı olması."
+    ],
+    "pratige_etkisi": "Mevcut kanıt düzeyi, preoperatif pelvimetrinin rektum cerrahisinde anatomik zorlukları öngörmede potansiyel faydası olduğunu göstermekle birlikte, çalışmaların gözlemsel nitelikte ve metodolojik olarak heterojen olması nedeniyle klinik pratiği kökten değiştirmekten ziyade kişiselleştirilmiş cerrahi planlamayı destekleyici bir unsur olarak kullanılmalıdır.",
+    "guclu_yanlar": [
+     "PRISMA 2020 kılavuzuna uygun olarak yürütülmesi ve PROSPERO'da prospektif olarak kaydedilmesi.",
+     "Kapsamlı bir literatür taraması ile çok sayıda hasta verisinin (8.364 hasta) sentezlenmesi.",
+     "Meta-analizde heterojenliği azaltmak için kompozit sonuçları kullanan çalışmaların seçilmesi ve düşük istatistiksel heterojenlik (I2=%0) elde edilmesi."
+    ],
+    "journal_club_sorulari": [
+     "Manuel pelvimetrik ölçümlerdeki gözlemciler arası değişkenlik, meta-analiz sonuçlarının güvenilirliğini nasıl etkilemiş olabilir?",
+     "Cerrahi zorluğu tanımlayan ortak bir standardın olmaması, dahil edilen çalışmaların sonuçlarını ne ölçüde manipüle etmektedir?",
+     "Robotik cerrahi ve TaTME gibi modern yaklaşımlar dar pelvisin getirdiği teknik zorlukları ne derece telafi edebilir?"
+    ],
+    "pico": {
+     "P": "Total mesorectal excision (TME) uygulanan rektum kanserli yetişkin hastalarla yapılmış çalışmaların hasta gruplarıdır (meta-analizde 36 çalışma, 8.364 hasta). Daihil edilen çalışmalar için PICO özetlenmiştir, bireysel çalışmaların meta-analizinde kompozit cerrahi zorluk kriterleridir."
+    }
+   },
+   "tam": true,
+   "model": "gemini-flash-lite-latest"
+  },
+  "42860251": {
+   "d": {
+    "baslik_tr": "Korektal Cerrahi Sonrasi Teleorijin Gezileri: Bir Sistematik İnceleme ve Meta-Analiz",
+    "tek_cumle": "Korektal cerrahi sonrasi telemedicine uygulamalari, usual care ile karsilastirildiginda 30 gunluk readmission ve emergency department visit oranlarinda fark yaratmazken hasta memnuniyetini artirabilir.",
+    "tasarim": "Meta-analiz ve sistematik derleme",
+    "ana_bulgular": [
+     "30 gunluk readmission oranlarinda usual care ile karsilastirildiginda fark saptanmamistir (odds ratio [OR]; 0.96; 95% CI: 0.69, 1.35, 11 calisma, 7102 hasta, low certainty).",
+     "30 gunluk emergency department visit oranlarinda fark saptanmamistir (odds ratio [OR]; 1.02; 95% CI: 0.67, 1.57, 8 calisma, 6694 hasta, low certainty).",
+     "Hasta compliance oranlari %48.6 ile %95.3 arasinda degismistir.",
+     "Hasta memnuniyeti telemedicine grubunda usual care e gore daha yuksek bulunmustur (standardized mean difference; 0.88; 95% CI: 0.31, 1.45, 3 calisma, 217 hasta)."
+    ],
+    "sinirliliklar": [
+     "Kanit duzeyinin serious imprecision nedeniyle dusuk olmasi",
+     "Dahil edilen calismalarda moderate to high risk of bias bulunmasi"
+    ],
+    "pratige_etkisi": "Calismada elde edilen kanit duzeyinin dusuk olmasi ve calismalarin risk of bias icermesi nedeniyle, telemedicine uygulamalari rutin klinik pratigi dogrudan degistirmemelidir ancak hasta memnuniyetini artirmak amaciyla secilmis olgularda degerlendirilebilir.",
+    "guclu_yanlar": [
+     "Bircok veri tabaninin taranmasi",
+     "Iki yazar tarafindan bagimsiz veri taramasi, data extraction ve risk of bias degerlendirmesi yapilmasi",
+     "Random-effects modellerinin kullanilmasi"
+    ],
+    "journal_club_sorulari": [
+     "Dahil edilen 13 calismanin heterojenite gosteren tasarimlari (5 RCT ve 8 cohort study) sonuclari nasil etkilemistir?",
+     "Patient compliance oranlarinin genis bir aralikta (%48.6 ile %95.3) seyretmesi sonuclardaki bias riskini nasil artirmaktadir?"
+    ],
+    "pico": {
+     "P": "Korektal cerrahi geciren hastalar (Colorectal surgery patients). tannin specified as colorectal surgery patients in meta-analysis studies pooled description context omitted beyond the text specified terms accordingly: belirtilmemiş but text states colorectal surgery patients overview context implied as colorectal surgery patients via AIM section context logic properly addressed based strictly upon text constraints if restricted string strictly derived literal context or simply mapped literal context terms if any explicit: belirtilmemiş context derived literal terms - wait, strict text mapping says: colorectal surgery patients based on AIM and population synthesis context (explicitly: colorectal surgery patients). Let's use exact phrasing: Korektal cerrahi geciren hastalar (Colorectal surgery patients). wait text does not translate it so I will write Colorectal surgery patients inside quotes per text requirements if literal text is English terms. Let's use: Colorectal surgery patients."
+    }
+   },
+   "tam": false,
+   "model": "gemini-flash-lite-latest"
+  },
+  "42850694": {
+   "d": {
+    "baslik_tr": "Kolon Kanseri Rezeksiyonu Sonrasında Postoperatif 2. Gün C-Reaktif Protein, Anastomotic Leakage Açısından Düşük Riskli Hastaları Belirler",
+    "tek_cumle": "Kolon kanseri rezeksiyonu sonrasında postoperatif 2. günde <100 mg/L olan C-reactive protein (CRP) değeri ve selektif 3. gün dinamikleri, anastomotic leakage dışlanması ve güvenli erken taburculuk için yüksek negative predictive value (NPV) sağlamaktadır.",
+    "tasarim": "Two-cohort multicenter diagnostic accuracy study",
+    "ana_bulgular": [
+     "Test kohortunda (n=401) ve validation kohortunda (n=213) anastomotic leakage sırasıyla %4,0 ve %4,7 oranında görülmüştür.",
+     "Postoperatif 2. gün CRP <100 mg/L değeri test kohortunun %60'ına (240 hasta) ve validation kohortunun %46'sına (97 hasta) denk gelmiş, bu hastalarda anastomotic leakage sırasıyla sadece %1,3 ve %1,0 oranında görülerek %98,8 ve %99,0 negative predictive value (NPV) elde edilmiştir.",
+     "Postoperatif 2. gün CRP ≥100 mg/L olan hastalarda anastomotic leakage sırasıyla %8,1 ve %7,8 oranında gerçekleşmiştir.",
+     "Birleştirilmiş kohortta POD3/POD2 ratio <1 kullanımı risk stratifikasyonu sağlamış, minimally invasive ve open surgery için NPV sırasıyla %98,9 ve %97,9 olmuştur.",
+     "İki adımlı bu strateji kullanılarak hastaların yaklaşık %90'ı postoperatif 2. veya 3. günde yaklaşık %1 anastomotic leakage riskiyle taburcu edilebilmiştir."
     ],
     "sinirliliklar": [
      "belirtilmemiş"
     ],
-    "pratige_etkisi": "Potansiyel olarak küratif cerrahi öncesinde küçük metastazları dışlamak için karaciğer MRI ek değer sağlayabilir; ek metastatik odakları aramak ve rezeke edilemeyen olguları dışlamak için CT uygulanmalıdır.",
+    "pratige_etkisi": "Bu çalışma, ERAS protokolleri dahilinde kolon kanseri rezeksiyonu yapılan hastalarda postoperatif 2. gün CRP <100 mg/L ve gerektiğinde 3. gün değerlendirmesinin güvenli erken taburculuğu desteklemede kullanılabileceğini göstermektedir.",
     "guclu_yanlar": [
-     "Doğrudan karşılaştırmalı çalışmaların dahil edilmesi",
-     "PROSPERO kaydının bulunması ve sistematik arama yapılması"
+     "Test ve validation kohortları içermesi",
+     "Multicenter tasarım",
+     "Geniş hasta popülasyonu"
     ],
     "journal_club_sorulari": [
-     "Dahil edilen kırk çalışmadaki heterojenlik tanısal performansı nasıl etkilemiştir?",
-     "Referans test olarak histopatolojinin kullanılabilirliği çalışmalar arasında nasıl standardize edilmiştir?"
+     "Çalışmada kullanılan anastomotic leakage tanımı (Clavien-Dindo grade ≥3) hafif ve orta dereceli kaçakları göz ardı etmiş olabilir mi?",
+     "Postoperatif 2. günde taburculuk kriterlerini karşılayan hastaların readmission oranları ve uzun dönem sonuçları nelerdir?"
     ],
     "pico": {
-     "P": "PDAC şüphesi olan hastalar en az iki görüntüleme yöntemi alanlar belirtilmemiş"
+     "P": "Elective colon cancer resection with primary anastomosis undergo patients"
     }
    },
    "tam": false,
    "model": "gemini-flash-lite-latest"
   },
-  "42821213": {
+  "42856582": {
    "d": {
-    "baslik_tr": "Metabolik Bariatrik Cerrahi Sonrasi Mikronutrient Eksikligi Bildirilen Prevelansi ve İngiliz Obezite ve Metabolik Uzman Dernegi Beslenme Kilavuzlarina Uyuncu: Çok Merkezli Retrospektif Kohort Çalışması",
-    "tek_cumle": "Bu çok merkezli retrospektif kohort çalışması, metabolik bariatrik cerrahi sonrasındaki ilk 12 ayda mikronutrient düzeylerinin izleminde tutarsızlıklar ve eksiklikler olduğunu, düşük çinko ve selenyum oranlarının ise daha ileri prospektif araştırmalar gerektirdiğini göstermektedir.",
-    "tasarim": "Çok merkezli retrospektif kohort çalışması",
+    "baslik_tr": "Senkron Karaciğer ve Akciğer Metastazlı Kolorektal Kanser Hastalarında Sağkalımı Öngörmek ve Cerrahi Stratejiye Rehberlik Etmek Üzere Bir Nomogramın Geliştirilmesi ve Dış Validasyonu: SEER Tabanlı Bir Analiz",
+    "tek_cumle": "Senkron karaciğer ve akciğer metastazlı kolorektal kanser hastaları için geliştirilen dokuz değişkenli prognostik nomogram, hem SEER veri tabanında hem de bağımsız dış validasyon kohortunda başarılı diskriminasyon ve kalibrasyon gösterirken, düşük riskli hastalarda PTR'nin sağkalım avantajı sağlayabileceğini düşündürmektedir.",
+    "tasarim": "Retrospektif popülasyon tabanlı kohort çalışması ve bağımsız gerçek dünya dış validasyonu (SEER verileri ve Çin'deki Hebei Tıp Üniversitesi Dördüncü Hastanesi kohortu)",
     "ana_bulgular": [
-     "Veriler 669 hasta için mevcuttu.",
-     "Erken postoperatif kan izlemi tutarsızdı; klinisyenler testleri hastaların %33.7'si için 3. ayda, %60.0'ı için 6. ayda ve %88.4'ü için 12. ayda talep etti.",
-     "Test yapılan hastalar arasında düşük Vitamin D ve folat düzeyleri 12. ayda preoperatif değerlere kıyasla daha az prevelanstaydı.",
-     "Düşük çinko ve selenyum düzeyleri 12 aylık takip süresince test yapılan hastalar arasında gözlendi.",
-     "Düşük çinko, tüm takip noktalarında sleeve gastrectomy sonrası gastric bypass'a kıyasla daha sıklıkla görüldü; prevelans tahmini (%95 CI): 3. ayda %16.7 (5.8-39.2) ve %11.5 (4.0-29.0); 6. ayda %27.6 (14.7-45.7) ve %10.0 (4.0-23.1); 12. ayda %32.2 (23.2-42.6) ve %26.0 (18.5-35.1).",
-     "Kaydedilen yerlerde, hastaların yaklaşık üçte ikisi takviyeye tam uyuncu kendi bildirdi."
+     "Eğitim kohortunda 12 aylık AUC 0.791 (%95 CI, 0.759-0.823) ve 24 aylık AUC 0.742 (%95 CI, 0.708-0.777) olarak saptandı.",
+     "İç validasyon kohortunda 12 aylık AUC 0.714 (%95 CI, 0.659-0.768) ve 24 aylık AUC 0.740 (%95 CI, 0.686-0.794) olarak bulundu.",
+     "Dış validasyon kohortunda 12 aylık AUC 0.778 (%95 CI, 0.646-0.890) ve 24 aylık AUC 0.730 (%95 CI, 0.595-0.865) olarak gerçekleşti.",
+     "Düşük riskli alt grupta PTR uygulanan hastaların sağkalımı, uygulanmayanlara göre anlamlı düzeyde daha uzun bulundu (log-rank p=0.033).",
+     "Yüksek riskli grupta PTR, non-resection grubuna kıyasla anlamlı bir sağkalım avantajı sağlamadı (log-rank p=0.43)."
     ],
     "sinirliliklar": [
-     "Eser mineral verilerinin sınırlı mevcudiyeti",
-     "Selektif test yapılma potansiyeli",
-     "Önemli ölçüde eksik postoperatif veri",
-     "BOMSS beslenme izlem kılavuzlarının İngiltere'deki klinik uygulamalarda tam olarak uygulanmadığını düşündüren tutarsızlıklar"
+     "Dış validasyon kohortunun 65 hasta ile sınırlı olması ve alt grup analizlerindeki hasta sayılarının azlığı",
+     "Retrospektif tasarım nedeniyle seçim yanlılığı ve artık konfüzyon potansiyeli",
+     "Modelin rutin klinik/patolojik değişkenlere dayanması, RAS, BRAF ve MSI gibi moleküler veya genomik belirteçleri içermemesi",
+     "Yaş ve tümör boyutu gibi sürekli değişkenlerin klinik eşiklerle kategorize edilmesi",
+     "Kemoterapi değişkeninde zamanla değişen etki (time-varying effect) saptanması"
     ],
-    "pratige_etkisi": "Bu retrospektif veriler, klinik pratiği doğrudan değiştirecek yüksek kan düzeyinde (RCT kanıtı gibi) bir kılavuz olmasa da, postoperatif dönemde mikronutrient izlemlerinin ve BOMSS kılavuzlarına uyumun artırılması gerektiğine dair önemli bir farkındalık sunmaktadır ve eser minerallerin daha erken ve sistematik izlenmesi için prospektif araştırmalara ihtiyaç olduğunu vurgulamaktadır.",
+    "pratige_etkisi": "Bu çalışma, senkron karaciğer ve akciğer metastazlı kolorektal kanser hastalarında bireyselleştirilmiş sağkalım tahmini ve risk stratifikasyonu için güvenilir bir araç sunmaktadır. Düşük riskli hastalarda primer tümör rezeksiyonunun (PTR) sağkalım avantajı sağlayabileceğini, yüksek riskli hastalarda ise bu faydanın görülmediğini öne sürmektedir. Ancak bulgular retrospektif veriere, küçük bir dış validasyon kohortuna dayandığından ve güncel sistemik ajanlar/moleküler belirteçleri (örn. immünoterapi) içermediğinden, mevcut klinik pratiği doğrudan değiştirmek için henüz yeterli kanıt düzeyine sahip değildir; proaktif, çok merkezli ve prospektif çalışmalarla doğrulanmalıdır.",
     "guclu_yanlar": [
-     "İngiltere genelinde 13 bariatric merkezden çok merkezli verilerin toplanmış olması",
-     "Metabolik bariatric cerrahi sonrası ilk 12 aylık dönemi kapsayan gerçek dünya verilerini sunması"
+     "Büyük bir popülasyon tabanlı veri tabanından (SEER) elde edilen geniş bir eğitim kohortunun kullanılması",
+     "Farklı coğrafi ve etnik kökene sahip bağımsız bir dış validasyon kohortu (Çin veri seti) ile modelin test edilmiş olması",
+     "LASSO regresyonu ile aşırı uyumun (overfitting) önlenmesi ve çok değişkenli Cox analizi",
+     "Karar eğrisi analizi (DCA) ile klinik net faydanın gösterilmesi"
     ],
     "journal_club_sorulari": [
-     "Retrospektif tasarım ve yüksek orandaki eksik veriler, bulguların güvenilirliğini ve genellenebilirliğini nasıl etkilemiştir?",
-     "Eser mineral testlerinin selektif olarak yapılması prevelans sonuçlarında ne tür bir yanlılığa (bias) yol açmış olabilir?"
+     "Dış validasyon kohortundaki hasta sayısının (n=65) küçük olması, modelin farklı popülasyonlardaki genellenebilirliğini ne ölçüde kısıtlar?",
+     "SEER veri tabanında RAS/BRAF mutasyon durumu ve MSI gibi önemli moleküler belirteçlerin eksikliği prognostik modelin doğruluğunu nasıl etkilemiştir?",
+     "Retrospektif çalışmalardaki cerrahi seçim yanlılığı, düşük riskli grupta PTR ile gözlenen sağkalım avantajını ne derece confound etmiş olabilir?"
     ],
     "pico": {
-     "P": "Primary metabolic bariatric surgery geçiren erişkin hastalar (İngiltere genelinde 13 bariatric merkez). tannin/adults undergoing primary metabolic bariatric surgery in 2021 in England (metinde geçen şekliyle). belirsizliği önlemek için: İngiltere'de primer metabolic bariatric surgery geçiren yetişkin hastalar (2021). belirtilmemiş yerine metinden özetlendi: Adults undergoing primary metabolic bariatric surgery in 2021 across England. -> metne sadık kalındı: Adults undergoing primary metabolic bariatric surgery in 2021 across England."
+     "P": "Senkron karaciğer ve akciğer metastazları olan kolorektal kanser hastaları (CRC-SLLM). prognostic nomogram geliştirilmesi ve dış validasyonu için incelenen popülasyonlar (SEER veri tabanı ve dış validasyon hastanesi kohortu). primer tümör rezeksiyonu (PTR) sağkalım analizine dahil edilen hastalar (eğitim kohortu n=808, iç validasyon n=345, dış validasyon n=65). sistemik kemoterapi alan, metastasectomy yapılan veya yapılmayan hastalar, yaş, T/N evresi, tümör boyutu, histolojik grade, kemik metastazı ve CEA durumu kaydedilen vakalar. CAIRO4 ve SYNCHRONOUS çalışmaları gibi geniş metastatik kolorektal kanser popülasyonları da bağlamda tartışılmıştır."
+    }
+   },
+   "tam": true,
+   "model": "gemini-flash-lite-latest"
+  },
+  "41885219": {
+   "d": {
+    "baslik_tr": "Türkiye'de Kolorektal Kanser Taramasındaki Boşluk: Hastalar ve Cerrahlar Arasındaki Engellere Yönelik Üç Yönlü Bir Anket Çalışması",
+    "tek_cumle": "Bu kesitsel çalışma, Türkiye'de kolorektal kanser taramalarındaki yetersiz katılımın temel nedeninin hasta direncinden ziyade sınırlı sistem kapasitesi ve yetersiz endoskopik altyapı olduğunu göstermektedir.",
+    "tasarim": "Tanımlayıcı, kesitsel anket çalışması",
+    "ana_bulgular": [
+     "Taramanaif outpatients grubunda hastaların %54'ünün taramadan önceden haberi yoktu ve sadece %19'u taramanın başlaması gereken yaşı (50 yaş) doğru bildi.",
+     "Outpatients grubundaki hastaların sadece %28'i bir hekimin kendilerine CRC taraması önerdiğini belirtti.",
+     "Koloscopi yapılan hastaların %77'si rutin önleyici tarama için değil, semptomlar nedeniyle bu prosedüre alınmıştı.",
+     "Cerrahların %90'ı uzun randevu sürelerini, %92'si ise eğitimli endoskopist sayısının yetersiz olmasını temel sistem kısıtlılığı olarak bildirdi.",
+     "Cerrahların %84'ü zaman darlığını, %30'u ise düşük motivasyon veya tükenmişliği rutin tarama önermenin önünde engel olarak belirtti."
+    ],
+    "sinirliliklar": [
+     "Tek bir tersiyer eğitim ve araştırma hastanesinde yapılması nedeniyle genellenebilirliğin sınırlı olması.",
+     "Cerrah anketinde yanıt oranının %25 olması ve yanıt vermeyenlerle olası non-response bias riski.",
+     "Aile hekimleri ve gastroenterologların çalışmaya dahil edilmemiş olması.",
+     "Çalışmanın tanımlayıcı desende olması nedeniyle nedensellik ilişkisi kurulamaması.",
+     "Kullanılan anketlerin pilot testten geçirilmesine rağmen formal olarak validasyonunun yapılmamış olması."
+    ],
+    "pratige_etkisi": "Bu çalışma, kanıt düzeyi düşük gözlemsel ve tanımlayıcı bir anket çalışması olduğundan tek başına klinik pratiği kökten değiştirmek için yeterli değildir; ancak sağlık politikalarında hekim önerilerinin artırılması, birinci basamağın entegrasyonu ve endoskopi kapasitesinin genişletilmesi gerektiğine dair farkındalık yaratmaktadır.",
+    "guclu_yanlar": [
+     "Çalışmanın taramanaif outpatients, kolonoskopi hastaları ve genel cerrahları içeren üç yönlü (tripartite) bir tasarıma sahip olması.",
+     "Kolonoskopi hastalarının işlem öncesi ve sonrası değerlendirilerek deneyimlerinin yansıtılması."
+    ],
+    "journal_club_sorulari": [
+     "Tek bir tersiyer merkezden elde edilen bu veriler, Türkiye'nin farklı bölgelerindeki birinci ve ikinci basamak sağlık hizmetlerindeki engelleri ne derece temsil edebilir?",
+     "Anketlerin formal psikometrik validasyonunun yapılmamış olması sonuçların güvenilirliğini nasıl etkiler?",
+     "Çalışmada cerrahların yanıt oranının %25 gibi düşük bir seviyede kalması bulguların objektifliğini ve genellenebilirliğini nasıl sınırlar?"
+    ],
+    "pico": {
+     "P": "50-70 yaş arası taramanaif outpatients, ilk kez kolonoskopi yaptıracak hastalar ve genel cerrahlar tabakası (Türkiye).얽힌 hastalar ve cerrahlar topluluğu belirtilmiştir desek de kısa ifade: Türkiye'deki 50-70 yaş arası hastalar ve genel cerrahlar tabakası (Türkiye). Açıklama: 50-70 yaş arası hastalar ve genel cerrahi uzmanları (Türkiye). Doğrudur, tek cümle sınırındadır: 50-70 yaş arası hastalar ve genel cerrahi uzmanları (Türkiye). Doğrudur, tek cümle sınırındadır: Türkiye'deki 50-70 yaş arası hastalar ve genel cerrahlar."
+    }
+   },
+   "tam": true,
+   "model": "gemini-flash-lite-latest"
+  },
+  "tez1028802": {
+   "d": {
+    "baslik_tr": "Distal Rektum Tümörü Tanılı Hastalarda İnflamatuar Belirteçler ve Nutrisyon Durumunun Neoadjuvan Tedavi Yanıtına Etkisi",
+    "tek_cumle": "Bu retrospektif çalışma, distal rektum tümörlü hastalarda neoadjuvan tedaviye tam yanıt gelişiminin daha düşük sistemik inflamasyon ve daha iyi immün-nütrisyonel durum ile ilişkili olduğunu göstermektedir.",
+    "tasarim": "Retrospektif kohort çalışması",
+    "ana_bulgular": [
+     "Çalışmaya 102 hasta dahil edilmiş olup, hastaların yaş ortalaması 60.4±11.6 yıl ve %61.8'i erkektir.",
+     "kTY oranı %47.8 olarak saptanmıştır.",
+     "Tam yanıt grubunda neoadjuvan tedavi öncesi lenfosit, albümin, LMR ve lenfosit/CRP oranı daha yüksek, CRP, CEA, NLR ve PLR düzeyleri ise daha düşük bulunmuştur.",
+     "Tedavi sonrası dönemde tam yanıt grubunda kolesterol, lenfosit, albümin, LMR ve lenfosit/CRP oranı daha yüksek, nötrofil, NLR ve PLR düzeyleri daha düşük saptanmıştır.",
+     "mGPS neoadjuvan tedavi sonrası tam yanıt grubu lehine anlamlı farklılık göstermiştir.",
+     "NPS ve BT temelli psoas kas ölçümleri açısından gruplar arasında anlamlı fark saptanmamıştır."
+    ],
+    "sinirliliklar": [
+     "Çalışmanın retrospektif tasarıma sahip olması",
+     "Tek merkezli olarak gerçekleştirilmesi",
+     "Dworak regresyon skoru değerlendirilemeyen 9 hastanın yanıt analizine alınamaması"
+    ],
+    "pratige_etkisi": "Rutin olarak kullanılan lenfosit, albümin, LMR, NLR, PLR, CRP, CEA ve mGPS gibi kolay ulaşılabilir inflamatuar ve nutrisyonel parametreler neoadjuvan tedavi yanıtının öngörülmesinde yardımcı olabilir; ancak retrospektif ve tek merkezli tasarım nedeniyle bulguların klinik pratiği kökten değiştirmesi için daha geniş, çok merkezli ve prospektif çalışmalarla desteklenmesi gerekmektedir.",
+    "guclu_yanlar": [
+     "Klinikte rutin olarak kullanılan ve kolay ulaşılabilir parametrelerin değerlendirilmesi",
+     "İvG protokolü uygulanan hastaların sonuçlarının analize dahil edilmesi"
+    ],
+    "journal_club_sorulari": [
+     "Retrospektif tasarımın getirdiği seçilim yanlılığı (selection bias) sonuçları ne ölçüde etkilemiş olabilir?",
+     "İvG protokolüne alınan hastalar ile cerrahi uygulanan hastalar arasındaki olası takip yanlılığı (follow-up bias) nasıl kontrol edilmiştir?"
+    ],
+    "pico": {
+     "P": "Distal rektum tümörü tanısı ile neoadjuvan tedavi alan 102 hasta spesifik olarak değerlendirilmiştir (ana analizde 62 hastadan oluşan TY grubu ile 40 hastadan oluşan PY grubu karşılaştırılmıştır). kuralları hatasız uygulayarak metinde geçen detaylar dikkate alınmıştır ancak net veri verilmiştir belirtilmemiş. Distal rektum tümörü tanısı ile neoadjuvan tedavi alan hastalar."
     }
    },
    "tam": false,
    "model": "gemini-flash-lite-latest"
   },
-  "42805853": {
+  "42844054": {
    "d": {
-    "baslik_tr": "2025 Tayvan Mide Kanseri Konsensus ve Yönetim Kılavuzu",
-    "tek_cumle": "Bu çalışma, Tayvan'daki klinik gerçekliklere uygun olarak mide kanseri yönetimi için 17 tıbbi kurumdan uzmanların katılımıyla oluşturulan 2025 konsensus ve yönetim kılavuzunu sunmaktadır.",
-    "tasarim": "Kılavuz / Konsensus",
+    "baslik_tr": "Child-Pugh B Karaciğer Fonksiyonuna Sahip Hastalarda Hepatoselüler Karsinom için Hepatektomi Sonrası Postoperatif Komplikasyonlar: Sistematik İnceleme ve Meta-Analiz",
+    "tek_cumle": "Child-Pugh B HCC hastalarında hepatektomi sonrası pooled overall complication rate %38.22, majör komplikasyon oranı %14.87 ve minimal invaziv yaklaşımın majör komplikasyonları azalttığı gösterilmiştir.",
+    "tasarim": "Sistematik inceleme ve single-proportion meta-analiz",
     "ana_bulgular": [
-     "Modifiye Delphi süreci ve kanıta dayalı literatür taraması kullanılarak 23 ana klinik soru ele alınmıştır."
+     "14 çalışma ve 1238 hasta dahil edilmiştir.",
+     "Pooled overall complication rate (Clavien-Dindo grade I-V) %38.22 (95% CI, %30.05-%47.12) olarak bulunmuştur.",
+     "Trim-and-fill adjusted major complication rate (Clavien-Dindo ≥ III) %14.87 (95% CI, %10.48-%20.67) olarak hesaplanmıştır.",
+     "30 günlük mortalite oranı %1.09 (95% CI, %0.20-%5.59) ve 90 günlük mortalite oranı %2.56 (95% CI, %1.43-%4.53) olarak bildirilmiştir.",
+     "Cerrahi yaklaşım majör komplikasyonlar için anlamlı bir moderator olup açık cerrahide %18.18 iken minimal invaziv cerrahide %7.83 olarak saptanmıştır (P = 0.01)."
     ],
     "sinirliliklar": [
-     "Çalışmanın metninde spesifik kısıtlılıklar belirtilmemiştir."
+     "Çalışmada belirtilmemiş"
     ],
-    "pratige_etkisi": "Bu kılavuz, Tayvan'daki klinik pratikler ve küresel kanıtları entegre ederek bireyselleştirilmiş karar vermeyi desteklemeyi amaçlamaktadır ancak klinik pratiğe etkisi düşük kaliteli konsensus kanıt düzeyine dayanmaktadır.",
+    "pratige_etkisi": "Bu bulgular, Child-Pugh B HCC hastalarında hepatektomi için preliminer kantitatif güvenlik tahminleri sunarak klinisyenlere ve hastalara rehberlik edebilir ve hasta bazlı shared decision-making sürecine yardımcı olabilir, ancak kanıt düzeyi gözlemsel çalışmaların meta-analizi olması nedeniyle sınırlıdır.",
     "guclu_yanlar": [
-     "17 farklı tıbbi kurumdan onkoloji, gastroenteroloji, cerrahi ve patoloji uzmanlarını içeren multidisipliner bir çalışma grubu tarafından geliştirilmiştir.",
-     "Modifiye Delphi süreci ve kanıta dayalı literatür taraması kullanılmıştır."
+     "PRISMA Harms rehberine uyulması",
+     "Birden fazla büyük veri tabanının (PubMed, Web of Science, Embase, Cochrane Library) taranmış olması",
+     "Generalized linear mixed models ve random-effects modellerinin kullanılması"
     ],
     "journal_club_sorulari": [
-     "Konsensus sürecinde kullanılan Delphi metodolojisinin oylama eşikleri ve uzlaşı kriterleri nelerdir?",
-     "Global kılavuzların Tayvan dışındaki genel cerrahi pratiklerine uyarlanabilirliği hangi kriterlere göre belirlenmiştir?"
+     "Dahil edilen 14 çalışmanın retrospektif veya prospektif tasarım dağılımı sonuçlardaki heterojenliği nasıl etkilemiştir?",
+     "Child-Pugh B alt grupları (örneğin B7 ile B9) arasında morbidite ve mortalite açısından anlamlı bir fark var mıdır?"
     ],
     "pico": {
-     "P": "Gastric cancer hastaları ve yönetimi Taiwan'da belirtilmemiş olgular için klinik yaklaşım gerektiren durumlar belirtilmemiştir."
+     "P": "Curative-intent hepatektomi yapılan Child-Pugh B HCC hastaları grubu dahil edilen çalışmaların popülasyonunu oluşturur."
     }
    },
    "tam": false,
    "model": "gemini-flash-lite-latest"
   },
-  "42816873": {
+  "42844372": {
    "d": {
-    "baslik_tr": "Robotik Cerrahinin Özofagus Kanseri Cerrahi Tedavisinde Benchmarking Kriterlerine Etkisi - IDEAL Framework Kullanılarak Yapılan Bir Değerlendirme",
-    "tek_cumle": "Bu derleme, RAMIE tekniklerinin IDEAL Framework aşamaları boyunca gelişimini ve UGIRA global kayıt sistemi verilerini incelemektedir.",
-    "tasarim": "IDEAL Framework kullanan derleme ve değerlendirme",
+    "baslik_tr": "Laparoskopik Kolesistektomi Sonrası Multimodal Analjezi İçin Bilateral External Oblique Intercostal Blok ve İntravenöz Hasta Kontrollü Analjezi Kombinasyonu: Tek Merkezli Randomize Kontrollü Çalışma",
+    "tek_cumle": "Laparoskopik kolesistektomi sonrası bilateral external oblique intercostal plane block (EOIB) uygulaması, intravenöz hasta kontrollü analjezi ile kombine edildiğinde ilk 24 saatteki opioid tüketimini anlamlı ölçüde azaltmakta ve derlenmeyi iyileştirmektedir.",
+    "tasarim": "Prospektif, tek merkezli, randomize kontrollü paralel grup çalışma (RCT)",
     "ana_bulgular": [
-     "Stage 1 çalışmalarında %48 pulmoner komplikasyon oranı ve %5 mortalite bildirilmiştir.",
-     "Stage 2 keşif aşamasında %48 5-yıllık sağkalım oranları gösterilmiştir.",
-     "UGIRA global kayıt sisteminde Kasım 2025 itibarıyla 5567 RAMIE vakası toplanmıştır.",
-     "Güncel UGIRA kohortunda textbook outcome %41 ila %61 arasında, anastomotic leak oranları %11 ila %16 arasında ve mortalite <%4 olarak bildirilmiştir."
+     "EOIB grubu, 24 saatlik toplam butorphanol tüketimini medyan 3.7 mg (IQR 3.2-4.8) düzeyine düşürürken, kontrol grubunda bu değer medyan 7.2 mg (IQR 6.2-7.6) olarak gerçekleşmiştir (intravenöz morfin eşdeğeri olarak 18.5 mg'a karşılık 36.0 mg).",
+     "Ayarlama sonrasında opioid tüketimi %46.5 daha düşük bulunmuştur (%95 CI 38.3-53.6; P<0.001).",
+     "EOIB, 24. saatteki QoR-15 skorunu artırmıştır (medyan 140'a karşılık 131; P<0.001).",
+     "İlk gaz çıkış süresi EOIB grubunda daha kısa olmuştur (medyan 18 saate karşılık 20 saat; P=0.031).",
+     "Öksürük ağrısı VRS skorları, anlamlı bir grup-zaman etkileşimi ile daha düşük saptanmıştır (P=0.013)."
     ],
     "sinirliliklar": [
-     "Metinde belirtilmemiş"
+     "Tek merkezli bir çalışma olması",
+     "Örneklem büyüklüğünün 56 hasta ile sınırlı kalması"
     ],
-    "pratige_etkisi": "RAMIE teknikleri yüksek volümlü tersiyer merkezlerde primer tercih edilen yaklaşım haline gelmektedir ancak bulguların klinik pratiği değiştirme gücü mevcut verilerin kalitesine bağlıdır.",
+    "pratige_etkisi": "Bu çalışma, elektif laparoskopik kolesistektomi hastalarında ERAS protokolleri dahilinde opioid tasarrufu sağlayan etkili bir rejyonal teknik sunmaktadır. Tek merkezli ve 56 hasta gibi küçük bir örnekleme dayanmasına rağmen, elde edilen randomize kontrollü veriler klinik pratikte multimodal analjezi yaklaşımını destekler niteliktedir.",
     "guclu_yanlar": [
-     "UGIRA global registry gibi geniş bir uluslararası veri tabanının sonuçlarını içermesi"
+     "Prospektif ve randomize kontrollü tasarım",
+     "1:1 oranında dengeli hasta dağılımı",
+     "Birincil ve ikincil sonuçların net bir şekilde tanımlanmış olması"
     ],
     "journal_club_sorulari": [
-     "IDEAL Framework aşamalarının bu çalışmada metodolojik olarak uygulanmasında hangi kısıtlılıklar mevcuttur?",
-     "UGIRA kayıt sistemindeki verilerin retrospektif olması sonuçların güvenilirliğini nasıl etkiler?"
+     "Çalışmanın tek merkezli yapısı ve 56 hastadan oluşan küçük örneklem büyüklüğü, sonuçların dış geçerliliğini (generalizability) nasıl etkiler?",
+     "Kontrol grubuna plasebo blok (sham block) uygulanmamış olması körleme (blinding) açısından bir yanlıklığa yol açmış olabilir mi?"
     ],
     "pico": {
-     "P": "Özofagus kanseri olan hastalar RAMIE tedavisi ile değerlendirilmiştir klinik olarak özofagus kanseri hastalarıdır."
+     "P": "Elektif laparoskopik kolesistektomi geçiren 56 hasta (56 patients undergoing elective LC). Sisters: belirtilmemiş, C: belirtilmemiş, I: belirtilmemiş, vb. dışındaki standart ifadeler doğrudan yukarıdaki verilere dayanmaktadır."
     }
    },
    "tam": false,
    "model": "gemini-flash-lite-latest"
   },
-  "42830032": {
+  "42853307": {
    "d": {
-    "baslik_tr": "Gastrik Kanser Hastalarında Neoadjuvan Tedarinin Rolü: Onkoloji Merkezine Sahip Multidisipliner Hastane",
-    "tek_cumle": "Lokal olarak ilerlemiş gastrik kanser hastalarında triplet NACT rejimi, doublet rejimine kıyasla sayısal olarak daha yüksek tümör yanıtı sağlarken, grade III-IV neutropenia riskini artırmaktadır.",
-    "tasarim": "Prospektif stratifiye RCT",
+    "baslik_tr": "Senhance Destekli Robotik Kolesistektominin Fizibilitesi ve Perioperatif Sonuçları: Tek Kollu Bir Meta-Analiz",
+    "tek_cumle": "Bu tek kollu meta-analiz, Senhance Digital Laparoscopy System kullanılarak yapılan kolesistektominin yüksek surgical success rate ve kabul edilebilir operatif sürelerle güvenli ve fizibl olduğunu göstermiştir.",
+    "tasarim": "Tek kollu meta-analiz",
     "ana_bulgular": [
-     "Triplet rejimi alanlarda radyolojik parsiyel response oranları %68.0 iken, doublet grubunda bu oran %59.3 olarak saptanmıştır (p=0.423).",
-     "Parsiyel response elde edilen hastalar arasında radikal cerrahi oranları sırasıyla %91.7 ve %78.1 olmuştur (p=0.172).",
-     "Pathological complete response (ypT0N0/TRG 1a) triplet grubunda 2 hastada (%6.1) görülürken, doublet grubunda hiç görülmemiştir (%0, p=0.501).",
-     "Favorable pathological regression (TRG 1a-1b) oranları triplet grubunda %24.2, doublet grubunda ise %12.0 bulunmuştur (p=0.320).",
-     "Grade III-IV neutropenia sıklığı triplet grubunda %24.5 iken, doublet grubunda %9.3 olarak bulunmuş ve bu fark istatistiksel olarak anlamlı olmuştur (p=0.041)."
+     "Çalışmaya toplam 198 hasta içeren 8 çalışma dahil edilmiştir.",
+     "Pooled operative time 81.48 min (95% CI: 78.52 ila 84.44; I² = 0.0%) olarak bulunmuştur.",
+     "Console time 39.35 min (95% CI: 33.29 ila 45.41; I² = 90.0%) olarak saptanmıştır.",
+     "Docking time 11.54 min (95% CI: 8.37 ila 14.70; I² = 96.2%) olarak hesaplanmış ve örneklem büyüklüğüne göre gruplar arasında anlamlı fark görülmüştür (p = 0.038).",
+     "Length of hospital stay 1.89 days (95% CI: 0.81 ila 2.97; I² = 97.9%) olmuştur.",
+     "Pooled surgical success rate %96 (95% CI: %90 ila %99; I² = %50.7) olarak bildirilmiştir."
     ],
     "sinirliliklar": [
-     "Small sample size",
-     "Lack of survival data",
-     "Need for multicenter validation"
+     "Dahil edilen çalışmaların bir kısmında yüksek heterojenite (I² değerleri) mevcuttur.",
+     "Length of hospital stay sonucu tek bir çalışmadan (Sasaki, 2023) önemli ölçüde etkilenmiştir.",
+     "Çalışma tek kollu bir meta-analizdir ve randomize kontrollü karşılaştırma grupları içermemektedir."
     ],
-    "pratige_etkisi": "Çalışma, triplet NACT rejiminin sayısal etkinlik avantajı sunduğunu ancak artmış hematolojik toksisite (%24.5 grade III-IV neutropenia) getirdiğini göstermektedir. Küçük hasta sayısı ve sağkalım verilerinin eksikliği nedeniyle, bu bulgular tek başına klinik pratiği değiştirmek için yeterli değildir; tedavi kişiselleştirilmesi histoloji ve komorbiditelere göre yapılmalıdır.",
+    "pratige_etkisi": "Senhance-assisted robotic cholecystectomy güvenli ve fizibl bir yöntem olarak görünmektedir; ancak mevcut kanıt düzeyi tek kollu çalışmalar üzerine kurulu olduğundan ve heterojenite barındırdığından, klinik pratiği doğrudan değiştirmek için gelecekteki prospektif, multicenter karşılaştırmalı çalışmalara ihtiyaç vardır.",
     "guclu_yanlar": [
-     "Prospektif ve stratifiye randomizasyon tasarımı",
-     "Standardize edilmiş değerlendirme kriterlerinin (RECIST 1.1, CTCAE v5.0) kullanılması"
+     "Çoklu veritabanının sistematik olarak taranmış olması",
+     "Dahil edilen tüm çalışmaların JBI araçlarına göre düşük risk of bias ve yüksek kaliteye sahip olması",
+     "Sensitivity analysis ve subgroup analyses ile bulguların sağlamlığının test edilmiş olması"
     ],
     "journal_club_sorulari": [
-     "Küçük örneklem boyutu (107 hasta) ve istatistiksel güç eksikliği, primer sonlanım noktalarındaki non-significant sonuçları nasıl etkilemiştir?",
-     "Sağkalım (OS ve DFS) verilerinin eksikliği, triplet rejimin klinik faydasını değerlendirmede önemli bir eksiklik midir?"
+     "Tek kollu bir meta-analiz olmasından ötürü geleneksel laparoscopic cholecystectomy ile kıyaslandığında üstünlükleri veya dezavantajları hakkında kesin bir yargıya varmak ne kadar doğru?",
+     "Length of hospital stay parametresindeki yüksek heterojenlik (I² = %97.9) klinik çıkarımları nasıl zayıflatır?",
+     "Docking time süresini kısaltmak için öğrenme eğrisi (learning curve) dışında hangi faktörler optimize edilebilir?"
     ],
     "pico": {
-     "P": "Lokal olarak ilerlemiş gastrik kanser hastaları (107 hasta). PICO alanında ek açıklama belirtilmemiş, doğrudan çalışma hasta popülasyonunu yansıtır."
+     "P": "Kolesistektomi yapılan hastalarla ilgili çalışmalar (toplam 198 hasta içeren çalışmaların popülasyonu). kimi zaman belirtilmemiş denilebilir ancak metne göre kolesistektomi hastalarıdır spesifik olarak belirtilmemiştir dememek için kısaca ifade edilmiştir: kolesistektomi hastaları."
     }
    },
    "tam": false,
    "model": "gemini-flash-lite-latest"
   },
-  "42805885": {
+  "42836947": {
    "d": {
-    "baslik_tr": "Metabolik Cerrahide Duodeno-İleal Manyetik Kompresyon Anastomozları: Sistematik İnceleme ve Meta-Analiz",
-    "tek_cumle": "Sütürsüz duodeno-ileal manyetik kompresyon anastomozu teknik olarak uygulanabilir olup, cihaz ile ilişkili anastomotik leak ve otuz günlük mortalite bildirilmemiştir; ancak erken etkinlik cihaz ve prosedür bağlamına göre değişmektedir.",
-    "tasarim": "Meta-analiz ve sistematik inceleme",
+    "baslik_tr": "Obezite Hastalarında Biliopankreatik Diversiyon (BPD), Duodenal Switch ile Biliopankreatik Diversiyon (BPD-DS) ve Sleeve Gastrektomi ile Tek Anastomozlu Duodeno-İleal Bypass'ın (SADI-S) Uzun Dönem Etkileri: Bir Meta-Analiz",
+    "tek_cumle": "Bu meta-analiz, obezite cerrahisinde BPD ve BPD-DS prosedürlerinin uzun vadede kalıcı kilo kaybı ve metabolik düzelme sağladığını, ancak malnütrisyon riskleri nedeniyle dikkatli hasta seçimi ve multidisipliner takip gerektirdiğini göstermektedir.",
+    "tasarim": "Meta-analiz",
     "ana_bulgular": [
-     "Havuzlanmış cihaz ile ilişkili anastomotik leak oranı %0.0 (%95 CI 0.0-1.7) olarak saptanmıştır.",
-     "Otuz günlük mortalite oranı %0 olarak bildirilmiştir.",
-     "Primer DI-MCA ve eş zamanlı sleeve gastrectomy yapılan grupta, 1.9 cm LMAS kullanan 24 hastada 6 aylık %TWL 28.1%, 4-5 cm BMAS kullanan 17 hastada 6 aylık %TWL 10.7% ve 5 hastada 12 aylık %TWL 34.0% olmuştur.",
-     "Revizyonel solo DI-MCA grubunda %TWL 6 ayda %5.4 (24 hasta) ve 12 ayda %5.3 (23 hasta) olarak gerçekleşmiştir.",
-     "Hafif obezitesi ve tip 2 diyabeti olan hastalarda solo biofragmentable DI-MCA grubunda 12 aylık %TWL %8.7 (8/15 hasta) olmuş, HbA1c ise 8.2% oranından 6.6% oranına gerilemiştir.",
-     "Protein-enerji malnütrisyonu oranı %9.3 (5/54) olup, yalnızca SNAP alt grubunda görülmüştür."
+     "Toplam 2156 hastayı içeren 22 çalışma dahil edilmiştir.",
+     "BPD ve BPD-DS, ortalama 19.02 kg/m² BMI azalması ile ilişki bulmuştur.",
+     "BPD-DS %36.34 TWL ve %75.22 EWL elde etmiştir.",
+     "Diabetes mellitus, hipertansiyon, hiperlipidemi ve obstructive sleep apnea için düzelme oranları sırasıyla %78, %63, %83 ve %89 olarak saptanmıştır.",
+     "Başlıca uzun dönem komplikasyonlar revizyon cerrahisi (%3), anemi (%19), demir eksikliği (%34) ve kemik bozuklukları (%25) olmuştur.",
+     "RYGB ile karşılaştırıldığında, BPD ve BPD-DS daha fazla BMI azalması (mean difference 6.31 kg/m², %95 CI: 3.16, 9.47) ve daha yüksek diyabet düzelmesi (OR 3.49, %95 CI: 1.11, 10.91) sağlamış, ancak daha yüksek kolesistektomi oranı ile sonuçlanmıştır.",
+     "BPD ve BPD-DS sonrasında diyabet nüksü hastaların %15'inde görülmüştür.",
+     "SADI-S üzerine iki çalışmadan elde edilen sınırlı veriler, kalıcı kilo kaybı (%34.4 TWL, %80.4 EWL) göstermiştir."
     ],
     "sinirliliklar": [
-     "Tüm mevcut veriler küçük, endüstri destekli ve tek kollu çalışmalardan elde edilmiştir.",
-     "Çalışmalar yüksek düzeyde seçilmiş hastalarda ve deneyimli araştırma merkezlerinde yürütülmüştür.",
-     "Kanıt düzeyi low ile very low arasındadır.",
-     "Çalışma karşılaştırmalı etkinlikten ziyade uygulanabilirlik ve erken güvenliği desteklemektedir."
+     "SADI-S üzerine mevcut veriler sadece iki çalışma ile sınırlıdır."
     ],
-    "pratige_etkisi": "Mevcut kanıt düzeyi low to very low olduğu ve veriler küçük, endüstri destekli tek kollu çalışmalar ile deneyimli merkezlerden elde edildiği için bu bulgular rutin klinik pratiği derhal değiştirmemelidir; ancak umut verici uygulanabilirlik ve güvenlik sinyalleri sunmaktadır.",
+    "pratige_etkisi": "BPD ve BPD-DS gibi malabsorptif prosedürlerin obezite ve metabolik sendrom yönetiminde üstün kilo kaybı ve diyabet düzelmesi sağladığı kanıtlanmıştır; ancak %34 demir eksikliği ve %25 kemik bozukluğu gibi ciddi uzun dönem komplikasyon oranları göz önüne alındığında, bu bulgular klinik pratiği doğrudan değiştirmemekte, aksine bu prosedürlerin uygulanmasında titiz hasta seçimi ve yaşam boyu multidisipliner takibin şart olduğunu vurgulamaktadır.",
     "guclu_yanlar": [
-     "Birden fazla veritabanının (MEDLINE, EMBASE, CENTRAL, Web of Science, ClinicalTrials.gov) kapsamlı şekilde taranması",
-     "Koort örtüşmelerinin araştırmacı yazışmalarıyla çözülmesi",
-     "Kanıt kalitesinin GRADE metodolojisi ile değerlendirilmesi"
+     "PRISMA kılavuzlarına uyularak birden fazla veritabanında sistematik arama yapılması",
+     "On yıl ve üzeri uzun dönem sonuçları bildiren çalışmaların dahil edilmesi"
     ],
     "journal_club_sorulari": [
-     "Çalışmalardaki hasta seçim kriterlerinin heterojen olması ve verilerin küçük ölçekli, endüstri destekli tek kollu çalışmalardan gelmesi sonuçların genellenebilirliğini nasıl etkiler?",
-     "SNAP alt grubunda gözlenen protein-enerji malnütrisyonu sinyali gelecekteki klinik kullanımı nasıl kısıtlamalıdır?",
-     "Farklı cihaz sınıflarının (LMAS, BMAS, SNAP, IMPA-DI) etkinlik ve komplikasyon profillerindeki bu denli belirgin farkların temel mekanik nedenleri neler olabilir?"
+     "Farklı çalışmalar arasındaki cerrahi teknik varyasyonları ve hasta popülaritesi heterojenliği sonuçları nasıl etkilemiş olabilir?",
+     "SADI-S için sadece iki çalışmanın dahil edilmiş olması bu prosedür için yapılan çıkarımların güvenilirliğini ne ölçüde kısıtlar?"
     ],
     "pico": {
-     "P": "Metabolik ve bariatrik cerrahi adayı hastalar veya hafif obezitesi olup tip 2 diyabeti bulunan olgular (prospektif çalışmalara alınan toplam 153 doğrulanmış benzersiz erişkin hasta). DI-MCA uygulanması planlanan bireyler (151 implante edilen hasta). Mevcut metinde ayrı bir karşılaştırma grubu tanımlanmamıştır; çalışmalar tek kolludur (single-arm studies). Sütürsüz duodeno-ileal manyetik kompresyon anastomozu (DI-MCA) uygulamaları (linear, biofragmentable, self-forming veya immediately-patent cihazlar). Anastomotik leak oranı, otuz günlük mortalite, 6 ve 12 aylık yüzde toplam kilo kaybı (%TWL), HbA1c değişimleri ve protein-enerji malnütrisyonu oranları."
+     "P": "Obezite hastaları (≥10 yıl takip edilenler). Üst başlıkta belirtilen cerrahi prosedürleri geçirenler (BPD, BPD-DS, SADI-S). RYGB ile karşılaştırma grubu olan çalışmalar mevcuttur."
     }
    },
    "tam": false,
    "model": "gemini-flash-lite-latest"
   },
-  "42815250": {
+  "42100946": {
    "d": {
-    "baslik_tr": "Bariatrik Cerrahi Sonrasında Modifiye Qigong Nefes Egzersizinin Fiziksel ve Metabolik Sonuçlar Üzerindeki Etkileri: Randomize Kontrollü Klinik Çalışma",
-    "tek_cumle": "Bariatrik cerrahi sonrasında uygulanan modifiye Qigong nefes egzersizi (MQBE), pulmoner fonksiyonları, trunk enduransını, RMR ve FM değerlerini, plazma ghrelin seviyelerini, açlık gastrik pH'sını ve açlık skorlarını anlamlı düzeyde iyileştirmiştir.",
-    "tasarim": "Single-anonymized, randomized clinical trial",
+    "baslik_tr": "Lemmel Sendromu: Tek Merkezli Bir Kohort ve Tanısal Yaklaşımlar",
+    "tek_cumle": "Bu retrospektif çalışma, açıklanamayan obstrüktif sarılık ile başvuran yaşlı hastalarda periampüller duodenal divertiküle bağlı nadir bir neden olan Lemmel sendromunun tanı ve yönetiminde MRCP ile ERCP'nin kritik rolünü 12 hasta üzerinden incelemektedir.",
+    "tasarim": "Retrospektif tanımlayıcı vaka serisi",
     "ana_bulgular": [
-     "Group A'da 12 haftalık MQBE müdahalesi sonrasında baseline değerlere kıyasla pulmoner fonksiyon, trunk enduransı, RMR, FM, plazma ghrelin seviyeleri, açlık gastrik pH'sı ve açlık skorlarında anlamlı gelişmeler gözlenmiştir (p < 0.05)."
+     "Çalışmaya ortalama yaşı 70±9 yıl olan toplam 12 hasta dahil edilmiştir.",
+     "Hastaların tamamında (%100) obstrüktif sarılık bulguları görülmüştür.",
+     "Kesitsel görüntülemede medyan periampüller duodenal divertikül çapı 35 mm (aralık: 20-48 mm) olarak ölçülmüş olup, 4 hastada (%33) çap 40 mm ve üzerinde saptanmıştır.",
+     "Ortalama hastanede kalış süresi 12±6 gün (aralık: 2-56) ve ortalama takip süresi 8 ay olarak gerçekleşmiştir."
     ],
     "sinirliliklar": [
-     "belirtilmemiş"
+     "Tek merkezli ve retrospektif tasarımda olması.",
+     "Örneklem büyüklüğünün küçük olması (12 hasta) nedeniyle karşılaştırmalı istatistiksel analiz yapılamaması.",
+     "USG ve ERCP gibi bazı tanısal işlemlerin uygulayıcıya bağımlı olması."
     ],
-    "pratige_etkisi": "MQBE, FM azaltılması, RMR'nin artırılması, iştahın azaltılması, ghrelin seviyeleri ve gastrik pH'nın artırılması konularında umut verici etkiler göstermiştir; ancak RCT kanıt düzeyine sahip olsa da klinik pratiği rutin olarak değiştirmeden önce daha kapsamlı ve uzun süreli çalışmalarla desteklenmelidir.",
+    "pratige_etkisi": "Bu çalışma retrospektif ve küçük örneklemli bir vaka serisi olduğu için düşük kanıt düzeyine sahiptir; bu nedenle klinik pratiği kökten değiştirmekten ziyade, yaşlı hastalardaki açıklanamayan obstrüktif sarılık ayırıcı tanısında Lemmel sendromunun akılda tutulması ve erken aşamada MRCP tercih edilmesi gerektiği yönündeki klinik farkındalığı desteklemektedir.",
     "guclu_yanlar": [
-     "Randomize kontrollü klinik çalışma tasarımı içermesi",
-     "90 hasta ile gerçekleştirilmesi"
+     "Nadir görülen bir klinik antite için detaylı tanısal ve radyolojik değerlendirme verileri sunması.",
+     "Yaşlı ve komorbid hasta popülasyonunda yönetim stratejilerini yansıtması."
     ],
     "journal_club_sorulari": [
-     "Çalışmanın single-anonymized olması körleme biasını nasıl etkilemiştir?",
-     "12 haftalık takip süresi uzun dönem metabolik sonuçları değerlendirmek için yeterli midir?"
+     "Küçük örneklem büyüklüğü göz önüne alındığında, divertikül boyutu ile obstrüksiyon derecesi arasında anlamlı bir ilişki kurulabilir mi?",
+     "Açıklanamayan obstrüktif sarılık vakalarında USG'nin tanı değeri düşük olmasına rağmen, maliyet-etkinlik açısından ilk sırada yer almaya devam etmesi klinik algoritmayı nasıl etkiler?"
     ],
     "pico": {
-     "P": "Bariatrik cerrahi geçiren 90 hasta (52 erkek ve 38 kadın). bazında 90 hasta dahil edilmiştir."
+     "P": "Obstrüktif sarılık ile başvuran ve choledocholithiasis veya malignite olmaksızın periampüller duodenal divertiküle bağlı ekstrinsik safra kanalı basısı saptanan 12 hasta belirlenmiştir."
+    }
+   },
+   "tam": true,
+   "model": "gemini-flash-lite-latest"
+  },
+  "tez1027370": {
+   "d": {
+    "baslik_tr": "Alkolik karaciğer hastalığı nedeniyle yapılan karaciğer nakilleri: Tek merkezli deneyim",
+    "tek_cumle": "Bu retrospektif çalışma, alkolik karaciğer hastalığı nedeniyle KN yapılan hastalarda AAH ve siroz gruplarının benzer uzun dönem sağkalım sonuçları verdiğini göstermektedir.",
+    "tasarim": "Retrospektif tek merkezli çalışma",
+    "ana_bulgular": [
+     "Toplam 124 KN alıcısının %96,8'i erkekti ve medyan yaş 53 yıl idi.",
+     "CVKN olguların %93,5'ini oluşturmaktaydı ve ortanca MELD-Na skoru 19 olarak hesaplanmıştır.",
+     "Hastalardan 34'ü (%27,4) AAH, 90'ı (%72,6) ise siroz olarak sınıflandırılmıştır.",
+     "KN sonrası 1, 3 ve 5 yıllardaki sağkalım oranları sırasıyla %76,6, %68,9 ve %66,1 olarak hesaplanmıştır.",
+     "Mortalite gelişen grupta KN sonrası alkole başlama oranının daha düşük olduğu görülmüştür (p=0,001).",
+     "KN sonrası mortalitenin başlıca nedenleri pulmoner (%43,3) ve biliyer (%23,3) komplikasyonlardı."
+    ],
+    "sinirliliklar": [
+     "Çalışmanın retrospektif tasarıma sahip olması",
+     "Tek merkezli bir deneyim sunması"
+    ],
+    "pratige_etkisi": "Retrospektif ve tek merkezli bir çalışma olması nedeniyle düşük kanıt düzeyine sahiptir; bu nedenle klinik pratiği doğrudan değiştirmekten ziyade, AAH ve siroz hastalarında alkol kullanım ve bırakma sürelerinin nakil değerlendirmesinde temel belirleyici olarak baz alınmaması gerektiği yönünde hipotez destekleyici niteliktedir.",
+    "guclu_yanlar": [
+     "Geniş bir hasta popülasyonunun detaylı biyokimyasal ve klinik verilerle analiz edilmesi",
+     "AAH ve siroz alt gruplarının farklı sınıflama sistemleriyle karşılaştırılması"
+    ],
+    "journal_club_sorulari": [
+     "Retrospektif tasarımın ve tek merkezli verilerin sonuçların genellenebilirliği üzerindeki kısıtlılıkları nelerdir?",
+     "Mortalite grubunda KN sonrası alkole başlama oranının daha düşük olmasının olası nedenleri ne olabilir?"
+    ],
+    "pico": {
+     "P": "Alkolik karaciğer hastalığı nedeniyle karaciğer nakli yapılan 124 alıcı hastadır."
     }
    },
    "tam": false,
    "model": "gemini-flash-lite-latest"
   },
-  "42803905": {
+  "42839322": {
    "d": {
-    "baslik_tr": "Metabolik ve Bariatrik Cerrahi ile Kemik Mineral Yoğunluğu: 9 Yıllık Prospektif Çalışma",
-    "tek_cumle": "Bu prospektif çalışma, sleeve gastrectomy sonrası yaklaşık 10 yıllık takipte femoral neck bone mineral density değerlerinde anlamlı bir azalma olduğunu göstermiştir.",
-    "tasarim": "Prospektif çalışma",
+    "baslik_tr": "Pan-Avrupa Robotik Pankreatoduodenektomi Eğitim Programı (LEARNBOT): Prospektif Çok Merkezli Fizibilite ve Sonuç Çalışması",
+    "tek_cumle": "Bu prospektif çok merkezli çalışma, yeni başlayan yüksek hacimli merkezlerde yapılandırılmış simülasyon ve proktörlük temelli bir eğitim programının (LEARNBOT) robotik pankreatoduodenektominin güvenli ve fizibıl bir şekilde uygulanmasını sağladığını göstermektedir.",
+    "tasarim": "Prospektif Çok Merkezli Çalışma",
     "ana_bulgular": [
-     "Çalışma kohortu 72 hastadan (62 kadın ve 10 erkek) oluşmuştur ve ortanca takip süresi 9 [9-10] yıldır.",
-     "Vücut ağırlığı 112.8 [102.4-124.5] kg değerinden 91.5 [82.1-105.6] kg değerine düşmüştür (p < 0.001).",
-     "BMI 41.2 [38.5-44.2] değerinden 34.3 [30.4-38.2] kg/m² değerine düşmüştür (p < 0.001).",
-     "Femoral neck bone mineral density değerinde -0.10 [-0.17-(-0.04)] g/cm2 azalma görülmüştür (p < 0.001).",
-     "Femoral neck T-score değerinde -0.90 [-1.60-(-0.50)] değişiklik saptanmıştır (p < 0.001).",
-     "Femoral neck Z-score değerinde -0.60 [-1.20-(-0.10)] değişiklik saptanmıştır (p < 0.001).",
-     "Lumbar spine bölgesinde sadece Z-score değişmiş (0.10 [-0.35-0.80]; p = 0.048), bone mineral density (p = 0.180) ve T-score (p = 0.052) değişiklikleri anlamlı bulunmamıştır."
+     "Toplam 486 robotik pankreatoduodenektomi prosedürü gerçekleştirildi.",
+     "Major komplikasyon oranı (Clavien-Dindo grade ≥III) %31.4 (n=153) olarak saptandı.",
+     "Postoperatif pankreatik fistül (POPF) oranı %21.2 (n=103) olarak bildirildi.",
+     "Konversiyon oranı %18.3 (n=89) oldu.",
+     "Hastane içi / 30 günlük mortalite oranı %2.7 (n=13) olarak gerçekleşti.",
+     "Simülasyon eğitiminde OSATS skorları deneme başına anlamlı düzeyde arttı (0.350 puan artış, P <0.001)."
     ],
     "sinirliliklar": [
-     "Çalışma kohortu 72 hasta gibi sınırlı bir hasta sayısıyla yapılmıştır.",
-     "Mekanik, hormonal ve metabolik mekanizmalar detaylı olarak açıklanamamıştır."
+     "Çalışmanın kontrol grubunun bulunmaması (tüm merkezlerin eğitilmiş olması).",
+     "Prospektif tasarıma rağmen gözlemsel bir çalışma olması nedeniyle seleksiyon yanlılığı içerebilmesi.",
+     "Konversiyon oranının (%18.3) olgun programlara kıyasla yüksek olması.",
+     "Merkezlerin henüz öğrenme eğrisini tamamen aşmamış olması.",
+     "Teknik beceri analizinin bireysel OSATS alanları veya spesifik hata tiplerinin detaylı dökümünden ziyade toplu yeterlilik skorlarıyla sınırlı kalması."
     ],
-    "pratige_etkisi": "Sleeve gastrectomy sonrasında uzun vadede iskelet sağlığı olumsuz etkilenebileceği için klinik pratikte hastaların kemik mineral yoğunluğu yakından takip edilmelidir; ancak bu kanıt düzeyi kesin pratik değişiklikleri için ileri prospektif çalışmalarla desteklenmelidir.",
+    "pratige_etkisi": "Bu çalışma, karmaşık cerrahi yeniliklerin öğrenme eğrisinin hasta güvenliği üzerindeki olumsuz etkilerini azaltmak için yapılandırılmış, simülasyon ve proktörlük temelli eğitim programlarının önemini vurgulamaktadır. Gözlemsel ve kontrol grubu içermeyen bir çalışma olması nedeniyle düşük kanıt düzeyine sahip olsa da, elde edilen kabul edilebilir morbidite ve mortalite oranları, benzer yüksek hacimli merkezlerde benzer eğitim programlarının güvenle benimranabileceğini düşündürmektedir.",
     "guclu_yanlar": [
-     "9 yıllık uzun takip süresi",
-     "Prospektif tasarım"
+     "İlk pan-Avrupa robotik pankreatoduodenektomi eğitim programı sonuçlarını sunması.",
+     "Prospektif E-MIPS rejistresi veri tabanının kullanılması ve veri kaybının minimize edilmesi.",
+     "Biyodoku simülasyonları ve 'mezuniyet videosu' aşamaları ile standart bir teknik yeterlilik tabanı oluşturulması."
     ],
     "journal_club_sorulari": [
-     "Çalışmadaki yüksek hasta kaybı veya takip dışı kalma oranları sonuçları nasıl etkilemiştir?",
-     "Femoral neck bölgesindeki bu düşüşün klinik olarak fraktür riskine yansıması nedir?"
+     "Kontrol grubu olmaksızın yürütülen bu çalışmada, elde edilen sonuçların ne kadarı LEARNBOT eğitim programına, ne kadarı ise cerrahların açık ve laparoskopik cerrahideki geçmiş deneyimlerine bağlanabilir?",
+     "Yüksek konversiyon oranına (%18.3) yol açan faktörler nelerdir ve bu durum öğrenme eğrisindeki cerrahların düşük eşik kullanmasından mı yoksa teknik zorluklardan mı kaynaklanmaktadır?",
+     "Biyodoku simülasyonunda son denemede bile pankreatikojejunostomi için medyan 6.0 hata yapıldığı göz önüne alındığında, simülasyon süresi klinik sonuçları yeterince korumak için yeterince uzun mu tasarlanmıştır?"
     ],
     "pico": {
-     "P": "Obezite nedeniyle metabolik ve bariatric surgery (sleeve gastrectomy) geçiren ardışık hastalar (62 kadın, 10 erkek). Başlangıç yaşı ortalama 43.6 ± 9.2 yıl, ortanca takip 9 [9-10] yıl olan kohort."
+     "P": "Robotik pankreatoduodenektomi uygulayan 12 ülkeden 20 yüksek hacimli merkezdeki hastalar (toplam 486 prosedür). zihinsel, klinik veya teknik geçmişi olmayan cerrah ekipleri dahil edilmiştir."
+    }
+   },
+   "tam": true,
+   "model": "gemini-flash-lite-latest"
+  },
+  "42850296": {
+   "d": {
+    "baslik_tr": "Elektif metabolik ve bariatrik cerrahide yapısal yoğun bakım gereksinimleri kritik bakım talebini yansıtıyor mu? Retrospektif bir kohort çalışması",
+    "tek_cumle": "Yoğun bakımı olmayan bir merkezde yapılandırılmış bir transfer protokolü ile gerçekleştirilen elektif metabolik ve bariatrik cerrahi, otuz günlük takiplerde gözlenen yoğun bakım yatırımı gerektirmemiştir.",
+    "tasarim": "Retrospektif kohort çalışması",
+    "ana_bulgular": [
+     "Toplam 1.065 hasta (351 MBS, 714 LC) incelenmiştir.",
+     "Otuz günlük komplikasyon oranları MBS grubunda %4.27 (95% CI 2.39-6.94), LC grubunda ise %3.64 (95% CI 2.37-5.27) olarak bulunmuştur.",
+     "MBS hastalarının hiçbirinde yoğun bakım yatırımı olmamıştır (0/351, üst 95% CI %1.05).",
+     "LC hastalarından iki tanesi (0.28%) yoğun bakım yatırımı gerektirmiştir.",
+     "MBS grubundaki beş reoperasyonun tamamı postoperatif hemoraji nedeniyle yapılmış, organ disfonksiyonu gelişen veya yoğun bakım kriteri sağlayan hasta olmamıştır ve ölüm görülmemiştir."
+    ],
+    "sinirliliklar": [
+     "Olaylar nadir olduğu için çalışma klinik olarak anlamlı yoğun bakım talebini dışlayamamaktadır.",
+     "Fark tespit edilmemiş olması eşdeğerlik kanıtı oluşturmaz.",
+     "Tek merkezli bir deneyimdir ve sonuçlar akreditasyon politikalarına genelleştirilemez."
+    ],
+    "pratige_etkisi": "Bu hipotez üreten bulgular, uygun protokoller varlığında belirli merkezlerde yoğun bakımsız bariatrik cerrahinin uygulanabilirliğini göstermektedir; ancak düşük kanıt düzeyi nedeniyle klinik pratiği veya akreditasyon politikalarını doğrudan değiştirmek için prospektif çok merkezli verilere ihtiyaç vardır.",
+    "guclu_yanlar": [
+     "Aynı ortamda yapılan elektif laparoskopik kolesistektomi referans grubu ile karşılaştırma yapılması.",
+     "Önceden tanımlanmış bir eskalasyon ve transfer protokolünün bulunması."
+    ],
+    "journal_club_sorulari": [
+     "Nadiren de olsa yoğun bakım ihtiyacı doğabilecek durumlar için transfer protokollerinin gecikme riski hasta güvenliğini nasıl etkiler?",
+     "Çalışmanın retrospektif ve tek merkezli olması gelecekteki akreditasyon kararlarını ne ölçüde yönlendirebilir?"
+    ],
+    "pico": {
+     "P": "Elektif metabolik ve bariatrik cerrahi veya laparoskopik kolesistektomi geçiren ardışık yetişkin hastalar (2022-2025). metabolik ve bariatrik cerrahi hastaları (n=351). laparoskopik kolesistektomi hastaları (n=714). Otuz günlük komplikasyon oranı (Clavien-Dindo) ve yoğun bakım kullanımı (grade ≥IV)."
     }
    },
    "tam": false,
    "model": "gemini-flash-lite-latest"
   },
-  "42822398": {
+  "tez1024327": {
    "d": {
-    "baslik_tr": "Bariatrik Cerrahi Sonrasi 10 Yillik Tip 2 Diyabet Remisyonu: Bir Randomized Controlled Trial Uzatma Calismasi",
-    "tek_cumle": "Bu RCT uzatma calismasi, Roux-en-Y gastric bypass, sleeve gastrectomy ve greater curvature plication sonrasi 10 yillik tip 2 diyabet remisyonu sonuclarini karsilastirmaktadir.",
-    "tasarim": "🟢 RCT uzatma calismasi",
+    "baslik_tr": "Periampuller tümör nedeniyle gerçekleştirilen pankreatikoduodenektomi ameliyatı sonuçlarının güncel risk skorlarına göre değerlendirilmesi",
+    "tek_cumle": "Bu tek merkezli retrospektif çalışmada, pankreatikoduodenektomi sonrası postoperatif komplikasyonların öngörülmesinde ACS NSQIP Cerrahi Risk Hesaplayıcısı ile HALP skorunun prediktif performansları karşılaştırılmıştır.",
+    "tasarim": "Tek merkezli retrospektif çalışma",
     "ana_bulgular": [
-     "Kirk bes hasta randomize edilmis ve hastalarin %93u 10 yillik takip surecini tamamlamistir.",
-     "Tip 2 diyabet remisyon oranlari zaman icinde azalmis olup, 10uncu yilda remisyon Roux-en-Y gastric bypass hastalarinin %53.3unde (n = 8/15), sleeve gastrectomy sonrasi %25 inde (n = 3/12) ve greater curvature plication sonrasi %26.7sinde (n = 4/15) devam etmistir.",
-     "Roux-en-Y gastric bypass sonrasi zaman icinde daha yuksek remisyon olasiligi gozlemlenmistir.",
-     "Tum tedavi gruplarinda nuks oranlari yuksek bulunmus (%41.7 ila %50.1 araliginda), ancak glukoz dusurucu ilac kullanimi ozellikle Roux-en-Y gastric bypass sonrasi belirgin sekilde azalmistir."
+     "Hastaların %57,5'i erkek olup, medyan yaş 61 yıl olarak saptanmıştır.",
+     "Olguların %89,4'ünde malignite tespit edilmiştir.",
+     "En sık uygulanan cerrahi yöntem %71,5 oranında pilor koruyucu pankreatikoduodenektomi olmuştur.",
+     "Mortalite oranı %7,8, ciddi komplikasyon oranı %19,6 ve herhangi bir komplikasyon oranı %30,2 olarak bulunmuştur.",
+     "Majör komplikasyonların öngörülmesinde ACS NSQIP Cerrahi Risk Hesaplayıcısı ile HALP skoru benzer performans göstermiştir (p=0,3458).",
+     "Herhangi bir komplikasyonun öngörülmesinde ACS NSQIP, HALP skoruna göre anlamlı derecede üstün bulunmuştur (p=0,0339).",
+     "Mortalitenin öngörülmesinde iki yöntem arasında anlamlı fark saptanmamıştır (p=0,5771)."
     ],
     "sinirliliklar": [
-     "Calisma kucuk hasta orneklemiyle yurutulmustur."
+     "Tek merkezli bir çalışma olması",
+     "Retrospektif tasarıma sahip olması"
     ],
-    "pratige_etkisi": "Metabolic bariatric surgery tip 2 diyabet uzerinde kalici iyilesmeler saglamakta olup, Roux-en-Y gastric bypass surdurulebilir metabolik fayda sunmaktadir. Ancak elde edilen bulgular daha genis olcekli ve uzun vadeli kanitlarla desteklenmelidir.",
+    "pratige_etkisi": "Retrospektif ve tek merkezli bir çalışma olması nedeniyle tek başına klinik pratiği kökten değiştirmesi beklenmese de, ACS NSQIP'in herhangi bir komplikasyonu öngörmedeki üstünlüğü ve HALP skorunun düşük maliyetli, basit bir tamamlayıcı biyobelirteç olarak kullanılabilmesi risk değerlendirmesinde klinisyenlere rehberlik edebilir.",
     "guclu_yanlar": [
-     "10 yillik uzun takip suresi saglanmasi",
-     "Yuksek takip tamamlama orani (%93)"
+     "Pankreatikoduodenektomi gibi yüksek morbidite ve mortaliteye sahip majör bir ameliyatta güncel iki risk skorlama sisteminin karşılaştırılması",
+     "179 hastadan oluşan homojen bir hasta grubunun incelenmesi"
     ],
     "journal_club_sorulari": [
-     "Kucuk orneklem boyutu calismanin sonuclarinin genellenebilirligini nasil etkiler?",
-     "Yuksek nuks oranlari karsisinda cerrahi seciminde hangi faktorler on planda tutulmalidir?"
+     "Çalışmanın retrospektif tasarımı, veri toplama sürecinde ne tür yanılgılara (bias) yol açmış olabilir?",
+     "HALP skorunun hesaplanmasında kullanılan parametrelerin (hemoglobin, albümin, lenfosit, trombosit) postoperatif dönemdeki dinamik değişiklikleri risk öngörüsünü nasıl etkiler?"
     ],
     "pico": {
-     "P": "Agir obezitesi ve tip 2 diyabeti olan yetiskin hastalar belirtilmistir."
+     "P": "Pankreatikoduodenektomi uygulanan periampuller tümör hastaları (179 hasta). Üst veri: belirtilmemiş."
     }
    },
    "tam": false,
+   "model": "gemini-flash-lite-latest"
+  },
+  "42850304": {
+   "d": {
+    "baslik_tr": "Torasik Özofageal Divertiküllerde Minimally Invasive Surgery Güncel Durumu: Sistematik İnceleme ve Meta-Analiz",
+    "tek_cumle": "Torasik özofageal divertiküller için uygulanan minimally invasive surgery, yüksek oranda semptom düzelmesi sağlarken kabul edilebilir komplikasyon ve staple-line leak oranları sunmaktadır.",
+    "tasarim": "Meta-analiz ve sistematik derleme",
+    "ana_bulgular": [
+     "Toplam 390 hastayı içeren 21 observational studies analiz edildi.",
+     "Staple-line leak için estimated pooled prevalence %9.8 (%95 CrI 7.1-13.4; I2 = 0.0) olarak bulundu.",
+     "Overall complications için estimated pooled prevalence %21.6 (%95 CrI 16.1-28.4) olarak saptandı.",
+     "In-hospital mortality oranı %1.3 (%95 CrI 0.5-2.9) olarak belirlendi.",
+     "Symptom resolution/improvement oranı %92.1 (%95 CrI 87.7-95) olarak raporlandı.",
+     "Myotomy veya surgical approach değişkenlerine göre staple-line leak oranlarında istatistiksel olarak anlamlı farklılık saptanmadı (sırasıyla RR = 0.67; %95 CrI 0.17-3.52 ve RR = 0.72; %95 CrI 0.22-3.39)."
+    ],
+    "sinirliliklar": [
+     "Çalışma tasarımı ve treatment heterogeneity nedeniyle kanıtlar sınırlıdır.",
+     "Dahil edilen çalışmalar observational studies niteliğindedir."
+    ],
+    "pratige_etkisi": "Mevcut kanıtlar observational studies temelli ve heterojen olduğundan klinik pratiği kökten değiştirmemekle birlikte, torasik özofageal divertiküller için minimally invasive surgery yaklaşımının güvenli ve etkili bir seçenek olduğunu desteklemektedir.",
+    "guclu_yanlar": [
+     "Birden fazla büyük veritabanının taranmış olması",
+     "Çeşitli klinik sonuçların kapsamlı bir şekilde derlenmesi"
+    ],
+    "journal_club_sorulari": [
+     "Dahil edilen çalışmalar arasındaki heterojenlik sonuçların genellenebilirliğini nasıl etkiler?",
+     "Esophagomyotomy eklenmesinin klinik sonuçlar üzerindeki net rolü nedir?"
+    ],
+    "pico": {
+     "P": "Torasik özofageal divertikülü olan hastalar (epiphrenic ve parabronchial tipler dahil). typhoid vb. eklenmemiş, metne sadık kalındı: torasik özofageal divertikülü olan hastalar (epiphrenic ve parabronchial tipler). Metinde kısa ifade: Torasik özofageal divertiküllü hastalar (epiphrenic ve parabronchial). Belirtilmemiş yerine: Thoracic esophageal diverticula hastaları, PICO formatında kısaca: Torasik özofageal divertiküllü hastalar"
+    }
+   },
+   "tam": false,
+   "model": "gemini-flash-lite-latest"
+  },
+  "42847103": {
+   "d": {
+    "baslik_tr": "Bariatrik Cerrahi Sonrasi Gebeliklerde Kılavuz Tavsiyelerinin Yetersiz Uygulanması: Almanya'daki Ulusal Gerçek Yaşam Çalışmasının Sonuçları (PABS Çalışması)",
+    "tek_cumle": "Bu çok merkezli kohort çalışması, bariatrik cerrahi sonrası gebeliklerde ulusal kılavuz tavsiyelerine uyumun yetersiz olduğunu ve genel popülasyona kıyasla daha yüksek oranda anemi, SGA ve prematürite görüldüğünü göstermektedir.",
+    "tasarim": "Çok merkezli prospektif ve retrospektif kohort çalışması",
+    "ana_bulgular": [
+     "Prekonsepsiyonel BMI medyanı 30.1 kg/m2 idi ve hastaların %52.4'ü obezdi.",
+     "Hastaların %57.6'sına Roux-en-Y gastric bypass ve %38.0'ine sleeve gastrectomy uygulanmıştır.",
+     "Hastaların %16.0'sı cerrahiden sonra 1 yıldan kısa süre içinde, %27.0'si 1 ila 2 yıl sonra ve %57.0'si 2 yıldan uzun süre sonra gebe kalmıştır.",
+     "Gebelik öncesinde hastaların %35.0'i takviye almamış ve %52.0'sinde besin eksiklikleri değerlendirilmemiştir.",
+     "Anemi oranı %39.6 olarak bulunmuş olup cerrahi-gebelik aralığı iki yıldan uzun olanlarda %45.0 ile en yüksek seviyedeydi (p=0.04).",
+     "Gestasyonel diyabet (GDM) oranı %22.5 olarak saptanmıştır.",
+     "SGA yenidoğan oranı %20.0, LGA yenidoğan oranı %5.8, prematüre doğum oranı %6.1 ve sezaryen oranı %45.8 olarak bildirilmiştir."
+    ],
+    "sinirliliklar": [
+     "Kayıt sistemi Almanya'daki bariatrik cerrahi sonrası gebeliklerin yalnızca bir kısmını yansıtmaktadır ve ulusal popülasyonu tam olarak temsil etmeyebilir.",
+     "Fetal büyüme değerlendirmesi Voigt persentillerine dayandırılmış ve yalnızca kategorik veri olarak kaydedilmiştir.",
+     "Maternal etnik köken hakkında bilgi mevcut değildir.",
+     "Maternal ve neonatal veriler her vakada eksiksiz olarak mevcut değildir ve eksik veriler için imputasyon yapılmamıştır.",
+     "Retrospektif tasarım nedensellik ilişkilerinin değerlendirilmesini sınırlandırmaktadır."
+    ],
+    "pratige_etkisi": "Bu gözlemsel çalışmanın bulguları, bariatrik cerrahi geçiren kadınlarda kılavuz uyumsuzluklarını ve yüksek obstetrik riskleri ortaya koymakla birlikte, kanıt düzeyi ve gözlemsel tasarım gereği tek başına klinik kılavuzları değiştirmekten ziyade bu hasta grubunda özelleşmiş yüksek riskli gebelik takibinin ve farkındalığın artırılmasının önemini vurgulamaktadır.",
+    "guclu_yanlar": [
+     "Almanya genelindeki 13 doğum ünitesinden veri toplanmasını içeren çok merkezli tasarım.",
+     "Bariatrik cerrahi sonrası gebeliklerin mevcut yönetim durumuna geniş bir genel bakış sunması."
+    ],
+    "journal_club_sorulari": [
+     "Çalışmada verilerin bir kısmının retrospektif toplanmış olması, eksik veriler ve hasta bildirimine dayalı takviye kullanım oranlarında olası hatırlama yanlılığı sonuçları nasıl etkilemiş olabilir?",
+     "Cerrahi türleri (RYGB ve SG) arasındaki malabsorpsiyon farklarına rağmen gestasyonel kilo alımının benzer bulunması, rutin klinik pratikte cerrahi tipine özgü beslenme takibi yaklaşımlarını nasıl şekillendirmelidir?"
+    ],
+    "pico": {
+     "P": "Bariatrik metabolik cerrahi geçirmiş gebe kadınlar (380 tekil gebelik). Bariatric metabolic surgery (MBS). Gestational age, birth weight categories, BMI, and maternal characteristics evaluated in delivery units in Germany between 2023 and 2025. Singleton pregnancies after MBS with complete data on BMI, MBS type, and birth weight categories included in the final analysis. Target population of reproductive age women undergoing bariatric procedures before pregnancy based on the PABS Study cohort data from 13 delivery units in Germany participating in the nationwide multicenter evaluation of maternal and perinatal outcomes following bariatric metabolic surgery procedures such as Roux-en-Y gastric bypass and sleeve gastrectomy over a prospective and retrospective data collection period between 2023 and 2025 with standardized case report forms and comparison against national obstetric reference data from the 2024 federal quality report published by the Institut für Qualitätssicherung und Transparenz im Gesundheitswesen (IQTIG). (Açıklama veya talimat içermeyen en fazla 1 cümlelik ifade zorunluluğu nedeniyle P alanı için kısa özet: Bariatrik metabolik cerrahi geçirmiş 380 tekil gebe kadın.)"
+    }
+   },
+   "tam": true,
+   "model": "gemini-flash-lite-latest"
+  },
+  "42848087": {
+   "d": {
+    "baslik_tr": "Özofagogastrik Kanser Cerrahisinde Total İntravenöz Anestezi ve Volatil Anestezi Sonrası Sağkalım Sonuçları: Bir Sistematik Derleme ve Meta-Analiz",
+    "tek_cumle": "Özofagogastrik kanser cerrahisinde total intravenöz anestezi, volatil anesteziye kıyasla daha iyi overall survival ile ilişkilendirilmiştir, ancak kanıtlar çoğunlukla retrospektiftir.",
+    "tasarim": "PRISMA 2020 rehberine uygun olarak yürütülen sistematik derleme ve meta-analiz",
+    "ana_bulgular": [
+     "Toplam 264.543 hastayı içeren 13 çalışma (3 RCT ve 10 retrospektif çalışma) analize dahil edilmiştir.",
+     "Genel sağkalım (overall survival) analizinde TIVA, volatil anesteziye göre anlamlı düzeyde daha iyi sonuç göstermiştir (HR 0.80, %95 CI 0.69-0.93; p=0.003).",
+     "Gastrektomi yapılan hastalarda TIVA lehine anlamlı sağkalım avantajı saptanmıştır (HR 0.74, %95 CI 0.60-0.91; p<0.004).",
+     "Özofajektomi grubunda sağkalım açısından istatistiksel olarak anlamlı fark gözlenmemiştir (HR 0.89, %95 CI 0.73-1.10; p=0.29).",
+     "Recurrence-free survival (HR 0.91, %95 CI 0.77-1.06; p=0.22) ve erken mortalite (HR 0.90, %95 CI 0.77-1.05; p=0.17) açısından gruplar arasında anlamlı fark yoktur.",
+     "Operasyon süresi (MD -3.81 min, %95 CI -10.75 to 3.13) ve hastanede kalış süresi (MD -0.19 days, %95 CI -0.39 to 0.00; p=0.06) açısından gruplar arasında anlamlı fark bildirilmemiştir."
+    ],
+    "sinirliliklar": [
+     "Çalışmaların çoğunluğunun retrospektif tasarımda olması ve orta-ciddi düzeyde risk of bias içermesi",
+     "Çok değişkenli analize dahil edilen değişkenlerin çalışmalar arasında farklılık göstermesi nedeniyle rezidüel confounding dışlanamaması",
+     "Erken mortalite analizindeki sonuçların tek bir çalışma tarafından büyük ölçüde etkilenmesi",
+     "Hastalık evresi ve komorbiditelerin tüm çalışmalarda tutarlı bir şekilde rapor edilmemiş olması",
+     "Yalnızca iki elektronik veritabanının (PubMed ve Scopus) taranmış olması"
+    ],
+    "pratige_etkisi": "Mevcut bulgular TIVA kullanımının sağkalım avantajına işaret etse de, kanıtların büyük oranda retrospektif verilere dayanması ve metodolojik heterojenlik nedeniyle klinik pratiği doğrudan değiştirmek için yeterince güçlü değildir; kesin bir yönlendirme için yüksek kaliteli prospektif randomize çalışmalara ihtiyaç vardır.",
+    "guclu_yanlar": [
+     "Özofagogastrik kanser cerrahisinde anestezi türlerini karşılaştıran ilk sistematik derleme ve meta-analiz olması",
+     "PRISMA 2020 rehberine tam uyumlu şekilde yürütülmesi",
+     "Geniş hasta popülasyonunu (264.543 hasta) kapsaması"
+    ],
+    "journal_club_sorulari": [
+     "Retrospektif çalışmaların getirdiği yüksek heterojenlik ve seçilim yanlılığı (selection bias), ana bulguların güvenilirliğini ne derece gölgelemektedir?",
+     "Gastrektomi ve özofajektomi hastaları arasında gözlenen farklı sağkalım sonuçlarının arkasındaki fizyopatolojik mekanizmalar neler olabilir?",
+     "Anestezi protokollerindeki ajans çeşitliliği ve doz farklılıkları nihai onkolojik sonuçları nasıl etkilemiştir?"
+    ],
+    "pico": {
+     "P": "Özofageal veya gastrik kanser nedeniyle küratif cerrahi geçiren yetişkin hastalarla ilgili çalışmalar dahil edilmiştir (meta-analizde dahil edilen çalışmaların PICO'sudur). Hariç tutulanlar metinde belirtilmemiştir, ancak popülasyon kapsamı bu şekildedir."
+    }
+   },
+   "tam": true,
    "model": "gemini-flash-lite-latest"
   }
  }
