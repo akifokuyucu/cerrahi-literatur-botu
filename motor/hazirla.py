@@ -55,19 +55,20 @@ def sadelestir(m):
     return {k: m.get(k) for k in TUTULAN if k in m} if m else None
 
 
-def oylari_getir():
-    """Bottaki 👍/👎 oylarını okur (BOT_ANAHTAR yoksa kişisel puan kapalı)."""
+def oylari_getir(uc="geri-bildirim", ad="Oylar"):
+    """Bottaki 👍/👎 oylarını (/geri-bildirim) ya da dolaylı ilgiyi (/ilgi)
+    okur. BOT_ANAHTAR yoksa ya da okunamazsa boş liste: kişisel puan kapalı."""
     anahtar = os.getenv("BOT_ANAHTAR")
     if not anahtar:
-        print("BOT_ANAHTAR yok, kişisel puanlama atlanıyor.")
+        print(f"BOT_ANAHTAR yok, {ad.lower()} atlanıyor.")
         return []
     try:
-        r = requests.get(f"{config.BOT_URL}/geri-bildirim", timeout=30,
+        r = requests.get(f"{config.BOT_URL}/{uc}", timeout=30,
                          headers={"X-Bot-Anahtar": anahtar})
         r.raise_for_status()
         return r.json()
     except Exception as e:
-        print(f"Oylar okunamadı ({e}), kişisel puanlama atlanıyor.")
+        print(f"{ad} okunamadı ({e}), atlanıyor.")
         return []
 
 
@@ -136,10 +137,12 @@ def main():
              "model": gem.model, "alanlar": {}, "hatalar": []}
     ozet_onbellek = {}
     oylar = [] if a.girdi else oylari_getir()
-    tercih = puanlama.tercihleri_hesapla(oylar) if oylar else None
+    ilgiler = [] if a.girdi else oylari_getir("ilgi", "Dolaylı ilgi")
+    tercih = puanlama.tercihleri_hesapla(oylar, ilgiler) if (oylar or ilgiler) else None
     cikti["oy_sayisi"] = len(oylar)
+    cikti["ilgi_sayisi"] = len(ilgiler)
     if tercih:
-        print(f"{len(oylar)} oy okundu; kişisel tercihler: {tercih}")
+        print(f"{len(oylar)} oy, {len(ilgiler)} ilgi kaydı okundu; kişisel tercihler: {tercih}")
     # 🎓 Her alana fazladan 1 YÖK Tez; site erişilemezse o hafta atlanır
     yt = None if (a.girdi or a.tez_yok) else yoktez.YokTez()
     secilen_tezler = []

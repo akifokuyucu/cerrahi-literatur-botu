@@ -275,8 +275,38 @@ def puanla(kayit, alan_kodu):
     }
 
 
-def tercihleri_hesapla(oylar):
-    """Bottaki oylardan dergi ve çalışma tipi için kişisel katkı hesaplar."""
+def ilgi_katkisi(ilgiler):
+    """Bottaki dolaylı ilgiden (gösterilen makalelerden hangileri açıldı:
+    ayrıntılı özet ya da PubMed) dergi ve çalışma tipi başına katkı.
+
+    Ham tıklama sayısı değil açılma ORANI kullanılır: üst sıralarda zaten çok
+    gösterilen dergiler yalnızca daha çok göründükleri için öne çıkmasın.
+    Az gösterilen grupların oranı genel orana doğru çekilir (ILGI_ONCUL kadar
+    sanal gösterim), böylece 1/1 gibi tesadüfler büyük katkı vermez."""
+    gosterilen = [i for i in ilgiler if i.get("g") or i.get("d") or i.get("p")]
+    if not gosterilen:
+        return {"dergi": {}, "tip": {}}
+    acildi = lambda i: 1 if (i.get("d") or i.get("p")) else 0
+    genel = sum(map(acildi, gosterilen)) / len(gosterilen)
+    sonuc = {}
+    for tur, anahtar in (("dergi", lambda i: _norm(i.get("dergi") or "")),
+                         ("tip", lambda i: i.get("tip") or "")):
+        gruplar = {}
+        for i in gosterilen:
+            k = anahtar(i)
+            if k:
+                g = gruplar.setdefault(k, [0, 0])
+                g[0] += 1
+                g[1] += acildi(i)
+        a = config.ILGI_ONCUL
+        sonuc[tur] = {k: config.ILGI_OLCEK * ((t + a * genel) / (n + a) - genel)
+                      for k, (n, t) in gruplar.items()}
+    return sonuc
+
+
+def tercihleri_hesapla(oylar, ilgiler=()):
+    """Bottaki oylardan (açık) ve hangi makalelerin açıldığından (dolaylı)
+    dergi ve çalışma tipi için kişisel katkı hesaplar; toplamı ±KISISEL_SINIR."""
     net = {"dergi": {}, "tip": {}}
     for o in oylar:
         yon = 1 if o.get("oy") else -1
@@ -285,9 +315,15 @@ def tercihleri_hesapla(oylar):
             net["dergi"][d] = net["dergi"].get(d, 0) + yon
         if o.get("tip"):
             net["tip"][o["tip"]] = net["tip"].get(o["tip"], 0) + yon
+    ilgi = ilgi_katkisi(ilgiler)
     sinir = lambda x: max(-config.KISISEL_SINIR, min(config.KISISEL_SINIR, x))
-    return {tur: {k: sinir(v * config.KISISEL_ADIM) for k, v in d.items() if v}
-            for tur, d in net.items()}
+    sonuc = {}
+    for tur in net:
+        anahtarlar = set(net[tur]) | set(ilgi[tur])
+        degerler = {k: sinir(net[tur].get(k, 0) * config.KISISEL_ADIM
+                             + ilgi[tur].get(k, 0)) for k in anahtarlar}
+        sonuc[tur] = {k: round(v, 3) for k, v in degerler.items() if abs(v) >= 0.01}
+    return sonuc
 
 
 def kisisel_puan(p, tercih):

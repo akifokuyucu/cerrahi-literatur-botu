@@ -98,6 +98,10 @@ function makaleBul(veri, pmid) {
 }
 
 const pubmedLink = (pmid) => `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
+// Listedeki PubMed bağlantıları Worker'dan geçer (/git/<pmid>): hangi makalenin açıldığı
+// dolaylı geri bildirim olarak sayılır. KOK her istekte Worker'ın kendi adresine ayarlanır.
+let KOK = "";
+const izliLink = (pmid) => (KOK && /^\d{1,9}$/.test(pmid) ? `${KOK}/git/${pmid}` : pubmedLink(pmid));
 
 // Bu hafta yedek modele geçildiyse kısa not (hafta.json / gundem.json)
 function modelNotu(v) {
@@ -133,7 +137,7 @@ function makaleBlogu(no, m, ekEtiket = "") {
     `<b>${no}. ${esc(m.tip_etiketi)} · ${esc(m.dergi)}</b>${ekEtiket}\n` +
     `<i>${esc(baslik)}</i>\n` +
     (m.kisa_ozet ? `${esc(m.kisa_ozet)}${m.sayi_uyarisi ? " ⚠️" : ""}\n` : "") +
-    `<a href="${pubmedLink(m.pmid)}">PubMed</a>${acik}${nct}${editoryal}`
+    `<a href="${izliLink(m.pmid)}">PubMed</a>${acik}${nct}${editoryal}`
   );
 }
 
@@ -730,9 +734,59 @@ async function oylariListele(env) {
   return oylar;
 }
 
+// ------------------------------------------------------------- 👀 dolaylı ilgi
+// Gösterilen makaleler (g: alan ekranı ya da öne çıkanlar açıldı) ve açılanlar (d: ayrıntılı özet,
+// p: listedeki PubMed bağlantısı) makale başına tek anahtarda, açık/kapalı işaret olarak tutulur;
+// yalnızca yeni bir işaret gelince yazılır (tekrar açmak sayıyı şişirmez, KV yazma kotası korunur).
+// Pazartesi hazırlığı /ilgi ucundan okur: dergi ve çalışma tipi başına açılma oranı kişisel puana eklenir.
+async function ilgiKaydet(env, m, isaret) {
+  if (!env.ONBELLEK || !/^\d{1,9}$/.test(String(m?.pmid || ""))) return;
+  const anahtar = `ilgi:${m.pmid}`;
+  const eski = (await kvJson(env, anahtar)) || {};
+  if (eski[isaret] && eski.dergi) return;
+  const kayit = {
+    ...eski, dergi: eski.dergi || m.dergi || "", tip: eski.tip || m.tip || "",
+    alan: eski.alan || m.alan || "", [isaret]: 1, tarih: new Date().toISOString().slice(0, 10),
+  };
+  const metin = JSON.stringify(kayit);
+  await env.ONBELLEK.put(anahtar, metin, {
+    expirationTtl: GUN * 730, ...(new TextEncoder().encode(metin).length <= 1000 ? { metadata: kayit } : {}),
+  });
+}
+
+async function gosterildi(env, makaleler, alanAdi) {
+  await Promise.all((makaleler || []).map((m) =>
+    ilgiKaydet(env, { ...m, alan: m.alan || alanAdi }, "g").catch((e) => console.log("ilgi hatası", e.message))));
+}
+
+async function ilgileriListele(env) {
+  const ilgiler = [];
+  if (!env.ONBELLEK) return ilgiler;
+  let cursor;
+  do {
+    const l = await env.ONBELLEK.list({ prefix: "ilgi:", cursor });
+    for (const k of l.keys) {
+      const v = k.metadata || (await kvJson(env, k.name));
+      if (v) ilgiler.push({ pmid: k.name.slice(5), ...v });
+    }
+    cursor = l.list_complete ? null : l.cursor;
+  } while (cursor);
+  return ilgiler;
+}
+
 async function istatistikGonder(env, sohbet) {
   const oylar = await oylariListele(env);
+  const ilgiler = await ilgileriListele(env);
+  const gorulen = ilgiler.filter((i) => i.g || i.d || i.p).length;
+  const acilan = ilgiler.filter((i) => i.d || i.p).length;
+  const ilgiSatiri = gorulen
+    ? `\n👀 Listelerde ${gorulen} makale gördün, ${acilan} tanesini açtın (ayrıntılı özet ya da PubMed).`
+    : "";
   if (!oylar.length) {
+    if (gorulen) {
+      return tg(env, "sendMessage", { chat_id: sohbet, parse_mode: "HTML",
+        text: `📊 <b>Geri bildirimlerin</b>${ilgiSatiri}\n\nHenüz oy yok. Ayrıntılı özetlerin altındaki 👍 / 👎 tuşlarını kullan.` });
+    }
     return tg(env, "sendMessage", { chat_id: sohbet, text: "Henüz oy yok. Ayrıntılı özetlerin altındaki 👍 / 👎 tuşlarını kullan." });
   }
   const say = (alan) => {
@@ -746,9 +800,9 @@ async function istatistikGonder(env, sohbet) {
       .slice(0, 6).map(([ad, [a, b]]) => `• ${esc(ad)}: 👍${a} 👎${b}`).join("\n");
   };
   const begeni = oylar.filter((o) => o.oy).length;
-  const metin = `📊 <b>Geri bildirimlerin</b>\nToplam ${oylar.length} oy (👍${begeni} 👎${oylar.length - begeni})\n\n` +
+  const metin = `📊 <b>Geri bildirimlerin</b>\nToplam ${oylar.length} oy (👍${begeni} 👎${oylar.length - begeni})${ilgiSatiri}\n\n` +
     `<b>Dergiler</b>\n${say("dergi")}\n\n<b>Alanlar</b>\n${say("alan")}\n\n` +
-    `<i>Bu oylar her pazartesi puanlamaya küçük bir kişisel katkı olarak ekleniyor.</i>`;
+    `<i>Oylar ve hangi makaleleri açtığın her pazartesi puanlamaya küçük bir kişisel katkı olarak ekleniyor.</i>`;
   return tg(env, "sendMessage", { chat_id: sohbet, text: metin, parse_mode: "HTML" });
 }
 
@@ -963,6 +1017,12 @@ async function guncellemeIsle(env, u) {
         callback_query_id: q.id, text: "Ayrıntılı özet hazırlanıyor… (10–30 sn)",
       });
       try {
+        const m = makaleBul(await haftaVerisi(env), kalan[0]);
+        if (m) await ilgiKaydet(env, m, "d");
+      } catch (e) {
+        console.log("ilgi hatası", e.message); // ilgi kaydı ayrıntılı özeti engellemesin
+      }
+      try {
         await detayGonder(env, sohbet, kalan[0]);
       } catch (e) {
         if (env.ONBELLEK) await env.ONBELLEK.delete(`kilit:${kalan[0]}`);
@@ -995,8 +1055,15 @@ async function guncellemeIsle(env, u) {
     if (tur === "h") return ekranGoster(env, sohbet, haberBolumEkrani(await gundemVerisi(env), kalan[0]), mesajId);
     const hafta = await haftaVerisi(env);
     if (veri === "m") return ekranGoster(env, sohbet, menuEkrani(hafta), mesajId);
-    if (veri === "g") return ekranGoster(env, sohbet, oneCikanlarEkrani(hafta), mesajId);
-    if (tur === "a") return ekranGoster(env, sohbet, alanEkrani(hafta, kalan[0]), mesajId);
+    if (veri === "g") {
+      await ekranGoster(env, sohbet, oneCikanlarEkrani(hafta), mesajId);
+      return gosterildi(env, hafta.gundem);
+    }
+    if (tur === "a") {
+      await ekranGoster(env, sohbet, alanEkrani(hafta, kalan[0]), mesajId);
+      const a = hafta.alanlar?.[kalan[0]];
+      return gosterildi(env, a?.makaleler, a?.ad); // Türk dergisi ve tez sabit satır: sayılmaz
+    }
     return;
   }
 
@@ -1019,7 +1086,10 @@ async function guncellemeIsle(env, u) {
 
   if (metin.startsWith("/gundem")) return ekranGoster(env, sohbet, gundemMenuEkrani(await gundemVerisi(env)));
   const hafta = await haftaVerisi(env);
-  if (metin.startsWith("/onecikanlar")) return ekranGoster(env, sohbet, oneCikanlarEkrani(hafta));
+  if (metin.startsWith("/onecikanlar")) {
+    await ekranGoster(env, sohbet, oneCikanlarEkrani(hafta));
+    return gosterildi(env, hafta.gundem);
+  }
   return ekranGoster(env, sohbet, menuEkrani(hafta));
 }
 
@@ -1029,6 +1099,23 @@ export { sayiDenetimi, esc, veriOnbellegi }; // test için
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    KOK = url.origin;
+
+    // Listedeki PubMed bağlantısı: açılan makaleyi kaydet, PubMed'e yönlendir
+    const git = url.pathname.match(/^\/git\/(\d{1,9})$/);
+    if (git) {
+      const pmid = git[1];
+      // Bağlantı önizleyicileri (Telegram vb.) tıklama sayılmaz; yalnızca bu haftanın listesindeki
+      // makaleler kaydedilir (adres herkese açık, dışarıdan rastgele kayıt yazılamasın)
+      const ua = request.headers.get("user-agent") || "";
+      if (!/bot|preview|crawler|spider|facebookexternalhit/i.test(ua)) {
+        const is = haftaVerisi(env)
+          .then((v) => { const m = makaleBul(v, pmid); return m && ilgiKaydet(env, m, "p"); })
+          .catch((e) => console.log("ilgi hatası", e.message));
+        if (ctx?.waitUntil) ctx.waitUntil(is); else await is;
+      }
+      return Response.redirect(pubmedLink(pmid), 302);
+    }
 
     // Tek seferlik kurulum: tarayıcıda /kurulum?anahtar=WEBHOOK_SECRET aç
     if (url.pathname === "/kurulum") {
@@ -1060,6 +1147,11 @@ export default {
       if (request.headers.get("X-Bot-Anahtar") !== env.WEBHOOK_SECRET)
         return new Response("Yetkisiz", { status: 403 });
       return Response.json(await oylariListele(env));
+    }
+    if (url.pathname === "/ilgi") {
+      if (request.headers.get("X-Bot-Anahtar") !== env.WEBHOOK_SECRET)
+        return new Response("Yetkisiz", { status: 403 });
+      return Response.json(await ilgileriListele(env));
     }
 
     if (url.pathname === "/telegram" && request.method === "POST") {

@@ -337,3 +337,38 @@ hafta.alanlar.kolorektal.makaleler = eskiMakaleler;
     !kvOkuma.some((k) => k.startsWith("oy:")) && gb2.length >= 3 && gb2.some((o) => o.pmid === "11111111" && o.dergi === "Eski Dergi"));
   kv.delete("oy:11111111"); kvEk.delete("oy:11111111");
 }
+
+// 34) Dolaylı ilgi: gösterilen ve açılan makaleler, /git yönlendirmesi, /ilgi ucu
+{
+  for (const k of [...kv.keys()]) if (k.startsWith("ilgi:")) { kv.delete(k); kvEk.delete(k); }
+  giden.length = 0; await gonder(tik(111, "a:kolorektal"));
+  const ekran = giden.find((g) => g.metod === "editMessageText" || g.metod === "sendMessage")?.govde.text || "";
+  kontrol("Listedeki PubMed bağlantısı Worker'dan geçiyor", ekran.includes('href="https://bot.example/git/42776522"'));
+  const gorulen = [...kv.keys()].filter((k) => k.startsWith("ilgi:")).sort();
+  kontrol("Alan ekranındaki 5 makale gösterildi olarak kaydedildi (Türk dergisi hariç)",
+    gorulen.length === 5 && !gorulen.includes("ilgi:42671374") && kvEk.get("ilgi:42803164")?.metadata?.dergi === "Colorectal Dis");
+  const yazilan = () => [...kvEk.keys()].filter((k) => k.startsWith("ilgi:")).length;
+  const once = JSON.stringify([...kv.entries()].filter(([k]) => k.startsWith("ilgi:")));
+  await gonder(tik(111, "a:kolorektal"));
+  kontrol("Aynı ekranı yeniden açmak kayıtları değiştirmiyor",
+    once === JSON.stringify([...kv.entries()].filter(([k]) => k.startsWith("ilgi:"))) && yazilan() === 5);
+
+  const r = await worker.fetch(new Request("https://bot.example/git/42803164", { headers: { "user-agent": "Mozilla/5.0" } }), env, {});
+  kontrol("/git PubMed'e yönlendiriyor ve açıldı olarak kaydediyor",
+    r.status === 302 && r.headers.get("location") === "https://pubmed.ncbi.nlm.nih.gov/42803164/" && kvEk.get("ilgi:42803164")?.metadata?.p === 1);
+  await worker.fetch(new Request("https://bot.example/git/42791407", { headers: { "user-agent": "TelegramBot (like TwitterBot)" } }), env, {});
+  kontrol("Bağlantı önizleyicisi tıklama sayılmıyor", !kvEk.get("ilgi:42791407")?.metadata?.p);
+  const r2 = await worker.fetch(new Request("https://bot.example/git/99999999"), env, {});
+  kontrol("Listede olmayan PMID yönlendirilir ama kaydedilmez", r2.status === 302 && !kv.has("ilgi:99999999"));
+
+  await gonder(tik(111, "d:42778806"));
+  kontrol("Ayrıntılı özet açılınca kaydedildi", kvEk.get("ilgi:42778806")?.metadata?.d === 1);
+
+  kontrol("İlgi ucu anahtarsız 403", (await worker.fetch(new Request("https://bot.example/ilgi"), env, {})).status === 403);
+  const il = await (await worker.fetch(new Request("https://bot.example/ilgi", { headers: { "X-Bot-Anahtar": "S" } }), env, {})).json();
+  kontrol("İlgi ucu tüm kayıtları veriyor",
+    il.length === 5 && il.filter((i) => i.p || i.d).length === 2 && il.every((i) => i.g && i.dergi && i.tip));
+  giden.length = 0; await gonder(mesaj(111, "/istatistik"));
+  kontrol("/istatistik görülen/açılan sayısını gösteriyor",
+    (giden.find((g) => g.metod === "sendMessage")?.govde.text || "").includes("5 makale gördün, 2 tanesini açtın"));
+}

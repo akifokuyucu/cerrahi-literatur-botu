@@ -323,6 +323,12 @@ ALAN_BASINA = 5
 # en fazla ±0,5 (toplam ±1) katkı. Her net oy 0,25 puan.
 KISISEL_ADIM = 0.25
 KISISEL_SINIR = 0.5
+# Dolaylı ilgi (bottaki gösterilen makalelerden hangileri açıldı): dergi/tip
+# başına açılma oranının genel orandan farkı × ILGI_OLCEK. Az gösterilen grup
+# ILGI_ONCUL kadar "ortalama" sanal gösterimle dengelenir. Örn. genel oran %30
+# iken 10 gösterimin 8'i açılan dergi: (8 + 1,5) / 15 − 0,3 ≈ +0,33 puan.
+ILGI_OLCEK = 1
+ILGI_ONCUL = 5
 BOT_URL = "https://cerrahi-literatur-botu.akif-okuyucu.workers.dev"
 
 # Cerrahi ilgi kontrolü için yapay zekâya gönderilen aday sayısı

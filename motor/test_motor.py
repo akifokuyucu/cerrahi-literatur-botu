@@ -560,6 +560,37 @@ class PubmedSinyalTesti(unittest.TestCase):
         self.assertEqual(puanlama.calisma_tipi(k), "diger")
 
 
+class IlgiTesti(unittest.TestCase):
+    def ilgi(self, dergi, tip, acildi, n=1):
+        return [{"dergi": dergi, "tip": tip, "g": 1, **({"d": 1} if acildi else {})}] * n
+
+    def test_acilma_orani_ham_sayidan_bagimsiz(self):
+        import puanlama
+        # Ann Surg çok gösterildi, oranı genel oranla aynı (%50): katkı ~0;
+        # Hernia az gösterildi ama hep açıldı: artı; Cureus hiç açılmadı: eksi
+        ilgiler = (self.ilgi("Ann Surg", "rct", True, 10) + self.ilgi("Ann Surg", "rct", False, 10)
+                   + self.ilgi("Hernia", "rct", True, 4) + self.ilgi("Cureus", "rct", False, 4))
+        k = puanlama.ilgi_katkisi(ilgiler)["dergi"]
+        self.assertAlmostEqual(k["annsurg"], 0, places=6)
+        self.assertGreater(k["hernia"], 0.2)
+        self.assertLess(k["cureus"], -0.2)
+        self.assertAlmostEqual(k["hernia"], -k["cureus"])
+
+    def test_tek_tiklama_kucuk_katki(self):
+        import puanlama
+        ilgiler = self.ilgi("A", "rct", False, 9) + self.ilgi("B", "rct", True)
+        self.assertLess(puanlama.ilgi_katkisi(ilgiler)["dergi"]["b"], 0.2)
+
+    def test_oy_ve_ilgi_toplanir_sinirlanir(self):
+        import puanlama
+        oylar = [{"oy": 1, "dergi": "Hernia", "tip": "rct"}] * 3  # 3 × 0,25 → sınır 0,5
+        ilgiler = self.ilgi("Hernia", "rct", True, 4) + self.ilgi("Cureus", "diger", False, 4)
+        t = puanlama.tercihleri_hesapla(oylar, ilgiler)
+        self.assertEqual(t["dergi"]["hernia"], 0.5)
+        self.assertLess(t["dergi"]["cureus"], 0)
+        self.assertEqual(puanlama.tercihleri_hesapla([], []), {"dergi": {}, "tip": {}})
+
+
 class ArsivTesti(unittest.TestCase):
     def test_yaz_oku_sec_olc(self):
         import tempfile
