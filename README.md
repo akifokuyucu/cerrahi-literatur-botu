@@ -49,6 +49,12 @@ Toplam puan = dergi puanı + çalışma tipi puanı.
 - Prospektif, Delphi / konsensus çalışması: 2
 - Retrospektif ve diğer: 1
 
+**Editoryal puanı:** Makaleye PubMed'de "Comment in" (eşlik eden editoryal/yorum) bağlıysa +1 (`config.EDITORYAL_PUANI`). Botta "💬 editoryal eşlik ediyor" olarak görünür.
+
+**Eşitlik bozucular:** sırasıyla çok merkezli olma, ClinicalTrials.gov kaydı (NCT; botta bağlantısı gösterilir) ve özetteki hasta sayısı.
+
+**MeSH:** İndekslenmiş kayıtlarda (yeni makalelerin yaklaşık dörtte biri) alan uyumuna katkı verir; "Animals" olup "Humans" olmayan kayıt hayvan deneyi sayılır.
+
 **Alanlar arası dağıtım:** Birden çok alanın sorgusuna takılan makale yalnızca en uygun olduğu alanda kalır (başlıkta geçen alan terimi 3, özette geçen 1, alanın kendi dergisi 4 puan; eşitlikte `config.ALANLAR` sırası). Alanın `haric` terimleri (ör. Herni'de "disc herniation") geçen makaleler o alana hiç girmez.
 
 **Yapay zekâ süzgeci ve sırası:** Her alanda en yüksek puanlı 12 aday yapay zekâya gönderilir (7 ve 6 makalelik iki istekle; bozuk bir yanıt bütün alanı boş bırakmaz, atlanan makaleler bir kez daha istenir). Aynı istekte üç değerlendirme (0–2) alınır: **cerrahi ilgi**, **alan uyumu** (makale bu alt alanın konusu mu) ve **pratiğe etkisi** (yöntem ve sonucun gücü). Cerrahi ilgisi ya da alan uyumu 0 olanlar elenir. Alan uyumu ve pratiğe etkisi, nötr değer 1 olmak üzere her biri ±1 puan olarak (`config.YZ_AGIRLIK`) kural puanına eklenir ve ilk 5 bu toplamla seçilir. Botta gösterilen puan bu toplamdır.
@@ -68,7 +74,7 @@ python arsiv.py --cek 2026-10-05                        # geçmiş bir haftayı 
 
 **Kişisel puan:** Bottaki her net 👍/👎, o dergi ve çalışma tipi için ±0,25 puan; dergi ve tip başına en fazla ±0,5. Yalnızca sıralamayı etkiler, gösterilen puan değişmez.
 
-**Elenenler:** Olgu sunumu, editoryal, yorum, mektup, kongre bildirisi, özeti olmayan kayıtlar ve çalışma protokolleri listeye girmez. Hayvan deneyleri 1 puan alır.
+**Elenenler:** Olgu sunumu, editoryal, yorum, mektup, kongre bildirisi, özeti olmayan kayıtlar, çalışma protokolleri ve yalnızca çocuk hastalarda yapılmış çalışmalar (`config.COCUK_ELE`; MeSH yaş etiketleri, yoksa başlık ya da çocuk cerrahisi dergisi) listeye girmez. Hayvan deneyleri 1 puan alır.
 
 ## Yapay zekâ sağlayıcıları
 

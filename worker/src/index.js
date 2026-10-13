@@ -126,11 +126,14 @@ function menuEkrani(veri) {
 function makaleBlogu(no, m, ekEtiket = "") {
   const baslik = m.baslik_tr || m.baslik;
   const acik = m.pmc ? " · 🔓 tam metin açık" : "";
+  const editoryal = m.editoryal ? " · 💬 editoryal eşlik ediyor" : "";
+  const nct = /^NCT\d{8}$/.test(m.nct || "")
+    ? ` · <a href="https://clinicaltrials.gov/study/${m.nct}">${m.nct}</a>` : "";
   return (
     `<b>${no}. ${esc(m.tip_etiketi)} · ${esc(m.dergi)}</b>${ekEtiket}\n` +
     `<i>${esc(baslik)}</i>\n` +
     (m.kisa_ozet ? `${esc(m.kisa_ozet)}${m.sayi_uyarisi ? " ⚠️" : ""}\n` : "") +
-    `<a href="${pubmedLink(m.pmid)}">PubMed</a>${acik}`
+    `<a href="${pubmedLink(m.pmid)}">PubMed</a>${acik}${nct}${editoryal}`
   );
 }
 

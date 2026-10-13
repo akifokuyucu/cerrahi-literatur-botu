@@ -28,6 +28,10 @@ DUSUK_DERGILER = [
     "Eur Rev Med Pharmacol Sci", "Medicine (Baltimore)", "World J Clin Cases",
 ]
 
+# Makaleye aynı dergide editoryal/yorum eşlik ediyorsa (PubMed "Comment in")
+# dergi onu önemli bulmuştur: ek puan
+EDITORYAL_PUANI = 1
+
 # ---------------------------------------------------------------------------
 # 2) ÇALIŞMA TİPİ PUANLARI
 # ---------------------------------------------------------------------------
@@ -287,6 +291,13 @@ DIGER_BRANSLAR = [
     "uterine", "uterus", "cervix", "vulvar", "pyeloplasty", "hypospadias",
     "nephrolithotomy", "ureteroscopy", "laryn*", "head and neck",
 ]
+
+# Yalnızca çocuk hastalarda yapılmış çalışmalar (çocuk cerrahisi) elenir.
+# MeSH yaş etiketleri varsa onlara bakılır (çocuk etiketi var, yetişkin yok);
+# yoksa başlığa ve derginin çocuk cerrahisi dergisi olup olmadığına.
+COCUK_ELE = True
+COCUK_DERGILERI = ["J Pediatr Surg", "Pediatr Surg Int", "Eur J Pediatr Surg",
+                   "J Pediatr Surg Open", "J Pediatr Surg Case Rep"]
 
 # Geniş kapsamlı dergiler: puan alırlar ama makaleleri alana OTOMATİK
 # girmez; yalnızca alanın terimleriyle eşleşen makaleleri alınır

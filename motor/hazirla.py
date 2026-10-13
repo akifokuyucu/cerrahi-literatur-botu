@@ -36,6 +36,7 @@ AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
 TUTULAN = ["pmid", "baslik", "baslik_tr", "kisa_ozet", "ozet", "dergi",
            "dergi_tam", "yil", "doi", "pmc", "tip", "tip_etiketi", "toplam",
            "dergi_puani", "tip_puani", "cok_merkezli", "orneklem",
+           "editoryal", "nct",
            "cerrahi_ilgi", "alan_uyumu", "pratik_etkisi", "yz_puani",
            "kisisel", "sayi_uyarisi",
            # 🎓 YÖK Tez satırı

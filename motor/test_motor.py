@@ -478,6 +478,49 @@ class PuanlamaTesti(unittest.TestCase):
         self.assertEqual([m["yz_puani"] for m in secim], [2, 0, -1])
 
 
+class PubmedSinyalTesti(unittest.TestCase):
+    XML = """<PubmedArticleSet><PubmedArticle><MedlineCitation><PMID>9</PMID>
+    <Article><Journal><Title>J</Title><JournalIssue><PubDate><Year>2026</Year></PubDate></JournalIssue></Journal>
+    <ArticleTitle>T</ArticleTitle><Abstract><AbstractText>Trial NCT11112222.</AbstractText></Abstract>
+    <DataBankList><DataBank><DataBankName>ClinicalTrials.gov</DataBankName>
+    <AccessionNumberList><AccessionNumber>NCT04306458</AccessionNumber></AccessionNumberList></DataBank></DataBankList>
+    </Article><MedlineJournalInfo><MedlineTA>JAMA Surg</MedlineTA></MedlineJournalInfo>
+    <CommentsCorrectionsList><CommentsCorrections RefType="CommentIn"><RefSource>x</RefSource></CommentsCorrections>
+    <CommentsCorrections RefType="ErratumIn"><RefSource>y</RefSource></CommentsCorrections></CommentsCorrectionsList>
+    <MeshHeadingList><MeshHeading><DescriptorName>Humans</DescriptorName></MeshHeading>
+    <MeshHeading><DescriptorName>Hernia, Ventral</DescriptorName></MeshHeading></MeshHeadingList>
+    </MedlineCitation></PubmedArticle></PubmedArticleSet>"""
+
+    def test_mesh_editoryal_nct(self):
+        import pubmed
+        k = pubmed.xml_ayristir(self.XML)[0]
+        self.assertEqual(k["mesh"], ["Humans", "Hernia, Ventral"])
+        self.assertEqual(k["editoryal"], 1)
+        self.assertEqual(k["nct"], "NCT04306458")  # DataBank, özetteki numaradan önce
+
+    def test_editoryal_puan_ekler(self):
+        import puanlama
+        k = kayit("1", "Mesh repair", dergi="Hernia")
+        self.assertEqual(puanlama.puanla({**k, "editoryal": 2}, "herni")["toplam"],
+                         puanlama.puanla(k, "herni")["toplam"] + 1)
+
+    def test_yalniz_cocuk(self):
+        import puanlama
+        c = lambda **e: puanlama.yalniz_cocuk({**kayit("1", e.pop("b", "Hernia repair")), **e})
+        self.assertTrue(c(mesh=["Humans", "Child"]))
+        self.assertFalse(c(mesh=["Humans", "Child", "Adult"], b="Hernia in children"))
+        self.assertTrue(c(dergi="J Pediatr Surg"))
+        self.assertTrue(c(b="Appendicitis in children"))
+        self.assertFalse(c(b="Appendicitis in children and adults"))
+        self.assertFalse(c(b="Hepatectomy in Child-Pugh B patients"))
+        self.assertIsNone(puanlama.calisma_tipi(kayit("1", "K-wires in pediatric fractures")))
+
+    def test_mesh_hayvan(self):
+        import puanlama
+        k = {**kayit("1", "Anastomotic healing randomized trial"), "mesh": ["Animals"]}
+        self.assertEqual(puanlama.calisma_tipi(k), "diger")
+
+
 class ArsivTesti(unittest.TestCase):
     def test_yaz_oku_sec_olc(self):
         import tempfile

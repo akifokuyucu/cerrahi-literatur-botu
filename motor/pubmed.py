@@ -138,6 +138,11 @@ def xml_ayristir(xml_metni):
             ozet_parcalari.append(f"{etiket}: {parca}" if etiket else parca)
         kimlikler = {i.get("IdType"): i.text
                      for i in pa.findall("PubmedData/ArticleIdList/ArticleId")}
+        # Klinik deneme kaydı: önce PubMed'in DataBank alanı, yoksa özetteki numara
+        nct = [a.text for d in art.findall("DataBankList/DataBank")
+               if _metin(d.find("DataBankName")) == "ClinicalTrials.gov"
+               for a in d.findall("AccessionNumberList/AccessionNumber") if a.text]
+        nct = nct or re.findall(r"\bNCT\d{8}\b", "\n".join(ozet_parcalari))
         yil = _metin(art.find("Journal/JournalIssue/PubDate/Year")) or \
             _metin(art.find("Journal/JournalIssue/PubDate/MedlineDate"))[:4]
         sonuc.append({
@@ -152,5 +157,13 @@ def xml_ayristir(xml_metni):
             "yil": yil,
             "doi": kimlikler.get("doi", ""),
             "pmc": kimlikler.get("pmc", ""),
+            # Yalnızca indekslenmiş (MEDLINE) kayıtlarda; yeni kayıtlarda çoğu kez boş
+            "mesh": [_metin(d) for d in
+                     mc.findall("MeshHeadingList/MeshHeading/DescriptorName")],
+            # Makaleye eşlik eden editoryal/yorum sayısı
+            "editoryal": sum(1 for c in mc.findall(
+                "CommentsCorrectionsList/CommentsCorrections")
+                if c.get("RefType") == "CommentIn"),
+            "nct": nct[0] if nct else "",
         })
     return sonuc

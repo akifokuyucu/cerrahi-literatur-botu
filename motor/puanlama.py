@@ -69,7 +69,9 @@ def calisma_tipi(kayit):
     # Özeti olmayan kayıtlar (yorum, görsel özet, video olgu, bildiri) elenir
     if not ozet.strip():
         return None
-    if re.search(r"\b(study|trial) protocol\b|\bprotocol for\b", baslik):
+    if re.search(r"\b(study|trial) protocol\b|\bprotocol (for|of)\b", baslik):
+        return None
+    if config.COCUK_ELE and yalniz_cocuk(kayit):
         return None
 
     if pt & KILAVUZ_PT or (KILAVUZ_BASLIK.search(baslik)
@@ -84,8 +86,10 @@ def calisma_tipi(kayit):
     if "retrospective" in baslik:
         return "diger"
     # Hayvan/deneysel çalışmalar klinik kanıt sayılmaz (randomize olsa bile)
+    mesh = set(kayit.get("mesh") or ())
     if re.search(r"\b(rats?|mice|murine|porcine|pigs?|rabbits?|swine|"
-                 r"in vitro|animal model)\b", baslik + " " + ozet[:1500]):
+                 r"in vitro|animal model)\b", baslik + " " + ozet[:1500]) or \
+            ("Animals" in mesh and "Humans" not in mesh):
         return "diger"
     if pt & RCT_PT or re.search(r"randomi[sz]ed\b.*\btrial", baslik) or \
             re.search(r"(?<!not )randomly (assigned|allocated)|"
@@ -96,6 +100,28 @@ def calisma_tipi(kayit):
             r"\bprospective\b", baslik + " " + ozet[:1500])):
         return "prospektif"
     return "diger"
+
+
+COCUK_MESH = {"Infant", "Infant, Newborn", "Child", "Child, Preschool",
+              "Adolescent"}
+YETISKIN_MESH = {"Adult", "Young Adult", "Middle Aged", "Aged",
+                 "Aged, 80 and over"}
+# "Child-Pugh" / "Child-Turcotte-Pugh" karaciğer sınıflamasıdır, çocuk değil
+COCUK_BASLIK = re.compile(r"\b(?:pediatric|paediatric|children|child(?![-–‐ ]"
+                          r"(?:pugh|turcotte))|childhood|infants?|neonat\w*|"
+                          r"newborns?)\b", re.I)
+
+
+def yalniz_cocuk(kayit):
+    """Çalışma yalnızca çocuk hastalarda mı? MeSH yaş etiketleri varsa onlar
+    belirler; yoksa başlık ("adult" geçmeden çocuk terimi) ya da dergi."""
+    mesh = set(kayit.get("mesh") or ())
+    if mesh & (COCUK_MESH | YETISKIN_MESH):
+        return bool(mesh & COCUK_MESH) and not mesh & YETISKIN_MESH
+    if _norm(kayit["dergi"]) in {_norm(d) for d in config.COCUK_DERGILERI}:
+        return True
+    return bool(COCUK_BASLIK.search(kayit["baslik"])) and \
+        not re.search(r"\badults?\b", kayit["baslik"], re.I)
 
 
 def _cok_merkezli(kayit):
@@ -133,10 +159,13 @@ def alan_haric(kayit, alan_kodu):
 
 def alan_uyumu(kayit, alan_kodu):
     """Makalenin bu alana ne kadar ait olduğu (kural tabanlı, kaba).
-    Başlıkta geçen her terim 3, özette geçen 1 puan; alanın kendi dergisi 4,
-    alanın üst dergisi ya da geniş kapsamlı dergi 1 puan."""
+    Başlıkta geçen her terim 3, MeSH başlıklarında geçen 2, özette geçen 1
+    puan; alanın kendi dergisi 4, alanın üst dergisi ya da geniş kapsamlı
+    dergi 1 puan."""
     desenler = _alan_desenleri(alan_kodu)
+    mesh = " | ".join(kayit.get("mesh") or ())
     puan = sum(3 for d in desenler if d.search(kayit["baslik"])) + \
+        sum(2 for d in desenler if mesh and d.search(mesh)) + \
         sum(1 for d in desenler if d.search(kayit["ozet"]))
     a = config.ALANLAR[alan_kodu]
     n = _norm(kayit["dergi"])
@@ -184,8 +213,9 @@ def yz_puani(o):
 
 
 def sira_anahtari(p):
+    # Eşitlikte: çok merkezli, sonra kayıtlı (NCT) deneme, sonra büyük örneklem
     return (p["toplam"] + (p.get("kisisel") or 0) + (p.get("yz_puani") or 0),
-            p["cok_merkezli"], p["orneklem"])
+            p["cok_merkezli"], bool(p.get("nct")), p["orneklem"])
 
 
 def yz_ile_sec(adaylar, yz, n=config.ALAN_BASINA):
@@ -203,6 +233,7 @@ def puanla(kayit, alan_kodu):
         return None
     d_puan, d_etiket = dergi_puani(kayit["dergi"], alan_kodu)
     t_puan = config.TIP_PUANI[tip]
+    e_puan = config.EDITORYAL_PUANI if kayit.get("editoryal") else 0
     return {
         **kayit,
         "tip": tip,
@@ -210,7 +241,8 @@ def puanla(kayit, alan_kodu):
         "dergi_puani": d_puan,
         "dergi_kademesi": d_etiket,
         "tip_puani": t_puan,
-        "toplam": d_puan + t_puan,
+        "editoryal_puani": e_puan,
+        "toplam": d_puan + t_puan + e_puan,
         "cok_merkezli": _cok_merkezli(kayit),
         "orneklem": _orneklem(kayit),
     }
