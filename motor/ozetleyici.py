@@ -28,8 +28,25 @@ Aşağıda PubMed'den alınmış makaleler var. Her biri için:
    0 = cerrahın pratiğini değiştirmez: radyoterapi dozu/fraksiyonu
        karşılaştırmaları, sistemik ilaç etkinliği veya biyobenzer çalışmaları,
        prognostik biyobelirteç/ctDNA çalışmaları, ilaç yan etkileri, temel
-       bilim ve hayvan deneyleri, başka branşın konusu
+       bilim ve hayvan deneyleri, başka branşın konusu (ör. ortopedi/kırık,
+       protez, göğüs, kalp-damar, KBB, üroloji, kadın doğum), yalnızca
+       çocuk hastalarda yapılmış çalışmalar
    Emin değilsen 0 ile 1 arasında 0'ı seç.
+4. "alan_uyumu": Makaleler "{alan}" alt alanının listesi için seçildi.
+   Makale bu alt alanın konusu mu?
+   2 = doğrudan bu alt alanın konusu
+   1 = kısmen ya da sınırda; başka bir genel cerrahi alt alanına daha uygun
+   0 = bu alt alanla ilgisi yok (ör. Acil Cerrahi listesinde çocuk kırığı,
+       Onkoloji listesinde kemik tümörü, Enfeksiyon listesinde enfeksiyon
+       konusu olmayan bir ameliyat karşılaştırması)
+5. "pratik_etkisi": Yöntemine ve sonucuna bakarak, bu çalışma bir genel
+   cerrahın pratiğini değiştirmeye ne kadar güçlü?
+   2 = güçlü: büyük ya da çok merkezli RCT, iyi yapılmış meta-analiz, yeni
+       kılavuz, net ve yeni bir klinik bulgu
+   1 = orta: mevcut bilgiyi destekleyen ya da büyük ama gözlemsel çalışma
+   0 = zayıf: küçük ya da tek merkezli seri, tanımlayıcı/eğilim/maliyet
+       analizi, bilinenin tekrarı, yöntemi zayıf çalışma
+   Makaleleri birbirleriyle de karşılaştır; her makaleye 2 verme.
 
 Kurallar:
 - Tıbbi terimleri ve kısaltmaları İngilizce bırak (ör. anastomotic leak,
@@ -56,8 +73,11 @@ KISA_OZET_SEMASI = {
             "baslik_tr": {"type": "STRING"},
             "kisa_ozet": {"type": "STRING"},
             "cerrahi_ilgi": {"type": "INTEGER"},
+            "alan_uyumu": {"type": "INTEGER"},
+            "pratik_etkisi": {"type": "INTEGER"},
         },
-        "required": ["pmid", "baslik_tr", "kisa_ozet", "cerrahi_ilgi"],
+        "required": ["pmid", "baslik_tr", "kisa_ozet", "cerrahi_ilgi",
+                     "alan_uyumu", "pratik_etkisi"],
     },
 }
 
@@ -73,8 +93,8 @@ def _kaynak(m):
     return f"{m['dergi']} {m.get('tip_etiketi', '')} {m['baslik']} {m.get('ozet') or ''}"
 
 
-def _istek(zincir, makaleler, ek_not=""):
-    metin = KISA_OZET_TALIMATI + ek_not + "\n\n---\n\n" + "\n\n---\n\n".join(
+def _istek(zincir, makaleler, ek_not="", alan="genel cerrahi"):
+    metin = KISA_OZET_TALIMATI.replace("{alan}", alan) + ek_not + "\n\n---\n\n" + "\n\n---\n\n".join(
         _makale_metni(m) for m in makaleler)
     istenen = {m["pmid"] for m in makaleler}
     # Modelin uydurduğu ya da yanlış yazdığı pmid'ler alınmaz
@@ -82,7 +102,7 @@ def _istek(zincir, makaleler, ek_not=""):
             if str(s["pmid"]) in istenen}
 
 
-def _partiler(zincir, makaleler, parti, bekleme):
+def _partiler(zincir, makaleler, parti, bekleme, alan):
     """Makaleleri küçük partilerle özetler; bir parti başarısız olsa da
     diğerleri denenir. Modelin atladığı makaleler bir kez daha istenir."""
     sonuc, son_hata = {}, None
@@ -93,7 +113,7 @@ def _partiler(zincir, makaleler, parti, bekleme):
         if n:
             time.sleep(bekleme)  # dakika başı istek sınırına saygı
         try:
-            sonuc.update(_istek(zincir, grup))
+            sonuc.update(_istek(zincir, grup, alan=alan))
         except Exception as e:
             son_hata = e
             print(f"  Parti {n + 1}/{len(gruplar)} özetlenemedi: {str(e)[:120]}")
@@ -102,7 +122,7 @@ def _partiler(zincir, makaleler, parti, bekleme):
         print(f"  {len(eksik)} makalenin özeti eksik, yeniden deneniyor")
         time.sleep(bekleme)
         try:
-            sonuc.update(_istek(zincir, eksik[:parti * 2]))
+            sonuc.update(_istek(zincir, eksik[:parti * 2], alan=alan))
         except Exception as e:
             print(f"  Eksikler özetlenemedi: {str(e)[:120]}")
     if not sonuc:
@@ -115,13 +135,15 @@ def _hatali_sayilar(s, m):
                                   _kaynak(m))
 
 
-def kisa_ozetle(zincir, makaleler, parti=6, bekleme=5):
-    """{pmid: {"baslik_tr", "kisa_ozet", "cerrahi_ilgi"[, "sayi_uyarisi"]}}.
+def kisa_ozetle(zincir, makaleler, parti=6, bekleme=5, alan="genel cerrahi"):
+    """{pmid: {"baslik_tr", "kisa_ozet", "cerrahi_ilgi", "alan_uyumu",
+    "pratik_etkisi"[, "sayi_uyarisi"]}}. `alan`: makalelerin listelendiği
+    alt alanın adı (alan uyumu bu alana göre değerlendirilir).
     Metinde olmayan sayı yazılan özetler bir kez uyarıyla yeniden üretilir;
     yine düzelmezse "sayi_uyarisi" alanıyla işaretlenir."""
     if not makaleler:
         return {}
-    sonuc = _partiler(zincir, makaleler, parti, bekleme)
+    sonuc = _partiler(zincir, makaleler, parti, bekleme, alan)
     hatali = {m["pmid"]: _hatali_sayilar(sonuc[m["pmid"]], m)
               for m in makaleler if m["pmid"] in sonuc}
     hatali = {p: s for p, s in hatali.items() if s}
@@ -130,7 +152,7 @@ def kisa_ozetle(zincir, makaleler, parti=6, bekleme=5):
         tekrar = [m for m in makaleler if m["pmid"] in hatali]
         sayilar = sorted({x for s in hatali.values() for x in s})
         try:
-            yeni = _istek(zincir, tekrar, denetim.uyari_notu(sayilar))
+            yeni = _istek(zincir, tekrar, denetim.uyari_notu(sayilar), alan)
         except Exception as e:
             print(f"  Yeniden deneme başarısız: {str(e)[:120]}")
             yeni = {}
@@ -168,5 +190,6 @@ class SahteGemini:
         # Testte her 3. makale "ilgisiz" sayılır ki filtre denenebilsin
         return [{"pmid": p, "baslik_tr": f"(test başlığı {p})",
                  "kisa_ozet": f"(test özeti {p})",
-                 "cerrahi_ilgi": 0 if i % 3 == 2 else 2}
+                 "cerrahi_ilgi": 0 if i % 3 == 2 else 2,
+                 "alan_uyumu": 2, "pratik_etkisi": i % 3}
                 for i, p in enumerate(pmidler)]

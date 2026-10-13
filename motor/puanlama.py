@@ -8,6 +8,27 @@ import config
 KILAVUZ_PT = {"Practice Guideline", "Guideline",
               "Consensus Development Conference",
               "Consensus Development Conference, NIH"}
+# Başlıkta kılavuz/konsensus olduğunu gösteren kalıplar. Yalnızca "guideline"
+# kelimesi yetmez: "Guideline-Directed Testing", "adherence to guidelines"
+# gibi başlıklar kılavuz değildir.
+KILAVUZ_BASLIK = re.compile(
+    r"\b(?:practice|clinical|consensus|evidence-based|international|national|"
+    r"joint|updated?|society|management|wses|esmo|nccn|asco|sages|eaes|"
+    r"ascrs|escp|ehs|ahs) guidelines?\b"
+    r"|\bguidelines? (?:for|on|of the|from)\b"
+    r"|\bthe [\w-]+ guidelines?\b"
+    r"|\bconsensus (?:statement|guideline|recommendations?|conference|document|report)"
+    r"|\bposition (?:statement|paper)\b"
+    r"|\brecommendations (?:for|from|of|on|by)\b"
+    r"|\bclinical practice update\b"
+    r"|:\s*(?:an? )?(?:\w+ )?(?:guideline|consensus)\b")
+# Kılavuza uyumu/uygulanmasını inceleyen çalışmalar kılavuz değildir
+KILAVUZ_UYUMU = re.compile(
+    r"\b(?:adherence|complian\w*|concordan\w*|implementation|uptake|"
+    r"awareness|knowledge|deviation|non-?adherence) (?:to|with|of|from) "
+    r"(?:the )?(?:[\w-]+ ){0,3}guidelines?\b"
+    r"|\b(?:impact|effects?|evaluation|introduction) of (?:an? |the )?"
+    r"(?:[\w-]+ ){0,4}guidelines?\b")
 META_PT = {"Meta-Analysis", "Systematic Review"}
 RCT_PT = {"Randomized Controlled Trial"}
 KLINIK_PT = {"Clinical Trial", "Clinical Trial, Phase II",
@@ -29,6 +50,7 @@ def dergi_puani(dergi, alan_kodu):
         (config.DERGI_PUANI["kademe2"], "Kademe 2", config.ORTAK_DERGILER["kademe2"]),
         (config.DERGI_PUANI["kademe3"], "Kademe 3", config.ORTAK_DERGILER["kademe3"]),
         (config.DERGI_PUANI["kademe3"], "Kademe 3", alan["alan_dergileri"]),
+        (config.DERGI_PUANI["dusuk"], "Düşük", config.DUSUK_DERGILER),
     ]
     for puan, etiket, liste in adaylar:
         if n in {_norm(d) for d in liste}:
@@ -50,7 +72,8 @@ def calisma_tipi(kayit):
     if re.search(r"\b(study|trial) protocol\b|\bprotocol for\b", baslik):
         return None
 
-    if pt & KILAVUZ_PT or re.search(r"guideline|recommendations?\b", baslik):
+    if pt & KILAVUZ_PT or (KILAVUZ_BASLIK.search(baslik)
+                           and not KILAVUZ_UYUMU.search(baslik)):
         return "kilavuz"
     if pt & META_PT or re.search(
             r"meta-?analys|systematic review|umbrella review", baslik):
@@ -88,6 +111,90 @@ def _orneklem(kayit):
         r"(\d[\d,]{1,9})\s+(?:patients|participants|women|men|cases|"
         r"individuals|subjects|procedures|adults)", kayit["ozet"])
     return max((int(s.replace(",", "")) for s in sayilar), default=0)
+
+
+_ALAN_DESENLERI = {}
+
+
+def _alan_desenleri(alan_kodu, tur="anahtar"):
+    """Alanın terimleri → kelime sınırlı ifadeler ("hernia*" → "hernia" ile başlayan kelime)."""
+    if (alan_kodu, tur) not in _ALAN_DESENLERI:
+        _ALAN_DESENLERI[alan_kodu, tur] = [
+            re.compile(r"\b" + re.escape(t).replace(r"\*", r"\w*") + r"\b", re.I)
+            for t in config.ALANLAR[alan_kodu].get(tur, [])]
+    return _ALAN_DESENLERI[alan_kodu, tur]
+
+
+def alan_haric(kayit, alan_kodu):
+    """Alanın "haric" terimlerinden biri başlık ya da özette geçiyor mu?"""
+    metin = kayit["baslik"] + " " + kayit["ozet"]
+    return any(d.search(metin) for d in _alan_desenleri(alan_kodu, "haric"))
+
+
+def alan_uyumu(kayit, alan_kodu):
+    """Makalenin bu alana ne kadar ait olduğu (kural tabanlı, kaba).
+    Başlıkta geçen her terim 3, özette geçen 1 puan; alanın kendi dergisi 4,
+    alanın üst dergisi ya da geniş kapsamlı dergi 1 puan."""
+    desenler = _alan_desenleri(alan_kodu)
+    puan = sum(3 for d in desenler if d.search(kayit["baslik"])) + \
+        sum(1 for d in desenler if d.search(kayit["ozet"]))
+    a = config.ALANLAR[alan_kodu]
+    n = _norm(kayit["dergi"])
+    if n in {_norm(d) for d in a["alan_dergileri"]}:
+        genis = n in {_norm(d) for d in config.GENIS_DERGILER}
+        puan += 1 if genis else 4
+    elif n in {_norm(d) for d in a["ust"]}:
+        puan += 1
+    return puan
+
+
+def alanlara_dagit(listeler):
+    """{alan: [puanlı makale]} → her makale yalnızca en uygun alanında kalır.
+    Eşitlikte config.ALANLAR'da önce gelen alan kazanır."""
+    en_iyi = {}
+    for kod, liste in listeler.items():
+        for m in liste:
+            u = alan_uyumu(m, kod)
+            if m["pmid"] not in en_iyi or u > en_iyi[m["pmid"]][0]:
+                en_iyi[m["pmid"]] = (u, kod)
+    return {kod: [m for m in liste if en_iyi[m["pmid"]][1] == kod]
+            for kod, liste in listeler.items()}
+
+
+def _yz_degeri(o, ad):
+    """Yapay zekânın 0–2 değerlendirmesi; yoksa ya da bozuksa 1 (nötr)."""
+    try:
+        return max(0, min(2, int(o.get(ad, 1))))
+    except (TypeError, ValueError):
+        return 1
+
+
+def yz_uygun(o):
+    """Yapay zekâ "cerrahiyle ilgisiz" ya da "bu alanın konusu değil" dediyse
+    makale listeye girmez. Değerlendirme yoksa (özet üretilemediyse) girer."""
+    o = o or {}
+    return _yz_degeri(o, "cerrahi_ilgi") != 0 and _yz_degeri(o, "alan_uyumu") != 0
+
+
+def yz_puani(o):
+    """Alan uyumu ve pratiğe etkiden sıralama katkısı (nötr 0, en fazla ±2)."""
+    o = o or {}
+    return config.YZ_AGIRLIK * (_yz_degeri(o, "alan_uyumu") - 1
+                                + _yz_degeri(o, "pratik_etkisi") - 1)
+
+
+def sira_anahtari(p):
+    return (p["toplam"] + (p.get("kisisel") or 0) + (p.get("yz_puani") or 0),
+            p["cok_merkezli"], p["orneklem"])
+
+
+def yz_ile_sec(adaylar, yz, n=config.ALAN_BASINA):
+    """Yapay zekânın elediği adayları çıkarır, kalanları yapay zekâ puanıyla
+    birlikte yeniden sıralar ve ilk n'i döndürür. yz: {pmid: değerlendirme}."""
+    uygun = [{**m, "yz_puani": yz_puani(yz.get(m["pmid"]))}
+             for m in adaylar if yz_uygun(yz.get(m["pmid"]))]
+    uygun.sort(key=sira_anahtari, reverse=True)
+    return uygun[:n]
 
 
 def puanla(kayit, alan_kodu):
@@ -137,13 +244,13 @@ def ilk_n(kayitlar, alan_kodu, n=config.ALAN_BASINA, tercih=None):
     puanli = []
     gorulen = set()
     for k in kayitlar:
-        if k["pmid"] in gorulen or _norm(k["dergi"]) in turk:
+        if k["pmid"] in gorulen or _norm(k["dergi"]) in turk or \
+                alan_haric(k, alan_kodu):
             continue
         gorulen.add(k["pmid"])
         p = puanla(k, alan_kodu)
         if p:
             p["kisisel"] = kisisel_puan(p, tercih)
             puanli.append(p)
-    puanli.sort(key=lambda p: (p["toplam"] + p["kisisel"], p["cok_merkezli"],
-                               p["orneklem"]), reverse=True)
+    puanli.sort(key=sira_anahtari, reverse=True)
     return puanli[:n], puanli

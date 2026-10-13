@@ -48,12 +48,13 @@ def turk_gosterildi_isaretle(alan_kodu, pmid):
 
 
 def alan_hazirla(alan_kodu, pm=None, girdi_xml=None, turk_xml=None,
-                 n=config.ALAN_BASINA, tercih=None):
+                 n=config.ALAN_BASINA, tercih=None, bitis=None):
     if girdi_xml:
         with open(girdi_xml, encoding="utf-8") as f:
             kayitlar = pubmed.xml_ayristir(f.read())
     else:
-        pmidler = pm.ara(pubmed.alan_sorgusu(alan_kodu), config.PENCERE_GUN)
+        pmidler = pm.ara(pubmed.alan_sorgusu(alan_kodu), config.PENCERE_GUN,
+                         bitis=bitis)
         kayitlar = pm.getir(pmidler)
 
     secilen, tum_puanli = puanlama.ilk_n(kayitlar, alan_kodu, n, tercih)
@@ -64,7 +65,7 @@ def alan_hazirla(alan_kodu, pm=None, girdi_xml=None, turk_xml=None,
             turk = turk_makalesi_sec(pubmed.xml_ayristir(f.read()), alan_kodu)
     elif pm:
         ids = pm.ara(pubmed.turk_dergisi_sorgusu(alan_kodu),
-                     config.TURK_DERGISI_GERIYE_GUN, en_fazla=20)
+                     config.TURK_DERGISI_GERIYE_GUN, en_fazla=20, bitis=bitis)
         turk = turk_makalesi_sec(pm.getir(ids), alan_kodu) if ids else None
 
     return {
@@ -75,6 +76,9 @@ def alan_hazirla(alan_kodu, pm=None, girdi_xml=None, turk_xml=None,
         "puanlanan": len(tum_puanli),
         "makaleler": secilen,
         "turk": turk,
+        # Alanlar arası dağıtım ve aday arşivi için (hafta.json'a yazılmaz)
+        "tum": tum_puanli,
+        "kayitlar": kayitlar,
     }
 
 
@@ -91,6 +95,8 @@ if __name__ == "__main__":
         email=os.getenv("NCBI_EMAIL"), api_key=os.getenv("NCBI_API_KEY"))
     alanlar = list(config.ALANLAR) if a.hepsi else [a.alan]
     sonuc = {k: alan_hazirla(k, pm, a.girdi, a.turk_girdi) for k in alanlar}
+    for s in sonuc.values():
+        del s["tum"], s["kayitlar"]
     with open(a.cikti, "w", encoding="utf-8") as f:
         json.dump(sonuc, f, ensure_ascii=False, indent=1)
     for k, s in sonuc.items():

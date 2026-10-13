@@ -18,6 +18,7 @@ import traceback
 
 import requests
 
+import arsiv
 import config
 import detay
 import llm
@@ -35,7 +36,8 @@ AYLAR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
 TUTULAN = ["pmid", "baslik", "baslik_tr", "kisa_ozet", "ozet", "dergi",
            "dergi_tam", "yil", "doi", "pmc", "tip", "tip_etiketi", "toplam",
            "dergi_puani", "tip_puani", "cok_merkezli", "orneklem",
-           "cerrahi_ilgi", "kisisel", "sayi_uyarisi",
+           "cerrahi_ilgi", "alan_uyumu", "pratik_etkisi", "yz_puani",
+           "kisisel", "sayi_uyarisi",
            # 🎓 YÖK Tez satırı
            "tez_no", "yazar", "danisman", "universite", "url"]
 
@@ -141,8 +143,9 @@ def main():
     yt = None if (a.girdi or a.tez_yok) else yoktez.YokTez()
     secilen_tezler = []
 
+    # 1) Tüm alanları tara ve puanla
+    taranan = {}
     for kod in alanlar:
-        print(f"\n== {config.ALANLAR[kod]['ad']} ==")
         try:
             s = motor.alan_hazirla(kod, pm, a.girdi, n=config.ADAY_SAYISI,
                                    tercih=tercih)
@@ -150,7 +153,20 @@ def main():
             traceback.print_exc()
             cikti["hatalar"].append(f"{kod}: PubMed hatası")
             continue
-        print(f"  {s['taranan']} tarandı, {s['puanlanan']} puanlandı")
+        print(f"{s['ad']}: {s['taranan']} tarandı, {s['puanlanan']} puanlandı")
+        taranan[kod] = s
+
+    # 2) Birden çok alanın sorgusuna takılan makale yalnızca en uygun alanında
+    #    kalır; yapay zekâya da tek kez gider
+    dagitim = puanlama.alanlara_dagit({k: s["tum"] for k, s in taranan.items()})
+    yz = {}  # aday arşivi için: {pmid: yapay zekâ değerlendirmesi + alan}
+
+    for kod, s in taranan.items():
+        print(f"\n== {s['ad']} ==")
+        s["makaleler"] = dagitim[kod][:config.ADAY_SAYISI]
+        tasinan = len(s["tum"]) - len(dagitim[kod])
+        if tasinan:
+            print(f"  {tasinan} aday daha uygun olduğu alana bırakıldı")
 
         tez = None
         if yt:
@@ -168,9 +184,11 @@ def main():
         ozetlenecek = [m for m in s["makaleler"] + [s["turk"], tez]
                        if m and m["pmid"] not in ozet_onbellek]
         try:
-            ozet_onbellek.update(ozetleyici.kisa_ozetle(
+            yeni = ozetleyici.kisa_ozetle(
                 gem, ozetlenecek, parti=config.OZET_PARTI,
-                bekleme=0 if a.sahte_ozet else 5))
+                bekleme=0 if a.sahte_ozet else 5, alan=s["ad"])
+            ozet_onbellek.update(yeni)
+            yz.update({p: {**o, "alan": kod} for p, o in yeni.items()})
             print(f"  {len(ozetlenecek)} makale özetlendi")
         except Exception as e:
             print(f"  ÖZET HATASI: {e}")
@@ -184,21 +202,24 @@ def main():
             return sadelestir({**m, "baslik_tr": o.get("baslik_tr", ""),
                                "kisa_ozet": o.get("kisa_ozet", ""),
                                "cerrahi_ilgi": o.get("cerrahi_ilgi"),
+                               "alan_uyumu": o.get("alan_uyumu"),
+                               "pratik_etkisi": o.get("pratik_etkisi"),
                                # yalnızca doğrulanamayan sayı varsa yazılır
                                **({"sayi_uyarisi": o["sayi_uyarisi"]}
                                   if o.get("sayi_uyarisi") else {})})
 
-        # Cerrahi ilgi filtresi: yapay zekânın "ilgisiz" (0) dediği adaylar elenir,
-        # kalanlar puan sırasını koruyarak ilk 5'e girer
-        uygun = [m for m in s["makaleler"]
-                 if ozet_onbellek.get(m["pmid"], {}).get("cerrahi_ilgi", 1) != 0]
-        elenen = len(s["makaleler"]) - len(uygun)
+        # Yapay zekâ süzgeci ve sırası: "cerrahiyle ilgisiz" ya da "bu alanın
+        # konusu değil" (0) denen adaylar elenir; alan uyumu ve pratiğe etkisi
+        # kural puanına eklenip yeniden sıralanır
+        elenen = sum(1 for m in s["makaleler"]
+                     if not puanlama.yz_uygun(ozet_onbellek.get(m["pmid"])))
         if elenen:
-            print(f"  {elenen} aday cerrahiyle ilgisiz bulunup elendi")
+            print(f"  {elenen} aday ilgisiz ya da alan dışı bulunup elendi")
+        secilen = puanlama.yz_ile_sec(s["makaleler"], ozet_onbellek)
 
         cikti["alanlar"][kod] = {
             "ad": s["ad"], "taranan": s["taranan"],
-            "makaleler": [ekle(m) for m in uygun[:config.ALAN_BASINA]],
+            "makaleler": [ekle(m) for m in secilen],
             "turk": ekle(s["turk"]),
             "tez": ekle(tez),
         }
@@ -216,10 +237,17 @@ def main():
     cikti["ana_model"] = gem.model
     cikti["model_kullanimi"] = gem.kullanim
     cikti["model_notlari"] = gem.notlar
-    cikti["gundem"] = sorted(
-        havuz.values(), reverse=True,
-        key=lambda m: (m["toplam"] + (m.get("kisisel") or 0),
-                       m["cok_merkezli"], m["orneklem"]))[:5]
+    cikti["gundem"] = sorted(havuz.values(), reverse=True,
+                             key=puanlama.sira_anahtari)[:5]
+
+    # Aday arşivi: kurallar değiştiğinde geçmiş haftaları yeniden oynatmak için
+    if taranan and not a.girdi and not a.sahte_ozet:
+        try:
+            yol = arsiv.yaz(bugun.isoformat(),
+                            {k: s["kayitlar"] for k, s in taranan.items()}, yz)
+            print(f"Aday arşivi: {yol}")
+        except Exception as e:
+            print(f"Aday arşivi yazılamadı: {e}")
 
     os.makedirs(CIKTI, exist_ok=True)
     with open(os.path.join(CIKTI, "hafta.json"), "w", encoding="utf-8") as f:

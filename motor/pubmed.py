@@ -4,6 +4,7 @@ PubMed erişimi: sorgu kurma, PMID arama ve makale kayıtlarını ayrıştırma.
 Ücretsiz NCBI E-utilities API'sini kullanır. API anahtarı olmadan saniyede
 3, anahtarla 10 istek sınırı vardır; haftalık toplu çalışmada ikisi de yeter.
 """
+import datetime as dt
 import re
 import time
 import xml.etree.ElementTree as ET
@@ -36,6 +37,8 @@ def alan_sorgusu(alan_kodu):
     konu = _veya(a["anahtar"], lambda t: _terim(t, etiket))
     if a["cerrahi"]:
         konu = f"({konu} AND {_veya(a['cerrahi'], _terim)})"
+    if a.get("haric"):
+        konu = f"({konu} NOT {_veya(a['haric'], _terim)})"
     dergiler = [d for d in a["alan_dergileri"] if d not in config.GENIS_DERGILER]
     if dergiler:
         dergi_ifadesi = _veya(dergiler, lambda d: '"' + d + '"[ta]')
@@ -87,11 +90,18 @@ class PubMed:
             return r
         r.raise_for_status()
 
-    def ara(self, sorgu, gun, en_fazla=2000):
-        """Son `gun` günde PubMed'e eklenen makalelerin PMID'lerini döndürür."""
+    def ara(self, sorgu, gun, en_fazla=2000, bitis=None):
+        """Son `gun` günde PubMed'e eklenen makalelerin PMID'lerini döndürür.
+        `bitis` (date) verilirse pencere bugün yerine o günde biter (geçmiş
+        bir haftayı yeniden çekmek için)."""
+        tarih = {"reldate": gun}
+        if bitis:
+            bas = bitis - dt.timedelta(days=gun)
+            tarih = {"mindate": bas.strftime("%Y/%m/%d"),
+                     "maxdate": bitis.strftime("%Y/%m/%d")}
         r = self._post("esearch.fcgi", {
             "db": "pubmed", "term": sorgu, "retmode": "json",
-            "retmax": en_fazla, "datetype": "edat", "reldate": gun,
+            "retmax": en_fazla, "datetype": "edat", **tarih,
             "sort": "pub_date",
         })
         return r.json()["esearchresult"]["idlist"]

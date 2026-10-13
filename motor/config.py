@@ -12,7 +12,8 @@ büyük/küçük harf ve noktalama duyarsızdır.
 # ---------------------------------------------------------------------------
 # 1) DERGİ KADEMELERİ (tüm alanlar için ortak)
 # ---------------------------------------------------------------------------
-DERGI_PUANI = {"kademe1": 3, "kademe2": 2, "kademe3": 1, "listede_yok": 0}
+DERGI_PUANI = {"kademe1": 3, "kademe2": 2, "kademe3": 1, "listede_yok": 0,
+               "dusuk": -1}
 
 ORTAK_DERGILER = {
     "kademe1": ["N Engl J Med", "Lancet", "JAMA", "BMJ", "Nat Med"],
@@ -20,6 +21,12 @@ ORTAK_DERGILER = {
     "kademe3": ["Surgery", "World J Surg", "Surg Endosc",
                 "Langenbecks Arch Surg", "JAMA Netw Open"],
 }
+
+# Hakem süreci zayıf ya da yayın güvenilirliği tartışmalı dergiler: −1 puan
+DUSUK_DERGILER = [
+    "Cureus", "Georgian Med News", "Explore (NY)", "Altern Ther Health Med",
+    "Eur Rev Med Pharmacol Sci", "Medicine (Baltimore)", "World J Clin Cases",
+]
 
 # ---------------------------------------------------------------------------
 # 2) ÇALIŞMA TİPİ PUANLARI
@@ -94,6 +101,7 @@ def turk_dergileri(alan_kodu):
 #    anahtar   : başlık/özette aranan terimler (herhangi biri)
 #    cerrahi   : cerrahi bağlam terimleri (anahtar ile birlikte en az biri);
 #                None ise cerrahi bağlam şartı aranmaz
+#    haric     : (isteğe bağlı) başlık/özette geçerse alana girmeyen terimler
 #    ust       : bu alan için Kademe 1 puanı alan dergiler
 #    alan_dergileri : bu alan için Kademe 3 puanı alan dergiler; bu
 #                dergilerdeki makaleler terim şartı olmadan alana girer
@@ -176,6 +184,10 @@ ALANLAR = {
         "anahtar": ["hernia*", "hernioplasty", "herniorrhaphy",
                     "abdominal wall reconstruction", "eTEP", "TAPP",
                     "incisional hernia", "inguinal hernia", "ventral hernia"],
+        # "hernia*" bel/boyun fıtığını da yakalıyor (disc herniation)
+        "haric": ["disc herniation", "disk herniation", "intervertebral disc*",
+                  "lumbar disc*", "cervical disc*", "nucleus pulposus",
+                  "brain herniation"],
         "cerrahi": None,
         "ust": [],
         "alan_dergileri": ["Hernia", "J Abdom Wall Surg"],
@@ -295,6 +307,9 @@ BOT_URL = "https://cerrahi-literatur-botu.akif-okuyucu.workers.dev"
 
 # Cerrahi ilgi kontrolü için yapay zekâya gönderilen aday sayısı
 ADAY_SAYISI = 12
+# Yapay zekânın "alan uyumu" ve "pratiğe etkisi" değerlendirmelerinin (0–2,
+# nötr 1) sıralamaya katkı ağırlığı: her biri en fazla ±1 × bu değer
+YZ_AGIRLIK = 1
 # Kısa özet isteği başına en fazla makale (12 aday + Türk dergisi → 7 + 6)
 OZET_PARTI = 7
 # Kaç günlük pencere taransın

@@ -1,0 +1,18 @@
+{
+ "_aciklama": "Puanlama kurallarını ölçmek için elle seçilmiş PMID'ler (python arsiv.py ../cikti/aday_arsivi/*.json.gz). olmali: o alanın ilk 5'inde görülmesi gerekenler; olmamali: o alanın ilk 5'ine girmemesi gerekenler (\"*\" = hiçbir alana). İlk tohum 28 Eylül – 5 Ekim 2026 listesinin açık hatalarından; Telegram'da gördükçe ekleyin.",
+ "olmali": {
+  "ust_gis": ["42814447"],
+  "bariatrik": ["42822398"],
+  "meme": ["42809799"],
+  "herni": ["42821005"],
+  "pankreas": ["42814443"],
+  "acil": ["42809109"],
+  "onkoloji": ["42805016"]
+ },
+ "olmamali": {
+  "*": ["42809107", "42814611", "42826395", "42829175"],
+  "herni": ["42816637"],
+  "enfeksiyon": ["42816637", "42806087", "42821005"],
+  "ust_gis": ["42821213"]
+ }
+}

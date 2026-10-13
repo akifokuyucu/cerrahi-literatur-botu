@@ -427,5 +427,74 @@ class YokTezTesti(unittest.TestCase):
         self.assertEqual(m["tez_no"], 2)
 
 
+def kayit(pmid, baslik, ozet="Patients were included.", dergi="Surgery", pt=()):
+    return {"pmid": pmid, "baslik": baslik, "ozet": ozet, "dergi": dergi,
+            "dergi_tam": dergi, "yayin_tipleri": list(pt), "yil": "2026",
+            "doi": "", "pmc": ""}
+
+
+class PuanlamaTesti(unittest.TestCase):
+    def test_kilavuz_basligi(self):
+        import puanlama
+        tip = lambda b: puanlama.calisma_tipi(kayit("1", b))
+        self.assertEqual(tip("WSES guidelines on acute appendicitis"), "kilavuz")
+        self.assertEqual(tip("Diverticulitis: an international consensus statement"), "kilavuz")
+        self.assertNotEqual(tip("Universal versus Guideline-Directed Germline Testing"), "kilavuz")
+        self.assertNotEqual(tip("Compliance with the ESMO guidelines in rectal cancer"), "kilavuz")
+        self.assertNotEqual(tip("Impact of a Scheduling Guideline on Imaging Times"), "kilavuz")
+
+    def test_dusuk_dergi_eksi_puan(self):
+        import puanlama
+        self.assertEqual(puanlama.dergi_puani("Cureus", "kolorektal"), (-1, "Düşük"))
+
+    def test_haric_terim_alana_girmez(self):
+        import puanlama
+        disk = kayit("1", "Ozone therapy for lumbar disc herniation")
+        fitik = kayit("2", "Mesh repair of inguinal hernia")
+        _, tum = puanlama.ilk_n([disk, fitik], "herni")
+        self.assertEqual([m["pmid"] for m in tum], ["2"])
+
+    def test_makale_en_uygun_alanda_kalir(self):
+        import puanlama
+        m = kayit("1", "Robotic esophagectomy for esophageal cancer",
+                  "Robotic surgery and laparoscopic approaches were compared.")
+        diger = kayit("2", "Robotic surgery for colorectal cancer")
+        dagitim = puanlama.alanlara_dagit({
+            "mis": [puanlama.puanla(m, "mis"), puanlama.puanla(diger, "mis")],
+            "ust_gis": [puanlama.puanla(m, "ust_gis")]})
+        self.assertEqual([x["pmid"] for x in dagitim["ust_gis"]], ["1"])
+        self.assertEqual([x["pmid"] for x in dagitim["mis"]], ["2"])
+
+    def test_yapay_zeka_suzer_ve_siralar(self):
+        import puanlama
+        adaylar = [puanlama.puanla(kayit(str(i), f"Study {i}"), "kolorektal")
+                   for i in range(4)]
+        yz = {"0": {"cerrahi_ilgi": 2, "alan_uyumu": 0, "pratik_etkisi": 2},  # alan dışı
+              "1": {"cerrahi_ilgi": 2, "alan_uyumu": 1, "pratik_etkisi": 0},
+              "2": {"cerrahi_ilgi": 2, "alan_uyumu": 2, "pratik_etkisi": 2},
+              "3": {"cerrahi_ilgi": "bozuk"}}  # bozuk değer nötr sayılır
+        secim = puanlama.yz_ile_sec(adaylar, yz)
+        self.assertEqual([m["pmid"] for m in secim], ["2", "3", "1"])
+        self.assertEqual([m["yz_puani"] for m in secim], [2, 0, -1])
+
+
+class ArsivTesti(unittest.TestCase):
+    def test_yaz_oku_sec_olc(self):
+        import tempfile
+        import arsiv
+        k1 = kayit("1", "Hernia mesh trial", dergi="Hernia")
+        k2 = kayit("2", "Hernia repair cost", dergi="Cureus")
+        with tempfile.TemporaryDirectory() as d:
+            yol = arsiv.yaz("2026-10-05", {"herni": [k1, k2]},
+                            {"2": {"cerrahi_ilgi": 0, "alan": "herni", "kisa_ozet": "x"}}, d)
+            a = arsiv.oku(yol)
+        self.assertNotIn("kisa_ozet", a["yz"]["2"])
+        secim = arsiv.sec(a)
+        self.assertEqual([m["pmid"] for m in secim["herni"]], ["1"])
+        altin = {"olmali": {"herni": {"1"}}, "olmamali": {"*": {"2"}}}
+        self.assertEqual(arsiv.olc(secim, altin, a)["herni"],
+                         {"isabet": 1, "olmali": 1, "hatali": 0})
+
+
 if __name__ == "__main__":
     unittest.main()

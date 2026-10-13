@@ -40,15 +40,27 @@ Toplam puan = dergi puanı + çalışma tipi puanı.
 - Kademe 2: 2
 - Kademe 3: 1
 - Listede olmayan dergi: 0
+- Düşük güvenilirlikli dergiler (`config.DUSUK_DERGILER`, ör. Cureus): −1
 
 **Çalışma tipi puanı**
-- Kılavuz: 4
+- Kılavuz: 4 (PubMed yayın tipi ya da başlıkta "guidelines for/on", "consensus statement", "clinical practice update" gibi kalıp; "Guideline-Directed", "adherence to guidelines" gibi başlıklar sayılmaz)
 - Meta-analiz / sistematik derleme: 3
 - RCT: 3
 - Prospektif, Delphi / konsensus çalışması: 2
 - Retrospektif ve diğer: 1
 
-**Cerrahi ilgi filtresi:** Her alanda en yüksek puanlı 12 aday yapay zekâya gönderilir (7 ve 6 makalelik iki istekle; bozuk bir yanıt bütün alanı boş bırakmaz, atlanan makaleler bir kez daha istenir). Yapay zekâ, genel cerrahi pratiğiyle ilgisiz bulduklarını (cerrahi bağlamı olmayan radyoterapi/ilaç çalışması, temel bilim, başka branş) eler. Kalanlardan puan sırasıyla ilk 5 gösterilir.
+**Alanlar arası dağıtım:** Birden çok alanın sorgusuna takılan makale yalnızca en uygun olduğu alanda kalır (başlıkta geçen alan terimi 3, özette geçen 1, alanın kendi dergisi 4 puan; eşitlikte `config.ALANLAR` sırası). Alanın `haric` terimleri (ör. Herni'de "disc herniation") geçen makaleler o alana hiç girmez.
+
+**Yapay zekâ süzgeci ve sırası:** Her alanda en yüksek puanlı 12 aday yapay zekâya gönderilir (7 ve 6 makalelik iki istekle; bozuk bir yanıt bütün alanı boş bırakmaz, atlanan makaleler bir kez daha istenir). Aynı istekte üç değerlendirme (0–2) alınır: **cerrahi ilgi**, **alan uyumu** (makale bu alt alanın konusu mu) ve **pratiğe etkisi** (yöntem ve sonucun gücü). Cerrahi ilgisi ya da alan uyumu 0 olanlar elenir. Alan uyumu ve pratiğe etkisi, nötr değer 1 olmak üzere her biri ±1 puan olarak (`config.YZ_AGIRLIK`) kural puanına eklenir ve ilk 5 bu toplamla seçilir. Botta gösterilen puan bu toplamdır.
+
+**Aday arşivi ve ölçüm (`motor/arsiv.py`):** Her pazartesi taranan tüm kayıtlar ve yapay zekâ değerlendirmeleri `cikti/aday_arsivi/<tarih>.json.gz` dosyasına yazılır (haftada yaklaşık 1 MB). Kurallar değiştiğinde geçmiş haftalar PubMed'e ve yapay zekâya gitmeden yeniden sıralanır ve `motor/altin_liste.json` ile karşılaştırılır (o alanın ilk 5'inde olması ya da olmaması gereken PMID'ler):
+
+```bash
+cd motor
+python arsiv.py ../cikti/aday_arsivi/*.json.gz --ozet   # tüm haftalar için isabet özeti
+python arsiv.py ../cikti/aday_arsivi/2026-10-05.json.gz # alan alan ilk 5 (✅ olmalı, ❌ olmamalı)
+python arsiv.py --cek 2026-10-05                        # geçmiş bir haftayı PubMed'den arşivle
+```
 
 **Türk dergisi satırı:** Turkish Journal of Surgery; Acil Cerrahi alanında ayrıca Ulusal Travma ve Acil Cerrahi Dergisi (TJTES).
 

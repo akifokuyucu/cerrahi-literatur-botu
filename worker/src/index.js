@@ -179,7 +179,8 @@ function alanEkrani(veri, kod) {
     `<b>${esc(a.ad)}</b> — bu haftanın öne çıkanları\n` +
     `${esc(veri.hafta)} · ${a.taranan} makale tarandı`;
   const bloklar = a.makaleler.map((m, i) =>
-    makaleBlogu(i + 1, m, ` · ${m.toplam} puan`));
+    // yz_puani: yapay zekânın alan uyumu ve pratiğe etkisi katkısı (sıralamaya dahil)
+    makaleBlogu(i + 1, m, ` · ${m.toplam + (m.yz_puani || 0)} puan`));
   let not = "";
   if (a.makaleler.length === 0) not = "Bu hafta bu alanda öne çıkan çalışma yok.";
   else if (a.makaleler.length < 5)
@@ -825,7 +826,7 @@ async function arsiveEkle(env, sohbet, pmid) {
   };
   if (m.alan) ozellik["Alan"] = { select: { name: m.alan.replace(", ", " - ") } };
   if (TIP_SECENEK[m.tip]) ozellik["Çalışma tipi"] = { select: { name: TIP_SECENEK[m.tip] } };
-  if (m.toplam != null) ozellik["Puan"] = { number: m.toplam };
+  if (m.toplam != null) ozellik["Puan"] = { number: m.toplam + (m.yz_puani || 0) };
   if (/^\d{4}$/.test(m.yil || "")) ozellik["Yıl"] = { number: Number(m.yil) };
   if (oy != null) ozellik["Oyum"] = { select: { name: oy ? "👍 Faydalı" : "👎 Değil" } };
   const sayfa = await notion(env, "pages", "POST", {
