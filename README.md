@@ -41,6 +41,7 @@ Toplam puan = dergi puanı + çalışma tipi puanı.
 - Kademe 3: 1
 - Listede olmayan dergi: 0
 - Düşük güvenilirlikli dergiler (`config.DUSUK_DERGILER`, ör. Cureus): −1
+- Bu listelerde olmayan dergiler, ISSN'leriyle SJR çeyrekliğinden (`config.SJR_PUANI`): genel cerrahi dergisi ve Q1 ise 1, Q4 ise −1, diğerleri 0. Genel cerrahi dergisi: SJR'de "Surgery" kategorisinde olup KBB, ortopedi, üroloji, plastik cerrahi gibi başka bir cerrahi branşa ait olmayan dergi (ör. BJS Open, Eur J Surg Oncol, Am J Surg). Cerrahi dışı Q1 dergiler artı puan almaz; tıpta Q1 dergiler üçte bir olduğundan alan dışı makaleleri öne çıkarıyordu. Tablo `motor/veri/sjr.json`; SJR her yıl Mayıs civarı güncellenir. Güncellemek için scimagojr.com → Journal Rankings → **Download data** (site bot koruması kullandığı için elle indirilir), sonra `cd motor && python sjr.py "<indirilen dosya>.csv"`. Veri: SCImago Journal & Country Rank.
 
 **Çalışma tipi puanı**
 - Kılavuz: 4 (PubMed yayın tipi ya da başlıkta "guidelines for/on", "consensus statement", "clinical practice update" gibi kalıp; "Guideline-Directed", "adherence to guidelines" gibi başlıklar sayılmaz)

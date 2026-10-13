@@ -28,6 +28,15 @@ DUSUK_DERGILER = [
     "Eur Rev Med Pharmacol Sci", "Medicine (Baltimore)", "World J Clin Cases",
 ]
 
+# Yukarıdaki listelerde olmayan dergiler SJR çeyrekliğine göre puan alır
+# (motor/veri/sjr.json; yılda bir motor/sjr.py ile güncellenir). Tabloda da
+# yoksa "listede_yok" puanı. Artı puan yalnızca genel cerrahi dergilerinden Q1
+# olanlara ("Q1c"; KBB, ortopedi, plastik vb. hariç — motor/sjr.py): tüm tıpta
+# Q1 dergiler üçte bir; onlara puan vermek, sorguya terim benzerliğiyle
+# takılan alan dışı makaleleri öne çıkarıyordu.
+SJR_PUANI = {"Q1c": 1, "Q2c": 0, "Q3c": 0, "Q4c": -1,
+             "Q1": 0, "Q2": 0, "Q3": 0, "Q4": -1}
+
 # Makaleye aynı dergide editoryal/yorum eşlik ediyorsa (PubMed "Comment in")
 # dergi onu önemli bulmuştur: ek puan
 EDITORYAL_PUANI = 1

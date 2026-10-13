@@ -27,7 +27,8 @@ KLASOR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "cikti",
 ALTIN = os.path.join(os.path.dirname(os.path.abspath(__file__)), "altin_liste.json")
 # Arşive yazılan PubMed alanları (puanlamanın ihtiyacı olanlar)
 KAYIT_ALANLARI = ["pmid", "baslik", "ozet", "dergi", "dergi_tam",
-                  "yayin_tipleri", "yil", "doi", "pmc", "mesh", "editoryal", "nct"]
+                  "yayin_tipleri", "yil", "doi", "pmc", "mesh", "editoryal", "nct",
+                  "issn"]
 YZ_ALANLARI = ["cerrahi_ilgi", "alan_uyumu", "pratik_etkisi"]
 
 

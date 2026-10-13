@@ -125,6 +125,11 @@ def _metin(el):
     return "".join(el.itertext()).strip() if el is not None else ""
 
 
+def _issn(metin):
+    """"0003-4932" → "00034932" (SJR dosyası tiresiz yazar)."""
+    return re.sub(r"[^0-9X]", "", (metin or "").upper())
+
+
 def xml_ayristir(xml_metni):
     kok = ET.fromstring(xml_metni)
     sonuc = []
@@ -143,6 +148,9 @@ def xml_ayristir(xml_metni):
                if _metin(d.find("DataBankName")) == "ClinicalTrials.gov"
                for a in d.findall("AccessionNumberList/AccessionNumber") if a.text]
         nct = nct or re.findall(r"\bNCT\d{8}\b", "\n".join(ozet_parcalari))
+        # Dergi ISSN'leri (basılı, elektronik, bağlayıcı) — SJR eşleştirmesi için
+        issn = {_issn(e.text) for e in art.findall("Journal/ISSN") +
+                mc.findall("MedlineJournalInfo/ISSNLinking") if e.text}
         yil = _metin(art.find("Journal/JournalIssue/PubDate/Year")) or \
             _metin(art.find("Journal/JournalIssue/PubDate/MedlineDate"))[:4]
         sonuc.append({
@@ -165,5 +173,6 @@ def xml_ayristir(xml_metni):
                 "CommentsCorrectionsList/CommentsCorrections")
                 if c.get("RefType") == "CommentIn"),
             "nct": nct[0] if nct else "",
+            "issn": sorted(issn - {""}),
         })
     return sonuc

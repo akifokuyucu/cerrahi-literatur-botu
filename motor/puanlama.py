@@ -1,6 +1,8 @@
 """
 Puanlama: her makaleye dergi puanı + çalışma tipi puanı verir.
 """
+import json
+import os
 import re
 
 import config
@@ -40,8 +42,26 @@ def _norm(ad):
     return re.sub(r"[^a-z0-9]", "", ad.lower())
 
 
-def dergi_puani(dergi, alan_kodu):
-    """(puan, etiket) döndürür."""
+SJR_DOSYASI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "veri", "sjr.json")
+_SJR = None
+
+
+def sjr_tablosu():
+    """{ISSN (tiresiz): "Q1".."Q4", Surgery kategorisindeyse "Q1c".."Q4c"};
+    dosya yoksa boş (SJR katmanı kapalı)."""
+    global _SJR
+    if _SJR is None:
+        try:
+            with open(SJR_DOSYASI, encoding="utf-8") as f:
+                _SJR = json.load(f)["dergiler"]
+        except FileNotFoundError:
+            _SJR = {}
+    return _SJR
+
+
+def dergi_puani(dergi, alan_kodu, issn=()):
+    """(puan, etiket) döndürür. Elle kademelendirilmiş listeler önceliklidir;
+    onlarda olmayan dergi ISSN'iyle SJR çeyrekliğinden puan alır."""
     n = _norm(dergi)
     alan = config.ALANLAR[alan_kodu]
     adaylar = [
@@ -55,6 +75,12 @@ def dergi_puani(dergi, alan_kodu):
     for puan, etiket, liste in adaylar:
         if n in {_norm(d) for d in liste}:
             return puan, etiket
+    sjr = sjr_tablosu()
+    ceyrek = [sjr[i] for i in issn if i in sjr]
+    if ceyrek:
+        q = max(ceyrek, key=lambda c: (config.SJR_PUANI[c], c.endswith("c")))
+        etiket = f"SJR {q[:2]}" + (" cerrahi" if q.endswith("c") else "")
+        return config.SJR_PUANI[q], etiket
     return config.DERGI_PUANI["listede_yok"], "Listede yok"
 
 
@@ -179,14 +205,15 @@ def alan_uyumu(kayit, alan_kodu):
 
 def alanlara_dagit(listeler):
     """{alan: [puanlı makale]} → her makale yalnızca en uygun alanında kalır.
-    Eşitlikte config.ALANLAR'da önce gelen alan kazanır."""
+    Eşitlikte config.ALANLAR'da önce gelen alan kazanır. Makaleler başlıkla
+    eşlenir: birden çok dergide yayımlanan aynı metin de tek alanda kalır."""
     en_iyi = {}
     for kod, liste in listeler.items():
         for m in liste:
-            u = alan_uyumu(m, kod)
-            if m["pmid"] not in en_iyi or u > en_iyi[m["pmid"]][0]:
-                en_iyi[m["pmid"]] = (u, kod)
-    return {kod: [m for m in liste if en_iyi[m["pmid"]][1] == kod]
+            u, b = alan_uyumu(m, kod), _norm(m["baslik"])
+            if b not in en_iyi or u > en_iyi[b][0]:
+                en_iyi[b] = (u, kod)
+    return {kod: [m for m in liste if en_iyi[_norm(m["baslik"])][1] == kod]
             for kod, liste in listeler.items()}
 
 
@@ -231,7 +258,7 @@ def puanla(kayit, alan_kodu):
     tip = calisma_tipi(kayit)
     if tip is None:
         return None
-    d_puan, d_etiket = dergi_puani(kayit["dergi"], alan_kodu)
+    d_puan, d_etiket = dergi_puani(kayit["dergi"], alan_kodu, kayit.get("issn") or ())
     t_puan = config.TIP_PUANI[tip]
     e_puan = config.EDITORYAL_PUANI if kayit.get("editoryal") else 0
     return {
@@ -285,4 +312,14 @@ def ilk_n(kayitlar, alan_kodu, n=config.ALAN_BASINA, tercih=None):
             p["kisisel"] = kisisel_puan(p, tercih)
             puanli.append(p)
     puanli.sort(key=sira_anahtari, reverse=True)
+    # Aynı metin birden çok dergide yayımlanabiliyor (ortak konsensus/kılavuz):
+    # aynı başlıktan en yüksek puanlı olan kalır
+    basliklar = set()
+    tekil = []
+    for p in puanli:
+        b = _norm(p["baslik"])
+        if b not in basliklar:
+            basliklar.add(b)
+            tekil.append(p)
+    puanli = tekil
     return puanli[:n], puanli

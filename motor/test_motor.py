@@ -447,6 +447,44 @@ class PuanlamaTesti(unittest.TestCase):
         import puanlama
         self.assertEqual(puanlama.dergi_puani("Cureus", "kolorektal"), (-1, "Düşük"))
 
+    def test_sjr_ceyrekligi(self):
+        import puanlama
+        tablo = {"11112222": "Q1c", "33334444": "Q4", "55556666": "Q1", "00034932": "Q1c"}
+        with mock.patch.object(puanlama, "_SJR", tablo):
+            # Listede olmayan dergi ISSN'iyle; birden çok ISSN'de en iyisi
+            self.assertEqual(puanlama.dergi_puani("X", "kolorektal", ["33334444", "11112222"]),
+                             (1, "SJR Q1 cerrahi"))
+            self.assertEqual(puanlama.dergi_puani("Y", "kolorektal", ["33334444"]), (-1, "SJR Q4"))
+            # Cerrahi dışı Q1 artı puan almaz
+            self.assertEqual(puanlama.dergi_puani("W", "kolorektal", ["55556666"]), (0, "SJR Q1"))
+            self.assertEqual(puanlama.dergi_puani("Z", "kolorektal", ["99990000"]), (0, "Listede yok"))
+            # Elle kademelendirilmiş liste önce gelir
+            self.assertEqual(puanlama.dergi_puani("Ann Surg", "kolorektal", ["00034932"]),
+                             (2, "Kademe 2"))
+
+    def test_sjr_donusturme(self):
+        import tempfile
+        import sjr
+        csv_metni = (
+            "Rank;Sourceid;Title;Type;Issn;SJR;SJR Best Quartile;Total Docs. (2025);Categories;Areas\n"
+            "1;1;A;journal;\"00034932, 15281140\";5,1;Q1;100;Surgery (Q1);Medicine\n"
+            "2;2;B;journal;\"12345678\";0,4;Q1;100;\"Surgery (Q3); History (Q1)\";\"Medicine; Arts\"\n"
+            "3;3;C;journal;\"87654321\";0,4;Q1;100;Physics (Q1);Physics\n"
+            "4;4;D;book series;\"11223344\";0,4;Q1;100;Surgery (Q1);Medicine\n"
+            "5;5;Spine J;journal;\"55556666\";0,4;Q1;100;\"Orthopedics and Sports Medicine (Q1); Surgery (Q1)\";Medicine\n"
+            "6;6;Aesthetic Plastic Surgery;journal;\"77778888\";0,4;Q1;100;Surgery (Q1);Medicine\n")
+        with tempfile.TemporaryDirectory() as d:
+            yol = os.path.join(d, "s.csv")
+            with open(yol, "w", encoding="utf-8") as f:
+                f.write(csv_metni)
+            veri = sjr.donustur(yol)
+        self.assertEqual(veri["yil"], "2025")
+        # B: en iyi çeyreklik Q1 ama Surgery kategorisindeki Q3 esas alınır;
+        # ortopedi/plastik cerrahi dergileri genel cerrahi ("c") sayılmaz
+        self.assertEqual(veri["dergiler"], {"00034932": "Q1c", "15281140": "Q1c",
+                                            "12345678": "Q3c", "55556666": "Q1",
+                                            "77778888": "Q1"})
+
     def test_haric_terim_alana_girmez(self):
         import puanlama
         disk = kayit("1", "Ozone therapy for lumbar disc herniation")
@@ -480,7 +518,7 @@ class PuanlamaTesti(unittest.TestCase):
 
 class PubmedSinyalTesti(unittest.TestCase):
     XML = """<PubmedArticleSet><PubmedArticle><MedlineCitation><PMID>9</PMID>
-    <Article><Journal><Title>J</Title><JournalIssue><PubDate><Year>2026</Year></PubDate></JournalIssue></Journal>
+    <Article><Journal><ISSN IssnType="Electronic">2168-6254</ISSN><Title>J</Title><JournalIssue><PubDate><Year>2026</Year></PubDate></JournalIssue></Journal>
     <ArticleTitle>T</ArticleTitle><Abstract><AbstractText>Trial NCT11112222.</AbstractText></Abstract>
     <DataBankList><DataBank><DataBankName>ClinicalTrials.gov</DataBankName>
     <AccessionNumberList><AccessionNumber>NCT04306458</AccessionNumber></AccessionNumberList></DataBank></DataBankList>
@@ -497,6 +535,7 @@ class PubmedSinyalTesti(unittest.TestCase):
         self.assertEqual(k["mesh"], ["Humans", "Hernia, Ventral"])
         self.assertEqual(k["editoryal"], 1)
         self.assertEqual(k["nct"], "NCT04306458")  # DataBank, özetteki numaradan önce
+        self.assertEqual(k["issn"], ["21686254"])
 
     def test_editoryal_puan_ekler(self):
         import puanlama
