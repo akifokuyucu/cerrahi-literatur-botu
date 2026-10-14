@@ -591,6 +591,67 @@ class IlgiTesti(unittest.TestCase):
         self.assertEqual(puanlama.tercihleri_hesapla([], []), {"dergi": {}, "tip": {}})
 
 
+class DunyaTesti(unittest.TestCase):
+    def aday(self, i, baslik, metin="Some text."):
+        import gundem
+        return gundem._aday("dunya", f"Kaynak {i}", baslik, f"https://ornek.com/{i}",
+                            "2026-10-10", metin)
+
+    def test_toplama_gorulen_ve_tekrar_ayiklanir(self):
+        import dunya
+        a, b = self.aday(1, "China elder care plan"), self.aday(2, "US drug prices")
+        tekrar = self.aday(3, "China elder care plan!")  # aynı başlık, farklı bağlantı
+        kaynaklar = [{"ad": "A", "tur": "rss"}, {"ad": "B", "tur": "rss"}]
+        okuyucu = mock.Mock(side_effect=[[a, tekrar], [b]])
+        with mock.patch.object(dunya.config, "DUNYA_KAYNAKLARI", kaynaklar), \
+                mock.patch.dict(dunya.OKUYUCULAR, {"rss": okuyucu}):
+            sonuc = dunya.adaylari_topla([b["id"]], [])
+        self.assertEqual([x["id"] for x in sonuc], [a["id"]])
+
+    def test_suzgec_bolum_onem_ve_bolge(self):
+        import dunya
+        adaylar = [self.aday(i, f"Distinct headline number {i} about topic {i * 7}") for i in range(5)]
+        gem = mock.Mock()
+        gem.uret.return_value = [
+            {"id": adaylar[0]["id"], "bolum": "toplum", "bolge": "Çin", "onem": 3, "baslik_tr": "Çin yaşlı bakımı", "ozet": "Plan açıklandı."},
+            {"id": adaylar[1]["id"], "bolum": "toplum", "bolge": "Mars", "onem": "2", "baslik_tr": "Göç eğilimi değişiyor", "ozet": "Rapor yayımlandı."},
+            {"id": adaylar[2]["id"], "bolum": "toplum", "bolge": "ABD", "onem": 1, "baslik_tr": "Küçük ayrıntı", "ozet": "x"},
+            {"id": adaylar[3]["id"], "bolum": "diger", "bolge": "ABD", "onem": 3, "baslik_tr": "Spor", "ozet": "x"},
+            {"id": "uydurma", "bolum": "toplum", "bolge": "ABD", "onem": 3, "baslik_tr": "Yok", "ozet": "x"}]
+        b = dunya.suz(gem, adaylar, bekleme=0)
+        self.assertEqual([o["baslik_tr"] for o in b["toplum"]], ["Çin yaşlı bakımı", "Göç eğilimi değişiyor"])
+        self.assertEqual(b["toplum"][1]["bolge"], "Diğer")  # geçersiz bölge
+        self.assertEqual(sum(len(v) for v in b.values()), 2)
+
+    def test_brifing_kaynaksiz_ana_basligi_almaz(self):
+        import dunya
+        o = {"id": "x1", "kaynak": "Sixth Tone", "url": "https://s.com/1", "baslik_tr": "Çin planı",
+             "ozet": "2030 hedefi.", "onem": 3, "bolge": "Çin", "_kaynak_metni": "Plan targets 2030."}
+        gem = mock.Mock()
+        gem.uret.return_value = {"giris": "Giriş.", "ana_basliklar": [
+            {"baslik": "Uydurma", "aciklama": "x", "idler": ["yok"]},
+            {"baslik": "Çin planı", "aciklama": "2030'a kadar 500 merkez.", "idler": ["x1"]}]}
+        b = dunya.brifing_yaz(gem, {"toplum": [o]})
+        self.assertEqual([ab["baslik"] for ab in b["ana_basliklar"]], ["Çin planı"])
+        self.assertEqual(b["ana_basliklar"][0]["kaynaklar"], [{"ad": "Sixth Tone", "url": "https://s.com/1"}])
+        self.assertEqual(b["ana_basliklar"][0]["sayi_uyarisi"], ["500"])
+        gem.uret.return_value = {"giris": "G", "ana_basliklar": [{"baslik": "U", "aciklama": "x", "idler": ["yok"]}]}
+        self.assertIsNone(dunya.brifing_yaz(gem, {"toplum": [o]}))
+
+    def test_telegram_metni_kacis_ve_sinir(self):
+        import dunya
+        ab = {"baslik": "A<b>", "aciklama": "Uzun cümle. " * 300,
+              "kaynaklar": [{"ad": "K&K", "url": "https://k.com/?a=1&b=2"}]}
+        cikti = {"hafta": "4–11 Ekim", "hatalar": [], "bolumler": {"toplum": {"ad": "👥 Toplum", "ogeler": [1]}},
+                 "brifing": {"giris": "G", "ana_basliklar": [ab, ab, ab]}}
+        m = dunya.telegram_metni(cikti)
+        self.assertLessEqual(len(m), 4000)
+        self.assertIn("A&lt;b&gt;", m)
+        self.assertIn('href="https://k.com/?a=1&amp;b=2">K&amp;K</a>', m)
+        self.assertEqual(m.count("<b>"), m.count("</b>"))  # HTML etiketi bölünmedi
+        self.assertIn("/dunya", m)
+
+
 class ArsivTesti(unittest.TestCase):
     def test_yaz_oku_sec_olc(self):
         import tempfile

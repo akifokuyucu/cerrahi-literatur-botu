@@ -10,8 +10,10 @@ GitHub Actions her pazartesi bunu çalıştırır. Elle deneme:
 """
 import argparse
 import datetime as dt
+import html
 import json
 import os
+import re
 import sys
 import time
 import traceback
@@ -72,13 +74,23 @@ def oylari_getir(uc="geri-bildirim", ad="Oylar"):
         return []
 
 
-def telegram_bildir(metin):
+def telegram_bildir(metin, html_bicim=False):
+    """html_bicim: metin Telegram HTML'i (kaçışlı); bağlantı önizlemesi kapalı."""
     token, sohbet = os.getenv("TELEGRAM_TOKEN"), os.getenv("TELEGRAM_CHAT_ID")
     if not (token and sohbet):
         print("Telegram bilgileri yok, bildirim atlanıyor.")
         return
+    govde = {"chat_id": sohbet, "text": metin}
+    if html_bicim:
+        govde.update(parse_mode="HTML", link_preview_options={"is_disabled": True})
     r = requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
-                      json={"chat_id": sohbet, "text": metin}, timeout=30)
+                      json=govde, timeout=30)
+    if html_bicim and r.status_code == 400:
+        # Telegram HTML'i reddettiyse mesaj kaybolmasın: etiketsiz düz metin
+        print("Telegram HTML'i reddetti, düz metin gönderiliyor:", r.text[:200])
+        duz = html.unescape(re.sub(r"<[^>]+>", "", metin))
+        r = requests.post(f"https://api.telegram.org/bot{token}/sendMessage",
+                          json={"chat_id": sohbet, "text": duz}, timeout=30)
     print("Telegram bildirimi:", r.status_code)
 
 

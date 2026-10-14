@@ -1,6 +1,6 @@
 # Cerrahi Literatür Botu
 
-Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Telegram'da sunan kişisel bot. Perşembeleri ayrıca cerrahi haberlerini ve gelişmeleri (📰 Gündem) derler.
+Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Telegram'da sunan kişisel bot. Perşembeleri ayrıca cerrahi haberlerini ve gelişmeleri (📰 Gündem), cumartesileri ABD, Çin ve dünyadan sağlık, teknoloji ve toplum haberlerini (🌍 Dünya brifingi) derler.
 
 - **Her pazartesi 07:00:** GitHub Actions, PubMed'deki son 7 günün makalelerini tarar ve dergi ağırlığı ile çalışma tipine göre puanlar. Her alanda en iyi 5 makaleyi seçer, Turkish Journal of Surgery'den bir makale ve YÖK Ulusal Tez Merkezi'nden bir genel cerrahi tezi ekler, yapay zekâ ile (önce Gemini, yoğunsa ücretsiz yedekler) Türkçe kısa özetlerini yazar ve sonucu `cikti/hafta.json` dosyasına kaydeder. Ardından listedeki makalelerin ayrıntılı özetlerini en fazla 20 dakika boyunca hazırlar (önce öne çıkanlar) ve `cikti/detay.json` dosyasına yazar.
 - **Her perşembe 07:00 (📰 Gündem):** GitHub Actions dört bölüm hazırlar ve sonucu `cikti/gundem.json` dosyasına kaydeder:
@@ -10,6 +10,7 @@ Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Teleg
   - 🧪 Yeni RCT'ler: ClinicalTrials.gov'a o hafta kaydedilen cerrahi randomize çalışmalar
 
   Adaylar yapay zekânın genel cerrahi süzgecinden geçer; tanıtım, borsa ve başka branş haberleri elenir. Kalanlara Türkçe başlık ve kısa özet yazılır. Dernek sayfalarında yalnızca önceki haftadan sonra eklenen bağlantılar alınır. Daha önce gösterilen haberler `cikti/gundem_gorulen.json` sayesinde tekrar gelmez.
+- **Her cumartesi 08:00 (🌍 Dünya brifingi, `motor/dunya.py`):** STAT News, KFF Health News, MedPage Today, NPR, SCMP (Çin ve teknoloji), Sixth Tone, BBC, Guardian, MIT Technology Review, Rest of World ve kısa Google Haberler sorgularından (Çin sağlık politikası, ABD sağlık politikası, ABD–Çin teknoloji vb.) haftada yaklaşık 500 aday toplanır. Kaynaklar sırayla karıştırılarak 200'e indirilir. Yapay zekâ her adaya bölüm (🏛️ Sağlık politikası, 🧬 Tıp teknolojisi & AI, 👥 Toplum & sosyoloji, 🌐 Teknoloji & jeopolitik), bölge (ABD, Çin, Avrupa, Küresel) ve 0–3 önem verir; önemi 2 ve üstü olanlar bölümlere girer (bölüm başına en fazla 6). Ardından bunlardan bir giriş paragrafı ve haftanın en önemli 3 gelişmesi yazılır. Ana başlıklar yalnızca seçilen haberlere dayanabilir; kaynak bağlantıları o haberlerden eklenir, kaynaksız başlık atılır, haberlerde olmayan sayı ⚠️ ile işaretlenir. Brifing Telegram'a doğrudan gelir; bölümler `/dunya` ya da menüdeki **🌍 Dünya brifingi** tuşuyla açılır. Sonuç `cikti/dunya.json`; değerlendirilen haberler `cikti/dunya_gorulen.json` sayesinde tekrar gelmez. Ücretsiz yapay zekâ zinciriyle çalışır (haftada yaklaşık 11 istek).
 - **Telegram'da:** `/start` → alan seç → 5 makale ve kısa özetleri görünür → 📄 tuşuna basınca ayrıntılı özet gelir. Pazartesi hazırlanmışsa anında gelir; hazırlanmamışsa bot o anda üretir. Makale açık erişimliyse ayrıntılı özet tam metinden, değilse özetten (abstract) hazırlanır.
 - Ayrıntılı özetin altında: **👍 / 👎** (oylar sonraki haftaların puanlamasına küçük bir kişisel katkı ekler), **📌 Arşive ekle** (Notion Okuma Arşivi), **📸 İçerik adayı** (Notion İçerik Havuzu'na "fikir"), **❓ Soru sor** (makale metnine dayalı soru-cevap; /iptal ile çıkılır). `/istatistik` oyların özetini gösterir. `/gundem` ya da menüdeki **📰 Gündem** tuşu haber bölümlerini açar. `/onecikanlar` ya da **🔥 Haftanın öne çıkanları** tuşu tüm alanlardan en yüksek puanlı 5 makaleyi gösterir.
 - Bot yalnızca sahibine cevap verir.
@@ -28,8 +29,10 @@ Genel cerrahinin 14 alt alanında her hafta öne çıkan makaleleri seçip Teleg
 | `cikti/` | Haftalık sonuç dosyası (otomatik oluşur) |
 | `.github/workflows/haftalik.yml` | Pazartesi zamanlaması (makaleler) |
 | `.github/workflows/gundem.yml` | Perşembe zamanlaması (gündem) |
+| `motor/dunya.py` | 🌍 Dünya brifingi: kaynakları tarama, süzme, brifing yazma (kaynak listesi `config.py` içinde) |
+| `.github/workflows/dunya.yml` | Cumartesi zamanlaması (dünya brifingi) |
 
-İki iş akışı da saat 10:00'da bir kez daha tetiklenir. O günün dosyası sabah hazırlandıysa bu çalışma hiçbir şey yapmadan biter. Sabahki çalışma GitHub tarafından atlandıysa ya da başarısız olduysa liste 10:00'da hazırlanır.
+Her iş akışı üç saat sonra bir kez daha tetiklenir (pazartesi ve perşembe 10:00, cumartesi 11:00). O günün dosyası sabah hazırlandıysa bu çalışma hiçbir şey yapmadan biter. Sabahki çalışma GitHub tarafından atlandıysa ya da başarısız olduysa liste bu saatte hazırlanır.
 
 ## Puanlama
 
@@ -123,6 +126,7 @@ Hangi modelin kullanıldığı ve yedeğe neden geçildiği `cikti/hafta.json` d
 cd motor
 python hazirla.py --alan kolorektal --girdi test_verisi/kolorektal_2026-09-29.xml --sahte-ozet --bildirim-yok
 python gundem.py --sahte-ozet --bildirim-yok   # gündem, yapay zekâsız
+python dunya.py --sahte-ozet --bildirim-yok    # dünya brifingi, yapay zekâsız (cikti/dunya.json'u ezer)
 python -m unittest test_motor                  # birim testleri
 cd ../worker && node test/sahte_test.mjs
 ```

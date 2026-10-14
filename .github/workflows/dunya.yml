@@ -1,0 +1,68 @@
+name: Dünya brifingi
+
+on:
+  schedule:
+    - cron: "0 5 * * 6"   # Her cumartesi 05:00 UTC = 08:00 Türkiye
+    - cron: "0 8 * * 6"   # 11:00 yedek: sabahki çalışma olmadıysa ya da başarısız olduysa
+  workflow_dispatch:       # "Run workflow" tuşuyla elle çalıştırma
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dunya
+  cancel-in-progress: false
+
+jobs:
+  dunya:
+    runs-on: ubuntu-24.04   # ubuntu-latest 19 Ekim 2026'da Ubuntu 26'ya geçiyor; sabit tutuldu
+    timeout-minutes: 45   # gündemle aynı: yapay zekâ zinciri yoğunlukta bekleyebilir
+    steps:
+      - uses: actions/checkout@v7
+
+      # 11:00'daki yedek çalışma, sabah brifing zaten hazırlandıysa hiçbir şey yapmaz
+      - name: Bugün zaten hazırlandı mı?
+        id: kontrol
+        if: github.event_name == 'schedule'
+        run: |
+          if [ "$(jq -r .hazirlanma cikti/dunya.json 2>/dev/null)" = "$(date +%F)" ]; then
+            echo "Bugünün dosyası zaten var, atlanıyor."
+            echo "atla=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/setup-python@v7
+        if: steps.kontrol.outputs.atla != 'true'
+        with:
+          python-version: "3.12"
+
+      - name: Bağımlılıkları kur
+        if: steps.kontrol.outputs.atla != 'true'
+        run: pip install -r motor/requirements.txt
+
+      - name: Kaynakları tara, süz, brifingi yaz
+        if: steps.kontrol.outputs.atla != 'true'
+        working-directory: motor
+        env:
+          PYTHONUNBUFFERED: "1"
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
+          # Yedek sağlayıcılar (motor/llm.py); anahtarı olmayan atlanır
+          LLM_ZINCIRI: ${{ vars.LLM_ZINCIRI }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python dunya.py
+
+      - name: Sonuçları depoya kaydet
+        if: steps.kontrol.outputs.atla != 'true'
+        run: |
+          git config user.name "haftalik-dunya"
+          git config user.email "actions@users.noreply.github.com"
+          git add cikti/dunya.json cikti/dunya_gorulen.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Dünya brifingi: $(date +%F)"
+          # Çalışma sürerken depoya başka değişiklik geldiyse üstüne ekle
+          git pull --rebase origin main
+          git push

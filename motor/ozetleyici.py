@@ -174,6 +174,11 @@ class SahteGemini:
     kullanim = {}
 
     def uret(self, metin, sema=None, sicaklik=0.2):
+        if sema and "ana_basliklar" in sema.get("properties", {}):  # dünya brifingi (dunya.py)
+            idler = [s.split(":", 1)[1].strip() for s in metin.splitlines() if s.startswith("id:")]
+            return {"giris": "(test girişi)", "ana_basliklar": [
+                {"baslik": f"(test ana başlık {n + 1})", "aciklama": "(test açıklaması)",
+                 "idler": [i]} for n, i in enumerate(idler[:3])]}
         if sema and sema.get("type") == "OBJECT":  # ayrıntılı özet (detay.py)
             baslik = next((s[8:] for s in metin.splitlines() if s.startswith("Başlık: ")), "")
             return {"baslik_tr": f"(test) {baslik[:60]}", "tek_cumle": "(test cümlesi)",
@@ -181,6 +186,11 @@ class SahteGemini:
                     "sinirliliklar": ["(test sınırlılığı)"], "pratige_etkisi": "(test)"}
         idler = [s.split(":", 1)[1].strip()
                  for s in metin.splitlines() if s.startswith("id:")]
+        if idler and "onem" in ((sema or {}).get("items") or {}).get("properties", {}):  # dünya adayları
+            bolumler = ["saglik_politikasi", "tip_teknoloji", "toplum", "teknoloji_jeopolitik"]
+            return [{"id": i, "bolum": bolumler[n % 4], "bolge": ["ABD", "Çin", "Küresel"][n % 3],
+                     "onem": 0 if n % 5 == 4 else 3 - n % 2, "baslik_tr": f"(test başlığı {i})",
+                     "ozet": f"(test özeti {i})"} for n, i in enumerate(idler)]
         if idler:  # gündem adayları (gundem.py)
             return [{"id": i, "baslik_tr": f"(test başlığı {i})",
                      "ozet": f"(test özeti {i})", "ilgi": 0 if n % 3 == 2 else 2}

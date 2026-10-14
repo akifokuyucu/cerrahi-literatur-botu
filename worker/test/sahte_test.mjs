@@ -10,6 +10,8 @@ const kv = new Map();
 const kvEk = new Map(); // anahtar → { metadata, expiration }
 const kvOkuma = []; // ONBELLEK.get çağrıları
 let gundemYok = false; // perşembeden önce gundem.json henüz yoksa
+let dunyaYok = false; // ilk cumartesiden önce dunya.json henüz yoksa
+const dunya = JSON.parse(fs.readFileSync(new URL("./dunya_ornek.json", import.meta.url)));
 let geminiYogun = false; // tüm Gemini modelleri 503 versin
 let detayDosyasi = null; // pazartesi hazırlanan detay.json (null: henüz yok)
 globalThis.fetch = async (url, opt = {}) => {
@@ -17,6 +19,8 @@ globalThis.fetch = async (url, opt = {}) => {
   const json = (o, s = 200) => new Response(JSON.stringify(o), { status: s, headers: { "content-type": "application/json" } });
   if (url.includes("raw.githubusercontent") && url.endsWith("gundem.json"))
     return gundemYok ? new Response("404: Not Found", { status: 404 }) : json(gundem);
+  if (url.includes("raw.githubusercontent") && url.endsWith("dunya.json"))
+    return dunyaYok ? new Response("404: Not Found", { status: 404 }) : json(dunya);
   if (url.includes("raw.githubusercontent") && url.endsWith("detay.json"))
     return detayDosyasi ? json(detayDosyasi) : new Response("404: Not Found", { status: 404 });
   if (url.includes("raw.githubusercontent")) return json(hafta);
@@ -371,4 +375,28 @@ hafta.alanlar.kolorektal.makaleler = eskiMakaleler;
   giden.length = 0; await gonder(mesaj(111, "/istatistik"));
   kontrol("/istatistik görülen/açılan sayısını gösteriyor",
     (giden.find((g) => g.metod === "sendMessage")?.govde.text || "").includes("5 makale gördün, 2 tanesini açtın"));
+}
+
+// 35) 🌍 Dünya brifingi: menü tuşu, /dunya, bölüm ekranı, dosya henüz yoksa
+{
+  const ekranMetni = () => giden.filter((g) => g.metod === "editMessageText" || g.metod === "sendMessage").pop()?.govde || {};
+  giden.length = 0; await gonder(mesaj(111, "/start"));
+  kontrol("Ana menüde 🌍 Dünya brifingi tuşu", JSON.stringify(ekranMetni().reply_markup || {}).includes('"callback_data":"w"'));
+  giden.length = 0; await gonder(mesaj(111, "/dunya"));
+  const b = ekranMetni();
+  kontrol("/dunya brifingi gösteriyor (giriş, ana başlıklar, kaynak bağlantıları)",
+    b.text.includes("Dünya brifingi") && b.text.includes("1. ABD&#39;de Medicare") &&
+    b.text.includes('href="https://www.sixthtone.com/ornek-2">Sixth Tone</a>, <a href="https://www.scmp.com/ornek-3">SCMP Çin</a>'));
+  kontrol("Brifingte HTML kaçışı ve sayı uyarısı", b.text.includes("&lt;yaşlı&gt;") && b.text.includes("ornek-1?a=1&amp;b=2") && b.text.includes("⚠️"));
+  const tuslar = JSON.stringify(b.reply_markup);
+  kontrol("Bölüm tuşları haber sayısıyla", tuslar.includes("👥 Toplum & sosyoloji (1)") && tuslar.includes('"w:toplum"'));
+  giden.length = 0; await gonder(tik(111, "w:toplum"));
+  const t = ekranMetni().text || "";
+  kontrol("Bölüm ekranı bölge bayrağıyla", t.includes("🇨🇳 Çin evde yaşlı bakımı") && t.includes("Sixth Tone"));
+  giden.length = 0; await gonder(tik(111, "w:tip_teknoloji"));
+  kontrol("Boş bölümde açıklayıcı not", (ekranMetni().text || "").includes("kayda değer bir gelişme yok"));
+  dunyaYok = true; veriOnbellegi.clear();
+  giden.length = 0; await gonder(tik(111, "w"));
+  kontrol("dunya.json yokken açıklayıcı mesaj", (ekranMetni().text || "").includes("ilki henüz çıkmadı"));
+  dunyaYok = false; veriOnbellegi.clear();
 }

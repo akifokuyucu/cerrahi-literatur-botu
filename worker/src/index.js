@@ -80,6 +80,10 @@ const haftaVerisi = (env) => veriGetir(env, env.VERI_URL, "hafta.json", false);
 const gundemVerisi = (env) =>
   veriGetir(env, env.GUNDEM_URL || env.VERI_URL.replace(/hafta\.json$/, "gundem.json"), "gundem.json", true);
 
+// 🌍 Dünya brifingi (cumartesi hazırlanır, motor/dunya.py). İlk hazırlıktan önce dosya yoksa null.
+const dunyaVerisi = (env) =>
+  veriGetir(env, env.VERI_URL.replace(/hafta\.json$/, "dunya.json"), "dunya.json", true);
+
 // Pazartesi önceden hazırlanan ayrıntılı özetler (motor/detay.py). Yoksa null.
 async function detayVerisi(env) {
   try {
@@ -124,6 +128,7 @@ function menuEkrani(veri) {
     { text: "🔥 Haftanın öne çıkanları", callback_data: "g" },
     { text: "📰 Gündem", callback_data: "h" },
   ]);
+  satirlar.push([{ text: "🌍 Dünya brifingi", callback_data: "w" }]);
   return { metin, klavye: satirlar };
 }
 
@@ -280,6 +285,55 @@ function haberBolumEkrani(gv, kod) {
   }
   if (!bloklar.length) bloklar.push("<i>Bu hafta bu bölümde kayda değer bir gelişme yok.</i>");
   return { metin: [bas, ...bloklar, son].join("\n\n"), klavye: [[gundemTusu, geriTusu]] };
+}
+
+// ------------------------------------------------------- 🌍 Dünya brifingi
+const dunyaTusu = { text: "← Brifing", callback_data: "w" };
+const BAYRAK = { "ABD": "🇺🇸", "Çin": "🇨🇳", "Avrupa": "🇪🇺", "Küresel": "🌍", "Diğer": "🌐" };
+
+function dunyaMenuEkrani(dv) {
+  if (!dv) {
+    return {
+      metin: "🌍 <b>Dünya brifingi</b>\n\nBrifing her cumartesi sabah hazırlanıyor; ilki henüz çıkmadı.",
+      klavye: [[geriTusu]],
+    };
+  }
+  const bloklar = [];
+  const b = dv.brifing;
+  if (b?.giris) bloklar.push(`<i>${esc(b.giris)}</i>`);
+  for (const [i, ab] of (b?.ana_basliklar || []).entries()) {
+    const kaynaklar = ab.kaynaklar.map((k) => `<a href="${esc(k.url)}">${esc(k.ad)}</a>`).join(", ");
+    bloklar.push(`<b>${i + 1}. ${esc(ab.baslik)}</b>\n${esc(ab.aciklama)}${ab.sayi_uyarisi ? " ⚠️" : ""}\n🔗 ${kaynaklar}`);
+  }
+  if (!b) bloklar.push("<i>Bu hafta brifing metni üretilemedi; haberler aşağıdaki bölümlerde.</i>");
+  const bolumler = Object.entries(dv.bolumler || {});
+  const son = "<i>Başlık ve özetler yapay zekâ ile Türkçeleştirildi; ayrıntı için kaynağa bak." +
+    ((b?.ana_basliklar || []).some((ab) => ab.sayi_uyarisi) ? " ⚠️: bazı sayılar kaynak haberlerde yok." : "") +
+    (dv.hatalar?.length ? `\n⚠️ Okunamayan kaynaklar: ${esc(dv.hatalar.join("; "))}` : "") + "</i>" + modelNotu(dv);
+  const tuslar = bolumler.map(([kod, x]) => ({ text: `${x.ad} (${x.ogeler.length})`, callback_data: `w:${kod}` }));
+  const klavye = [];
+  for (let i = 0; i < tuslar.length; i += 2) klavye.push(tuslar.slice(i, i + 2));
+  klavye.push([geriTusu]);
+  return {
+    metin: sigdir(bloklar, `🌍 <b>Dünya brifingi</b>\n${esc(dv.hafta)} · ${dv.aday ?? "?"} haber tarandı`, son),
+    klavye,
+  };
+}
+
+function dunyaBolumEkrani(dv, kod) {
+  const b = dv?.bolumler?.[kod];
+  if (!b) return { metin: "Bu bölüm bu hafta hazırlanamadı.", klavye: [[dunyaTusu, geriTusu]] };
+  const bas = `<b>${esc(b.ad)}</b>\n${esc(dv.hafta)}`;
+  const son = "<i>Başlık ve özetler yapay zekâ ile Türkçeleştirildi; ayrıntı için kaynağa bak." +
+    (b.ogeler.some((o) => o.sayi_uyarisi) ? " ⚠️: özetteki bazı sayılar kaynak metinde yok." : "") + "</i>";
+  const bloklar = [];
+  for (const [i, o] of b.ogeler.entries()) {
+    const blok = haberBlogu(i + 1, { ...o, baslik_tr: `${BAYRAK[o.bolge] || "🌐"} ${o.baslik_tr || o.baslik}` });
+    if ([bas, ...bloklar, blok, son].join("\n\n").length > SINIR) break;
+    bloklar.push(blok);
+  }
+  if (!bloklar.length) bloklar.push("<i>Bu hafta bu bölümde kayda değer bir gelişme yok.</i>");
+  return { metin: [bas, ...bloklar, son].join("\n\n"), klavye: [[dunyaTusu, geriTusu]] };
 }
 
 // ---------------------------------------------------------- ayrıntılı özet
@@ -1053,6 +1107,8 @@ async function guncellemeIsle(env, u) {
     await tg(env, "answerCallbackQuery", { callback_query_id: q.id });
     if (veri === "h") return ekranGoster(env, sohbet, gundemMenuEkrani(await gundemVerisi(env)), mesajId);
     if (tur === "h") return ekranGoster(env, sohbet, haberBolumEkrani(await gundemVerisi(env), kalan[0]), mesajId);
+    if (veri === "w") return ekranGoster(env, sohbet, dunyaMenuEkrani(await dunyaVerisi(env)), mesajId);
+    if (tur === "w") return ekranGoster(env, sohbet, dunyaBolumEkrani(await dunyaVerisi(env), kalan[0]), mesajId);
     const hafta = await haftaVerisi(env);
     if (veri === "m") return ekranGoster(env, sohbet, menuEkrani(hafta), mesajId);
     if (veri === "g") {
@@ -1085,6 +1141,7 @@ async function guncellemeIsle(env, u) {
   }
 
   if (metin.startsWith("/gundem")) return ekranGoster(env, sohbet, gundemMenuEkrani(await gundemVerisi(env)));
+  if (metin.startsWith("/dunya")) return ekranGoster(env, sohbet, dunyaMenuEkrani(await dunyaVerisi(env)));
   const hafta = await haftaVerisi(env);
   if (metin.startsWith("/onecikanlar")) {
     await ekranGoster(env, sohbet, oneCikanlarEkrani(hafta));
@@ -1131,6 +1188,7 @@ export default {
         commands: [
           { command: "start", description: "Alan menüsü" },
           { command: "gundem", description: "Haberler ve gelişmeler (perşembe)" },
+          { command: "dunya", description: "Dünya brifingi: ABD, Çin, dünya (cumartesi)" },
           { command: "onecikanlar", description: "Haftanın en yüksek puanlı makaleleri" },
           { command: "istatistik", description: "Oylarının özeti" },
           { command: "iptal", description: "Soru modunu kapat" },

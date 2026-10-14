@@ -64,6 +64,14 @@ Liste Ahmet'in kendi seçimi. Onkoloji alanı yalnızca diğer alanlara girmeyen
 - 1. grup iyileştirmeler tamamlandı: KV önbelleği, cerrahi ilgi filtresi, Acil için TJTES.
 - 2. grup iyileştirmeler tamamlandı: 👍/👎 ve kişisel puan, Notion Okuma Arşivi, İçerik Havuzu köprüsü, soru sorma. Gerçek kullanımda denendi ve çalışıyor.
 
+## 🌍 Dünya brifingi (14 Ekim 2026)
+- Ahmet'in isteği: ABD, Çin ve yurtdışından önemli sosyolojik, tıbbi ve teknolojik haberler haftalık brifing olarak Telegram'dan gelsin.
+- Kapsam (Ahmet'in seçimi): sağlık politikası ve sistemleri; tıp teknolojisi ve yapay zekâ; toplum ve sosyoloji; genel teknoloji ve jeopolitik (ABD–Çin rekabeti dahil).
+- Gün: cumartesi 08:00 (pazartesi makaleler, perşembe gündem; yük ve okuma dağılsın).
+- **Yapay zekâ: şimdilik ücretsiz zincir** (Gemini → Groq/Cerebras/OpenRouter). Ahmet Claude Haiku (ücretli API, tahminen ayda 15 sentin altında) önerisini şimdilik istemedi; ücretsiz katman ilkesi sürüyor. İleride istenirse Haiku `motor/llm.py` zincirine bir sağlayıcı olarak eklenir.
+- Haberler RSS ve Google Haberler'den toplanır; yapay zekâya internette arama yaptırılmaz (ücretsiz, kaynaklar belli ve tekrarlanabilir).
+- Ana başlıklar yalnızca seçilen haberlere dayanabilir (id ile); kaynaksız başlık atılır.
+
 ## Sonraki adımlar
 - **Haber ve gelişmeler modülü:** kılavuzlar, kongreler, FDA/CE onayları, ClinicalTrials.gov, yerli duyurular.
 - Önce birkaç hafta kullanılıp eksikler görülecek.

@@ -440,3 +440,51 @@ GUNDEM_PENCERE_GUN = 7
 GUNDEM_ADAY_SINIRI = 60
 # Gündem isteği başına aday (60 aday → 3 istek; ücretsiz yedeklerin sınırına sığar)
 GUNDEM_PARTI = 20
+
+# ---------------------------------------------------------------------------
+# 6) 🌍 DÜNYA BRİFİNGİ (her cumartesi, dunya.py)
+#    ABD, Çin ve dünyadan haftanın önemli sağlık politikası, tıp teknolojisi,
+#    toplum ve teknoloji/jeopolitik haberleri. Kaynaklardan gelen adaylar
+#    yapay zekâyla bölüme, bölgeye ve önem derecesine ayrılır; en önemlilerinden
+#    Türkçe bir brifing yazılır ve Telegram'a doğrudan gönderilir.
+#    Kaynak türleri gündemle aynı (rss, haber). Akışlar 14 Ekim 2026'da
+#    denendi; Caixin Global (403), Science/Nature/WHO (boş) ve Fierce
+#    Healthcare (başlıksız) çalışmadığı için listede yok.
+# ---------------------------------------------------------------------------
+DUNYA_BOLUMLERI = {
+    "saglik_politikasi": {"ad": "🏛️ Sağlık politikası", "en_fazla": 6},
+    "tip_teknoloji": {"ad": "🧬 Tıp teknolojisi & AI", "en_fazla": 6},
+    "toplum": {"ad": "👥 Toplum & sosyoloji", "en_fazla": 6},
+    "teknoloji_jeopolitik": {"ad": "🌐 Teknoloji & jeopolitik", "en_fazla": 6},
+}
+
+DUNYA_KAYNAKLARI = [
+    # --- ABD sağlık ---
+    {"ad": "STAT News", "tur": "rss", "url": "https://www.statnews.com/feed/"},
+    {"ad": "KFF Health News", "tur": "rss", "url": "https://kffhealthnews.org/feed/"},
+    {"ad": "MedPage Today", "tur": "rss", "url": "https://www.medpagetoday.com/rss/headlines.xml"},
+    {"ad": "NPR Sağlık", "tur": "rss", "url": "https://feeds.npr.org/1128/rss.xml"},
+    # --- Çin ---
+    {"ad": "SCMP Çin", "tur": "rss", "url": "https://www.scmp.com/rss/4/feed"},
+    {"ad": "SCMP Teknoloji", "tur": "rss", "url": "https://www.scmp.com/rss/36/feed"},
+    {"ad": "Sixth Tone", "tur": "rss", "url": "https://www.sixthtone.com/rss"},
+    # --- Dünya ---
+    {"ad": "BBC Sağlık", "tur": "rss", "url": "https://feeds.bbci.co.uk/news/health/rss.xml"},
+    {"ad": "BBC Teknoloji", "tur": "rss", "url": "https://feeds.bbci.co.uk/news/technology/rss.xml"},
+    {"ad": "Guardian Toplum", "tur": "rss", "url": "https://www.theguardian.com/society/rss"},
+    {"ad": "MIT Technology Review", "tur": "rss", "url": "https://www.technologyreview.com/feed/"},
+    {"ad": "Rest of World", "tur": "rss", "url": "https://restofworld.org/feed/latest"},
+    # --- Google Haberler (kısa sorgular; uzun VEYA'lı sorgular tarih sınırını yok sayıyor) ---
+    {"ad": "Google Haberler", "tur": "haber", "dil": "en", "sorgu": "China healthcare policy"},
+    {"ad": "Google Haberler", "tur": "haber", "dil": "en", "sorgu": "China medical technology"},
+    {"ad": "Google Haberler", "tur": "haber", "dil": "en", "sorgu": "aging population China"},
+    {"ad": "Google Haberler", "tur": "haber", "dil": "en", "sorgu": "US health policy"},
+    {"ad": "Google Haberler", "tur": "haber", "dil": "en", "sorgu": "FDA approval AI"},
+    {"ad": "Google Haberler", "tur": "haber", "dil": "en", "sorgu": "US China technology"},
+]
+# Yapay zekâya gönderilen en fazla aday (kaynaklar sırayla karıştırılır ki
+# kalabalık bir akış sınırı tek başına doldurmasın). 200 aday → 10 istek.
+DUNYA_ADAY_SINIRI = 200
+# Brifinge girecek en az önem (0–3) ve brifingin baştaki ana başlık sayısı
+DUNYA_EN_AZ_ONEM = 2
+DUNYA_ANA_BASLIK = 3

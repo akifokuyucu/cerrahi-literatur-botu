@@ -1,0 +1,32 @@
+{
+ "hafta": "4–11 Ekim 2026",
+ "hazirlanma": "2026-10-11",
+ "model": "gemini-flash-latest",
+ "ana_model": "gemini-flash-latest",
+ "model_kullanimi": {"gemini-flash-latest": 11},
+ "model_notlari": [],
+ "aday": 200,
+ "hatalar": [],
+ "brifing": {
+  "giris": "ABD'de ilaç fiyatı düzenlemesi ve Çin'in yaşlanan nüfusa yönelik bakım planı haftanın öne çıkanları oldu.",
+  "ana_basliklar": [
+   {"baslik": "ABD'de Medicare ilaç fiyatı müzakeresi genişliyor",
+    "aciklama": "Müzakere kapsamına 15 yeni ilaç eklendi. Düzenleme <yaşlı> hastaların cepten ödemelerini etkileyecek.",
+    "kaynaklar": [{"ad": "KFF Health News", "url": "https://kffhealthnews.org/ornek-1?a=1&b=2"}]},
+   {"baslik": "Çin evde yaşlı bakımı için ulusal plan açıkladı",
+    "aciklama": "Plan, 2030'a kadar topluluk bakım merkezlerini artırmayı hedefliyor.",
+    "kaynaklar": [{"ad": "Sixth Tone", "url": "https://www.sixthtone.com/ornek-2"}, {"ad": "SCMP Çin", "url": "https://www.scmp.com/ornek-3"}],
+    "sayi_uyarisi": ["2030"]}
+  ]
+ },
+ "bolumler": {
+  "saglik_politikasi": {"ad": "🏛️ Sağlık politikası", "ogeler": [
+   {"id": "a1", "kaynak": "KFF Health News", "baslik": "Medicare drug price talks expand", "url": "https://kffhealthnews.org/ornek-1?a=1&b=2", "tarih": "2026-10-09", "baslik_tr": "Medicare ilaç fiyatı müzakeresi genişliyor", "ozet": "15 yeni ilaç müzakere listesine eklendi.", "onem": 3, "bolge": "ABD", "benzer": 2}
+  ]},
+  "tip_teknoloji": {"ad": "🧬 Tıp teknolojisi & AI", "ogeler": []},
+  "toplum": {"ad": "👥 Toplum & sosyoloji", "ogeler": [
+   {"id": "b2", "kaynak": "Sixth Tone", "baslik": "China unveils elder care plan", "url": "https://www.sixthtone.com/ornek-2", "tarih": "2026-10-08", "baslik_tr": "Çin evde yaşlı bakımı planı açıkladı", "ozet": "Topluluk bakım merkezleri artırılacak.", "onem": 3, "bolge": "Çin"}
+  ]},
+  "teknoloji_jeopolitik": {"ad": "🌐 Teknoloji & jeopolitik", "ogeler": []}
+ }
+}
