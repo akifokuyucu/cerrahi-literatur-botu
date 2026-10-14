@@ -16,7 +16,7 @@ concurrency:
 jobs:
   gundem:
     runs-on: ubuntu-24.04   # ubuntu-latest 19 Ekim 2026'da Ubuntu 26'ya geçiyor; sabit tutuldu
-    timeout-minutes: 20
+    timeout-minutes: 45   # 8 Ekim 2026: yapay zekâ zinciri yoğunlukta beklerken 20 dk yetmedi (iki çalışma kesildi)
     steps:
       - uses: actions/checkout@v7
 
