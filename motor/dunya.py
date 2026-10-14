@@ -304,9 +304,8 @@ def main():
     try:
         bolumler = suz(gem, adaylar, bekleme=0 if a.sahte_ozet else 5)
     except Exception as e:
+        # Telegram bildirimini iş akışının "başarısızlığı bildir" adımı yapar
         print(f"SÜZGEÇ HATASI: {e}")
-        if not a.bildirim_yok:
-            telegram_bildir(f"⚠️ Dünya brifingi hazırlanamadı: yapay zekâ yanıt vermedi ({str(e)[:100]}).")
         sys.exit(1)
     for b, ogeler in bolumler.items():
         print(f"  {config.DUNYA_BOLUMLERI[b]['ad']}: {len(ogeler)} haber")

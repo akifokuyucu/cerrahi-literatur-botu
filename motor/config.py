@@ -36,6 +36,9 @@ DUSUK_DERGILER = [
 # takılan alan dışı makaleleri öne çıkarıyordu.
 SJR_PUANI = {"Q1c": 1, "Q2c": 0, "Q3c": 0, "Q4c": -1,
              "Q1": 0, "Q2": 0, "Q3": 0, "Q4": -1}
+# Ahmet'in kararı (docs/KARARLAR.md): bu dergiler kademelere eklenmez; SJR'ye
+# de bakılmaz, "listede yok" (0) sayılır. (BJS Open SJR'de cerrahi Q1.)
+KADEMESIZ_DERGILER = ["BJS Open", "Ann Surg Open", "Cochrane Database Syst Rev"]
 
 # Makaleye aynı dergide editoryal/yorum eşlik ediyorsa (PubMed "Comment in")
 # dergi onu önemli bulmuştur: ek puan

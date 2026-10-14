@@ -69,3 +69,20 @@ jobs:
           # Çalışma sürerken depoya başka değişiklik geldiyse üstüne ekle
           git pull --rebase origin main
           git push
+
+      # Herhangi bir adım başarısız olursa Telegram'a haber ver (sessiz kalmasın).
+      # Sabahki zamanlanmış çalışmada yedek çalışmanın saatini de söyler.
+      - name: Başarısızlığı Telegram'a bildir
+        if: failure()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SONRA: "${{ github.event.schedule == '0 4 * * 1' && 'Saat 10:00 yedek çalışması kendiliğinden yeniden deneyecek.' || 'Elle yeniden çalıştırmak için: GitHub → Actions → Haftalık hazırlık → Run workflow.' }}"
+          GUNLUK: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          if [ -z "$TELEGRAM_TOKEN" ]; then echo "Telegram bilgileri yok"; exit 0; fi
+          METIN="⚠️ Haftalık makale listesi hazırlanamadı.
+          $SONRA
+
+          Günlük: $GUNLUK"
+          curl -s -o /dev/null -w "Telegram bildirimi: %{http_code}" "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${METIN}"

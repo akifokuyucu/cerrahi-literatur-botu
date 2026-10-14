@@ -1,8 +1,8 @@
 # Cerrahi Literatür Botu: kararlar ve durum
 
-> **Not (14 Ekim 2026):** Bu dosya eski kopyadan (`Belgeler\cerrahi-literatur-botu-ESKI`, 29 Eylül 2026) taşındı ve o tarihten sonra güncellenmedi. Çelişki olursa `README.md`, kod ve `git log` geçerlidir.
+> Çelişki olursa `README.md`, kod ve `git log` geçerlidir.
 
-Son güncelleme: 29 Eylül 2026. Kaynak: claude.ai "Saha Analizi" projesindeki çalışma ve karar notları.
+Son güncelleme: 14 Ekim 2026. İlk kaynak: claude.ai "Saha Analizi" projesindeki çalışma ve karar notları (29 Eylül 2026); sonrası Claude Code oturumları.
 
 ## Amaç
 İnternetteki genel cerrahi ile ilgili bilimsel, teknolojik, yerli ve yabancı makaleleri, haberleri ve gelişmeleri araştırıp özet olarak sunan bir araç. İlk aşama: haftalık makale botu (bu depo). İkinci aşama: haber ve gelişmeler modülü.
@@ -20,8 +20,8 @@ Son güncelleme: 29 Eylül 2026. Kaynak: claude.ai "Saha Analizi" projesindeki �
   - **📌 Arşive ekle:** Makaleyi Notion'daki Okuma Arşivi'ne ekler.
   - **📸 İçerik adayı:** Makaleyi Notion'daki İçerik Havuzu'na "fikir" olarak ekler.
   - **❓ Soru sor:** Makale metnine dayalı soru-cevap açar.
-- Komutlar: `/gundem` (tüm alanlardan en yüksek puanlı 5 makale), `/istatistik` (oyların özeti), `/iptal` (soru modunu kapatır).
-- Hazırlık her pazartesi 07:00'de yapılır; bitince "liste hazır" bildirimi gelir.
+- Komutlar: `/onecikanlar` (tüm alanlardan en yüksek puanlı 5 makale), `/gundem` (📰 perşembe gündemi), `/dunya` (🌍 cumartesi dünya brifingi), `/istatistik` (oyların ve görülen/açılan makalelerin özeti), `/iptal` (soru modunu kapatır).
+- Hazırlık her pazartesi 07:00'de yapılır; bitince "liste hazır" bildirimi gelir. Herhangi bir haftalık çalışma başarısız olursa Telegram'a ⚠️ bildirimi gelir (14 Ekim 2026).
 - Özet dili Türkçe, İngilizce tıbbi terimler korunur. Sayılar rakamla yazılır; etki büyüklükleri (RR, HR, %95 CI vb.) özetlere eklenir.
 - Yapay zekâ olarak Gemini ücretsiz katmanı kullanılıyor. Ana model yoğunsa sistem kendiliğinden yedek modele geçer.
 
@@ -42,8 +42,20 @@ Liste Ahmet'in kendi seçimi. Onkoloji alanı yalnızca diğer alanlara girmeyen
 - **Başka branşlar:** Başlığında ortopedi, jinekoloji, üroloji, göz, KBB ya da kalp-göğüs konusu geçen makaleler hiçbir alana girmez.
 - **Geniş kapsamlı dergiler** (Ann Surg Oncol, EJSO vb.) puan alır, ama makaleleri bir alana ancak o alanın terimleriyle eşleşirse girer.
 - **Transplantasyon:** Terimler yalnızca başlıkta aranır.
-- **Cerrahi ilgi filtresi:** Her alanda en yüksek puanlı 12 aday Gemini'ye gönderilir. Gemini her birine ilgi puanı verir: 2 = doğrudan ilgili, 1 = dolaylı ilgili, 0 = ilgisiz. 0 alanlar elenir; kalanlardan puan sırasıyla ilk 5 gösterilir.
-- **Eklenmeyen dergiler:** Cochrane, BJS Open ve Ann Surg Open (Ahmet'in kararı). Metodolojik derlemeler listede kalabilir.
+- **Cerrahi ilgi filtresi:** Her alanda en yüksek puanlı 12 aday Gemini'ye gönderilir. Gemini her birine ilgi puanı verir: 2 = doğrudan ilgili, 1 = dolaylı ilgili, 0 = ilgisiz. 0 alanlar elenir; kalanlardan puan sırasıyla ilk 5 gösterilir. (13 Ekim'den beri alan uyumu ve pratiğe etki de değerlendirilir; aşağıdaki eklemelere bak.)
+- **Eklenmeyen dergiler:** Cochrane, BJS Open ve Ann Surg Open (Ahmet'in kararı). Metodolojik derlemeler listede kalabilir. SJR katmanı eklenince bu dergiler SJR'den de puan almaz, 0 kalır (`config.KADEMESIZ_DERGILER`; BJS Open SJR'de cerrahi Q1 olduğu için +1 alıyordu, 14 Ekim'de düzeltildi).
+
+### 13–14 Ekim 2026 eklemeleri (Claude önerdi, arşivde ölçüldü, Ahmet commit'leri onayladı)
+Ölçüm: 5 Ekim haftasında, yapay zekâsız, ilk 5'lerde "olmamalı" makale 8 → 2, birden çok alanda tekrar eden makale 10 → 0.
+- **Alanlar arası dağıtım:** Bir makale (ya da birden çok dergide yayımlanmış aynı başlık) yalnızca en uygun alanında gösterilir.
+- **Kılavuz algılaması sıkı:** Başlıkta "guideline" geçmesi yetmez; "Guideline-Directed", "adherence to guidelines", "impact of a guideline" kılavuz sayılmaz.
+- **Düşük dergiler −1:** Cureus, Georgian Med News vb. (`config.DUSUK_DERGILER`).
+- **SJR katmanı:** Kademe listelerinde olmayan dergiler SJR'ye göre: yalnızca genel cerrahi dergilerinden Q1 olanlara +1 (KBB, ortopedi, plastik vb. hariç), Q4 −1, diğerleri 0. Tüm Q1'e +1 vermek alan dışı makaleleri öne çıkardığı için denendi ve bırakıldı.
+- **Editoryal +1:** Makaleye PubMed'de "Comment in" bağlıysa. NCT kaydı eşitlik bozucu.
+- **Yalnızca çocuk hastalarda yapılmış çalışmalar elenir** (`config.COCUK_ELE`; MeSH yaş etiketleri, yoksa başlık ya da çocuk cerrahisi dergisi). Sınırda olanlar da gider (ör. J Pediatr Surg'deki pilonidal derlemesi); kapatmak Ahmet'in kararı.
+- **Yapay zekâ üç değerlendirme verir:** cerrahi ilgi, alan uyumu, pratiğe etki (0–2). İlgi ya da alan uyumu 0 olan elenir; alan uyumu ve pratiğe etki sıralamaya ±1'er katılır. Botta gösterilen puan bu toplamdır.
+- **Kişisel puana dolaylı ilgi eklendi:** Gösterilen makalelerden hangilerinin açıldığı (ayrıntılı özet ya da PubMed) dergi/tip başına açılma oranı olarak; oylarla toplam en fazla ±0,5.
+- **Aday arşivi ve altın liste:** Kurallar geçmiş haftalarda ölçülerek değiştirilir (`motor/arsiv.py`). Altın listenin "olmalı"ları henüz Ahmet'in onayından geçmedi.
 - **Türk dergisi satırı:** Turkish J Surg'dan gelir; Acil Cerrahi alanında ayrıca TJTES taranır. Bu satır puanlanmaz ve aynı makale iki kez gösterilmez.
 
 ## Mimari
@@ -59,10 +71,12 @@ Liste Ahmet'in kendi seçimi. Onkoloji alanı yalnızca diğer alanlara girmeyen
 - **Notion:** "Literatür Botu" entegrasyonu iki veritabanına bağlı: HOME altındaki 📚 Okuma Arşivi ve İçerik Merkezi altındaki İçerik Havuzu. İçerik Havuzu'na eklenen kayıtlarda köken "Literatür botu" olarak görünür.
 - **Tam metin:** Açık erişimli makalelerde metin Europe PMC'den alınır. Diğerlerinde yalnızca özet (abstract) kullanılır ve bot bunu belirtir.
 
-## Durum (29 Eylül 2026)
-- Sistem canlıda. İlk haftalık liste (22–29 Eylül) hazırlandı.
+## Durum (14 Ekim 2026)
+- Sistem canlıda. İlk haftalık liste 22–29 Eylül'de hazırlandı.
 - 1. grup iyileştirmeler tamamlandı: KV önbelleği, cerrahi ilgi filtresi, Acil için TJTES.
 - 2. grup iyileştirmeler tamamlandı: 👍/👎 ve kişisel puan, Notion Okuma Arşivi, İçerik Havuzu köprüsü, soru sorma. Gerçek kullanımda denendi ve çalışıyor.
+- Ekim başı: 📰 Gündem modülü (perşembe), yapay zekâ sağlayıcı zinciri (Gemini → Groq/Cerebras/OpenRouter), pazartesi ayrıntılı özetler, uydurma sayı denetimi, her alana bir YÖK tezi.
+- 13–14 Ekim: puanlama eklemeleri (yukarıda), 🌍 Dünya brifingi (cumartesi), başarısız çalışma bildirimi.
 
 ## 🌍 Dünya brifingi (14 Ekim 2026)
 - Ahmet'in isteği: ABD, Çin ve yurtdışından önemli sosyolojik, tıbbi ve teknolojik haberler haftalık brifing olarak Telegram'dan gelsin.
@@ -73,5 +87,7 @@ Liste Ahmet'in kendi seçimi. Onkoloji alanı yalnızca diğer alanlara girmeyen
 - Ana başlıklar yalnızca seçilen haberlere dayanabilir (id ile); kaynaksız başlık atılır.
 
 ## Sonraki adımlar
-- **Haber ve gelişmeler modülü:** kılavuzlar, kongreler, FDA/CE onayları, ClinicalTrials.gov, yerli duyurular.
-- Önce birkaç hafta kullanılıp eksikler görülecek.
+- 19 Ekim listesini (yeni kuralların yapay zekâlı ilk çalışması) ve 17 Ekim'deki ilk dünya brifingini değerlendirmek.
+- Altın listenin "olmalı" seçimlerini Ahmet'in onaylaması.
+- Önerilip bekleyen: push öncesi testleri çalıştıran hook; haftalık kontrol skill'leri; aylık okuma özeti; brifingi Notion'a ekleme; botta geçmiş haftalarda arama.
+- Haber modülü (Gündem) tamamlandı; birkaç hafta kullanılıp eksikler görülecek.

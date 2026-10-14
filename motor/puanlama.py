@@ -75,6 +75,8 @@ def dergi_puani(dergi, alan_kodu, issn=()):
     for puan, etiket, liste in adaylar:
         if n in {_norm(d) for d in liste}:
             return puan, etiket
+    if n in {_norm(d) for d in config.KADEMESIZ_DERGILER}:
+        return config.DERGI_PUANI["listede_yok"], "Listede yok"
     sjr = sjr_tablosu()
     ceyrek = [sjr[i] for i in issn if i in sjr]
     if ceyrek:

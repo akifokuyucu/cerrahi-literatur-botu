@@ -457,6 +457,9 @@ class PuanlamaTesti(unittest.TestCase):
             self.assertEqual(puanlama.dergi_puani("Y", "kolorektal", ["33334444"]), (-1, "SJR Q4"))
             # Cerrahi dışı Q1 artı puan almaz
             self.assertEqual(puanlama.dergi_puani("W", "kolorektal", ["55556666"]), (0, "SJR Q1"))
+            # Ahmet'in kademeye eklemediği dergi SJR'den de puan almaz
+            self.assertEqual(puanlama.dergi_puani("BJS Open", "kolorektal", ["11112222"]),
+                             (0, "Listede yok"))
             self.assertEqual(puanlama.dergi_puani("Z", "kolorektal", ["99990000"]), (0, "Listede yok"))
             # Elle kademelendirilmiş liste önce gelir
             self.assertEqual(puanlama.dergi_puani("Ann Surg", "kolorektal", ["00034932"]),
