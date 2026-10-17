@@ -1,0 +1,336 @@
+{
+ "hafta": "10–17 Ekim 2026",
+ "hazirlanma": "2026-10-17",
+ "model": "gemini-flash-latest",
+ "bolumler": {
+  "saglik_politikasi": {
+   "ad": "🏛️ Sağlık politikası",
+   "ogeler": [
+    {
+     "id": "7fb3151ee6",
+     "kaynak": "Health Policy Watch",
+     "baslik": "With Only Three 'No' Votes, UN Adopts Political Declaration On Pandemic Preparedness",
+     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPS0htTjVFNjBmYjFTUU1ZQlBFcy1MNV93cXhOZ0tqNE5NVGNpcktWZW5uVVRmVHNpQVhsZGRqaGNzd1ZxUkF0bm0tTE5VZWlwS2NlcHg3MmxIQnBWREF3Sml0OHdMeHNaUnFEaXp2b0FTcWtIUW92SUZsNUc0MXZtZDJvWHBOV1d2eE14QVlocmNNVG8?oc=5",
+     "tarih": "2026-10-13",
+     "baslik_tr": "BM Pandemiye Hazırlık Konusunda Siyasi Bildirgeyi Kabul Etti",
+     "ozet": "Birleşmiş Milletler, küresel salgınlara hazırlık konusundaki siyasi bildirgeyi yalnızca üç 'hayır' oyuna karşı onayladı.",
+     "onem": 3,
+     "bolge": "Küresel"
+    },
+    {
+     "id": "af9c624edb",
+     "kaynak": "Guardian Toplum",
+     "baslik": "Palantir patient data tech rejected by many NHS trusts in England",
+     "url": "https://www.theguardian.com/technology/2026/oct/17/palantir-patient-data-tech-rejected-by-many-nhs-trusts-in-england",
+     "tarih": "2026-10-17",
+     "baslik_tr": "İngiltere'deki Birçok NHS Vakfı Palantir'in Veri Sistemini Reddetti",
+     "ozet": "İngiltere'de milyonlarca hastaya bakan NHS vakıfları, Palantir'in 330 milyon sterlinlik federal veri platformunu mevcut sistemlerden daha iyi olmadığı gerekçesiyle kullanmayı reddediyor veya eski sistemlerine dönüyor.",
+     "onem": 2,
+     "bolge": "Avrupa"
+    },
+    {
+     "id": "743aa18d35",
+     "kaynak": "ABC News - Breaking News, Latest News and Videos",
+     "baslik": "Nebraska becomes 1st state to implement Medicaid work requirements - ABC News",
+     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQYnVpdWlTc0NrT09YdGVEWWJTaDdYNGY3R3liTHVmTEFmZDZfZzAtbmRqZ3N6TURUVjRZS3ZBZkRyRWs5SUU4QVZfUURPaml5X0ZTTkpIT0pIcGhXa0NIa0poWEJxOHdCN3FMcUF5Nm42ckFRTjJpa3h0ekNfR3VnamZkelhtTFhrNUs0dDI3eWx2MUExRk9IbnhlVkxuQdIBowFBVV95cUxPc3NvVjhCekRaZGh6QUY0Y3F5bkExemxOeTh0QUhoelRlVDhwXzhzTFdXNTJuVzRCQUJoeVFMYTZmNDRjUmFST1BMUThxWGNReUxiY3ZLcVRMR2VLWUd6cDl4WkpDbW43eE5aSXFrS3BZbjJZUV91NEptcldIaXYxSWhnNWN6bkxTdnpZRjBqT0d5ZWpMYUhObWFPVFhXeVJFcTBJ?oc=5",
+     "tarih": "2026-10-17",
+     "baslik_tr": "Nebraska, Medicaid'de Çalışma Şartını Uygulayan İlk Eyalet Oldu",
+     "ozet": "Nebraska, sağlık sigortası programı Medicaid kapsamında yararlanıcılara yönelik çalışma şartı uygulamasını başlatan ilk ABD eyaleti oldu.",
+     "onem": 2,
+     "bolge": "ABD"
+    },
+    {
+     "id": "89f07195fc",
+     "kaynak": "KFF Health News",
+     "baslik": "After Booting 760K People From ACA Plans, Trump Administration Has Added Some Back",
+     "url": "https://kffhealthnews.org/insurance/trump-aca-affordable-care-act-obamacare-cms-fraud-cancellations-reinstatements/",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Trump Yönetimi İptal Edilen Bazı ACA Kayıtlarını Yeniden Açtı",
+     "ozet": "Dolandırıcılıkla mücadele kapsamında 760 bin kişinin poliçesini iptal eden Trump yönetimi, sürecin detaylarını paylaşmadan bazı kişilerin kaydını yeniden etkinleştirdi.",
+     "onem": 2,
+     "bolge": "ABD",
+     "benzer": 1
+    },
+    {
+     "id": "45bc5509e2",
+     "kaynak": "KFF Health News",
+     "baslik": "Next Governor To Face Thorny Choices After California’s Rapid Medicaid Expansion",
+     "url": "https://kffhealthnews.org/elections/medicaid-cuts-medi-cal-insurance-immigrants-hilton-becerra-california-governor/",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Kaliforniya Medi-Cal Genişlemesi Bütçe Sorunlarıyla Karşı Karşıya",
+     "ozet": "Hızlı genişleme, artan maliyetler ve federal kesintiler nedeniyle zorlanan Medi-Cal programı, Kaliforniya'nın yeni valisini kritik kararlarla baş başa bırakacak.",
+     "onem": 2,
+     "bolge": "ABD"
+    },
+    {
+     "id": "25531450d7",
+     "kaynak": "MedPage Today",
+     "baslik": "ACOG Guideline Backs Early Hormone Therapy for Menopause Symptoms",
+     "url": "https://www.medpagetoday.com/obgyn/menopause/123457",
+     "tarih": "2026-10-16",
+     "baslik_tr": "ACOG, Menopoz Belirtilerinde Erken Dönem Hormon Tedavisi Kılavuzunu Güncelledi",
+     "ozet": "ACOG, menopoz semptomlarının yönetimine ilişkin kılavuzunu güncelleyerek vazomotor belirtiler için erken hormon tedavisini destekleyen önerilerini genişletti.",
+     "onem": 2,
+     "bolge": "ABD"
+    }
+   ]
+  },
+  "tip_teknoloji": {
+   "ad": "🧬 Tıp teknolojisi & AI",
+   "ogeler": [
+    {
+     "id": "bb62f8b7f6",
+     "kaynak": "MIT Technology Review",
+     "baslik": "This implant can restore sight for patients with macular degeneration",
+     "url": "https://www.technologyreview.com/2026/10/16/1145840/prima-implant-restores-sight-macular-degeneration-patients/",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Retina İmplantı PRIMA Sistemi Makula Dejenerasyonunda Görmeyi Geri Kazandırıyor",
+     "ozet": "Yaşa bağlı makula dejenerasyonu kaynaklı retina atrofisi yaşayan 5 milyondan fazla hasta için geliştirilen, kameralı gözlük ve retinal implantı birleştiren PRIMA sistemi Avrupa'da onaylandı.",
+     "onem": 3,
+     "bolge": "Küresel"
+    },
+    {
+     "id": "971248d0c5",
+     "kaynak": "MedPage Today",
+     "baslik": "Subcutaneous Risankizumab Induction Improved Outcomes in Crohn's Disease",
+     "url": "https://www.medpagetoday.com/meetingcoverage/acg/123451",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Deri Altı Risankizumab Crohn Hastalığında Klinik İyileşme Sağladı",
+     "ozet": "Faz III AFFIRM çalışmasına göre, orta ve ileri derece aktif Crohn hastalarında deri altı risankizumab indüksiyon tedavisi klinik remisyon ve endoskopik yanıt oranlarını artırdı.",
+     "onem": 3,
+     "bolge": "Küresel"
+    },
+    {
+     "id": "ab7896cce1",
+     "kaynak": "MedPage Today",
+     "baslik": "Spontaneous Abortion Risk Higher With Some Migraine Drugs, U.S. Study Shows",
+     "url": "https://www.medpagetoday.com/neurology/migraines/123443",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Bazı Migren İlaçlarının Erken Gebelikte Düşük Riskini Artırdığı Saptandı",
+     "ozet": "ABD'de 7.100 gebe kadının geriye dönük verileri, hamileliğin erken evresinde anti-CGRP monoklonal antikorlarına maruz kalmanın spontan düşük riskini yükselttiğini gösterdi.",
+     "onem": 3,
+     "bolge": "ABD"
+    },
+    {
+     "id": "2e4702bf2c",
+     "kaynak": "MIT Technology Review",
+     "baslik": "Pig kidneys that were “frozen” for a year have been brought back to life",
+     "url": "https://www.technologyreview.com/2026/10/15/1146091/pig-kidneys-that-were-frozen-for-a-year-have-been-brought-back-to-life/",
+     "tarih": "2026-10-15",
+     "baslik_tr": "Dondurulan Domuz Böbrekleri Aylar Sonra Başarıyla Yeniden Çalıştırıldı",
+     "ozet": "-150 °C'ye soğutulup aylarca saklanan domuz böbrekleri ilk kez başarıyla ısıtılarak yeniden işlevsel hale getirildi; çalışma insan organları için umut veriyor.",
+     "onem": 3,
+     "bolge": "Küresel",
+     "benzer": 1
+    },
+    {
+     "id": "5f24ddfb70",
+     "kaynak": "SCMP Çin",
+     "baslik": "Landmark China trial gets 84% efficacy in treating cancer with cue from waste water tech",
+     "url": "https://www.scmp.com/news/china/science/article/3370996/landmark-china-trial-gets-84-efficacy-treating-cancer-clue-waste-water-tech?utm_source=rss_feed",
+     "tarih": "2026-10-17",
+     "baslik_tr": "Çin'de Atık Su Teknolojisinden Esinlenen Kanser Tedavisi",
+     "ozet": "Çinli araştırmacılar, atık su arıtımında hidroksil radikalleri oluşturan demir elementini metastatik kanser tedavisinde kullanarak yüzde 84 etkinlik bildirdi.",
+     "onem": 2,
+     "bolge": "Çin"
+    },
+    {
+     "id": "85ddbdc7a7",
+     "kaynak": "MIT Technology Review",
+     "baslik": "Roundtables: A Conversation With the Creator of AI-Designed Viruses",
+     "url": "https://www.technologyreview.com/2026/10/16/1146224/roundtables-a-conversation-with-the-creator-of-ai-designed-viruses/",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Stanford'da Üretken Yapay Zekâ ile Virüs Genomu Tasarımı",
+     "ozet": "Stanford Üniversitesi araştırmacısı Samuel King, üretken yapay zekâ modeli kullanarak mikroskobik virüsler için sentetik genetik planlar hazırladı.",
+     "onem": 2,
+     "bolge": "ABD"
+    }
+   ]
+  },
+  "toplum": {
+   "ad": "👥 Toplum & sosyoloji",
+   "ogeler": [
+    {
+     "id": "557675bcf2",
+     "kaynak": "TradingView",
+     "baslik": "China, Japan, South Korea could lose up to quarter of workforce from aging population, IMF official says",
+     "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQVGIydFlFMEZEQW5SbWlJTHNKbzFoLVFManJhbHpwRk52MUJyRFlCWTMzeUthcFV2SEJsNThJbTUtcXpEOFphaEI3eHNGdGNLZTNRbWR0NVFlM2pzUUQ1SmVZMmcwWkVFVWNiWFp0UUlncHdFNTJRTFJMSy1NYjRxc3NsSFlvLUlkalpndzZkU0ZaYnVTMWRnYXJxTTFRa0lkLUxUbWI3cWlXMEdlcXVWM09ienpNLVpOTXZwbHpUZ3I4bGtZSU9HQkQzSWRnZEQ1OUJUX0lzd0xoZjJxSkZ4aWF6X1FkSFQ2OUJ1dE9ySkZheU1CZEZNd2sxeHlFTFFo?oc=5",
+     "tarih": "2026-10-12",
+     "baslik_tr": "Doğu Asya'da Yaşlanma Nedeniyle İş Gücünün Dörtte Biri Kaybolabilir",
+     "ozet": "IMF yetkilisi; Çin, Japonya ve Güney Kore'nin hızla yaşlanan nüfus nedeniyle iş gücünün dörtte birini kaybedebileceği uyarısında bulundu.",
+     "onem": 3,
+     "bolge": "Diğer"
+    },
+    {
+     "id": "4b7179a922",
+     "kaynak": "BBC Teknoloji",
+     "baslik": "Snapchat and Instagram grooming becoming 'easier'",
+     "url": "https://www.bbc.co.uk/news/articles/cq33xd6j1dv5o?at_medium=RSS&at_campaign=rss",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Sosyal Medyada Çocuklara Yönelik Çevrim İçi İstismar Artıyor",
+     "ozet": "Snapchat ve Instagram gibi platformlarda beş yaşına kadar küçük çocukları hedef alan çevrim içi istismarın artması, yasal ve kurumsal reform çağrılarını beraberinde getirdi.",
+     "onem": 2,
+     "bolge": "Küresel"
+    },
+    {
+     "id": "5061f0fd6e",
+     "kaynak": "STAT News",
+     "baslik": "STAT+: In DOGE’s aftermath, federal health workers bristle at new performance reviews",
+     "url": "https://www.statnews.com/2026/10/16/federal-performance-reviews-health-agency-employees-wary-after-doge/?utm_campaign=rss",
+     "tarih": "2026-10-16",
+     "baslik_tr": "DOGE Sonrası ABD Federal Sağlık Çalışanlarında Yeni Performans Değerlendirmesi Gerilimi",
+     "ozet": "Sağlık Bakanlığı (HHS) çalışanları ile Trump yönetimi arasında yıllık performans değerlendirme sürecinde yapılan değişiklikler nedeniyle tansiyon yükseldi. Süreç, federal sağlık personelini doğrudan etkiliyor.",
+     "onem": 2,
+     "bolge": "ABD"
+    },
+    {
+     "id": "53ba0573a1",
+     "kaynak": "Rest of World",
+     "baslik": "The UAE embraces AI for kindergartners",
+     "url": "https://restofworld.org/2026/uae-mandates-k12-ai-education-schools/?utm_source=rss&utm_medium=rss&utm_campaign=feeds",
+     "tarih": "2026-10-13",
+     "baslik_tr": "BAE Anaokulu Eğitimine Yapay Zekâ Müfredatını Dahil Ediyor",
+     "ozet": "Birleşik Arap Emirlikleri, yapay zekâ okuryazarlığını okuma yazma gibi temel bir beceriye dönüştürerek anaokulu seviyesindeki eğitime entegre ediyor.",
+     "onem": 2,
+     "bolge": "Diğer"
+    },
+    {
+     "id": "6e7d575d31",
+     "kaynak": "KFF Health News",
+     "baslik": "Fears About Kids’ Online Safety Unite Democrats and Republicans",
+     "url": "https://kffhealthnews.org/elections/online-safety-children-kosa-legislation-unites-democrats-republicans-big-tech/",
+     "tarih": "2026-10-13",
+     "baslik_tr": "ABD'de Çocukların Çevrim İçi Güvenliği İçin Partiler Arası Uzlaşı",
+     "ozet": "Gençlerin ruh sağlığındaki bozulma karşısında, sosyal medya platformlarına yönelik federal düzenlemeler getirilmesi konusunda Demokratlar ve Cumhuriyetçiler uzlaşı arayışında.",
+     "onem": 2,
+     "bolge": "ABD"
+    },
+    {
+     "id": "153672c7ae",
+     "kaynak": "Bioengineer.org",
+     "baslik": "China’s Nursing Schools Grew 74% Yet Still Miss Where Care Is Needed Most",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOaEo4eVBya0UwUFMtT0pDNTdjTU9rN29LSUU3d1pVdzcyV0tWdWZkTFFRSnVTUEhSZ3hWTWJMR1EyLWJaLVoxZkJ0Sms2cWxiWlBLZm93YzNGVGlDRC14cU9MSTBzVTJBRVVaVjhqWjBuNTFqRll6cWctekpvRjJsc1RITHBsS1ZndUJBRTB1cUdJcnRkSnBjQXJIR28?oc=5",
+     "tarih": "2026-10-11",
+     "baslik_tr": "Çin'de Hemşirelik Okulları Yüzde 74 Büyümesine Rağmen İhtiyacı Karşılayamıyor",
+     "ozet": "Çin'deki hemşirelik okullarının sayısı yüzde 74 oranında artış gösterse de sağlık bakımına en çok ihtiyaç duyulan alanlardaki açığı kapatmakta yetersiz kalıyor.",
+     "onem": 2,
+     "bolge": "Çin"
+    }
+   ]
+  },
+  "teknoloji_jeopolitik": {
+   "ad": "🌐 Teknoloji & jeopolitik",
+   "ogeler": [
+    {
+     "id": "1a4804b103",
+     "kaynak": "Fierce Biotech",
+     "baslik": "China looks to ban foreign acquisitions of critical biopharma platforms",
+     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOVEFNRV9lSkdZUnFpMUdmVEVjbzB1X2d2Y2VmeXZ0WVJuLWVnOUo1R2puWWJtRFc3RmNHVUI4YmVxVjhrNWZuQlFuZkl3ZWVpMkdoSndrVWs0WXBMdUZVdE5rTEZ1NHEtTmpTYXFiUTltbUx2WnZxRV9GM3Q2XzVnMVZiMzFiWmptQUxqcmxFaTRnSjR2Z05oRFRyY3NKSE9fMzcwaFBn?oc=5",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Çin Kritik Biyofarma Platformlarının Yabancılara Satışını Yasaklamayı Planlıyor",
+     "ozet": "Çin hükümeti, kritik biyofarma platformlarının yabancı şirketler tarafından satın alınmasını yasaklamaya hazırlanıyor.",
+     "onem": 3,
+     "bolge": "Çin"
+    },
+    {
+     "id": "4a85d75235",
+     "kaynak": "The National",
+     "baslik": "China targets AI technology exports with new controls as US trade truce frays",
+     "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPZXhXODFvTFFaWHlxeU12eEdra21OdFZ3UXdHc09PV1V2YTJQNVpCWGhnMUllZjYwdkw5d2R0MkhQV01rcTJDdEt1U09Lb1ZaMnVHamJ6UmFGOU4wZXd6dGVlRHdvdG9DeEJTZlNfamxDYXRYaVJGS2Fadmp6RnRkcmNJd2tWS2YtWHU2MElxdkV1YnlOdGxjTTBNbHp5R0RTUi1hX082VTBhRmJIdVRvSmE0dVVZVWhnNEZPNmxUaUNld2RHV1J4SUpRaGV0d2N6MWI0SmJn?oc=5",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Çin'den Yapay Zekâ Teknolojisi İhracatına Yeni Kısıtlamalar",
+     "ozet": "ABD ile ticaret ateşkesi sarsılırken Çin yönetimi yapay zekâ teknolojisi ihracatına yeni kontroller getirerek küresel tedarik zincirini ve teknoloji ticaretini doğrudan etkiledi.",
+     "onem": 3,
+     "bolge": "Çin",
+     "benzer": 1
+    },
+    {
+     "id": "91c2dfd574",
+     "kaynak": "BBC Teknoloji",
+     "baslik": "Toxic algorithms wouldn't let them go - now Australia wants an off switch",
+     "url": "https://www.bbc.co.uk/news/articles/cwr7y8er1n8vo?at_medium=RSS&at_campaign=rss",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Avustralya Sosyal Medya Algoritmalarını Kapatma Butonu Planlıyor",
+     "ozet": "Avustralya hükümeti, kullanıcıları istemedikleri toksik içeriklerden korumak amacıyla sosyal medya tavsiye algoritmalarının devre dışı bırakılabilmesini istiyor.",
+     "onem": 2,
+     "bolge": "Diğer"
+    },
+    {
+     "id": "7039f948d4",
+     "kaynak": "Rest of World",
+     "baslik": "Western open-weight models still can’t beat China",
+     "url": "https://restofworld.org/2026/china-open-weight-models/?utm_source=rss&utm_medium=rss&utm_campaign=feeds",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Çin Açık Ağırlıklı Yapay Zekâ Modellerinde Batı'nın Önünde",
+     "ozet": "Uzmanlar, Çin'in açık ağırlıklı yapay zekâ modellerinin ABD'deki öncü sistemlere kıyasla daha düşük maliyetle yüksek başarı sunduğunu belirtiyor.",
+     "onem": 2,
+     "bolge": "Küresel"
+    },
+    {
+     "id": "38dae6b917",
+     "kaynak": "Reuters",
+     "baslik": "Beijing seeks tighter grip on AI exports amid US rivalry",
+     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNMWNnS1haU3c5T3lybTBzQUNxZF9lMmhWaFp0Yk5UbzhDdklobHpkRHk2dExFU1dWZmVMVENFNEVLOW9JWDdscm15VDhObXhhc1JwYjlIelZjeFJuMG9jVERmTHRNRTZtSlBRYndNc2IxZTRkdWtPUGdlWDhoSEZQTHVZNzIwMFUzWVhjT3gxUWl1X2VpM1VOM29BZElFRjlaek1uRDFQb2N5aF9FTlF4U1N4WFZRVmtyUTBLdmVJc0Rzb3E2NkZ5ZQ?oc=5",
+     "tarih": "2026-10-16",
+     "baslik_tr": "Pekin Yönetimi Yapay Zekâ İhracatı Üzerindeki Denetimini Sıkılaştırıyor",
+     "ozet": "Pekin, ABD ile süregelen teknoloji rekabetinin ortasında yapay zekâ ihracatı üzerindeki kontrolleri artırmayı hedefliyor.",
+     "onem": 2,
+     "bolge": "Çin"
+    },
+    {
+     "id": "aaccc2bf58",
+     "kaynak": "SCMP Teknoloji",
+     "baslik": "ASML eyes hybrid bonding, report finds, as Chinese firms adopt chip packaging technique",
+     "url": "https://www.scmp.com/tech/tech-trends/article/3371181/asml-eyes-hybrid-bonding-report-finds-chinese-firms-adopt-chip-packaging-technique?utm_source=rss_feed",
+     "tarih": "2026-10-16",
+     "baslik_tr": "ASML ve Çinli Şirketler Çip Paketlemede Hibrit Bağlantı Teknolojisine Yöneliyor",
+     "ozet": "Yarı iletken ekipman üreticisi ASML ve Çinli firmalar, çip performansını artırmak amacıyla çipleri veya silikon plakaları doğrudan birleştiren yeni nesil hibrit bağlantı teknolojisini benimsiyor.",
+     "onem": 2,
+     "bolge": "Küresel"
+    }
+   ]
+  }
+ },
+ "brifing": {
+  "giris": "Bu hafta Birleşmiş Milletler küresel salgınlara hazırlık bildirgesini kabul ederken, ABD'de yapılan bir araştırma erken gebelikte migren ilacı kullanımına dair riskleri ortaya koydu. Jeopolitik tarafta ise Çin, yerel biyofarma platformlarının yabancı şirketlere satışını engellemeye yönelik adımlarıyla öne çıktı.",
+  "ana_basliklar": [
+   {
+    "baslik": "BM Pandemiye Hazırlık Siyasi Bildirgesini Kabul Etti",
+    "aciklama": "Birleşmiş Milletler, küresel salgınlara hazırlık konusundaki siyasi bildirgeyi kabul etti. İlgili metin yalnızca 3 'hayır' oyuna karşı onaylandı. Bu karar, küresel ölçekte salgınlara hazırlık konusundaki uluslararası yaklaşımı yansıtması açısından önem taşıyor.",
+    "kaynaklar": [
+     {
+      "ad": "Health Policy Watch",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPS0htTjVFNjBmYjFTUU1ZQlBFcy1MNV93cXhOZ0tqNE5NVGNpcktWZW5uVVRmVHNpQVhsZGRqaGNzd1ZxUkF0bm0tTE5VZWlwS2NlcHg3MmxIQnBWREF3Sml0OHdMeHNaUnFEaXp2b0FTcWtIUW92SUZsNUc0MXZtZDJvWHBOV1d2eE14QVlocmNNVG8?oc=5"
+     }
+    ]
+   },
+   {
+    "baslik": "Migren İlaçlarının Erken Gebelikte Düşük Riskini Artırdığı Saptandı",
+    "aciklama": "ABD'de 7.100 gebe kadının geriye dönük verileri incelendi. Çalışma, erken gebelik döneminde anti-CGRP monoklonal antikorlarına maruz kalmanın spontan düşük riskini artırdığını gösterdi. Bu bulgu, gebelikte migren tedavisi yönetiminde klinik açıdan dikkat edilmesi gereken bir veri sunuyor.",
+    "kaynaklar": [
+     {
+      "ad": "MedPage Today",
+      "url": "https://www.medpagetoday.com/neurology/migraines/123443"
+     }
+    ]
+   },
+   {
+    "baslik": "Çin Biyofarma Platformlarının Yabancılara Satışını Yasaklamayı Planlıyor",
+    "aciklama": "Çin hükümeti, kritik biyofarma platformlarının yabancı şirketler tarafından satın alınmasını yasaklamaya hazırlanıyor. Bu adım, ülkenin stratejik biyofarma teknolojilerinin yabancı mülkiyetine geçmesini engellemeyi hedefliyor.",
+    "kaynaklar": [
+     {
+      "ad": "Fierce Biotech",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOVEFNRV9lSkdZUnFpMUdmVEVjbzB1X2d2Y2VmeXZ0WVJuLWVnOUo1R2puWWJtRFc3RmNHVUI4YmVxVjhrNWZuQlFuZkl3ZWVpMkdoSndrVWs0WXBMdUZVdE5rTEZ1NHEtTmpTYXFiUTltbUx2WnZxRV9GM3Q2XzVnMVZiMzFiWmptQUxqcmxFaTRnSjR2Z05oRFRyY3NKSE9fMzcwaFBn?oc=5"
+     }
+    ]
+   }
+  ]
+ },
+ "hatalar": [],
+ "aday": 200,
+ "ana_model": "gemini-flash-latest",
+ "model_kullanimi": {
+  "gemini-flash-latest": 11
+ },
+ "model_notlari": []
+}
