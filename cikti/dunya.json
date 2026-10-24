@@ -1,77 +1,76 @@
 {
- "hafta": "10–17 Ekim 2026",
- "hazirlanma": "2026-10-17",
+ "hafta": "17–24 Ekim 2026",
+ "hazirlanma": "2026-10-24",
  "model": "gemini-flash-latest",
  "bolumler": {
   "saglik_politikasi": {
    "ad": "🏛️ Sağlık politikası",
    "ogeler": [
     {
-     "id": "7fb3151ee6",
-     "kaynak": "Health Policy Watch",
-     "baslik": "With Only Three 'No' Votes, UN Adopts Political Declaration On Pandemic Preparedness",
-     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPS0htTjVFNjBmYjFTUU1ZQlBFcy1MNV93cXhOZ0tqNE5NVGNpcktWZW5uVVRmVHNpQVhsZGRqaGNzd1ZxUkF0bm0tTE5VZWlwS2NlcHg3MmxIQnBWREF3Sml0OHdMeHNaUnFEaXp2b0FTcWtIUW92SUZsNUc0MXZtZDJvWHBOV1d2eE14QVlocmNNVG8?oc=5",
-     "tarih": "2026-10-13",
-     "baslik_tr": "BM Pandemiye Hazırlık Konusunda Siyasi Bildirgeyi Kabul Etti",
-     "ozet": "Birleşmiş Milletler, küresel salgınlara hazırlık konusundaki siyasi bildirgeyi yalnızca üç 'hayır' oyuna karşı onayladı.",
+     "id": "28e30e267b",
+     "kaynak": "KFF Health News",
+     "baslik": "Medicaid at Risk for Hundreds of Thousands of Lawfully Present Immigrants",
+     "url": "https://kffhealthnews.org/medicaid/wamu-health-hub-medicaid-legal-immigrants-lose-coverage-gop-law/",
+     "tarih": "2026-10-23",
+     "baslik_tr": "Yasal Göçmenlerin Medicaid Kapsamı Kesintiler Nedeniyle Risk Altında",
+     "ozet": "Cumhuriyetçilerin bütçe yasasındaki sağlık kesintileri sebebiyle yüz binlerce yasal göçmenin kamu sağlık sigortası Medicaid kapsamından çıkarılma riski bulunuyor.",
      "onem": 3,
-     "bolge": "Küresel"
+     "bolge": "ABD"
     },
     {
-     "id": "af9c624edb",
-     "kaynak": "Guardian Toplum",
-     "baslik": "Palantir patient data tech rejected by many NHS trusts in England",
-     "url": "https://www.theguardian.com/technology/2026/oct/17/palantir-patient-data-tech-rejected-by-many-nhs-trusts-in-england",
-     "tarih": "2026-10-17",
-     "baslik_tr": "İngiltere'deki Birçok NHS Vakfı Palantir'in Veri Sistemini Reddetti",
-     "ozet": "İngiltere'de milyonlarca hastaya bakan NHS vakıfları, Palantir'in 330 milyon sterlinlik federal veri platformunu mevcut sistemlerden daha iyi olmadığı gerekçesiyle kullanmayı reddediyor veya eski sistemlerine dönüyor.",
-     "onem": 2,
+     "id": "274b664a49",
+     "kaynak": "NPR Sağlık",
+     "baslik": "Authorities investigating whether first Kenya and Nigeria Ebola cases crossed paths",
+     "url": "https://www.npr.org/2026/10/23/g-s1-149515/africa-ebola-outbreak",
+     "tarih": "2026-10-23",
+     "baslik_tr": "Kongo Merkezli Ebola Salgını Nijerya'ya Sıçradı",
+     "ozet": "Kongo'daki merkez üssünden Afrika ülkelerine yayılan mevcut Ebola salgınında Nijerya ilk vakasını kaydetti. Yetkililer Kenya ve Nijerya'daki vakalar arasında temas olup olmadığını araştırıyor.",
+     "onem": 3,
+     "bolge": "Diğer"
+    },
+    {
+     "id": "5f550bbffe",
+     "kaynak": "STAT News",
+     "baslik": "STAT+: Most cancer drugs approved by European regulators lack a high clinical benefit, analysis finds",
+     "url": "https://www.statnews.com/pharmalot/2026/10/23/cancer-drugs-approved-europe-lack-high-clinical-benefit/?utm_campaign=rss",
+     "tarih": "2026-10-23",
+     "baslik_tr": "Avrupada Onaylanan Kanser Ilaclarının Cogunda Yuksek Klinik Fayda Yok",
+     "ozet": "Yeni bir analiz, Avrupa ilac regulatorlerince son dort yıllık donemde onaylanan yeni kanser ilaclarının cogunun yuksek klinik fayda saglamadıgını ortaya koydu.",
+     "onem": 3,
      "bolge": "Avrupa"
     },
     {
-     "id": "743aa18d35",
-     "kaynak": "ABC News - Breaking News, Latest News and Videos",
-     "baslik": "Nebraska becomes 1st state to implement Medicaid work requirements - ABC News",
-     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQYnVpdWlTc0NrT09YdGVEWWJTaDdYNGY3R3liTHVmTEFmZDZfZzAtbmRqZ3N6TURUVjRZS3ZBZkRyRWs5SUU4QVZfUURPaml5X0ZTTkpIT0pIcGhXa0NIa0poWEJxOHdCN3FMcUF5Nm42ckFRTjJpa3h0ekNfR3VnamZkelhtTFhrNUs0dDI3eWx2MUExRk9IbnhlVkxuQdIBowFBVV95cUxPc3NvVjhCekRaZGh6QUY0Y3F5bkExemxOeTh0QUhoelRlVDhwXzhzTFdXNTJuVzRCQUJoeVFMYTZmNDRjUmFST1BMUThxWGNReUxiY3ZLcVRMR2VLWUd6cDl4WkpDbW43eE5aSXFrS3BZbjJZUV91NEptcldIaXYxSWhnNWN6bkxTdnpZRjBqT0d5ZWpMYUhObWFPVFhXeVJFcTBJ?oc=5",
-     "tarih": "2026-10-17",
-     "baslik_tr": "Nebraska, Medicaid'de Çalışma Şartını Uygulayan İlk Eyalet Oldu",
-     "ozet": "Nebraska, sağlık sigortası programı Medicaid kapsamında yararlanıcılara yönelik çalışma şartı uygulamasını başlatan ilk ABD eyaleti oldu.",
-     "onem": 2,
-     "bolge": "ABD"
+     "id": "2af34a88de",
+     "kaynak": "Guardian Toplum",
+     "baslik": "India slashes cost of cancer drugs after court rules mark-ups are ‘extortion’",
+     "url": "https://www.theguardian.com/global-development/2026/oct/23/india-cuts-cost-cancer-drugs",
+     "tarih": "2026-10-23",
+     "baslik_tr": "Hindistan Yüksek Mahkeme Kararıyla 137 Kanser İlacının Fiyatını Düşürüyor",
+     "ozet": "Hindistan hükümeti, bir hastanın açtığı dava sonrası 137 kanser ilacına tavan fiyat getirdi. Karar, yüksek ilaç maliyetleri yüzünden borçlanan ve tedaviye erişemeyen yoksul hastaları korumayı amaçlıyor.",
+     "onem": 3,
+     "bolge": "Diğer"
     },
     {
-     "id": "89f07195fc",
-     "kaynak": "KFF Health News",
-     "baslik": "After Booting 760K People From ACA Plans, Trump Administration Has Added Some Back",
-     "url": "https://kffhealthnews.org/insurance/trump-aca-affordable-care-act-obamacare-cms-fraud-cancellations-reinstatements/",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Trump Yönetimi İptal Edilen Bazı ACA Kayıtlarını Yeniden Açtı",
-     "ozet": "Dolandırıcılıkla mücadele kapsamında 760 bin kişinin poliçesini iptal eden Trump yönetimi, sürecin detaylarını paylaşmadan bazı kişilerin kaydını yeniden etkinleştirdi.",
-     "onem": 2,
-     "bolge": "ABD",
-     "benzer": 1
+     "id": "a4567f47f9",
+     "kaynak": "Guardian Toplum",
+     "baslik": "Heat killed ‘staggering’ 50,000 people in Europe’s cities this summer, scientists warn",
+     "url": "https://www.theguardian.com/environment/2026/oct/23/heat-killed-staggering-50000-people-european-cities-this-summer-experts",
+     "tarih": "2026-10-23",
+     "baslik_tr": "Araştırma: Avrupa Şehirlerinde Aşırı Sıcaklar Bu Yaz 50 Bin Kişiyi Öldürdü",
+     "ozet": "Yeni bir çalışma, bu yaz Avrupa kentlerinde rekor kıran aşırı sıcaklıkların 50.000 kişinin ölümüne yol açtığını ve ölümlerin üçte ikisinden iklim krizinin sorumlu olduğunu ortaya koydu.",
+     "onem": 3,
+     "bolge": "Avrupa"
     },
     {
-     "id": "45bc5509e2",
-     "kaynak": "KFF Health News",
-     "baslik": "Next Governor To Face Thorny Choices After California’s Rapid Medicaid Expansion",
-     "url": "https://kffhealthnews.org/elections/medicaid-cuts-medi-cal-insurance-immigrants-hilton-becerra-california-governor/",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Kaliforniya Medi-Cal Genişlemesi Bütçe Sorunlarıyla Karşı Karşıya",
-     "ozet": "Hızlı genişleme, artan maliyetler ve federal kesintiler nedeniyle zorlanan Medi-Cal programı, Kaliforniya'nın yeni valisini kritik kararlarla baş başa bırakacak.",
+     "id": "d5bd488729",
+     "kaynak": "SCMP Çin",
+     "baslik": "How competition between Chinese and Indian firms could reshape Africa’s drug markets",
+     "url": "https://www.scmp.com/news/china/diplomacy/article/3371997/how-competition-between-chinese-and-indian-firms-could-reshape-africas-drug-markets",
+     "tarih": "2026-10-24",
+     "baslik_tr": "Cin Afrika Sıtma Ilacı Pazarında Hindistanın Liderligini Zorluyor",
+     "ozet": "Yeni bir arastırmaya gore Cin, Afrika genelinde sıtma ilacı ihracatında Hindistan ile olan farkı neredeyse kapattı. Bu durum kıtadaki ilac tedarik dengelerini ve pazar paylarını dogrudan etkiliyor.",
      "onem": 2,
-     "bolge": "ABD"
-    },
-    {
-     "id": "25531450d7",
-     "kaynak": "MedPage Today",
-     "baslik": "ACOG Guideline Backs Early Hormone Therapy for Menopause Symptoms",
-     "url": "https://www.medpagetoday.com/obgyn/menopause/123457",
-     "tarih": "2026-10-16",
-     "baslik_tr": "ACOG, Menopoz Belirtilerinde Erken Dönem Hormon Tedavisi Kılavuzunu Güncelledi",
-     "ozet": "ACOG, menopoz semptomlarının yönetimine ilişkin kılavuzunu güncelleyerek vazomotor belirtiler için erken hormon tedavisini destekleyen önerilerini genişletti.",
-     "onem": 2,
-     "bolge": "ABD"
+     "bolge": "Diğer"
     }
    ]
   },
@@ -79,71 +78,71 @@
    "ad": "🧬 Tıp teknolojisi & AI",
    "ogeler": [
     {
-     "id": "bb62f8b7f6",
-     "kaynak": "MIT Technology Review",
-     "baslik": "This implant can restore sight for patients with macular degeneration",
-     "url": "https://www.technologyreview.com/2026/10/16/1145840/prima-implant-restores-sight-macular-degeneration-patients/",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Retina İmplantı PRIMA Sistemi Makula Dejenerasyonunda Görmeyi Geri Kazandırıyor",
-     "ozet": "Yaşa bağlı makula dejenerasyonu kaynaklı retina atrofisi yaşayan 5 milyondan fazla hasta için geliştirilen, kameralı gözlük ve retinal implantı birleştiren PRIMA sistemi Avrupa'da onaylandı.",
-     "onem": 3,
-     "bolge": "Küresel"
-    },
-    {
-     "id": "971248d0c5",
-     "kaynak": "MedPage Today",
-     "baslik": "Subcutaneous Risankizumab Induction Improved Outcomes in Crohn's Disease",
-     "url": "https://www.medpagetoday.com/meetingcoverage/acg/123451",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Deri Altı Risankizumab Crohn Hastalığında Klinik İyileşme Sağladı",
-     "ozet": "Faz III AFFIRM çalışmasına göre, orta ve ileri derece aktif Crohn hastalarında deri altı risankizumab indüksiyon tedavisi klinik remisyon ve endoskopik yanıt oranlarını artırdı.",
-     "onem": 3,
-     "bolge": "Küresel"
-    },
-    {
-     "id": "ab7896cce1",
-     "kaynak": "MedPage Today",
-     "baslik": "Spontaneous Abortion Risk Higher With Some Migraine Drugs, U.S. Study Shows",
-     "url": "https://www.medpagetoday.com/neurology/migraines/123443",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Bazı Migren İlaçlarının Erken Gebelikte Düşük Riskini Artırdığı Saptandı",
-     "ozet": "ABD'de 7.100 gebe kadının geriye dönük verileri, hamileliğin erken evresinde anti-CGRP monoklonal antikorlarına maruz kalmanın spontan düşük riskini yükselttiğini gösterdi.",
-     "onem": 3,
-     "bolge": "ABD"
-    },
-    {
-     "id": "2e4702bf2c",
-     "kaynak": "MIT Technology Review",
-     "baslik": "Pig kidneys that were “frozen” for a year have been brought back to life",
-     "url": "https://www.technologyreview.com/2026/10/15/1146091/pig-kidneys-that-were-frozen-for-a-year-have-been-brought-back-to-life/",
-     "tarih": "2026-10-15",
-     "baslik_tr": "Dondurulan Domuz Böbrekleri Aylar Sonra Başarıyla Yeniden Çalıştırıldı",
-     "ozet": "-150 °C'ye soğutulup aylarca saklanan domuz böbrekleri ilk kez başarıyla ısıtılarak yeniden işlevsel hale getirildi; çalışma insan organları için umut veriyor.",
+     "id": "784f7f9317",
+     "kaynak": "BBC Sağlık",
+     "baslik": "First personalised cancer vaccine cuts risk of disease returning in major trial",
+     "url": "https://www.bbc.co.uk/news/articles/cq0ld9g9e913o?at_medium=RSS&at_campaign=rss",
+     "tarih": "2026-10-23",
+     "baslik_tr": "İlk Kişiselleştirilmiş Kanser Aşısı Nüks Riskini Azalttı",
+     "ozet": "Kapsamlı bir klinik araştırmada, ilk kişiselleştirilmiş kanser aşısının hastalığın nüksetme riskini azalttığı tespit edildi; bilim insanları sonucun kişiselleştirilmiş tıpta bir dönüm noktası olabileceğini belirtiyor.",
      "onem": 3,
      "bolge": "Küresel",
-     "benzer": 1
+     "benzer": 4
     },
     {
-     "id": "5f24ddfb70",
-     "kaynak": "SCMP Çin",
-     "baslik": "Landmark China trial gets 84% efficacy in treating cancer with cue from waste water tech",
-     "url": "https://www.scmp.com/news/china/science/article/3370996/landmark-china-trial-gets-84-efficacy-treating-cancer-clue-waste-water-tech?utm_source=rss_feed",
-     "tarih": "2026-10-17",
-     "baslik_tr": "Çin'de Atık Su Teknolojisinden Esinlenen Kanser Tedavisi",
-     "ozet": "Çinli araştırmacılar, atık su arıtımında hidroksil radikalleri oluşturan demir elementini metastatik kanser tedavisinde kullanarak yüzde 84 etkinlik bildirdi.",
-     "onem": 2,
+     "id": "540bc97bc5",
+     "kaynak": "STAT News",
+     "baslik": "STAT+: Novartis multiple sclerosis treatment cuts rates of relapse in pivotal trials",
+     "url": "https://www.statnews.com/2026/10/23/novartis-remibrutinib-multiple-sclerosis-trial-results/?utm_campaign=rss",
+     "tarih": "2026-10-23",
+     "baslik_tr": "Novartis'in Yeni Multipl Skleroz Tedavisi Atak Oranlarını Üçte Bir Azalttı",
+     "ozet": "Novartis'in geliştirdiği multipl skleroz ilacı, kritik klinik çalışmalarda standart tedaviye kıyasla nüks oranlarını üçte bir oranında düşürdü.",
+     "onem": 3,
+     "bolge": "Küresel"
+    },
+    {
+     "id": "74b0ae05a4",
+     "kaynak": "Guardian Toplum",
+     "baslik": "‘Bespoke’ mRNA vaccine significantly reduces risk of melanoma recurrence or death, clinical trial shows",
+     "url": "https://www.theguardian.com/society/2026/oct/23/mrna-vaccine-melanoma-cancer-breakthrough-australia",
+     "tarih": "2026-10-23",
+     "baslik_tr": "Kişiye Özel mRNA Aşısı Faz 3'te Melanom Nüksünü Azalttı",
+     "ozet": "Kişiselleştirilmiş mRNA aşısı intismeran, faz 3 klinik denemesinde iki yıl içinde melanomun tekrarlama veya ölüm riskini önemli ölçüde düşürdü.",
+     "onem": 3,
+     "bolge": "Küresel"
+    },
+    {
+     "id": "774eb0c224",
+     "kaynak": "SCMP Teknoloji",
+     "baslik": "China moves to set global standards for brain-computer interface technology",
+     "url": "https://www.scmp.com/business/china-business/article/3371742/china-moves-set-global-standards-brain-computer-interface-technology",
+     "tarih": "2026-10-22",
+     "baslik_tr": "Çin Beyin-Bilgisayar Arayüzlerinde Küresel Standartları Belirlemeye Öncülük Ediyor",
+     "ozet": "Çin, beyin-bilgisayar arayüzü teknolojilerinde küresel standartları oluşturacak uluslararası alt komitenin sekreteryasını üstlenerek bu alanı ulusal kalkınma önceliği yaptı.",
+     "onem": 3,
      "bolge": "Çin"
     },
     {
-     "id": "85ddbdc7a7",
-     "kaynak": "MIT Technology Review",
-     "baslik": "Roundtables: A Conversation With the Creator of AI-Designed Viruses",
-     "url": "https://www.technologyreview.com/2026/10/16/1146224/roundtables-a-conversation-with-the-creator-of-ai-designed-viruses/",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Stanford'da Üretken Yapay Zekâ ile Virüs Genomu Tasarımı",
-     "ozet": "Stanford Üniversitesi araştırmacısı Samuel King, üretken yapay zekâ modeli kullanarak mikroskobik virüsler için sentetik genetik planlar hazırladı.",
+     "id": "875bfd88d0",
+     "kaynak": "BBC Teknoloji",
+     "baslik": "UK to invest £100m in 'world first' AI Biosecurity Lab",
+     "url": "https://www.bbc.co.uk/news/articles/cqdjv8xllvyyo?at_medium=RSS&at_campaign=rss",
+     "tarih": "2026-10-24",
+     "baslik_tr": "İngiltere'den 100 Milyon Sterlinlik Yapay Zekâ Biyogüvenlik Laboratuvarı",
+     "ozet": "İngiltere Maliye Bakanı, ülkenin biyogüvenlik savunmasını yapay zekâ ile güçlendirmeyi amaçlayan 100 milyon sterlinlik harcama planını açıklayacak.",
      "onem": 2,
-     "bolge": "ABD"
+     "bolge": "Avrupa"
+    },
+    {
+     "id": "47c30142b9",
+     "kaynak": "MedPage Today",
+     "baslik": "Endovascular Therapy Eyed for Milder Strokes, Later Time Window",
+     "url": "https://www.medpagetoday.com/cardiology/strokes/123562",
+     "tarih": "2026-10-23",
+     "baslik_tr": "Çin'deki Çalışmalar Hafif ve Geç İnmede Endovasküler Tedaviyi İnceledi",
+     "ozet": "Çin'deki iki çok merkezli açık etiketli çalışma, hafif ve geç başvuran büyük damar tıkanıklığı inmelerinde endovasküler tedavinin etkisini değerlendirdi.",
+     "onem": 2,
+     "bolge": "Çin"
     }
    ]
   },
@@ -151,70 +150,70 @@
    "ad": "👥 Toplum & sosyoloji",
    "ogeler": [
     {
-     "id": "557675bcf2",
-     "kaynak": "TradingView",
-     "baslik": "China, Japan, South Korea could lose up to quarter of workforce from aging population, IMF official says",
-     "url": "https://news.google.com/rss/articles/CBMigAJBVV95cUxQVGIydFlFMEZEQW5SbWlJTHNKbzFoLVFManJhbHpwRk52MUJyRFlCWTMzeUthcFV2SEJsNThJbTUtcXpEOFphaEI3eHNGdGNLZTNRbWR0NVFlM2pzUUQ1SmVZMmcwWkVFVWNiWFp0UUlncHdFNTJRTFJMSy1NYjRxc3NsSFlvLUlkalpndzZkU0ZaYnVTMWRnYXJxTTFRa0lkLUxUbWI3cWlXMEdlcXVWM09ienpNLVpOTXZwbHpUZ3I4bGtZSU9HQkQzSWRnZEQ1OUJUX0lzd0xoZjJxSkZ4aWF6X1FkSFQ2OUJ1dE9ySkZheU1CZEZNd2sxeHlFTFFo?oc=5",
-     "tarih": "2026-10-12",
-     "baslik_tr": "Doğu Asya'da Yaşlanma Nedeniyle İş Gücünün Dörtte Biri Kaybolabilir",
-     "ozet": "IMF yetkilisi; Çin, Japonya ve Güney Kore'nin hızla yaşlanan nüfus nedeniyle iş gücünün dörtte birini kaybedebileceği uyarısında bulundu.",
-     "onem": 3,
-     "bolge": "Diğer"
-    },
-    {
-     "id": "4b7179a922",
-     "kaynak": "BBC Teknoloji",
-     "baslik": "Snapchat and Instagram grooming becoming 'easier'",
-     "url": "https://www.bbc.co.uk/news/articles/cq33xd6j1dv5o?at_medium=RSS&at_campaign=rss",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Sosyal Medyada Çocuklara Yönelik Çevrim İçi İstismar Artıyor",
-     "ozet": "Snapchat ve Instagram gibi platformlarda beş yaşına kadar küçük çocukları hedef alan çevrim içi istismarın artması, yasal ve kurumsal reform çağrılarını beraberinde getirdi.",
-     "onem": 2,
-     "bolge": "Küresel"
-    },
-    {
-     "id": "5061f0fd6e",
-     "kaynak": "STAT News",
-     "baslik": "STAT+: In DOGE’s aftermath, federal health workers bristle at new performance reviews",
-     "url": "https://www.statnews.com/2026/10/16/federal-performance-reviews-health-agency-employees-wary-after-doge/?utm_campaign=rss",
-     "tarih": "2026-10-16",
-     "baslik_tr": "DOGE Sonrası ABD Federal Sağlık Çalışanlarında Yeni Performans Değerlendirmesi Gerilimi",
-     "ozet": "Sağlık Bakanlığı (HHS) çalışanları ile Trump yönetimi arasında yıllık performans değerlendirme sürecinde yapılan değişiklikler nedeniyle tansiyon yükseldi. Süreç, federal sağlık personelini doğrudan etkiliyor.",
-     "onem": 2,
-     "bolge": "ABD"
-    },
-    {
-     "id": "53ba0573a1",
-     "kaynak": "Rest of World",
-     "baslik": "The UAE embraces AI for kindergartners",
-     "url": "https://restofworld.org/2026/uae-mandates-k12-ai-education-schools/?utm_source=rss&utm_medium=rss&utm_campaign=feeds",
-     "tarih": "2026-10-13",
-     "baslik_tr": "BAE Anaokulu Eğitimine Yapay Zekâ Müfredatını Dahil Ediyor",
-     "ozet": "Birleşik Arap Emirlikleri, yapay zekâ okuryazarlığını okuma yazma gibi temel bir beceriye dönüştürerek anaokulu seviyesindeki eğitime entegre ediyor.",
-     "onem": 2,
-     "bolge": "Diğer"
-    },
-    {
-     "id": "6e7d575d31",
-     "kaynak": "KFF Health News",
-     "baslik": "Fears About Kids’ Online Safety Unite Democrats and Republicans",
-     "url": "https://kffhealthnews.org/elections/online-safety-children-kosa-legislation-unites-democrats-republicans-big-tech/",
-     "tarih": "2026-10-13",
-     "baslik_tr": "ABD'de Çocukların Çevrim İçi Güvenliği İçin Partiler Arası Uzlaşı",
-     "ozet": "Gençlerin ruh sağlığındaki bozulma karşısında, sosyal medya platformlarına yönelik federal düzenlemeler getirilmesi konusunda Demokratlar ve Cumhuriyetçiler uzlaşı arayışında.",
-     "onem": 2,
-     "bolge": "ABD"
-    },
-    {
-     "id": "153672c7ae",
-     "kaynak": "Bioengineer.org",
-     "baslik": "China’s Nursing Schools Grew 74% Yet Still Miss Where Care Is Needed Most",
-     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOaEo4eVBya0UwUFMtT0pDNTdjTU9rN29LSUU3d1pVdzcyV0tWdWZkTFFRSnVTUEhSZ3hWTWJMR1EyLWJaLVoxZkJ0Sms2cWxiWlBLZm93YzNGVGlDRC14cU9MSTBzVTJBRVVaVjhqWjBuNTFqRll6cWctekpvRjJsc1RITHBsS1ZndUJBRTB1cUdJcnRkSnBjQXJIR28?oc=5",
-     "tarih": "2026-10-11",
-     "baslik_tr": "Çin'de Hemşirelik Okulları Yüzde 74 Büyümesine Rağmen İhtiyacı Karşılayamıyor",
-     "ozet": "Çin'deki hemşirelik okullarının sayısı yüzde 74 oranında artış gösterse de sağlık bakımına en çok ihtiyaç duyulan alanlardaki açığı kapatmakta yetersiz kalıyor.",
+     "id": "eaafd69662",
+     "kaynak": "Reuters",
+     "baslik": "China aims to stabilise number of new births with policy support",
+     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPOUJTVkFzaUotelhrVGt6NnVKd2owWXRGQW9aLTB1SlVPNC1RRmZKRDYydW5YcWVOX2VjR043SHRrTGl5UGU3eU12U2FpVGt1QTJqZ2k3c19SUVVWd1RkNDEzTVYzbmo5aU1fUUoyT1JpU0VfZXJpcDJCMjZ6ZFYwb0NvNU02dG5acmdkTVdobVV0eTMzcWF3cGVKLUF3b0ExVlE1WHdfYmhCbkRfTUJMT0ZnVTh4VE5WcnVYME1ZVlZ4Q253WlUycWdn?oc=5",
+     "tarih": "2026-10-23",
+     "baslik_tr": "Çin Doğum Sayısını Politik Desteklerle Dengelemeyi Hedefliyor",
+     "ozet": "Çin yönetimi, demografik düşüşe karşı politika destekleriyle yeni doğan bebek sayısını belirli bir düzeyde sabitlemeyi hedefliyor.",
      "onem": 2,
      "bolge": "Çin"
+    },
+    {
+     "id": "f74ca69da0",
+     "kaynak": "Guardian Toplum",
+     "baslik": "Online safety laws have failed to protect children in UK, Ofcom admits",
+     "url": "https://www.theguardian.com/society/2026/oct/23/uk-children-just-as-likely-to-have-suffered-harm-on-social-media-despite-crackdown-ofcom-online-safety-act",
+     "tarih": "2026-10-23",
+     "baslik_tr": "İngiltere'de Çevrim İçi Güvenlik Yasası Çocukları Korumakta Yetersiz Kaldı",
+     "ozet": "İngiltere'nin iletişim denetleme kurumu Ofcom, sosyal medya platformlarına yönelik sıkı düzenlemelerin uygulandığı ilk dokuz ayda çocukların zararlı içeriklere maruz kalma oranının neredeyse hiç değişmediğini bildirdi.",
+     "onem": 2,
+     "bolge": "Avrupa"
+    },
+    {
+     "id": "a86a51f086",
+     "kaynak": "Guardian Toplum",
+     "baslik": "Boom in weight-loss drugs could lead to fall in beer sales, Heineken warns UK pubs",
+     "url": "https://www.theguardian.com/business/2026/oct/23/weight-loss-drugs-beer-sales-heineken-british-pubs-wegovy",
+     "tarih": "2026-10-23",
+     "baslik_tr": "GLP-1 Zayıflama İlaçları Bira Tüketimini ve Satışlarını Azaltabilir",
+     "ozet": "Heineken, Ozempic ve Wegovy gibi kilo verme ilaçlarının alkol içme isteğini azaltarak pub ve barlarda bira satışlarının düşmesine yol açabileceği uyarısında bulundu.",
+     "onem": 2,
+     "bolge": "Avrupa"
+    },
+    {
+     "id": "d93b4fe89e",
+     "kaynak": "Guardian Toplum",
+     "baslik": "Liechtenstein prince’s ‘surreal’ abortion veto dismays campaigners",
+     "url": "https://www.theguardian.com/world/2026/oct/23/liechtenstein-princes-surreal-abortion-veto-dismays-campaigners",
+     "tarih": "2026-10-23",
+     "baslik_tr": "Lihtenştayn Prensi Kürtaj Yasasını Veto Etti",
+     "ozet": "Lihtenştayn Prensi Alois, parlamentonun ve halk girişiminin onayladığı kürtaj serbestisi tasarısını saltanatında ilk kez veto hakkını kullanarak engelledi.",
+     "onem": 2,
+     "bolge": "Avrupa"
+    },
+    {
+     "id": "ccf29576ea",
+     "kaynak": "Guardian Toplum",
+     "baslik": "The Guardian view on England's north-south divide: Burnham must deliver more than devolution | Editorial",
+     "url": "https://www.theguardian.com/commentisfree/2026/oct/22/the-guardian-view-on-englands-north-south-divide-burnham-must-deliver-more-than-devolution",
+     "tarih": "2026-10-22",
+     "baslik_tr": "Lancet Çalışması İngiltere'deki Kuzey-Güney Ölüm Oranı Farkının Arttığını Gösterdi",
+     "ozet": "Lancet'te yayımlanan çalışmaya göre İngiltere'nin kuzeyinde 25-49 yaş arası yetişkinlerin ölüm oranı güneye kıyasla 1981'de yüzde 13 daha yüksekken, bu fark 2024'te yüzde 42'ye çıktı.",
+     "onem": 2,
+     "bolge": "Avrupa"
+    },
+    {
+     "id": "e28037d5cf",
+     "kaynak": "BBC Teknoloji",
+     "baslik": "Trump's green card curbs test Indian tech workers' American dream",
+     "url": "https://www.bbc.co.uk/news/articles/cqj34j7dk771o?at_medium=RSS&at_campaign=rss",
+     "tarih": "2026-10-21",
+     "baslik_tr": "ABD'deki Yeşil Kart Kısıtlamaları Hintli Teknoloji Çalışanlarını Zorluyor",
+     "ozet": "ABD'nin göçmen kısıtlamaları ve teknoloji şirketlerinin yabancı çalışan istihdamını azaltması, kalıcı oturum izni bekleyen Hintli profesyonelleri olumsuz etkiliyor.",
+     "onem": 2,
+     "bolge": "ABD"
     }
    ]
   },
@@ -222,105 +221,110 @@
    "ad": "🌐 Teknoloji & jeopolitik",
    "ogeler": [
     {
-     "id": "1a4804b103",
-     "kaynak": "Fierce Biotech",
-     "baslik": "China looks to ban foreign acquisitions of critical biopharma platforms",
-     "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOVEFNRV9lSkdZUnFpMUdmVEVjbzB1X2d2Y2VmeXZ0WVJuLWVnOUo1R2puWWJtRFc3RmNHVUI4YmVxVjhrNWZuQlFuZkl3ZWVpMkdoSndrVWs0WXBMdUZVdE5rTEZ1NHEtTmpTYXFiUTltbUx2WnZxRV9GM3Q2XzVnMVZiMzFiWmptQUxqcmxFaTRnSjR2Z05oRFRyY3NKSE9fMzcwaFBn?oc=5",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Çin Kritik Biyofarma Platformlarının Yabancılara Satışını Yasaklamayı Planlıyor",
-     "ozet": "Çin hükümeti, kritik biyofarma platformlarının yabancı şirketler tarafından satın alınmasını yasaklamaya hazırlanıyor.",
+     "id": "5a51b20958",
+     "kaynak": "AP News",
+     "baslik": "US Treasury proposes a rule to crack down on high-tech investments in China, other adversaries",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSE5iNkpiZ2FiYnczNGJ4Z1NXUzQ2WU1OaVhXbjlRaXpHVy1HMHg5S1Q0dFgwS1Y3ajJIV1V4UjBIcWxodTMtZmJtbzZqVWZ1bVdVWEpicmI3dktxdzdfOTZkQW94bWVvR19tR01OZ3QyOFZiNGRrN0I4TFdVLWZNNWZkZk4zYzI5bk8ycjI5SExjdlVFUDNsMVJLQks?oc=5",
+     "tarih": "2026-10-23",
+     "baslik_tr": "ABD Hazine Bakanlığı Çin'e Yüksek Teknoloji Yatırımlarını Kısıtlıyor",
+     "ozet": "ABD Hazine Bakanlığı, Çin ve diğer hasım ülkelere yönelik yüksek teknoloji yatırımlarına kısıtlama ve denetim getiren yeni bir kural teklifinde bulundu.",
      "onem": 3,
-     "bolge": "Çin"
-    },
-    {
-     "id": "4a85d75235",
-     "kaynak": "The National",
-     "baslik": "China targets AI technology exports with new controls as US trade truce frays",
-     "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPZXhXODFvTFFaWHlxeU12eEdra21OdFZ3UXdHc09PV1V2YTJQNVpCWGhnMUllZjYwdkw5d2R0MkhQV01rcTJDdEt1U09Lb1ZaMnVHamJ6UmFGOU4wZXd6dGVlRHdvdG9DeEJTZlNfamxDYXRYaVJGS2Fadmp6RnRkcmNJd2tWS2YtWHU2MElxdkV1YnlOdGxjTTBNbHp5R0RTUi1hX082VTBhRmJIdVRvSmE0dVVZVWhnNEZPNmxUaUNld2RHV1J4SUpRaGV0d2N6MWI0SmJn?oc=5",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Çin'den Yapay Zekâ Teknolojisi İhracatına Yeni Kısıtlamalar",
-     "ozet": "ABD ile ticaret ateşkesi sarsılırken Çin yönetimi yapay zekâ teknolojisi ihracatına yeni kontroller getirerek küresel tedarik zincirini ve teknoloji ticaretini doğrudan etkiledi.",
-     "onem": 3,
-     "bolge": "Çin",
+     "bolge": "ABD",
      "benzer": 1
     },
     {
-     "id": "91c2dfd574",
-     "kaynak": "BBC Teknoloji",
-     "baslik": "Toxic algorithms wouldn't let them go - now Australia wants an off switch",
-     "url": "https://www.bbc.co.uk/news/articles/cwr7y8er1n8vo?at_medium=RSS&at_campaign=rss",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Avustralya Sosyal Medya Algoritmalarını Kapatma Butonu Planlıyor",
-     "ozet": "Avustralya hükümeti, kullanıcıları istemedikleri toksik içeriklerden korumak amacıyla sosyal medya tavsiye algoritmalarının devre dışı bırakılabilmesini istiyor.",
-     "onem": 2,
-     "bolge": "Diğer"
-    },
-    {
-     "id": "7039f948d4",
-     "kaynak": "Rest of World",
-     "baslik": "Western open-weight models still can’t beat China",
-     "url": "https://restofworld.org/2026/china-open-weight-models/?utm_source=rss&utm_medium=rss&utm_campaign=feeds",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Çin Açık Ağırlıklı Yapay Zekâ Modellerinde Batı'nın Önünde",
-     "ozet": "Uzmanlar, Çin'in açık ağırlıklı yapay zekâ modellerinin ABD'deki öncü sistemlere kıyasla daha düşük maliyetle yüksek başarı sunduğunu belirtiyor.",
-     "onem": 2,
-     "bolge": "Küresel"
-    },
-    {
-     "id": "38dae6b917",
-     "kaynak": "Reuters",
-     "baslik": "Beijing seeks tighter grip on AI exports amid US rivalry",
-     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNMWNnS1haU3c5T3lybTBzQUNxZF9lMmhWaFp0Yk5UbzhDdklobHpkRHk2dExFU1dWZmVMVENFNEVLOW9JWDdscm15VDhObXhhc1JwYjlIelZjeFJuMG9jVERmTHRNRTZtSlBRYndNc2IxZTRkdWtPUGdlWDhoSEZQTHVZNzIwMFUzWVhjT3gxUWl1X2VpM1VOM29BZElFRjlaek1uRDFQb2N5aF9FTlF4U1N4WFZRVmtyUTBLdmVJc0Rzb3E2NkZ5ZQ?oc=5",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Pekin Yönetimi Yapay Zekâ İhracatı Üzerindeki Denetimini Sıkılaştırıyor",
-     "ozet": "Pekin, ABD ile süregelen teknoloji rekabetinin ortasında yapay zekâ ihracatı üzerindeki kontrolleri artırmayı hedefliyor.",
-     "onem": 2,
+     "id": "ac2e8838c3",
+     "kaynak": "SCMP Teknoloji",
+     "baslik": "DeepSeek, MiniMax secure open-source licences days after new China export rules: state media",
+     "url": "https://www.scmp.com/tech/policy/article/3371880/deepseek-minimax-secure-open-source-licenses-days-after-new-china-export-rules-state-media",
+     "tarih": "2026-10-23",
+     "baslik_tr": "DeepSeek ve MiniMax Çin'in Yeni İhracat Kurallarına Rağmen Lisans Aldı",
+     "ozet": "Çinli yapay zekâ geliştiricileri DeepSeek ve MiniMax, Pekin'in teknoloji transferi denetimlerini sıkılaştırmasının ardından ihracat kayıtlarını tamamlayarak açık kaynak lisanslamaya devam etme onayı aldı.",
+     "onem": 3,
      "bolge": "Çin"
     },
     {
-     "id": "aaccc2bf58",
+     "id": "b47cd8fb68",
+     "kaynak": "STAT News",
+     "baslik": "STAT+: Treasury proposes major restrictions to U.S. investment in Chinese biotech sector",
+     "url": "https://www.statnews.com/2026/10/23/new-china-biotech-limits-coins-act-proposal-us-pharma-reaction/?utm_campaign=rss",
+     "tarih": "2026-10-23",
+     "baslik_tr": "ABD'den Çin Biyoteknoloji Sektörüne Yatırım Kısıtlaması Teklifi",
+     "ozet": "ABD Hazine Bakanlığı'nın yeni teklifi, Çinli biyoteknoloji şirketlerine ABD yatırımlarını kısıtlarken lisans anlaşmalarına izin vermeyi sürdürüyor.",
+     "onem": 3,
+     "bolge": "ABD",
+     "benzer": 2
+    },
+    {
+     "id": "bd6a23f494",
      "kaynak": "SCMP Teknoloji",
-     "baslik": "ASML eyes hybrid bonding, report finds, as Chinese firms adopt chip packaging technique",
-     "url": "https://www.scmp.com/tech/tech-trends/article/3371181/asml-eyes-hybrid-bonding-report-finds-chinese-firms-adopt-chip-packaging-technique?utm_source=rss_feed",
-     "tarih": "2026-10-16",
-     "baslik_tr": "ASML ve Çinli Şirketler Çip Paketlemede Hibrit Bağlantı Teknolojisine Yöneliyor",
-     "ozet": "Yarı iletken ekipman üreticisi ASML ve Çinli firmalar, çip performansını artırmak amacıyla çipleri veya silikon plakaları doğrudan birleştiren yeni nesil hibrit bağlantı teknolojisini benimsiyor.",
-     "onem": 2,
+     "baslik": "‘Jensen’s nightmare’: Huawei, DeepSeek narrow AI chip ecosystem gap with Nvidia: report",
+     "url": "https://www.scmp.com/tech/tech-war/article/3371806/jensens-nightmare-huawei-deepseek-narrow-ai-chip-ecosystem-gap-nvidia-report",
+     "tarih": "2026-10-22",
+     "baslik_tr": "Huawei ve DeepSeek Nvidia ile Yapay Zekâ Çip Farkını Kapatıyor",
+     "ozet": "DeepSeek ile iş birliği yapan Huawei, Ascend 950PR çipleri ve yazılım geliştirmeleri sayesinde donanım-yazılım ekosisteminde ABD ile farkı kapatıyor.",
+     "onem": 3,
+     "bolge": "Çin"
+    },
+    {
+     "id": "efd652a2c2",
+     "kaynak": "SCMP Teknoloji",
+     "baslik": "Websites pulled offline worldwide as AI finds critical security flaws",
+     "url": "https://www.scmp.com/news/world/article/3371694/websites-go-dark-worldwide-ai-exposes-critical-security-flaws",
+     "tarih": "2026-10-21",
+     "baslik_tr": "Yapay Zekânın PHP Açıklarını Keşfetmesiyle Dünya Genelinde Web Siteleri Kapatıldı",
+     "ozet": "Yapay zekânın internet sitelerinin yaklaşık yüzde 70'inde kullanılan PHP dilinde kritik açıklar bulması üzerine dünya genelinde kurum ve şirketler sitelerini geçici olarak kapattı.",
+     "onem": 3,
      "bolge": "Küresel"
+    },
+    {
+     "id": "673a4a769b",
+     "kaynak": "SCMP Teknoloji",
+     "baslik": "China’s AI compute surge heavily reliant on US chips, offshore cloud access: report",
+     "url": "https://www.scmp.com/tech/tech-war/article/3371929/chinas-ai-compute-surge-heavily-reliant-us-chips-offshore-cloud-access-report",
+     "tarih": "2026-10-24",
+     "baslik_tr": "Çin'in Yapay Zekâ Bilişim Kapasitesi ABD Çiplerine Bağımlı Kalıyor",
+     "ozet": "Araştırmalara göre Çin'in yapay zekâ işlem gücü iki katına çıksa da kapasitenin yaklaşık yüzde 65'i ABD tasarımlı çiplerden sağlanmaya devam edecek.",
+     "onem": 2,
+     "bolge": "Çin"
     }
    ]
   }
  },
  "brifing": {
-  "giris": "Bu hafta Birleşmiş Milletler küresel salgınlara hazırlık bildirgesini kabul ederken, ABD'de yapılan bir araştırma erken gebelikte migren ilacı kullanımına dair riskleri ortaya koydu. Jeopolitik tarafta ise Çin, yerel biyofarma platformlarının yabancı şirketlere satışını engellemeye yönelik adımlarıyla öne çıktı.",
+  "giris": "Bu hafta küresel sağlık gündeminde kişiselleştirilmiş kanser aşılarının klinik deneme sonuçları ve Kongo merkezli Ebola salgınının Nijerya'ya sıçraması öne çıktı. Ayrıca Avrupa'da son 4 yılda onaylanan kanser ilaçlarının sağladığı klinik fayda düzeyine ilişkin analizler dikkat çekti.",
   "ana_basliklar": [
    {
-    "baslik": "BM Pandemiye Hazırlık Siyasi Bildirgesini Kabul Etti",
-    "aciklama": "Birleşmiş Milletler, küresel salgınlara hazırlık konusundaki siyasi bildirgeyi kabul etti. İlgili metin yalnızca 3 'hayır' oyuna karşı onaylandı. Bu karar, küresel ölçekte salgınlara hazırlık konusundaki uluslararası yaklaşımı yansıtması açısından önem taşıyor.",
+    "baslik": "Kişiselleştirilmiş Kanser Aşısı Faz 3'te Nüks Riskini Azalttı",
+    "aciklama": "Kişiselleştirilmiş mRNA aşısı intismeran, faz 3 klinik denemesinde 2 yıl içinde melanom nüksü veya ölüm riskini önemli ölçüde düşürdü. Bilim insanları, nüks riskini azaltan ilk kişiselleştirilmiş kanser aşısının elde ettiği bu klinik sonucun kişiselleştirilmiş tıp alanında bir dönüm noktası olabileceğini belirtiyor.",
     "kaynaklar": [
      {
-      "ad": "Health Policy Watch",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPS0htTjVFNjBmYjFTUU1ZQlBFcy1MNV93cXhOZ0tqNE5NVGNpcktWZW5uVVRmVHNpQVhsZGRqaGNzd1ZxUkF0bm0tTE5VZWlwS2NlcHg3MmxIQnBWREF3Sml0OHdMeHNaUnFEaXp2b0FTcWtIUW92SUZsNUc0MXZtZDJvWHBOV1d2eE14QVlocmNNVG8?oc=5"
+      "ad": "BBC Sağlık",
+      "url": "https://www.bbc.co.uk/news/articles/cq0ld9g9e913o?at_medium=RSS&at_campaign=rss"
+     },
+     {
+      "ad": "Guardian Toplum",
+      "url": "https://www.theguardian.com/society/2026/oct/23/mrna-vaccine-melanoma-cancer-breakthrough-australia"
      }
     ]
    },
    {
-    "baslik": "Migren İlaçlarının Erken Gebelikte Düşük Riskini Artırdığı Saptandı",
-    "aciklama": "ABD'de 7.100 gebe kadının geriye dönük verileri incelendi. Çalışma, erken gebelik döneminde anti-CGRP monoklonal antikorlarına maruz kalmanın spontan düşük riskini artırdığını gösterdi. Bu bulgu, gebelikte migren tedavisi yönetiminde klinik açıdan dikkat edilmesi gereken bir veri sunuyor.",
+    "baslik": "Kongo Merkezli Ebola Salgınında Nijerya İlk Vakasını Kaydetti",
+    "aciklama": "Kongo'daki merkez üssünden komşu Afrika ülkelerine yayılan Ebola salgınında Nijerya'da ilk vaka bildirildi. Yetkililer, bölgesel yayılımı denetim altına almak adına Kenya ve Nijerya'daki vakalar arasında doğrudan bir temas bulunup bulunmadığını araştırıyor.",
     "kaynaklar": [
      {
-      "ad": "MedPage Today",
-      "url": "https://www.medpagetoday.com/neurology/migraines/123443"
+      "ad": "NPR Sağlık",
+      "url": "https://www.npr.org/2026/10/23/g-s1-149515/africa-ebola-outbreak"
      }
     ]
    },
    {
-    "baslik": "Çin Biyofarma Platformlarının Yabancılara Satışını Yasaklamayı Planlıyor",
-    "aciklama": "Çin hükümeti, kritik biyofarma platformlarının yabancı şirketler tarafından satın alınmasını yasaklamaya hazırlanıyor. Bu adım, ülkenin stratejik biyofarma teknolojilerinin yabancı mülkiyetine geçmesini engellemeyi hedefliyor.",
+    "baslik": "Avrupa'da Onaylanan Kanser İlaçlarının Çoğunda Yüksek Fayda Görülmedi",
+    "aciklama": "Avrupa ilaç regülatörlerince son 4 yıllık dönemde onaylanan yeni kanser ilaçlarının çoğunun yüksek klinik fayda sağlamadığı yeni bir analizle tespit edildi. Bu çalışma, ruhsat alan yenilikçi onkoloji tedavilerinin hastalara sunduğu somut klinik yararın değerlendirilmesi açısından önem taşıyor.",
     "kaynaklar": [
      {
-      "ad": "Fierce Biotech",
-      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxOVEFNRV9lSkdZUnFpMUdmVEVjbzB1X2d2Y2VmeXZ0WVJuLWVnOUo1R2puWWJtRFc3RmNHVUI4YmVxVjhrNWZuQlFuZkl3ZWVpMkdoSndrVWs0WXBMdUZVdE5rTEZ1NHEtTmpTYXFiUTltbUx2WnZxRV9GM3Q2XzVnMVZiMzFiWmptQUxqcmxFaTRnSjR2Z05oRFRyY3NKSE9fMzcwaFBn?oc=5"
+      "ad": "STAT News",
+      "url": "https://www.statnews.com/pharmalot/2026/10/23/cancer-drugs-approved-europe-lack-high-clinical-benefit/?utm_campaign=rss"
      }
     ]
    }
