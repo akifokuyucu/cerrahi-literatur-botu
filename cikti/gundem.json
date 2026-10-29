@@ -1,56 +1,19 @@
 {
- "hafta": "15–22 Ekim 2026",
- "hazirlanma": "2026-10-22",
- "model": "gemini-3.6-flash",
+ "hafta": "22–29 Ekim 2026",
+ "hazirlanma": "2026-10-29",
+ "model": "gemini-flash-lite-latest",
  "bolumler": {
   "kilavuz": {
    "ad": "📘 Kılavuz & Kongre",
-   "aday": 60,
+   "aday": 41,
    "ogeler": [
     {
-     "kaynak": "Oncodaily",
-     "baslik": "ESMO 2026 Guideline: Key Updates in Gastric and Esophageal Cancer Management",
-     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9uemVxRkN5SEprc0xFT0FPZWRVUldLd09nN2RmelpvV0VaUVR1UjgzVmZYVjJzdVVUVldXQjRCV2FiemJDU0tJYVU0WXBCVVUwRFhOXy1pbVBCRjNfcUQtbXVDcVlLLXJnVXFFbHJYX0xSajRmRFBuQ05QVzM?oc=5",
-     "tarih": "2026-10-21",
-     "baslik_tr": "ESMO 2026 Mide ve Özofagus Kanseri Yönetimi Kılavuz Güncellemeleri",
-     "ozet": "ESMO 2026 kılavuzunda mide ve özofagus kanseri yönetimine ilişkin temel güncellemeler ve klinik öneriler yayımlandı.",
-     "ilgi": 2,
-     "benzer": 1
-    },
-    {
-     "kaynak": "Bioengineer.org",
-     "baslik": "Evidence synthesis sets 24-hour mobilization targets after laparoscopic colorectal cancer surgery",
-     "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNcDJjcDRiTHdaRjJMblZoUzZZcHJlY3R4MFhwMDJra2lWTEhhMHhRQ2huY2ZyYk5lb2x1dFNXMF9TYzY3VWZlLTcyeEJNUFdHb2xhVnE1M1VfWWFGUkIzME5Ec25EQnM5bkhoUGN3R2dPN2xqcWQ4R3Qza0pBMk5STWpDNXQwMXNZRmp1el9GQjRrT1gycnloX0NmLTdNSHVsd05USmdONUMwbE0wM2JhblhFSnBfYllOUjZSeElQaw?oc=5",
-     "tarih": "2026-10-21",
-     "baslik_tr": "Laparoskopik Kolorektal Cerrahi Sonrası 24 Saatlik Mobilizasyon Hedefleri",
-     "ozet": "Yayımlanan kanıt sentezi, laparoskopik kolorektal kanser cerrahisi uygulanan hastalarda ameliyat sonrası ilk 24 saatlik mobilizasyon hedeflerini ortaya koymaktadır.",
-     "ilgi": 1
-    },
-    {
-     "kaynak": "ThePrint",
-     "baslik": "Walking before cancer surgery can cut risk of postoperative delirium by 50%, finds study",
-     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNDFjY2lkRnF5eUM2dTNYdVZvSmNHakNqYUFOOXJTaW1XVm1HRlpPSnVoSkJTNDI2SkpJRnJWdVRPN0hVRFRNejk4XzY4LURoQVJuM2pNbmp4SkJKNnV5RzBVeUFWOHc3Q09MSUhfSE96YzJPSXdna0NqdkRZM0Y4Sm9sWUU5c0lUQXpEWE05Yk5vTU1fOVF6UlVtT3JZZmstSzVzdnBBaEp5aURfbWhrRnozaWQ3X0hIQlhScEJ3d23SAcYBQVVfeXFMTndva2RLdUNCcFAyYS1JaWFpRTMzRGF0YkVYRXZfUWxJOWVPcnhBNkxuTDVQb21kVnd2WVVBN0g3QzJ6bkNGaWRFTHRCRlpvcEF6NXJGbWtWeTluMXFlN3pZY05ZSzlQU0dPa1QyVzF2RzVSRk5uQklXOFdnMmNoYkdZUGlKcnYxOERjcFF6dTVDeTc5R0xtRTFjXzdMdmM1YzlUNDAyaV9sdEY5TVFTZi00TjZfRm5aUDZFM1JKc0hyOUdCZzFn?oc=5",
-     "tarih": "2026-10-20",
-     "baslik_tr": "Kanser Cerrahisi Öncesi Yürümenin Postoperatif Deliryuma Etkisi",
-     "ozet": "Yapılan bir çalışma, kanser cerrahisi öncesinde yürümenin postoperatif deliryum riskini %50 oranında azaltabildiğini ortaya koydu.",
-     "ilgi": 1
-    },
-    {
-     "kaynak": "The American Journal of Managed Care",
-     "baslik": "Most Bariatric Surgery Candidates Meet New Clinical Obesity Criteria",
-     "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQWmQ0N0lOdXpxUXZLek5MeThNalNGZ29zQUhLTjVMdldWYXR2SHdDWTkyUGxwRXJOVmdGMUdOcmptQjkwQ2dZY0prbTZOUTV1ZFBXWHV3S2QxcmRNMEtDdTY5R3kxNjJHYnU0ZzNPb3l6alo4YWFqZ0ppMkF0S2xpeUlvcFVmS0lGSjlZUHkzSGNIcWozTVRfa013?oc=5",
-     "tarih": "2026-10-19",
-     "baslik_tr": "Bariatrik Cerrahi Adayları Yeni Klinik Obezite Kriterlerini Karşılıyor",
-     "ozet": "Bariatrik cerrahi adayı hastaların büyük çoğunluğunun yeni tanımlanan klinik obezite kriterlerine uyduğu bildirildi.",
-     "ilgi": 1
-    },
-    {
-     "kaynak": "ESCP",
-     "baslik": "Report on ESCP 17th Regional Masterclass, Portsmouth, United Kingdom",
-     "url": "https://www.escp.eu.com/news/education/3283-report-on-escp-17th-regional-masterclass-portsmouth-united-kingdom",
-     "tarih": "",
-     "baslik_tr": "ESCP 17. Bölgesel Masterclass Raporu",
-     "ozet": "Portsmouth'ta düzenlenen 17. ESCP Bölgesel Masterclass eğitim toplantısına ilişkin sonuç raporu yayımlandı.",
+     "kaynak": "The ANSI Blog",
+     "baslik": "AORN MAN-896-2020: Laser Safety for Perioperative Nurses",
+     "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFAwWGRrZDdmZ2JpMk9EMlV3S2ZWclVodWltNDdtSG9HdGkxc1NXZ1NiLWVmUWlmRUJnel8yeUFQOGVtY2FmMlU1MVdZOGZuX3VVWWF5RWFWY3p1Z0NWbWJ6X19RRnpzM3pfaTdOZWZ4Y1AtZ9IBckFVX3lxTFAwWGRrZDdmZ2JpMk9EMlV3S2ZWclVodWltNDdtSG9HdGkxc1NXZ1NiLWVmUWlmRUJnel8yeUFQOGVtY2FmMlU1MVdZOGZuX3VVWWF5RWFWY3p1Z0NWbWJ6X19RRnpzM3pfaTdOZWZ4Y1AtZw?oc=5",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Perioperatif Hemşireler İçin AORN Lazer Güvenliği Standardı",
+     "ozet": "AORN MAN-896-2020 belgesi, perioperatif hemşireler ve ameliyathane çalışanları için lazer güvenliği kılavuz ilkelerini sunmaktadır.",
      "ilgi": 1
     }
    ]
@@ -60,248 +23,291 @@
    "aday": 60,
    "ogeler": [
     {
-     "kaynak": "healthcare-in-europe.com",
-     "baslik": "Hernia care: CE mark for non-penetrating mesh fixation - healthcare-in-europe.com",
-     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNOU1PQ1FHZ1RJNWZ3Y0RVLVE4SHN3eUh6a0lzMWFIS2pKS3FDelozX0xaNnRCY3N6V3NubWR4OHpwTFBOby1Cd0FVVUpWRFBUMDk1QVVuamw0TmttbXdjcV9wNUZqZDc5MlotS0Z3R0tHanNjV1RvNWNPQ0NnNnZkekdXNnFMVXJGRXRVanhESTU?oc=5",
-     "tarih": "2026-10-21",
-     "baslik_tr": "Fıtık Cerrahisinde Penetran Olmayan Mesh Tespiti İçin CE İşareti",
-     "ozet": "Fıtık tedavisinde kullanılan penetran olmayan mesh sabitleme teknolojisi Avrupa'da CE işareti aldı.",
+     "kaynak": "The Des Moines Register",
+     "baslik": "GI Windows Surgical Announces FDA Clearance for Gastric Anastomosis",
+     "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNVUI2SXNCTmpVQVJ3aXBTQzRyVmZfckw2TXBsREdfTnptVnZzZ01pX2JXZEFIX0lwZWloWFpCR0xSUnVlS2FvbkdSbTdVRGpUU3JZR0NZVlU5bkpXMTh6MWlKaUtwQnN4RlFIeHpHMVZaVTFBRUQ5em5mTXlZcmNkclJoMi1OYjBQLVoyMU9rYXh5X3ZHU2FjUmFKbEdNMXFSRmcxcHRyb25nQ0RyeU9SSmNiVGRVZFRMX3dmdlo2OVZ5SndLUDJTaw?oc=5",
+     "tarih": "2026-10-29",
+     "baslik_tr": "GI Windows Surgical Mide Anastomozu Cihazı İçin FDA Onayı Aldı",
+     "ozet": "GI Windows Surgical, mide anastomozu için geliştirdiği cerrahi cihazı amacıyla FDA onayını aldığını bildirdi.",
      "ilgi": 2
     },
     {
-     "kaynak": "Yahoo Finance UK",
-     "baslik": "TISSIUM® Receives CE Mark for ECLIPSIUM®, Its Atraumatic Hernia Repair Solution",
-     "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPeVB1dk1FRUR0TjVZSmtQYk5xa094eXlhMU9ZaDB6cFdBN1lJQTJBNnNZdS1SbzZKSDFYa3JucnRPWFlBNW5oQk5JNHFYa3IwaTkwTFZ4ak5YTGw4TFNvcUE1aUlFY0pCR3gtbWJIRFVSbURfc2p4MXBNbnlqSE5UdWV1U2dPSmFac09j?oc=5",
-     "tarih": "2026-10-21",
-     "baslik_tr": "TISSIUM'un Fıtık Onarım Çözümü ECLIPSIUM CE İşareti Aldı",
-     "ozet": "TISSIUM, atravmatik fıtık onarım çözümü olan ECLIPSIUM için CE işareti aldı.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "The Clinical Trial Vanguard",
-     "baslik": "FDA Clears Combined Use of Restrata Matrix With Solventum V.A.C. Therapy",
-     "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdGRHT3h0TmtsMVJzaDZLeWZhM05fT3ZEdDluM1dvektfN1FDR3lGVk1mWU1Ucnd5UVUwVUhla3RMNlFPcWRTX2tmN3doaW45Zmp0dnBUNkpBSnVtQS1oZVEzdTVSR0dCc2VxSy1UWjQycHBPMnVtMGx5ZmE4b2xXa0JpYllqUlFzTWpUek1tTURCakR6M1NmTUxha0J2ZzUyeHVNUFIyZXd4TGVHMzRwbDI3S2drdw?oc=5",
-     "tarih": "2026-10-20",
-     "baslik_tr": "Restrata Matriks ile V.A.C. Kombine Kullanımına FDA İzni",
-     "ozet": "FDA, Restrata matriksin Solventum V.A.C. tedavisiyle kombine biçimde uygulanmasına izin verdi.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "DongA Science",
-     "baslik": "[Medical Bio Board] Korea University Anam Hospital performs first cross-border remote control of Chinese surgical robot in Seoul",
-     "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE03NnVMNXB1Vk5hUEhFc1Q1ejM0ZVhjOU1UZTU5a3pTWnc2amo3Y1lOeV9nQkRNQk9keFBOTmFKRXJyTmJnQ09vVWNYWFVFYzlGdVFxZg?oc=5",
-     "tarih": "2026-10-19",
-     "baslik_tr": "Kore'de Çin Cerrahi Robotunun Sınır Ötesi Uzaktan Kontrolü Yapıldı",
-     "ozet": "Korea University Anam Hospital, Seul'den bir Çin cerrahi robotunun sınır ötesi ilk uzaktan kontrolünü gerçekleştirdi.",
-     "ilgi": 2,
-     "benzer": 1
-    },
-    {
-     "kaynak": "Oncodaily",
-     "baslik": "Matthew Kurian: FDA Clears AI Tool to Predict Breast Cancer Recurrence Risk Before Surgery",
-     "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE1GcnpjbUtVLWFBNjNyVTVCQ29VWGYxX2ZHYWQxZUVWZ1dfaWdRLWUyOFhCbEhBdC15VU9YMHlhYXl4Z3FIWkFYZlJ6Ujh6OFJCNVY1S3RXRkl2M1JPeHM3Qms4YmNQU3lOQlktTlB4NEJRN0U?oc=5",
-     "tarih": "2026-10-18",
-     "baslik_tr": "Meme Kanseri Nüksünü Ameliyat Öncesi Öngören Yapay Zekâya FDA Onayı",
-     "ozet": "FDA, meme kanseri cerrahisi öncesinde nüks riskini tahmin etmeye yarayan yapay zekâ aracını onayladı.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "Hogan Lovells Cadwalader",
-     "baslik": "FDA’s draft RASD guidance codifies years of existing review practice for general surgical robotics systems",
-     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQaXE4dE1WY2ZZV0hiNUp3dndiTUtLbGQ3cWR6T2lWU0sxUjRoQnRoWW44V0hPRmRiNUVEQmxudnlWY0NBZDVXM0pwalZ0LVdpUFpDOGZzdzUwWFp3RTJPcE41SE9EUTVtZk9XNFl1QlRlUS1ZaGVUR3Z2bFEtUjNoT3pWVG03d1hxVHVXYk5lZENJUHotQUs1SEkzamlmM2J3bzZySm04MHVLb05KOWFweTZyU1dLNTBBcXNRTm5qTHFnNWVkcEhrSFZPUmM?oc=5",
-     "tarih": "2026-10-17",
-     "baslik_tr": "FDA Genel Cerrahi Robotik Sistemleri İçin Taslak Kılavuz Yayımladı",
-     "ozet": "FDA'nın yayımladığı taslak RASD kılavuzu, genel cerrahi robotik sistemlerine yönelik mevcut inceleme standartlarını resmileştiriyor.",
-     "ilgi": 2
-    },
-    {
-     "kaynak": "Medical Device Network",
-     "baslik": "FDA approves Stryker’s Sonopet 3 surgical platform",
-     "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPS0xIMV8zak4zWWJKQkxMM21GakdKVzFjWWVER0Fqd0UyMHdURThBZ2xQWU1mVTNlN3ItbTJ0aFdIU2YxTUNKYlJyM3BqZXF0all0aGNsUXBlVk1IYnZ5eTFFbldkSVV0Q2N6YkFGMG9ZV1ZCRFNPeXB6MXJIbFl3MA?oc=5",
-     "tarih": "2026-10-15",
-     "baslik_tr": "FDA, Stryker'ın Sonopet 3 Cerrahi Platformunu Onayladı",
-     "ozet": "FDA, Stryker firmasına ait Sonopet 3 cerrahi platformuna onay verdi.",
+     "kaynak": "TimesTech",
+     "baslik": "OTTAVA Surgical Robotics Integrates Robotic Arms and Motion Control",
+     "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQLXdBRmphOEVPMkptRnl1SkNpLXN0WGg0eXpRVXNfMEZoaVJXZVlrNWVMLWVfMXlvZUY2dHVoWm1wMlkxRnJjazFoY2g4cEdjUTIyZW13LWNubG45a05NWXlIMjVsTWVRMHR1eE0tNS01Z29rMkFwdjk0NDlGOFpYdWZQNTMxMUFvX1VRbFA5X29KTnM?oc=5",
+     "tarih": "2026-10-29",
+     "baslik_tr": "OTTAVA Cerrahi Robotik Sisteminde Robotik Kollar ve Hareket Kontrolü Entegre Edildi",
+     "ozet": "OTTAVA Surgical Robotics, cerrahi sistemine robotik kolları ve hareket kontrolü teknolojisini entegre etti.",
      "ilgi": 2
     },
     {
      "kaynak": "FDA 510(k)",
-     "baslik": "stentFIX System Set (100.50n)",
-     "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K260487",
-     "tarih": "2026-10-02",
-     "baslik_tr": "Ovesco stentFIX Sistemi İçin FDA 510(k) Onayı",
-     "ozet": "Ovesco Endoscopy AG'ye ait stentFIX System Set, FDA Gastroenteroloji ve Üroloji Kurulu'ndan 510(k) onayı aldı.",
+     "baslik": "da Vinci 5 Handheld Camera Head (470080);da Vinci 5 Handheld Camera Laparoscope, 0 degree (470081);da Vinci 5 Handheld Camera Laparoscope, 30 degree (470082);da Vinci 5 Handheld Camera Tray (400526);da Vinci 5 Firefly Imaging System",
+     "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K262455",
+     "tarih": "2026-10-14",
+     "baslik_tr": "Intuitive'in da Vinci 5 Kamera Sistemine FDA Onayı",
+     "ozet": "Intuitive Surgical, da Vinci 5 el kamerası, laparoskop ve Firefly Görüntüleme Sistemi için FDA 510(k) eşdeğerlik onayını aldı.",
      "ilgi": 2
+    },
+    {
+     "kaynak": "FDA 510(k)",
+     "baslik": "Mediclose Cartridge System",
+     "url": "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K262044",
+     "tarih": "2026-10-14",
+     "baslik_tr": "Mediclose Kartuş Sistemi FDA 510(k) Onayı Aldı",
+     "ozet": "Corporis Medical tarafından geliştirilen Mediclose Kartuş Sistemi, Gastroenteroloji kurulundan FDA 510(k) eşdeğerlik kararı aldı.",
+     "ilgi": 2
+    },
+    {
+     "kaynak": "2 Minute Medicine",
+     "baslik": "FDA approves dostarlimab (Jemperli) for certain patients with locally advanced rectal cancer",
+     "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNRUNKNEJMZU5VNVBWdkNCQUp3VExaMW5YTFV5Rk5JOWhOMGtlRkkyT3ZqN3Myd250ZktXdVdtTHNoamhDXzRwZXNJZXdqcDlTbm9vSzZkNzh3QUM4NjU3ckMtb3FVazhMN1pDckxSMHZEeTVmVEpldHRmdG5XTVRHVWpaZkJGbWpBdVg2dXE3a0pJdkUwZGlucEhGQ0ZVUU1ROFdMcFY0OVRYLUk5OWdDNW01ajB0a3BjbU1YaDg2ZnU?oc=5",
+     "tarih": "2026-10-29",
+     "baslik_tr": "FDA, Lokal İleri Rektum Kanseri İçin Dostarlimab'ı Onayladı",
+     "ozet": "FDA, belirli lokal ileri rektum kanseri hastaları için dostarlimab (Jemperli) kullanımını onayladı.",
+     "ilgi": 1
+    },
+    {
+     "kaynak": "Pulse+IT News",
+     "baslik": "NZ’s first Toumai surgical robot installed at Anglesea",
+     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPdVhNYTJCV3NDVlNoTDhsMGcyU1lQeUdXMkpnZmY1ZHEtWExaSmxKd1RLRWFVb1R2TW5acVFzalhVWnRaVTlweWpGRWZGSEktS2xYTnM5XzdIUjlxUjRPVW1nc0l0Y1BhS0hycjYtNFBHamFaTWM5QnU4eTJMRzZSeDduQm5CVjVjUzM2Vzk4VlRGNzdLalNvRlY4QU85UzdFWjZVMDNkbHVDQQ?oc=5",
+     "tarih": "2026-10-29",
+     "baslik_tr": "Yeni Zelanda'nın İlk Toumai Cerrahi Robotu Anglesea'ye Kuruldu",
+     "ozet": "Yeni Zelanda'nın ilk Toumai cerrahi robotik sistemi Anglesea bünyesinde kuruldu.",
+     "ilgi": 1
+    },
+    {
+     "kaynak": "HealthLeaders Media",
+     "baslik": "Autonomous Robotic Surgery: The Future of Standardized Procedures",
+     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQUXpjSU15T3lBY0lLcTdCU1E2cmExcjBjT0t4XzZZLVFkcnhGTmtRYmROSGxVeEE4dGplbVE4WFpMczNEUHlWelExWW9IRTY5TUhVMjAzMHdaclNtMjg2TGp3T3MyX3NOdEY4UXdPam5ENGYyRHVpb2RpVWctTTFqWjJKRDk4V1gzZ0Z2Rm5acjVTQVJwLWREVEhkY1I?oc=5",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Otonom Robotik Cerrahi ve Standart Prosedürlerin Geleceği",
+     "ozet": "Haber, otonom robotik cerrahinin standart cerrahi prosedürlerin geleceğindeki rolünü ele almaktadır.",
+     "ilgi": 1
+    },
+    {
+     "kaynak": "Seoul Economic Daily",
+     "baslik": "Model Solution Teams With ROEN Surgical on Next-Generation Surgical Robot Hardware",
+     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPUnNMbzdTNlk2NlZrMUxBUFJJRUI5VGZjLXBwU2hBMlRqbkxUUmxUbUhDcUtBQXY4S215cEUzRm9xOGt0VmZ0WWZTa3ZaM19hYXJzQkY2S3ZHZXlTd0ZDUC1DTGRSV0huR0V2anZHQll1WWg5ZU5wWlN4ZUFsOXJUS1FfaU9MSFdUM0p3WXpObGNYQzhaNndTMnBoYXUyYUlDdUE?oc=5",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Model Solution ve ROEN Surgical'dan Yeni Nesil Cerrahi Robot Donanımı",
+     "ozet": "Model Solution, yeni nesil cerrahi robot donanımı geliştirmek üzere ROEN Surgical ile ortaklık kurdu.",
+     "ilgi": 1
     }
    ]
   },
   "yerli": {
    "ad": "🇹🇷 Türkiye",
-   "aday": 48,
+   "aday": 50,
    "ogeler": [
     {
-     "kaynak": "dokuz8HABER",
-     "baslik": "TTB'den MEDULA'daki hekimlere yönelik kontrol ve onay yükümlülüğüne itiraz dilekçesi",
-     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQZEFrTUNSWUJwZjRKT1JpeElLTy1aQUFNaDNYYkp2UG5lVHFFVm4teEpleWpLRFVaZTVOaWQ4VTBMMkQ5MV9IQ1dEc1MwajBCbzY1WlpxeE9mRnJoNXJHV0hCTExZVjI3cjdnbjQ5VkRGS2FveGd4UDhhMm50QjNZTjZOellIVlhsUm0zWUlnZVUybk4wWF9wNzZMelMwbDJmTTF0cHpjRDB1aGZuR21YNdIBsAFBVV95cUxQZEFrTUNSWUJwZjRKT1JpeElLTy1aQUFNaDNYYkp2UG5lVHFFVm4teEpleWpLRFVaZTVOaWQ4VTBMMkQ5MV9IQ1dEc1MwajBCbzY1WlpxeE9mRnJoNXJHV0hCTExZVjI3cjdnbjQ5VkRGS2FveGd4UDhhMm50QjNZTjZOellIVlhsUm0zWUlnZVUybk4wWF9wNzZMelMwbDJmTTF0cHpjRDB1aGZuR21YNQ?oc=5",
-     "tarih": "2026-10-21",
-     "baslik_tr": "TTB'den MEDULA Kontrol ve Onay Yükümlülüğüne İtiraz",
-     "ozet": "Türk Tabipleri Birliği, MEDULA sistemi üzerinden hekimlere getirilen kontrol ve onay yükümlülüklerine karşı resmi itiraz dilekçesi verdi.",
+     "kaynak": "Türk Tabipleri Birliği",
+     "baslik": "TTB-UDEK Çevrimiçi Toplantıları-5: “TUS ve YDUS Kontenjanları”",
+     "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5YdU5IZDhLYlRBVElUZVRUQzAzWFlyWWstQWVnVHN5ZE82WXlKZHhXYWh3M29iV0oyV0J2d3RFNDFLVkRtWFZPWE15dVBhVGs1SVFNN3RSVUx3aUNrczdJLQ?oc=5",
+     "tarih": "2026-10-26",
+     "baslik_tr": "TTB-UDEK Çevrimiçi Toplantıları: TUS ve YDUS Kontenjanları",
+     "ozet": "TTB-UDEK tarafından TUS ve YDUS kontenjanlarına ilişkin çevrimiçi bir toplantı gerçekleştirildi.",
+     "ilgi": 2
+    },
+    {
+     "kaynak": "Türk Tabipleri Birliği",
+     "baslik": "Rümeysa Berin Şen’in Ölümünün 5. Yılında: Nöbet Ertesi İzin Hakkı Eksiksiz Uygulansın!",
+     "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPNy1aWktMZGg0R2hfRFlLeWVJYlhIM0pXU05iSkxFYWRrUmJUWm1JbnY3T21ZU29TTkNPeGE0dGc5U3oxS0w5X3JBZVVJcG4xbnVDcFRBV2dSUVpjM0VrSGFfMGFHSTgzb2xPNW13OTd6TmlSWWt6RWNNSVpqOUlkVnZCcDJ2dDZuSGQ0M3NVRWY3bUNDbi14Yg?oc=5",
+     "tarih": "2026-10-26",
+     "baslik_tr": "Rümeysa Berin Şen’in 5. Yılında Nöbet Ertesi İzin Hakkı Çağrısı",
+     "ozet": "Rümeysa Berin Şen'in anma yıl dönümünde nöbet ertesi izin hakkının eksiksiz uygulanması istendi.",
      "ilgi": 2,
      "benzer": 1
     },
     {
-     "kaynak": "Habere Güven",
-     "baslik": "TTB’den SBÜ’ye “kişiye özel kadro” tepkisi: 236 kadronun 230’u profesörlük",
-     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPQW5LMkVPMnczVVphajJlcmhIaXcyYW0yQUJlUzBkZFJCLUhNMXZfZTVKb0Y2X25Ceng1amhJNHZJTUVxaGRtYjl6alQwTjlObkVjN1JlQTdXZFdCR0V2bTNaR1JxWEdtbmYxcG55VmNmeFBhaXJydjlIRVFUX291SjFPb0F3Q3VLc1h4SWNBVkY0ZzIyaFphY0JyeWE?oc=5",
-     "tarih": "2026-10-20",
-     "baslik_tr": "TTB'den SBÜ Akademik Kadro İlanlarına Tepki",
-     "ozet": "Türk Tabipleri Birliği, Sağlık Bilimleri Üniversitesi'nin açtığı 236 kadronun 230'unun profesörlük olduğunu belirterek kişiye özel kadro ilanlarına tepki gösterdi.",
-     "ilgi": 2,
-     "benzer": 1
+     "kaynak": "Medimagazin",
+     "baslik": "Başasistanlık Sınavı 1 buçuk yıldır yapılmıyordu, Sağlık Bakanlığı nedenini açıkladı",
+     "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNWVdfWlozWDRSV004UFhvQ0c2VmNzQmkwcllYSU9oQjkxR3lYLTljbXJnMEdNd2Ntc000d0dTbzRCOG0zRUhTeTFYOE00eWV0ZDRyTFJSOW81ZUNMZi1JZE00NUlNZlppb2FMQ1FwaGFXV0hnUlIwRjhSV3JkMF80a3FzV1pFa3hJdW91OEZzd3FhWVlFdzc2TWNMNFZNaEk5ZHNpd09oTS1ZaWdCMUlUN1h2UmNjTnkzS0p4NVFYNA?oc=5",
+     "tarih": "2026-10-24",
+     "baslik_tr": "Sağlık Bakanlığı'ndan Başasistanlık Sınavı açıklaması",
+     "ozet": "Sağlık Bakanlığı, bir buçuk yıldır yapılmayan Başasistanlık Sınavı'nın nedenini açıkladı.",
+     "ilgi": 2
     },
     {
-     "kaynak": "Güneydoğu Güncel",
-     "baslik": "Bismil’den Türk Cerrahi Derneği Yönetim Kurulu Adaylığına",
-     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNQmlRUmpjNnMxMDJtaS1JV1hOX05LRkpINTRMUVV0RUlBN2Z6aF9TakR1NGhwX0t4QjNJd29nU3AwWDlwaTkwQXNvUkZ5eF9QY2hVck5IZFBMMEdSODRMWXFyZEZsZnFRUERDRGFNVGpNcWp3Q0owNkZwWTBPQjhqTUlPY2ZoSWt4NW9uaTRiQUkyNDlJSmRjSVprdjg?oc=5",
-     "tarih": "2026-10-21",
-     "baslik_tr": "Türk Cerrahi Derneği Yönetim Kurulu Adaylığı",
-     "ozet": "Bismil'den Türk Cerrahi Derneği Yönetim Kurulu üyeliği için adaylık süreci duyuruldu.",
+     "kaynak": "Türk Tabipleri Birliği",
+     "baslik": "Cumhuriyet’in 103. Yılı Kutlu Olsun",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPd2Z6Y1JVaFZNdllrem9wVDlHTnRwOTlURWVpSVNGbHpyQnlIRjVPaHNPN2ktTVJPencxb0hKNHY2NkRSZ191OHljb3J2V0ZMdXpGc1FrenZyMk1lWkllaTlpTjR4NnNLUlJaSS14WEVna3IwU3VJV2NDcGxRQWpJRm5yZ0NxU3VY?oc=5",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Türk Tabipleri Birliği'nden Cumhuriyet'in 103. Yılı Kutlaması",
+     "ozet": "Türk Tabipleri Birliği Cumhuriyet'in 103. yılı vesilesiyle kutlama mesajı yayımladı.",
+     "ilgi": 1
+    },
+    {
+     "kaynak": "T24",
+     "baslik": "Hekimler eylemde: Hastalara yeterli zaman ayıramıyoruz",
+     "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPdGpWQUVSWmZwbmlqRnc3Zk53ZVdpNWM5MlZVNVRYOVVORW9GcmZlczZRSkQzQmtIRlpTTjBya0ZncGNmbEh0NV9LM3RZcC10aGdHa08zTXo1cms5QVBVNXlONHBJVTdXVFJfSGlIS2xqX201TTRfd2ZodzF1NGxUd21aM3l3T2J2ZlhxX010RXE?oc=5",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Hekimler eylemde: Hastalara yeterli zaman ayıramıyoruz",
+     "ozet": "Hekimler hastalara yeterli zaman ayıramadıkları gerekçesiyle eylem gerçekleştirdi.",
+     "ilgi": 1
+    },
+    {
+     "kaynak": "Bugün Kıbrıs",
+     "baslik": "Tabipler Birliği: “Hasta hakkı, en temel insan hakkıdır”",
+     "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPay1NQ1prNTFCVUVkb2JtWTZqaE96VkZ3YmNrNUJOekFmY3hFSU1URzNlOEtJVlJWTkRHWUtwaENYNjRKRnFHWDZxczRmNjVVSFFxVkIySmo0dlpFWURuN05BeXFCS1dtMnFPdmh1VXdpeTdDMDdWVVVlTXB6NFFPSHBZSQ?oc=5",
+     "tarih": "2026-10-27",
+     "baslik_tr": "Tabipler Birliği: Hasta hakkı, en temel insan hakkıdır",
+     "ozet": "Tabipler Birliği tarafından hasta haklarının en temel insan hakkı olduğu vurgulandı.",
+     "ilgi": 1
+    },
+    {
+     "kaynak": "Türk Tabipleri Birliği",
+     "baslik": "TTB Kadın Hekimlik ve Kadın Sağlığı Kolu Yeni Dönem Yürütme Kurulu Üyelerini Belirledi",
+     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNdldnZWtNU0R0UlZJRGpIZFluMEozYmZGMnVMSzhjNE56UlBpM1pIdTNybDYtbDBkU2FmWmtGa3VQMlRyNEdFaTNURjYyMU9ZWkl1VjIzV1ZSc3pNckJyN29scHNWVVNqeWFBV0N4TUxERFdfVUhVUFRBMDBYa0VnS1pIblVYckZpVVNzZVdueC1BMzRRc181NUlqNHctR0xLUXc?oc=5",
+     "tarih": "2026-10-27",
+     "baslik_tr": "TTB Kadın Hekimlik ve Kadın Sağlığı Kolu Yürütme Kurulu belirlendi",
+     "ozet": "Türk Tabipleri Birliği Kadın Hekimlik ve Kadın Sağlığı Kolu yeni dönem yürütme kurulu üyelerini belirledi.",
+     "ilgi": 1
+    },
+    {
+     "kaynak": "Eskişehir Yenigün Gazetesi",
+     "baslik": "Eskişehir Tabip Odası'ndan MEDULA sistemi tepkisi",
+     "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE14UFVla3lNTFl6OXNGRy1KZGp2WkVxYWZSTzhzT0hhRTdTMkVpY2d1T0hjek1TR010Z2dqYlRlcHVQVHpqc2JoQ29nMkRsMk1xODZBeXB2aEhQZWR0cTh4SW5PaU1mV0s0RXduMXZ3YkZOVDZkbEY4TldQSUhyYTQ?oc=5",
+     "tarih": "2026-10-27",
+     "baslik_tr": "Eskişehir Tabip Odası'ndan MEDULA sistemi tepkisi",
+     "ozet": "Eskişehir Tabip Odası, MEDULA sistemiyle ilgili tepkisini dile getirdi.",
      "ilgi": 1
     }
    ]
   },
   "rct": {
    "ad": "🧪 Yeni RCT'ler",
-   "aday": 29,
+   "aday": 43,
    "ogeler": [
     {
      "kaynak": "ClinicalTrials.gov",
-     "baslik": "Hasson Versus Veress Access With Umbilical Versus Epigastric Gallbladder Extraction in Laparoscopic Cholecystectomy",
-     "url": "https://clinicaltrials.gov/study/NCT07887139",
-     "tarih": "2026-10-21",
-     "baslik_tr": "Laparoskopik Kolesistektomide Giriş ve Kese Çıkarma Yöntemlerinin Karşılaştırılması",
-     "ozet": "Elektif laparoskopik kolesistektomi uygulanan 58 hastada göbekten Hasson açık giriş ve kese çıkarımı, epigastrik porttan Veress kapalı giriş ve kese çıkarımı ile karşılaştırılmaktadır.",
+     "baslik": "Impact of Intraoperative Neurotization on Sensory Recovery of the Nipple and Breast Skin in Patients Undergoing Nipple Sparing Mastectomy With Immediate Implant-Based Reconstruction: NERSENSE, Prospective Randomized Control Study",
+     "url": "https://clinicaltrials.gov/study/NCT07902661",
+     "tarih": "2026-10-29",
+     "baslik_tr": "Meme Koruyucu Mastektomide İntraoperatif Nörotizasyonun Duyusal İyileşmeye Etkisi",
+     "ozet": "Meme kanseri nedeniyle eş zamanlı implant rekonstruksiyonlu nipple-sparing mastektomi geçiren 110 hastada duyusal sinir anastomozu yapılması ile yapılmaması duyusal iyileşme açısından karşılaştırılmaktadır.",
      "ilgi": 2,
-     "nct": "NCT07887139",
-     "n": 58,
-     "ulke": "Turkey (Türkiye)",
-     "sponsor": "Sedat Tan"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Permanent Versus Slowly Dissolving Stitches for Non-Mesh (Shouldice) Groin Hernia Repair",
-     "url": "https://clinicaltrials.gov/study/NCT07883122",
-     "tarih": "2026-10-20",
-     "baslik_tr": "Shouldice İnguinal Herni Onarımında Kalıcı ve Yavaş Eriyen Sütürlerin Karşılaştırılması",
-     "ozet": "Shouldice tekniğiyle meshsiz kasık fıtığı onarımı planlanan 200 erişkin hastada yavaş eriyen PDS sütürler ile kalıcı Prolene sütürlerin nüks ve konfor sonuçları karşılaştırılmaktadır.",
-     "ilgi": 2,
-     "nct": "NCT07883122",
-     "n": 200,
-     "ulke": "United States",
-     "sponsor": "Northwestern University"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Duramesh Versus Minimally Invasive IPOM for High-Risk Umbilical Hernia Repairs",
-     "url": "https://clinicaltrials.gov/study/NCT07881354",
-     "tarih": "2026-10-19",
-     "baslik_tr": "Yüksek Riskli Umbilikal Hernilerde Duramesh ile Minimal İnvaziv IPOM Karşılaştırması",
-     "ozet": "Yüksek riskli umbilikal ve ventral hernili 160 hastada mesh sütür Duramesh ile minimal invaziv intraperitoneal onlay mesh (IPOM) onarımı karşılaştırılmaktadır.",
-     "ilgi": 2,
-     "nct": "NCT07881354",
-     "n": 160,
-     "ulke": "United States",
-     "sponsor": "Northwestern University"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Ligasure Versus Conventional Diathermy in Hemorrhoidectomy",
-     "url": "https://clinicaltrials.gov/study/NCT07878546",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Hemoroidektomide Ligasure ile Konvansiyonel Diyaterminin Karşılaştırılması",
-     "ozet": "Hemoroid tedavisi gören 40 hastada Ligasure cihazı kullanımı ile konvansiyonel diyatermi tekniği karşılaştırılmaktadır.",
-     "ilgi": 2,
-     "nct": "NCT07878546",
-     "n": 40,
-     "ulke": "Egypt",
-     "sponsor": "Sohag University"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Urinary Catheterization Versus No Catheterization in Laparoscopic Total Extraperitoneal Inguinal Hernia Repair",
-     "url": "https://clinicaltrials.gov/study/NCT07886814",
-     "tarih": "2026-10-21",
-     "baslik_tr": "Laparoskopik TEP İnguinal Herni Onarımında Rutin Üriner Kateterizasyon Karşılaştırması",
-     "ozet": "Laparoskopik TEP kasık fıtığı onarımı planlanan 100 hastada rutin üriner kateterizasyon uygulaması, kateter takılmaması yöntemiyle postoperatif semptomlar ve retansiyon riski açısından karşılaştırılmaktadır.",
-     "ilgi": 1,
-     "nct": "NCT07886814",
-     "n": 100,
-     "ulke": "Turkey (Türkiye)",
-     "sponsor": "Ugur Duman"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Driving Pressure-Guided Individualized PEEP Versus Standard PEEP: Effects on Postoperative Pulmonary Complications in Upper Abdominal Digestive Surgery",
-     "url": "https://clinicaltrials.gov/study/NCT07885124",
-     "tarih": "2026-10-21",
-     "baslik_tr": "Üst Abdominal Cerrahide Bireyselleştirilmiş PEEP Uygulamasının Akciğer Komplikasyonlarına Etkisi",
-     "ozet": "Üst abdominal sindirim sistemi cerrahisi geçiren 210 orta-yüksek riskli hastada, sürüş basıncı kılavuzluğunda bireyselleştirilmiş PEEP ile standart PEEP uygulamasının ameliyat sonrası solunum komplikasyonlarına etkisi karşılaştırılmaktadır.",
-     "ilgi": 1,
-     "nct": "NCT07885124",
-     "n": 210,
-     "ulke": "Tunisia",
-     "sponsor": "Hopital Charles Nicolle"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Reducing Wound Complications in Breast Surgery Using hACM",
-     "url": "https://clinicaltrials.gov/study/NCT07881939",
-     "tarih": "2026-10-20",
-     "baslik_tr": "Meme Cerrahisinde Yara İyileşmesi İçin hACM Uygulaması",
-     "ozet": "Rekonstrüktif veya redüksiyon meme cerrahisi geçiren 200 hastada intraoperatif dehidrate insan amnion koryon zarı (hACM) uygulamasının yara iyileşmesi ve skar gelişimine etkisi değerlendirilmektedir.",
-     "ilgi": 1,
-     "nct": "NCT07881939",
-     "n": 200,
+     "nct": "NCT07902661",
+     "n": 110,
      "ulke": "",
-     "sponsor": "Rutgers, The State University of New Jersey"
+     "sponsor": "Gangnam Severance Hospital"
     },
     {
      "kaynak": "ClinicalTrials.gov",
-     "baslik": "Stereotactic Body Radiotherapy (SBRT) Induced Pancreatic Atrophy for Prevention of Post Operative Pancreatic Fistulae (POPF) After Pancreatoduodenectomy in Very High-Risk Patients (STEREOPANC)",
-     "url": "https://clinicaltrials.gov/study/NCT07884019",
-     "tarih": "2026-10-20",
-     "baslik_tr": "Pankreatoduodenektomi Öncesi Pankreas Fistülünü Önlemede Profilaktik SBRT",
-     "ozet": "Pankreatoduodenektomi planlanan yumuşak pankreaslı ve yüksek fistül riskli 70 hastada kalan pankreasa preoperatif profilaktik SBRT uygulaması konvansiyonel tedaviyle karşılaştırılmaktadır.",
-     "ilgi": 1,
-     "nct": "NCT07884019",
-     "n": 70,
-     "ulke": "Finland",
-     "sponsor": "Oulu University Hospital"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Perioperative Biomarkers in Colorectal and Gastric Cancer Surgery",
-     "url": "https://clinicaltrials.gov/study/NCT07881133",
-     "tarih": "2026-10-19",
-     "baslik_tr": "Kolorektal ve Mide Kanseri Cerrahisinde Biyobelirteç Kılavuzluğunda Perioperatif İzlem",
-     "ozet": "Kolorektal veya mide kanseri cerrahisi planlanan 320 erişkin hastada ERAS protokolüne eklenen perioperatif biyobelirteç izlemi standart postoperatif bakımla karşılaştırılmaktadır.",
-     "ilgi": 1,
-     "nct": "NCT07881133",
-     "n": 320,
-     "ulke": "Romania",
-     "sponsor": "Bucharest Emergency Hospital"
-    },
-    {
-     "kaynak": "ClinicalTrials.gov",
-     "baslik": "Prehabilitation Before Liver Surgery in Older Adults",
-     "url": "https://clinicaltrials.gov/study/NCT07877311",
-     "tarih": "2026-10-16",
-     "baslik_tr": "Yaşlı Hastalarda Karaciğer Cerrahisi Öncesi Prehabilitasyon Programı",
-     "ozet": "Hepatektomi planlanan 500 yaşlı hastada preoperatif egzersiz ve beslenme destekli prehabilitasyon programının cerrahi komplikasyonlar ve iyileşme üzerindeki etkileri araştırılmaktadır.",
-     "ilgi": 1,
-     "nct": "NCT07877311",
+     "baslik": "T1 Colorectal Cancer After Local Excision: Decision Between Surgery and Active Surveillance (T1LDA Trial)",
+     "url": "https://clinicaltrials.gov/study/NCT07900620",
+     "tarih": "2026-10-28",
+     "baslik_tr": "T1 Kolorektal Kanserde Ek Cerrahi ve Aktif İzlem Karşılaştırması",
+     "ozet": "Lokal eksizyon sonrası yüksek riskli pT1 kolorektal kanseri olan 500 hastada ek cerrahi uygulama ile aktif izlem stratejileri karşılaştırılmaktadır.",
+     "ilgi": 2,
+     "nct": "NCT07900620",
      "n": 500,
+     "ulke": "Finland",
+     "sponsor": "Tampere University Hospital"
+    },
+    {
+     "kaynak": "ClinicalTrials.gov",
+     "baslik": "Evaluating the Efficacy and Safety of a New Laparoscopic Non-mesh Hernia Needle Set Designed for Indirect Inguinal Hernia",
+     "url": "https://clinicaltrials.gov/study/NCT07902167",
+     "tarih": "2026-10-28",
+     "baslik_tr": "İndirekt İnguinal Herni İçin Non-Mesh İğne Seti",
+     "ozet": "İndirekt inguinal hernisi olan 96 yetişkin hastada yeni laparoskopik non-mesh herni iğnesi ile konvansiyonel iğne seti karşılaştırılmaktadır.",
+     "ilgi": 2,
+     "nct": "NCT07902167",
+     "n": 96,
+     "ulke": "Taiwan",
+     "sponsor": "Chang Gung Memorial Hospital"
+    },
+    {
+     "kaynak": "ClinicalTrials.gov",
+     "baslik": "Modified Short-Course Radiotherapy Combined With Tislelizumab and CAPOX for pMMR/MSS Rectal Cancer",
+     "url": "https://clinicaltrials.gov/study/NCT07900061",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Rektal Kanserde Modifiye Radyoterapi ve İmmünoterapi",
+     "ozet": "Lokal ileri rektal kanseri olan 210 hastada nod koruyucu modifiye kısa süreli radyoterapi kombinasyonları standart tedavi ile karşılaştırılmaktadır.",
+     "ilgi": 2,
+     "nct": "NCT07900061",
+     "n": 210,
+     "ulke": "",
+     "sponsor": "Sir Run Run Shaw Hospital"
+    },
+    {
+     "kaynak": "ClinicalTrials.gov",
+     "baslik": "In-situ vs Ex-situ Liver Preservation",
+     "url": "https://clinicaltrials.gov/study/NCT07899853",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Karaciğer Transplantasyonunda İn-situ ve Ex-situ Perfüzyon",
+     "ozet": "Dolaşım ölümünden sonra bağışlanan karaciğerlerin naklinde in-situ ve ex-situ makine perfüzyon yöntemleri 752 hastada karşılaştırılmaktadır.",
+     "ilgi": 2,
+     "nct": "NCT07899853",
+     "n": 752,
+     "ulke": "Netherlands",
+     "sponsor": "Leiden University Medical Center"
+    },
+    {
+     "kaynak": "ClinicalTrials.gov",
+     "baslik": "Suture Choice for Ostomy Creation",
+     "url": "https://clinicaltrials.gov/study/NCT07900711",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Ostomi Oluşturulmasında Sütür Materyali Seçimi",
+     "ozet": "Planlanmış ostomi operasyonu geçiren 66 hastada enterostomi maturasyonunda kromik gut sütür ile poliglaktin 910 sütür materyalleri karşılaştırılmaktadır.",
+     "ilgi": 2,
+     "nct": "NCT07900711",
+     "n": 66,
+     "ulke": "United States",
+     "sponsor": "University of Southern California"
+    },
+    {
+     "kaynak": "ClinicalTrials.gov",
+     "baslik": "Comparison of the Efficacy of Different Analgesic Strategies for Pain Control After Laparoscopic Cholecystectomy (LC)",
+     "url": "https://clinicaltrials.gov/study/NCT07897435",
+     "tarih": "2026-10-27",
+     "baslik_tr": "Laparoskopik Kolesistektomi Sonrası Ağrı Kontrol Stratejileri",
+     "ozet": "Komplikasyonsuz laparoskopik kolesistektomi geçiren 200 hastada düşük pnömoperiton ve safra kesesi yatağına lokal anestezik instilasyonu gibi ağrı kontrol stratejileri karşılaştırılmaktadır.",
+     "ilgi": 2,
+     "nct": "NCT07897435",
+     "n": 200,
+     "ulke": "Egypt",
+     "sponsor": "Assiut University"
+    },
+    {
+     "kaynak": "ClinicalTrials.gov",
+     "baslik": "NeoCSR-Omics Trial: CAPOX + Serplulimab Before vs. After Short-course RT in LARC",
+     "url": "https://clinicaltrials.gov/study/NCT07898865",
+     "tarih": "2026-10-27",
+     "baslik_tr": "Lokal İleri Rektal Kanserde Kemoterapi ve Radyoterapi Zamanlaması",
+     "ozet": "Lokal ileri rektal kanserli 100 hastada neoadjuvan kemoterapinin kısa süreli radyoterapiden önce veya sonra verilmesi karşılaştırılmaktadır.",
+     "ilgi": 2,
+     "nct": "NCT07898865",
+     "n": 100,
      "ulke": "China",
-     "sponsor": "Lining Xu"
+     "sponsor": "Chongqing University Cancer Hospital"
+    },
+    {
+     "kaynak": "ClinicalTrials.gov",
+     "baslik": "FLuorescent Angiography in REduction of Anastomotic Leak in Rectal Cancer Surgery",
+     "url": "https://clinicaltrials.gov/study/NCT07899125",
+     "tarih": "2026-10-27",
+     "baslik_tr": "Rektum Kanseri Cerrahisinde Floresan Anjiyografi ile Anastomoz Kaçağının Azaltılması",
+     "ozet": "Minimal invaziv rektum kanseri cerrahisi geçiren 610 hastada, indosiyanin yeşili (ICG) floresan anjiyografi kullanımının bağırsak kan akışını değerlendirmedeki etkinliği ve anastomoz kaçağı riskini azaltıp azaltmadığı standart cerrahi perfüzyon…",
+     "ilgi": 2,
+     "nct": "NCT07899125",
+     "n": 610,
+     "ulke": "India",
+     "sponsor": "Basavatarakam Indo American Cancer Hospital & Research Institute"
+    },
+    {
+     "kaynak": "ClinicalTrials.gov",
+     "baslik": "Onlay vs. Sublay Mesh Hernioplasty for Primary Ventral Hernia",
+     "url": "https://clinicaltrials.gov/study/NCT07896278",
+     "tarih": "2026-10-26",
+     "baslik_tr": "Primer Ventral Herni Onarımında Onlay ve Sublay Mesh Karşılaştırması",
+     "ozet": "Primer ventral karın fıtığı olan 76 hastada onlay mesh hernioplasti ile sublay mesh hernioplasti cerrahi sonuçları açısından karşılaştırılmaktadır.",
+     "ilgi": 2,
+     "nct": "NCT07896278",
+     "n": 76,
+     "ulke": "Pakistan",
+     "sponsor": "Provincial Headquarter Teaching Hospital Gilgit"
     }
    ]
   }
@@ -309,13 +315,15 @@
  "hatalar": [],
  "ana_model": "gemini-flash-latest",
  "model_kullanimi": {
-  "gemini-flash-latest": 8,
-  "gemini-3.7-flash": 2,
-  "gemini-3.6-flash": 1
+  "gemini-3.6-flash": 6,
+  "gemini-3.5-flash": 1,
+  "gemini-flash-lite-latest": 5
  },
  "model_notlari": [
-  "gemini-flash-latest: yoğun",
   "gemini-flash-latest: günlük kota dolu",
-  "gemini-3.7-flash: günlük kota dolu"
+  "gemini-3.7-flash: günlük kota dolu",
+  "gemini-3.6-flash: yoğun",
+  "gemini-3.6-flash: günlük kota dolu",
+  "gemini-3.5-flash: günlük kota dolu"
  ]
 }
