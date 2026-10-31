@@ -1,76 +1,76 @@
 {
- "hafta": "17–24 Ekim 2026",
- "hazirlanma": "2026-10-24",
- "model": "gemini-flash-latest",
+ "hafta": "24–31 Ekim 2026",
+ "hazirlanma": "2026-10-31",
+ "model": "gemini-3.6-flash",
  "bolumler": {
   "saglik_politikasi": {
    "ad": "🏛️ Sağlık politikası",
    "ogeler": [
     {
-     "id": "28e30e267b",
+     "id": "8de4fcd8b0",
      "kaynak": "KFF Health News",
-     "baslik": "Medicaid at Risk for Hundreds of Thousands of Lawfully Present Immigrants",
-     "url": "https://kffhealthnews.org/medicaid/wamu-health-hub-medicaid-legal-immigrants-lose-coverage-gop-law/",
-     "tarih": "2026-10-23",
-     "baslik_tr": "Yasal Göçmenlerin Medicaid Kapsamı Kesintiler Nedeniyle Risk Altında",
-     "ozet": "Cumhuriyetçilerin bütçe yasasındaki sağlık kesintileri sebebiyle yüz binlerce yasal göçmenin kamu sağlık sigortası Medicaid kapsamından çıkarılma riski bulunuyor.",
+     "baslik": "Medicare Drug Plans Are Hiking Premiums While Trump Claims Victory on Medicine Prices",
+     "url": "https://kffhealthnews.org/medicare/medicare-drug-plans-premium-hikes-affordability-trump-cms/",
+     "tarih": "2026-10-30",
+     "baslik_tr": "ABD'de Medicare İlaç Planı Primleri 2027'de Yüzde 50 Artabilir",
+     "ozet": "Yeni bir analize göre, ABD'de bağımsız Medicare reçeteli ilaç planı kullanan milyonlarca kişinin aylık primleri 2027 yılında ortalama yüzde 50 oranında yükselecek.",
      "onem": 3,
      "bolge": "ABD"
     },
     {
-     "id": "274b664a49",
-     "kaynak": "NPR Sağlık",
-     "baslik": "Authorities investigating whether first Kenya and Nigeria Ebola cases crossed paths",
-     "url": "https://www.npr.org/2026/10/23/g-s1-149515/africa-ebola-outbreak",
-     "tarih": "2026-10-23",
-     "baslik_tr": "Kongo Merkezli Ebola Salgını Nijerya'ya Sıçradı",
-     "ozet": "Kongo'daki merkez üssünden Afrika ülkelerine yayılan mevcut Ebola salgınında Nijerya ilk vakasını kaydetti. Yetkililer Kenya ve Nijerya'daki vakalar arasında temas olup olmadığını araştırıyor.",
+     "id": "bbc846977e",
+     "kaynak": "MIT Technology Review",
+     "baslik": "Eating disorders are on the rise. GLP-1s could make things worse.",
+     "url": "https://www.technologyreview.com/2026/10/30/1147838/eating-disorders-rise-glp-1s-weight-loss-drugs/",
+     "tarih": "2026-10-30",
+     "baslik_tr": "Yeme Bozukluklarındaki Küresel Artış ve GLP-1 İlaçları Riski",
+     "ozet": "Raporlar 1990-2023 arasında anoreksiya ve bulimiya vakalarının yüzde 71 arttığını gösterirken, klinik psikologlar GLP-1 zayıflama ilaçlarının bu bozuklukları tetikleyebileceğini vurguluyor.",
      "onem": 3,
-     "bolge": "Diğer"
+     "bolge": "Küresel"
     },
     {
-     "id": "5f550bbffe",
+     "id": "29ac6d2b30",
      "kaynak": "STAT News",
-     "baslik": "STAT+: Most cancer drugs approved by European regulators lack a high clinical benefit, analysis finds",
-     "url": "https://www.statnews.com/pharmalot/2026/10/23/cancer-drugs-approved-europe-lack-high-clinical-benefit/?utm_campaign=rss",
-     "tarih": "2026-10-23",
-     "baslik_tr": "Avrupada Onaylanan Kanser Ilaclarının Cogunda Yuksek Klinik Fayda Yok",
-     "ozet": "Yeni bir analiz, Avrupa ilac regulatorlerince son dort yıllık donemde onaylanan yeni kanser ilaclarının cogunun yuksek klinik fayda saglamadıgını ortaya koydu.",
+     "baslik": "STAT+: FDA, CMS scramble to avoid regulatory logjam as more states look to test AI in clinical settings",
+     "url": "https://www.statnews.com/2026/10/30/fda-cms-health-ai-regulation-state-sandboxes-run-into-federal-rules/?utm_campaign=rss",
+     "tarih": "2026-10-30",
+     "baslik_tr": "ABD Düzenleyici Kurumları Klinikte Yapay Zekâ Kullanımı İçin Harekete Geçti",
+     "ozet": "Eyaletlerin klinik ortamda yapay zekâyı test etme girişimleri artarken FDA ve CMS düzenleyici tıkanıklıkları önlemek için çalışma yürütüyor.",
      "onem": 3,
-     "bolge": "Avrupa"
+     "bolge": "ABD"
     },
     {
-     "id": "2af34a88de",
+     "id": "fb167949f8",
      "kaynak": "Guardian Toplum",
-     "baslik": "India slashes cost of cancer drugs after court rules mark-ups are ‘extortion’",
-     "url": "https://www.theguardian.com/global-development/2026/oct/23/india-cuts-cost-cancer-drugs",
-     "tarih": "2026-10-23",
-     "baslik_tr": "Hindistan Yüksek Mahkeme Kararıyla 137 Kanser İlacının Fiyatını Düşürüyor",
-     "ozet": "Hindistan hükümeti, bir hastanın açtığı dava sonrası 137 kanser ilacına tavan fiyat getirdi. Karar, yüksek ilaç maliyetleri yüzünden borçlanan ve tedaviye erişemeyen yoksul hastaları korumayı amaçlıyor.",
+     "baslik": "FDA again bypasses advisers to remove black-box warnings from menopause treatments",
+     "url": "https://www.theguardian.com/us-news/2026/oct/30/fda-remove-warnings-menopause-treatments",
+     "tarih": "2026-10-30",
+     "baslik_tr": "FDA Menopoz Tedavilerindeki Kara Kutu Uyarılarını Kaldırmaya Devam Ediyor",
+     "ozet": "ABD FDA, danışma komitesine başvurmadan üç östrojen bandının üzerindeki kalp hastalığı, meme kanseri ve demans uyarılarını kaldırdı.",
      "onem": 3,
-     "bolge": "Diğer"
+     "bolge": "ABD"
     },
     {
-     "id": "a4567f47f9",
-     "kaynak": "Guardian Toplum",
-     "baslik": "Heat killed ‘staggering’ 50,000 people in Europe’s cities this summer, scientists warn",
-     "url": "https://www.theguardian.com/environment/2026/oct/23/heat-killed-staggering-50000-people-european-cities-this-summer-experts",
-     "tarih": "2026-10-23",
-     "baslik_tr": "Araştırma: Avrupa Şehirlerinde Aşırı Sıcaklar Bu Yaz 50 Bin Kişiyi Öldürdü",
-     "ozet": "Yeni bir çalışma, bu yaz Avrupa kentlerinde rekor kıran aşırı sıcaklıkların 50.000 kişinin ölümüne yol açtığını ve ölümlerin üçte ikisinden iklim krizinin sorumlu olduğunu ortaya koydu.",
+     "id": "b65fa7a1b6",
+     "kaynak": "STAT News",
+     "baslik": "STAT+: New federal rule will require prescription drug middlemen to share secret payments data",
+     "url": "https://www.statnews.com/2026/10/29/prescription-drug-price-reform-pbm-disclosure-rules-face-challenge/?utm_campaign=rss",
+     "tarih": "2026-10-29",
+     "baslik_tr": "ABD'de eczane hizmet yöneticilerine gizli ödeme verilerini açıklama zorunluluğu",
+     "ozet": "Trump yönetiminin yeni kuralı, eczane hizmet yöneticilerini gizli tutulan ücret ve tazminat ayrıntılarını açıklamaya zorlayacak.",
      "onem": 3,
-     "bolge": "Avrupa"
+     "bolge": "ABD"
     },
     {
-     "id": "d5bd488729",
-     "kaynak": "SCMP Çin",
-     "baslik": "How competition between Chinese and Indian firms could reshape Africa’s drug markets",
-     "url": "https://www.scmp.com/news/china/diplomacy/article/3371997/how-competition-between-chinese-and-indian-firms-could-reshape-africas-drug-markets",
-     "tarih": "2026-10-24",
-     "baslik_tr": "Cin Afrika Sıtma Ilacı Pazarında Hindistanın Liderligini Zorluyor",
-     "ozet": "Yeni bir arastırmaya gore Cin, Afrika genelinde sıtma ilacı ihracatında Hindistan ile olan farkı neredeyse kapattı. Bu durum kıtadaki ilac tedarik dengelerini ve pazar paylarını dogrudan etkiliyor.",
-     "onem": 2,
-     "bolge": "Diğer"
+     "id": "cdce9b3b3e",
+     "kaynak": "MedPage Today",
+     "baslik": "CDC Says These Superbugs Kill 50,000 Americans Per Year",
+     "url": "https://www.medpagetoday.com/infectiousdisease/generalinfectiousdisease/123650",
+     "tarih": "2026-10-29",
+     "baslik_tr": "CDC güncellenmiş ilaç dirençli patojenler listesini açıkladı",
+     "ozet": "CDC'nin 2026 listesinde Candida auris ve diğer dirençli patojenler öne çıkarken, bu mikropların ABD'de yılda 50 bin kişiyi öldürdüğü belirtildi.",
+     "onem": 3,
+     "bolge": "ABD"
     }
    ]
   },
@@ -78,71 +78,70 @@
    "ad": "🧬 Tıp teknolojisi & AI",
    "ogeler": [
     {
-     "id": "784f7f9317",
-     "kaynak": "BBC Sağlık",
-     "baslik": "First personalised cancer vaccine cuts risk of disease returning in major trial",
-     "url": "https://www.bbc.co.uk/news/articles/cq0ld9g9e913o?at_medium=RSS&at_campaign=rss",
-     "tarih": "2026-10-23",
-     "baslik_tr": "İlk Kişiselleştirilmiş Kanser Aşısı Nüks Riskini Azalttı",
-     "ozet": "Kapsamlı bir klinik araştırmada, ilk kişiselleştirilmiş kanser aşısının hastalığın nüksetme riskini azalttığı tespit edildi; bilim insanları sonucun kişiselleştirilmiş tıpta bir dönüm noktası olabileceğini belirtiyor.",
-     "onem": 3,
-     "bolge": "Küresel",
-     "benzer": 4
-    },
-    {
-     "id": "540bc97bc5",
-     "kaynak": "STAT News",
-     "baslik": "STAT+: Novartis multiple sclerosis treatment cuts rates of relapse in pivotal trials",
-     "url": "https://www.statnews.com/2026/10/23/novartis-remibrutinib-multiple-sclerosis-trial-results/?utm_campaign=rss",
-     "tarih": "2026-10-23",
-     "baslik_tr": "Novartis'in Yeni Multipl Skleroz Tedavisi Atak Oranlarını Üçte Bir Azalttı",
-     "ozet": "Novartis'in geliştirdiği multipl skleroz ilacı, kritik klinik çalışmalarda standart tedaviye kıyasla nüks oranlarını üçte bir oranında düşürdü.",
-     "onem": 3,
-     "bolge": "Küresel"
-    },
-    {
-     "id": "74b0ae05a4",
-     "kaynak": "Guardian Toplum",
-     "baslik": "‘Bespoke’ mRNA vaccine significantly reduces risk of melanoma recurrence or death, clinical trial shows",
-     "url": "https://www.theguardian.com/society/2026/oct/23/mrna-vaccine-melanoma-cancer-breakthrough-australia",
-     "tarih": "2026-10-23",
-     "baslik_tr": "Kişiye Özel mRNA Aşısı Faz 3'te Melanom Nüksünü Azalttı",
-     "ozet": "Kişiselleştirilmiş mRNA aşısı intismeran, faz 3 klinik denemesinde iki yıl içinde melanomun tekrarlama veya ölüm riskini önemli ölçüde düşürdü.",
-     "onem": 3,
-     "bolge": "Küresel"
-    },
-    {
-     "id": "774eb0c224",
+     "id": "44118f70c7",
      "kaynak": "SCMP Teknoloji",
-     "baslik": "China moves to set global standards for brain-computer interface technology",
-     "url": "https://www.scmp.com/business/china-business/article/3371742/china-moves-set-global-standards-brain-computer-interface-technology",
-     "tarih": "2026-10-22",
-     "baslik_tr": "Çin Beyin-Bilgisayar Arayüzlerinde Küresel Standartları Belirlemeye Öncülük Ediyor",
-     "ozet": "Çin, beyin-bilgisayar arayüzü teknolojilerinde küresel standartları oluşturacak uluslararası alt komitenin sekreteryasını üstlenerek bu alanı ulusal kalkınma önceliği yaptı.",
-     "onem": 3,
+     "baslik": "China joins global race to reawaken brain-injury patients through ultrasound therapy",
+     "url": "https://www.scmp.com/tech/tech-trends/article/3372779/china-joins-global-race-reawaken-brain-injury-patients-through-ultrasound-therapy",
+     "tarih": "2026-10-31",
+     "baslik_tr": "Çin'de odaklanmış ultrason terapisi beyin hasarlı hastaları uyandırmak için deneniyor",
+     "ozet": "Çin'deki klinik denemelerde odaklanmış ultrason dalgaları kullanılarak komadaki hastaların beyin bölgeleri uyarılıyor. Teknoloji ile bir hastanın yeniden konuşup yürüyebildiği bildirildi.",
+     "onem": 2,
      "bolge": "Çin"
     },
     {
-     "id": "875bfd88d0",
-     "kaynak": "BBC Teknoloji",
-     "baslik": "UK to invest £100m in 'world first' AI Biosecurity Lab",
-     "url": "https://www.bbc.co.uk/news/articles/cqdjv8xllvyyo?at_medium=RSS&at_campaign=rss",
-     "tarih": "2026-10-24",
-     "baslik_tr": "İngiltere'den 100 Milyon Sterlinlik Yapay Zekâ Biyogüvenlik Laboratuvarı",
-     "ozet": "İngiltere Maliye Bakanı, ülkenin biyogüvenlik savunmasını yapay zekâ ile güçlendirmeyi amaçlayan 100 milyon sterlinlik harcama planını açıklayacak.",
-     "onem": 2,
-     "bolge": "Avrupa"
-    },
-    {
-     "id": "47c30142b9",
+     "id": "b3dca8b2e1",
      "kaynak": "MedPage Today",
-     "baslik": "Endovascular Therapy Eyed for Milder Strokes, Later Time Window",
-     "url": "https://www.medpagetoday.com/cardiology/strokes/123562",
-     "tarih": "2026-10-23",
-     "baslik_tr": "Çin'deki Çalışmalar Hafif ve Geç İnmede Endovasküler Tedaviyi İnceledi",
-     "ozet": "Çin'deki iki çok merkezli açık etiketli çalışma, hafif ve geç başvuran büyük damar tıkanıklığı inmelerinde endovasküler tedavinin etkisini değerlendirdi.",
+     "baslik": "Does ChatGPT Measure Up to Doctors When It Comes to Questions About IVF?",
+     "url": "https://www.medpagetoday.com/meetingcoverage/asrm/123668",
+     "tarih": "2026-10-30",
+     "baslik_tr": "ChatGPT'nin Tüp Bebek Sorularına Yanıtları Doğru Ancak Kapsamsız Bulundu",
+     "ozet": "Analiz sonuçlarına göre ChatGPT'nin yardımcı üreme tekniklerine dair hasta sorularına verdiği yanıtlar genel olarak doğru bulunurken uzmanlık derneklerinin rehberlerine kıyasla daha eksik kaldı.",
      "onem": 2,
-     "bolge": "Çin"
+     "bolge": "ABD"
+    },
+    {
+     "id": "18a497a3b1",
+     "kaynak": "MedPage Today",
+     "baslik": "Extra Genetic Testing in Young IVF Patients Cut Costs but Came With a Downside",
+     "url": "https://www.medpagetoday.com/meetingcoverage/asrm/123665",
+     "tarih": "2026-10-30",
+     "baslik_tr": "Genç Tüp Bebek Hastalarında Kapsamlı Genetik Test Maliyeti ve Doğum Oranı",
+     "ozet": "Genç tüp bebek hastalarında tek gen testi yerine kapsamlı genetik test eklenmesinin maliyeti düşürdüğü ancak kümülatif canlı doğum oranlarını azaltabileceği belirlendi.",
+     "onem": 2,
+     "bolge": "ABD"
+    },
+    {
+     "id": "82f3078b95",
+     "kaynak": "Longevity.Technology",
+     "baslik": "FDA clears NeuroXT’s AI tool that sizes up Alzheimer’s risk",
+     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOUmVzaUFQb0ZPM0VSQWswdGg4NGdvWGFYTzV1MW51NmYyVUFLbEV5S0ZqSW1xLWd4Nmp2ajhsWFdtRi1tTVRKS3ZiZ3pqd1NqMkJlNkFKbEVrR1B3UmtMUElyNEJQOXBsdjB2OERUOHpfSUNQVDg1dFZ2bjRCU1V0X0JNYllhNGF1eC11LXNIMHBWV0Jhal9n?oc=5",
+     "tarih": "2026-10-30",
+     "baslik_tr": "FDA NeuroXT'nin Alzheimer Riskini Ölçen Yapay Zekâ Aracını Onayladı",
+     "ozet": "FDA, NeuroXT şirketinin geliştirdiği ve Alzheimer riskini değerlendiren yapay zekâ aracına onay verdi.",
+     "onem": 2,
+     "bolge": "ABD"
+    },
+    {
+     "id": "3fdcd41a67",
+     "kaynak": "MedPage Today",
+     "baslik": "Novel Sarcoidosis Drug Fails to Improve Steroid Dose Reduction",
+     "url": "https://www.medpagetoday.com/pulmonology/generalpulmonary/123653",
+     "tarih": "2026-10-30",
+     "baslik_tr": "Yeni Sarkoidoz İlacı Efzofitimod Faz 3 Çalışmasında Başarısız Oldu",
+     "ozet": "Akciğer sarkoidozunda steroid kullanımını azaltmayı hedefleyen efzofitimod, faz 3 klinik çalışmasında plaseboya kıyasla üstünlük gösteremedi.",
+     "onem": 2,
+     "bolge": "Küresel"
+    },
+    {
+     "id": "84f01e7f5c",
+     "kaynak": "Healthcare Dive",
+     "baslik": "Popular AI models get medication doses wrong, some dangerously: Doximity",
+     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNRU1XM1FKMzF0bGc0R0NuSTZ0WTVkdE5SamFmcE5SWDVRLVcwWkRnS0FQMHYxTzRCbnhOR1E3aXVKcTdYeFlEYXlOckRuTXRDY3JkcldKU2VZZHI4SEFoWm56MUNWNTlpS1BuRl9jS01vVEpwc01Pcm02SjI0NEgzU2UtY0xxUXB3dXM0QWdTUEtuMjYxWDVuc00tMUdncGVzbW9MZ1AwSGJGaElPQUhLcG5IYVE?oc=5",
+     "tarih": "2026-10-29",
+     "baslik_tr": "Popüler Yapay Zekâ Modelleri İlaç Dozlarında Tehlikeli Hatalar Yapıyor",
+     "ozet": "Doximity raporuna göre popüler yapay zekâ modelleri ilaç dozajlarını yanlış hesaplıyor ve bazı durumlarda bu durum tehlikeli boyutlara ulaşıyor.",
+     "onem": 2,
+     "bolge": "ABD"
     }
    ]
   },
@@ -150,70 +149,71 @@
    "ad": "👥 Toplum & sosyoloji",
    "ogeler": [
     {
-     "id": "eaafd69662",
-     "kaynak": "Reuters",
-     "baslik": "China aims to stabilise number of new births with policy support",
-     "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPOUJTVkFzaUotelhrVGt6NnVKd2owWXRGQW9aLTB1SlVPNC1RRmZKRDYydW5YcWVOX2VjR043SHRrTGl5UGU3eU12U2FpVGt1QTJqZ2k3c19SUVVWd1RkNDEzTVYzbmo5aU1fUUoyT1JpU0VfZXJpcDJCMjZ6ZFYwb0NvNU02dG5acmdkTVdobVV0eTMzcWF3cGVKLUF3b0ExVlE1WHdfYmhCbkRfTUJMT0ZnVTh4VE5WcnVYME1ZVlZ4Q253WlUycWdn?oc=5",
-     "tarih": "2026-10-23",
-     "baslik_tr": "Çin Doğum Sayısını Politik Desteklerle Dengelemeyi Hedefliyor",
-     "ozet": "Çin yönetimi, demografik düşüşe karşı politika destekleriyle yeni doğan bebek sayısını belirli bir düzeyde sabitlemeyi hedefliyor.",
-     "onem": 2,
+     "id": "832950e693",
+     "kaynak": "Fortune",
+     "baslik": "China's elderly now outnumber children for the first time as pension costs mount",
+     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9XN0d5TXVPOWM0bmFmNGRIMnhmRk1TczJQNzU4S3c5U29tR2s5dVJaakZzNHY3TlFZekdQcEp0d3g5WWptNDJTd244SUZzUXhlU2hPTHgzMXIxWVdNOUhabDQ4bFhvS3lpd3hoZkUyMA?oc=5",
+     "tarih": "2026-10-29",
+     "baslik_tr": "Çin'de Yaşlı Nüfus İlk Kez Çocuk Sayısını Aştı",
+     "ozet": "Emeklilik sistemi maliyetlerinin arttığı Çin'de, yaşlı bireylerin sayısının ilk kez resmi olarak çocuk nüfusunun üzerine çıktığı bildirildi.",
+     "onem": 3,
+     "bolge": "Çin",
+     "benzer": 2
+    },
+    {
+     "id": "521496eedd",
+     "kaynak": "Global Times",
+     "baslik": "China's old-age dependency ratio exceeds child dependency ratio for first time in 2025; expert sees challenges, silver economy opportunities",
+     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1zVUd2dmo5Z20xa1BNQmpsUWVPN3R2a3BlUm96VEp4ZU5qUVkxZjgybVU2RXBDZ29fNkFCTEJ1bGFTTmlzNVJ4djRuRmVDWEwxaEhoT1RVZWx5QUlneXdHSmx3?oc=5",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Çin'de Yaşlı Bağımlılık Oranı İlk Kez Çocuk Bağımlılık Oranını Geçti",
+     "ozet": "Çin'de 2025 yılında yaşlı bağımlılık oranı ilk kez çocuk bağımlılık oranını geride bıraktı. Bu durum ülke için hem zorluklar hem de gümüş ekonomi fırsatları doğuruyor.",
+     "onem": 3,
      "bolge": "Çin"
     },
     {
-     "id": "f74ca69da0",
-     "kaynak": "Guardian Toplum",
-     "baslik": "Online safety laws have failed to protect children in UK, Ofcom admits",
-     "url": "https://www.theguardian.com/society/2026/oct/23/uk-children-just-as-likely-to-have-suffered-harm-on-social-media-despite-crackdown-ofcom-online-safety-act",
-     "tarih": "2026-10-23",
-     "baslik_tr": "İngiltere'de Çevrim İçi Güvenlik Yasası Çocukları Korumakta Yetersiz Kaldı",
-     "ozet": "İngiltere'nin iletişim denetleme kurumu Ofcom, sosyal medya platformlarına yönelik sıkı düzenlemelerin uygulandığı ilk dokuz ayda çocukların zararlı içeriklere maruz kalma oranının neredeyse hiç değişmediğini bildirdi.",
+     "id": "150aaed2a7",
+     "kaynak": "NPR Sağlık",
+     "baslik": "Nearly 2 out of 3 teens and tweens use AI chatbots, new research shows",
+     "url": "https://www.npr.org/2026/10/30/nx-s1-6022278/ai-artificial-intelligence-teens-jed-common-sense-media",
+     "tarih": "2026-10-30",
+     "baslik_tr": "Gençlerin Üçte İkisine Yakını Yapay Zekâ Sohbet Botlarını Kullanıyor",
+     "ozet": "Yeni bir araştırmaya göre gençler ödev yardımı, stres, yalnızlık ve kaygı anlarında sohbet botlarına başvuruyor; kullanım biçimi ruh sağlığıyla ilişkili bulunuyor.",
      "onem": 2,
-     "bolge": "Avrupa"
+     "bolge": "Küresel"
     },
     {
-     "id": "a86a51f086",
-     "kaynak": "Guardian Toplum",
-     "baslik": "Boom in weight-loss drugs could lead to fall in beer sales, Heineken warns UK pubs",
-     "url": "https://www.theguardian.com/business/2026/oct/23/weight-loss-drugs-beer-sales-heineken-british-pubs-wegovy",
-     "tarih": "2026-10-23",
-     "baslik_tr": "GLP-1 Zayıflama İlaçları Bira Tüketimini ve Satışlarını Azaltabilir",
-     "ozet": "Heineken, Ozempic ve Wegovy gibi kilo verme ilaçlarının alkol içme isteğini azaltarak pub ve barlarda bira satışlarının düşmesine yol açabileceği uyarısında bulundu.",
+     "id": "7041e80d06",
+     "kaynak": "STAT News",
+     "baslik": "The persisting paradox of men’s health",
+     "url": "https://www.statnews.com/2026/10/30/health-news-the-paradox-of-men-health/?utm_campaign=rss",
+     "tarih": "2026-10-30",
+     "baslik_tr": "The Lancet erkek sağlığında yaşanan çelişkili durumları inceleyen bir seri yayımladı",
+     "ozet": "The Lancet'teki yeni yazı dizisi, erkeklerin toplumsal avantajlarına rağmen kadınlardan daha kötü sağlık sonuçları yaşamasının nedenlerini inceliyor.",
      "onem": 2,
-     "bolge": "Avrupa"
+     "bolge": "Küresel"
     },
     {
-     "id": "d93b4fe89e",
-     "kaynak": "Guardian Toplum",
-     "baslik": "Liechtenstein prince’s ‘surreal’ abortion veto dismays campaigners",
-     "url": "https://www.theguardian.com/world/2026/oct/23/liechtenstein-princes-surreal-abortion-veto-dismays-campaigners",
-     "tarih": "2026-10-23",
-     "baslik_tr": "Lihtenştayn Prensi Kürtaj Yasasını Veto Etti",
-     "ozet": "Lihtenştayn Prensi Alois, parlamentonun ve halk girişiminin onayladığı kürtaj serbestisi tasarısını saltanatında ilk kez veto hakkını kullanarak engelledi.",
-     "onem": 2,
-     "bolge": "Avrupa"
-    },
-    {
-     "id": "ccf29576ea",
-     "kaynak": "Guardian Toplum",
-     "baslik": "The Guardian view on England's north-south divide: Burnham must deliver more than devolution | Editorial",
-     "url": "https://www.theguardian.com/commentisfree/2026/oct/22/the-guardian-view-on-englands-north-south-divide-burnham-must-deliver-more-than-devolution",
-     "tarih": "2026-10-22",
-     "baslik_tr": "Lancet Çalışması İngiltere'deki Kuzey-Güney Ölüm Oranı Farkının Arttığını Gösterdi",
-     "ozet": "Lancet'te yayımlanan çalışmaya göre İngiltere'nin kuzeyinde 25-49 yaş arası yetişkinlerin ölüm oranı güneye kıyasla 1981'de yüzde 13 daha yüksekken, bu fark 2024'te yüzde 42'ye çıktı.",
-     "onem": 2,
-     "bolge": "Avrupa"
-    },
-    {
-     "id": "e28037d5cf",
-     "kaynak": "BBC Teknoloji",
-     "baslik": "Trump's green card curbs test Indian tech workers' American dream",
-     "url": "https://www.bbc.co.uk/news/articles/cqj34j7dk771o?at_medium=RSS&at_campaign=rss",
-     "tarih": "2026-10-21",
-     "baslik_tr": "ABD'deki Yeşil Kart Kısıtlamaları Hintli Teknoloji Çalışanlarını Zorluyor",
-     "ozet": "ABD'nin göçmen kısıtlamaları ve teknoloji şirketlerinin yabancı çalışan istihdamını azaltması, kalıcı oturum izni bekleyen Hintli profesyonelleri olumsuz etkiliyor.",
+     "id": "5de7ef7176",
+     "kaynak": "MedPage Today",
+     "baslik": "Lonely Cancer Deaths; 'Silence Was Deafening'; Mental Health and Cancer Mortality",
+     "url": "https://www.medpagetoday.com/hematologyoncology/othercancers/123661",
+     "tarih": "2026-10-30",
+     "baslik_tr": "Yalnız yaşayan kanser hastalarında ölüm oranının daha yüksek olduğu açıklandı",
+     "ozet": "Yalnız yaşayan kişilerin kanser ve diğer hastalıklardan ölüm oranının belirgin şekilde yüksek olduğu tespit edildi.",
      "onem": 2,
      "bolge": "ABD"
+    },
+    {
+     "id": "b77fb51d8d",
+     "kaynak": "The Business Standard",
+     "baslik": "How will China's aging population affect its economy?",
+     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPcFVDLVZ4YUpJVWFOMF9UTzhPR2dKNTB1SklTM1FhOWxucnJLT25qUDVyN09FUWxzVEJMdEFFelZmUHpKWkZwSEhSclV4c1drX2pzQW5hR212UU9HWmdrdEZxSXl0S1ZQUzlYYVZxM05BZGZISlB6NExxNXlEU2ZzM0ctR1d0eWVFLUJiRzRtU3FITERpMWZCOUJFeFN1QQ?oc=5",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Çin'in Yaşlanan Nüfusunun Ekonomi Üzerindeki Etkileri",
+     "ozet": "Çin'in hızla yaşlanan nüfus yapısının ülke ekonomisi üzerindeki olası etkileri değerlendiriliyor.",
+     "onem": 2,
+     "bolge": "Çin"
     }
    ]
   },
@@ -221,70 +221,68 @@
    "ad": "🌐 Teknoloji & jeopolitik",
    "ogeler": [
     {
-     "id": "5a51b20958",
-     "kaynak": "AP News",
-     "baslik": "US Treasury proposes a rule to crack down on high-tech investments in China, other adversaries",
-     "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPSE5iNkpiZ2FiYnczNGJ4Z1NXUzQ2WU1OaVhXbjlRaXpHVy1HMHg5S1Q0dFgwS1Y3ajJIV1V4UjBIcWxodTMtZmJtbzZqVWZ1bVdVWEpicmI3dktxdzdfOTZkQW94bWVvR19tR01OZ3QyOFZiNGRrN0I4TFdVLWZNNWZkZk4zYzI5bk8ycjI5SExjdlVFUDNsMVJLQks?oc=5",
-     "tarih": "2026-10-23",
-     "baslik_tr": "ABD Hazine Bakanlığı Çin'e Yüksek Teknoloji Yatırımlarını Kısıtlıyor",
-     "ozet": "ABD Hazine Bakanlığı, Çin ve diğer hasım ülkelere yönelik yüksek teknoloji yatırımlarına kısıtlama ve denetim getiren yeni bir kural teklifinde bulundu.",
-     "onem": 3,
-     "bolge": "ABD",
-     "benzer": 1
-    },
-    {
-     "id": "ac2e8838c3",
-     "kaynak": "SCMP Teknoloji",
-     "baslik": "DeepSeek, MiniMax secure open-source licences days after new China export rules: state media",
-     "url": "https://www.scmp.com/tech/policy/article/3371880/deepseek-minimax-secure-open-source-licenses-days-after-new-china-export-rules-state-media",
-     "tarih": "2026-10-23",
-     "baslik_tr": "DeepSeek ve MiniMax Çin'in Yeni İhracat Kurallarına Rağmen Lisans Aldı",
-     "ozet": "Çinli yapay zekâ geliştiricileri DeepSeek ve MiniMax, Pekin'in teknoloji transferi denetimlerini sıkılaştırmasının ardından ihracat kayıtlarını tamamlayarak açık kaynak lisanslamaya devam etme onayı aldı.",
+     "id": "f32136ad1a",
+     "kaynak": "Reuters",
+     "baslik": "China's new export curbs draw a line around its AI crown jewels",
+     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNaEpIM3FfOEVIU0g3dkIzdlhrWnVpRHNhd3BaQS1XZ0liaXgydVhrTDZ3Z3piOTUyYVlBNFZXdTVPenctR01Hb0RuZEtvNVZObkFHRE9Pb0dkTURvamlKanJVQm1hX2k5cERiSnpQbmRsaTJSS2VZY0NEaEpGanlxODFiR1IxbFozM0p4a3Y0Sl9NdFFMd1Zrd05lQlQyaS1ZYlJqQURvYXpxNVFzSEJUd3JKZ1lGbWtGSDNqaWhR?oc=5",
+     "tarih": "2026-10-28",
+     "baslik_tr": "Çin kritik yapay zeka teknolojilerine yeni ihracat kısıtlamaları getirdi",
+     "ozet": "Çin hükümeti önde gelen yapay zeka teknolojilerini korumak amacıyla kapsamlı yeni ihracat kısıtlamaları yürürlüğe koydu.",
      "onem": 3,
      "bolge": "Çin"
     },
     {
-     "id": "b47cd8fb68",
-     "kaynak": "STAT News",
-     "baslik": "STAT+: Treasury proposes major restrictions to U.S. investment in Chinese biotech sector",
-     "url": "https://www.statnews.com/2026/10/23/new-china-biotech-limits-coins-act-proposal-us-pharma-reaction/?utm_campaign=rss",
-     "tarih": "2026-10-23",
-     "baslik_tr": "ABD'den Çin Biyoteknoloji Sektörüne Yatırım Kısıtlaması Teklifi",
-     "ozet": "ABD Hazine Bakanlığı'nın yeni teklifi, Çinli biyoteknoloji şirketlerine ABD yatırımlarını kısıtlarken lisans anlaşmalarına izin vermeyi sürdürüyor.",
-     "onem": 3,
-     "bolge": "ABD",
-     "benzer": 2
-    },
-    {
-     "id": "bd6a23f494",
-     "kaynak": "SCMP Teknoloji",
-     "baslik": "‘Jensen’s nightmare’: Huawei, DeepSeek narrow AI chip ecosystem gap with Nvidia: report",
-     "url": "https://www.scmp.com/tech/tech-war/article/3371806/jensens-nightmare-huawei-deepseek-narrow-ai-chip-ecosystem-gap-nvidia-report",
-     "tarih": "2026-10-22",
-     "baslik_tr": "Huawei ve DeepSeek Nvidia ile Yapay Zekâ Çip Farkını Kapatıyor",
-     "ozet": "DeepSeek ile iş birliği yapan Huawei, Ascend 950PR çipleri ve yazılım geliştirmeleri sayesinde donanım-yazılım ekosisteminde ABD ile farkı kapatıyor.",
-     "onem": 3,
+     "id": "a9264d2e39",
+     "kaynak": "SCMP Çin",
+     "baslik": "AI could turn China’s social credit system into surveillance tool: government-funded study",
+     "url": "https://www.scmp.com/news/china/science/article/3372510/ai-could-turn-chinas-social-credit-system-surveillance-tool-government-funded-study",
+     "tarih": "2026-10-31",
+     "baslik_tr": "Çin'de Yapay Zekânın Sosyal Kredi Sistemini Gözetim Aracına Dönüştürme Riski",
+     "ozet": "Hükümet destekli bir çalışmada Çinli bir hukukçu, sosyal kredi sistemine yapay zekâ entegre edilmesinin sistemi kitlesel bir gözetim aracına dönüştürebileceği uyarısını yaptı.",
+     "onem": 2,
      "bolge": "Çin"
     },
     {
-     "id": "efd652a2c2",
+     "id": "639b6b3d94",
      "kaynak": "SCMP Teknoloji",
-     "baslik": "Websites pulled offline worldwide as AI finds critical security flaws",
-     "url": "https://www.scmp.com/news/world/article/3371694/websites-go-dark-worldwide-ai-exposes-critical-security-flaws",
-     "tarih": "2026-10-21",
-     "baslik_tr": "Yapay Zekânın PHP Açıklarını Keşfetmesiyle Dünya Genelinde Web Siteleri Kapatıldı",
-     "ozet": "Yapay zekânın internet sitelerinin yaklaşık yüzde 70'inde kullanılan PHP dilinde kritik açıklar bulması üzerine dünya genelinde kurum ve şirketler sitelerini geçici olarak kapattı.",
-     "onem": 3,
-     "bolge": "Küresel"
+     "baslik": "Apple Intelligence to roll out on iPhones in China in December with Alibaba backing",
+     "url": "https://www.scmp.com/tech/big-tech/article/3372831/apple-intelligence-roll-out-iphones-china-december-alibaba-backing",
+     "tarih": "2026-10-31",
+     "baslik_tr": "Apple Intelligence Çin'de Alibaba Desteğiyle Aralık Ayında Kullanıma Açılıyor",
+     "ozet": "Apple, düzenleyici engellerin ardından Çin'deki iPhone kullanıcılarına yönelik yapay zekâ özelliklerini Alibaba ortaklığıyla aralık ayında sunacağını duyurdu.",
+     "onem": 2,
+     "bolge": "Çin"
     },
     {
-     "id": "673a4a769b",
+     "id": "68cc2b159e",
+     "kaynak": "SCMP Çin",
+     "baslik": "Beijing blasts US ban on device testing in China, warns of supply chain disruptions",
+     "url": "https://www.scmp.com/news/china/diplomacy/article/3372816/beijing-blasts-us-ban-device-testing-china-warns-supply-chain-disruptions",
+     "tarih": "2026-10-31",
+     "baslik_tr": "Pekin'den ABD'nin Cihaz Testi Yasağı Kararına Sert Tepki",
+     "ozet": "Çin Ticaret Bakanlığı, ABD Federal İletişim Komisyonu'nun 2028'e kadar Çin'de cihaz testini yasaklama kararına küresel tedarik zincirlerini bozduğu gerekçesiyle karşı çıktı.",
+     "onem": 2,
+     "bolge": "Çin"
+    },
+    {
+     "id": "c63923de68",
      "kaynak": "SCMP Teknoloji",
-     "baslik": "China’s AI compute surge heavily reliant on US chips, offshore cloud access: report",
-     "url": "https://www.scmp.com/tech/tech-war/article/3371929/chinas-ai-compute-surge-heavily-reliant-us-chips-offshore-cloud-access-report",
-     "tarih": "2026-10-24",
-     "baslik_tr": "Çin'in Yapay Zekâ Bilişim Kapasitesi ABD Çiplerine Bağımlı Kalıyor",
-     "ozet": "Araştırmalara göre Çin'in yapay zekâ işlem gücü iki katına çıksa da kapasitenin yaklaşık yüzde 65'i ABD tasarımlı çiplerden sağlanmaya devam edecek.",
+     "baslik": "As AI cyber risks grow, Chinese chip expert urges shared ethics standards with US rivals",
+     "url": "https://www.scmp.com/tech/article/3372807/ai-cyber-risks-grow-chinese-chip-expert-urges-shared-ethics-standards-us-rivals",
+     "tarih": "2026-10-31",
+     "baslik_tr": "Çinli uzman ABD ve Çin için ortak yapay zeka etik standartları önerdi",
+     "ozet": "Cambricon Technologies kurucu ortağı Chen Yunji, artan siber risklere karşı ABD ve Çin'in ortak yapay zeka etik standartları belirlemesini istedi.",
+     "onem": 2,
+     "bolge": "Çin"
+    },
+    {
+     "id": "e9d77ce28f",
+     "kaynak": "SCMP Teknoloji",
+     "baslik": "AI, fuelled by advanced chips, set to power semiconductor manufacturing: industry veteran",
+     "url": "https://www.scmp.com/tech/big-tech/article/3372774/ai-fuelled-advanced-chips-set-power-semiconductor-manufacturing-industry-veteran",
+     "tarih": "2026-10-30",
+     "baslik_tr": "Yapay zekâ yarı iletken tasarım ve üretim süreçlerini otomatikleştirecek",
+     "ozet": "Şanghay'daki bilim forumunda uzmanlar yapay zekânın önümüzdeki 10 yıl içinde çip tasarım süreçlerini tamamen otomatikleştireceğini öngördü.",
      "onem": 2,
      "bolge": "Çin"
     }
@@ -292,39 +290,39 @@
   }
  },
  "brifing": {
-  "giris": "Bu hafta küresel sağlık gündeminde kişiselleştirilmiş kanser aşılarının klinik deneme sonuçları ve Kongo merkezli Ebola salgınının Nijerya'ya sıçraması öne çıktı. Ayrıca Avrupa'da son 4 yılda onaylanan kanser ilaçlarının sağladığı klinik fayda düzeyine ilişkin analizler dikkat çekti.",
+  "giris": "Bu hafta küresel düzeyde yeme bozukluklarındaki artış ve GLP-1 zayıflama ilaçlarının riskleri gündeme geldi. Çin'de yaşlı nüfusun ilk kez çocuk sayısını aşması ve ABD'de CDC'nin ilaç dirençli patojenler listesini güncellemesi öne çıkan diğer gelişmeler oldu.",
   "ana_basliklar": [
    {
-    "baslik": "Kişiselleştirilmiş Kanser Aşısı Faz 3'te Nüks Riskini Azalttı",
-    "aciklama": "Kişiselleştirilmiş mRNA aşısı intismeran, faz 3 klinik denemesinde 2 yıl içinde melanom nüksü veya ölüm riskini önemli ölçüde düşürdü. Bilim insanları, nüks riskini azaltan ilk kişiselleştirilmiş kanser aşısının elde ettiği bu klinik sonucun kişiselleştirilmiş tıp alanında bir dönüm noktası olabileceğini belirtiyor.",
+    "baslik": "Küresel Yeme Bozuklukları Artışı ve GLP-1 İlaçları Riski",
+    "aciklama": "Raporlar 1990-2023 arasında anoreksiya ve bulimiya vakalarının yüzde 71 arttığını gösteriyor. Klinik psikologlar GLP-1 zayıflama ilaçlarının bu bozuklukları tetikleyebileceğini vurguluyor.",
     "kaynaklar": [
      {
-      "ad": "BBC Sağlık",
-      "url": "https://www.bbc.co.uk/news/articles/cq0ld9g9e913o?at_medium=RSS&at_campaign=rss"
+      "ad": "MIT Technology Review",
+      "url": "https://www.technologyreview.com/2026/10/30/1147838/eating-disorders-rise-glp-1s-weight-loss-drugs/"
+     }
+    ]
+   },
+   {
+    "baslik": "Çin'de Yaşlı Nüfus İlk Kez Çocuk Sayısını Geçti",
+    "aciklama": "Çin'de yaşlı bireylerin sayısı ve 2025 yılı yaşlı bağımlılık oranı ilk kez resmi olarak çocuk nüfusunun ve çocuk bağımlılık oranının üzerine çıktı. Emeklilik sistemi maliyetlerinin arttığı ülkede bu durum hem zorluklar hem de gümüş ekonomi fırsatları doğuruyor.",
+    "kaynaklar": [
+     {
+      "ad": "Fortune",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9XN0d5TXVPOWM0bmFmNGRIMnhmRk1TczJQNzU4S3c5U29tR2s5dVJaakZzNHY3TlFZekdQcEp0d3g5WWptNDJTd244SUZzUXhlU2hPTHgzMXIxWVdNOUhabDQ4bFhvS3lpd3hoZkUyMA?oc=5"
      },
      {
-      "ad": "Guardian Toplum",
-      "url": "https://www.theguardian.com/society/2026/oct/23/mrna-vaccine-melanoma-cancer-breakthrough-australia"
+      "ad": "Global Times",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1zVUd2dmo5Z20xa1BNQmpsUWVPN3R2a3BlUm96VEp4ZU5qUVkxZjgybVU2RXBDZ29fNkFCTEJ1bGFTTmlzNVJ4djRuRmVDWEwxaEhoT1RVZWx5QUlneXdHSmx3?oc=5"
      }
     ]
    },
    {
-    "baslik": "Kongo Merkezli Ebola Salgınında Nijerya İlk Vakasını Kaydetti",
-    "aciklama": "Kongo'daki merkez üssünden komşu Afrika ülkelerine yayılan Ebola salgınında Nijerya'da ilk vaka bildirildi. Yetkililer, bölgesel yayılımı denetim altına almak adına Kenya ve Nijerya'daki vakalar arasında doğrudan bir temas bulunup bulunmadığını araştırıyor.",
+    "baslik": "CDC Güncellenmiş İlaç Dirençli Patojenler Listesini Açıkladı",
+    "aciklama": "CDC'nin 2026 listesinde Candida auris ve diğer dirençli patojenler öne çıktı. Bu mikropların ABD'de yılda 50 bin kişiyi öldürdüğü belirtildi.",
     "kaynaklar": [
      {
-      "ad": "NPR Sağlık",
-      "url": "https://www.npr.org/2026/10/23/g-s1-149515/africa-ebola-outbreak"
-     }
-    ]
-   },
-   {
-    "baslik": "Avrupa'da Onaylanan Kanser İlaçlarının Çoğunda Yüksek Fayda Görülmedi",
-    "aciklama": "Avrupa ilaç regülatörlerince son 4 yıllık dönemde onaylanan yeni kanser ilaçlarının çoğunun yüksek klinik fayda sağlamadığı yeni bir analizle tespit edildi. Bu çalışma, ruhsat alan yenilikçi onkoloji tedavilerinin hastalara sunduğu somut klinik yararın değerlendirilmesi açısından önem taşıyor.",
-    "kaynaklar": [
-     {
-      "ad": "STAT News",
-      "url": "https://www.statnews.com/pharmalot/2026/10/23/cancer-drugs-approved-europe-lack-high-clinical-benefit/?utm_campaign=rss"
+      "ad": "MedPage Today",
+      "url": "https://www.medpagetoday.com/infectiousdisease/generalinfectiousdisease/123650"
      }
     ]
    }
@@ -334,7 +332,11 @@
  "aday": 200,
  "ana_model": "gemini-flash-latest",
  "model_kullanimi": {
-  "gemini-flash-latest": 11
+  "gemini-flash-latest": 2,
+  "gemini-3.6-flash": 9
  },
- "model_notlari": []
+ "model_notlari": [
+  "gemini-flash-latest: günlük kota dolu",
+  "gemini-3.7-flash: günlük kota dolu"
+ ]
 }
