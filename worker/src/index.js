@@ -1151,6 +1151,15 @@ async function guncellemeIsle(env, u) {
 }
 
 // ------------------------------------------------------------------ giriş
+// Gizli değer karşılaştırması: süreye bakarak tahmin edilemesin; boş/eksik değer hiçbir zaman eşleşmez
+function gizliEsit(a, b) {
+  if (typeof a !== "string" || typeof b !== "string" || !b) return false;
+  const x = new TextEncoder().encode(a), y = new TextEncoder().encode(b);
+  let fark = x.length ^ y.length;
+  for (let i = 0; i < y.length; i++) fark |= (x[i] ?? 0) ^ y[i];
+  return fark === 0;
+}
+
 export { sayiDenetimi, esc, veriOnbellegi }; // test için
 
 export default {
@@ -1200,20 +1209,21 @@ export default {
         { headers: { "content-type": "text/plain; charset=utf-8" } });
     }
 
-    // Haftalık hazırlık (GitHub Actions) oyları buradan okur
+    // Haftalık hazırlık (GitHub Actions) oyları buradan okur.
+    // BOT_ANAHTAR tanımlıysa yalnızca o geçerli; tanımlı değilse eski davranış (WEBHOOK_SECRET) sürer.
     if (url.pathname === "/geri-bildirim") {
-      if (request.headers.get("X-Bot-Anahtar") !== env.WEBHOOK_SECRET)
+      if (!gizliEsit(request.headers.get("X-Bot-Anahtar"), env.BOT_ANAHTAR || env.WEBHOOK_SECRET))
         return new Response("Yetkisiz", { status: 403 });
       return Response.json(await oylariListele(env));
     }
     if (url.pathname === "/ilgi") {
-      if (request.headers.get("X-Bot-Anahtar") !== env.WEBHOOK_SECRET)
+      if (!gizliEsit(request.headers.get("X-Bot-Anahtar"), env.BOT_ANAHTAR || env.WEBHOOK_SECRET))
         return new Response("Yetkisiz", { status: 403 });
       return Response.json(await ilgileriListele(env));
     }
 
     if (url.pathname === "/telegram" && request.method === "POST") {
-      if (request.headers.get("X-Telegram-Bot-Api-Secret-Token") !== env.WEBHOOK_SECRET)
+      if (!gizliEsit(request.headers.get("X-Telegram-Bot-Api-Secret-Token"), env.WEBHOOK_SECRET))
         return new Response("Yetkisiz", { status: 403 });
       const u = await request.json();
       try {
