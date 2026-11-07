@@ -1,74 +1,75 @@
 {
- "hafta": "24–31 Ekim 2026",
- "hazirlanma": "2026-10-31",
+ "hafta": "31 Ekim – 7 Kasım 2026",
+ "hazirlanma": "2026-11-07",
  "model": "gemini-3.6-flash",
  "bolumler": {
   "saglik_politikasi": {
    "ad": "🏛️ Sağlık politikası",
    "ogeler": [
     {
-     "id": "8de4fcd8b0",
+     "id": "969309736d",
+     "kaynak": "STAT News",
+     "baslik": "STAT+: States sue Trump administration again to delay Medicaid work requirements",
+     "url": "https://www.statnews.com/2026/11/06/states-sue-trump-delay-medicaid-work-requirements/?utm_campaign=rss",
+     "tarih": "2026-11-06",
+     "baslik_tr": "Eyaletlerden Trump Yönetimine Medicaid Çalışma Şartı İçin Yeni Dava",
+     "ozet": "ABD'deki eyaletler, Medicaid kapsamındaki çalışma şartı düzenlemesinin uygulanmasını erteletmek amacıyla Trump yönetimine karşı yeniden dava açtı.",
+     "onem": 3,
+     "bolge": "ABD"
+    },
+    {
+     "id": "e9216308d8",
+     "kaynak": "STAT News",
+     "baslik": "STAT+: After Medicare punts RPM overhaul to 2029, advocates see window to fight back",
+     "url": "https://www.statnews.com/2026/11/06/new-medicare-overhaul-of-remote-patient-monitoring-hospital-pushback/?utm_campaign=rss",
+     "tarih": "2026-11-06",
+     "baslik_tr": "Medicare Uzaktan Hasta İzleme Düzenlemesini 2029'a Erteledi",
+     "ozet": "Medicare, hastanelerin üçüncü taraf uzaktan hasta izleme hizmeti kullanmasını yasaklama planını tepkilere rağmen 2029'a erteledi.",
+     "onem": 3,
+     "bolge": "ABD"
+    },
+    {
+     "id": "acf767d5cd",
      "kaynak": "KFF Health News",
-     "baslik": "Medicare Drug Plans Are Hiking Premiums While Trump Claims Victory on Medicine Prices",
-     "url": "https://kffhealthnews.org/medicare/medicare-drug-plans-premium-hikes-affordability-trump-cms/",
-     "tarih": "2026-10-30",
-     "baslik_tr": "ABD'de Medicare İlaç Planı Primleri 2027'de Yüzde 50 Artabilir",
-     "ozet": "Yeni bir analize göre, ABD'de bağımsız Medicare reçeteli ilaç planı kullanan milyonlarca kişinin aylık primleri 2027 yılında ortalama yüzde 50 oranında yükselecek.",
+     "baslik": "Trump Administration Delays Awards Slated To Improve Rural America’s Health",
+     "url": "https://kffhealthnews.org/rural-health/rural-health-transformation-program-funding-delays-states-cms/",
+     "tarih": "2026-11-05",
+     "baslik_tr": "ABD Kırsal Sağlık Dönüşüm Programı Fon Dağıtımında Gecikme",
+     "ozet": "ABD'de eyalet yetkilileri, 50 milyar dolarlık Kırsal Sağlık Dönüşüm Programı'nın ikinci yıl fon dağıtımının ertelenmesiyle belirsizlik içinde kaldı.",
      "onem": 3,
      "bolge": "ABD"
     },
     {
-     "id": "bbc846977e",
-     "kaynak": "MIT Technology Review",
-     "baslik": "Eating disorders are on the rise. GLP-1s could make things worse.",
-     "url": "https://www.technologyreview.com/2026/10/30/1147838/eating-disorders-rise-glp-1s-weight-loss-drugs/",
-     "tarih": "2026-10-30",
-     "baslik_tr": "Yeme Bozukluklarındaki Küresel Artış ve GLP-1 İlaçları Riski",
-     "ozet": "Raporlar 1990-2023 arasında anoreksiya ve bulimiya vakalarının yüzde 71 arttığını gösterirken, klinik psikologlar GLP-1 zayıflama ilaçlarının bu bozuklukları tetikleyebileceğini vurguluyor.",
+     "id": "ca70ab29b2",
+     "kaynak": "BBC Teknoloji",
+     "baslik": "French blood storage impacted by freezer hacks as theories swirl about culprits",
+     "url": "https://www.bbc.co.uk/news/articles/c8vgxyvz6y9ro?at_medium=RSS&at_campaign=rss",
+     "tarih": "2026-11-04",
+     "baslik_tr": "Fransa'da Kan Depolarının Dondurucu Sistemleri Siber Saldırıya Uğradı",
+     "ozet": "Fransa Kan Kurumu, kan ürünlerinin saklandığı soğuk hava depolarının siber korsanların saldırısından etkilendiğini açıkladı.",
      "onem": 3,
-     "bolge": "Küresel"
+     "bolge": "Avrupa",
+     "benzer": 1
     },
     {
-     "id": "29ac6d2b30",
-     "kaynak": "STAT News",
-     "baslik": "STAT+: FDA, CMS scramble to avoid regulatory logjam as more states look to test AI in clinical settings",
-     "url": "https://www.statnews.com/2026/10/30/fda-cms-health-ai-regulation-state-sandboxes-run-into-federal-rules/?utm_campaign=rss",
-     "tarih": "2026-10-30",
-     "baslik_tr": "ABD Düzenleyici Kurumları Klinikte Yapay Zekâ Kullanımı İçin Harekete Geçti",
-     "ozet": "Eyaletlerin klinik ortamda yapay zekâyı test etme girişimleri artarken FDA ve CMS düzenleyici tıkanıklıkları önlemek için çalışma yürütüyor.",
-     "onem": 3,
-     "bolge": "ABD"
-    },
-    {
-     "id": "fb167949f8",
-     "kaynak": "Guardian Toplum",
-     "baslik": "FDA again bypasses advisers to remove black-box warnings from menopause treatments",
-     "url": "https://www.theguardian.com/us-news/2026/oct/30/fda-remove-warnings-menopause-treatments",
-     "tarih": "2026-10-30",
-     "baslik_tr": "FDA Menopoz Tedavilerindeki Kara Kutu Uyarılarını Kaldırmaya Devam Ediyor",
-     "ozet": "ABD FDA, danışma komitesine başvurmadan üç östrojen bandının üzerindeki kalp hastalığı, meme kanseri ve demans uyarılarını kaldırdı.",
+     "id": "9ef410a64d",
+     "kaynak": "KFF Health News",
+     "baslik": "Democrats’ Election Rout Is Poised To Dramatically Reorder Federal Health Policy",
+     "url": "https://kffhealthnews.org/insurance/post-midterm-election-healthcare-agenda-democratic-congress/",
+     "tarih": "2026-11-04",
+     "baslik_tr": "ABD Kongresi'nde Demokratların Çoğunluğu Medicaid ve ACA Politikalarını Etkileyebilir",
+     "ozet": "Demokratların ABD Kongresi'nde çoğunluğu kazanması Medicaid ve ACA'deki değişiklikleri geri alma çabalarını gündeme getirirken Başkan Trump'ın veto yetkisi bu girişimleri zorlaştırıyor.",
      "onem": 3,
      "bolge": "ABD"
     },
     {
-     "id": "b65fa7a1b6",
-     "kaynak": "STAT News",
-     "baslik": "STAT+: New federal rule will require prescription drug middlemen to share secret payments data",
-     "url": "https://www.statnews.com/2026/10/29/prescription-drug-price-reform-pbm-disclosure-rules-face-challenge/?utm_campaign=rss",
-     "tarih": "2026-10-29",
-     "baslik_tr": "ABD'de eczane hizmet yöneticilerine gizli ödeme verilerini açıklama zorunluluğu",
-     "ozet": "Trump yönetiminin yeni kuralı, eczane hizmet yöneticilerini gizli tutulan ücret ve tazminat ayrıntılarını açıklamaya zorlayacak.",
-     "onem": 3,
-     "bolge": "ABD"
-    },
-    {
-     "id": "cdce9b3b3e",
-     "kaynak": "MedPage Today",
-     "baslik": "CDC Says These Superbugs Kill 50,000 Americans Per Year",
-     "url": "https://www.medpagetoday.com/infectiousdisease/generalinfectiousdisease/123650",
-     "tarih": "2026-10-29",
-     "baslik_tr": "CDC güncellenmiş ilaç dirençli patojenler listesini açıkladı",
-     "ozet": "CDC'nin 2026 listesinde Candida auris ve diğer dirençli patojenler öne çıkarken, bu mikropların ABD'de yılda 50 bin kişiyi öldürdüğü belirtildi.",
+     "id": "45eedd0079",
+     "kaynak": "KFF Health News",
+     "baslik": "IVF Patients, Doctors Navigate Fetal Personhood Laws’ Unknowns",
+     "url": "https://kffhealthnews.org/courts/ivf-fertility-abortion-bans-fetal-personhood-laws-dobbs-roe-v-wade/",
+     "tarih": "2026-11-04",
+     "baslik_tr": "ABD'de Fetüs Kişiliği Yasaları Tüp Bebek Tedavilerinde Belirsizlik Yaratıyor",
+     "ozet": "Mahkemenin Roe v. Wade kararını iptal etmesinin ardından bazı eyaletlerde yürürlüğe giren fetüs kişiliği yasaları, IVF hastaları ve doktorlar için hukuki belirsizlik oluşturuyor.",
      "onem": 3,
      "bolge": "ABD"
     }
@@ -78,70 +79,71 @@
    "ad": "🧬 Tıp teknolojisi & AI",
    "ogeler": [
     {
-     "id": "44118f70c7",
-     "kaynak": "SCMP Teknoloji",
-     "baslik": "China joins global race to reawaken brain-injury patients through ultrasound therapy",
-     "url": "https://www.scmp.com/tech/tech-trends/article/3372779/china-joins-global-race-reawaken-brain-injury-patients-through-ultrasound-therapy",
-     "tarih": "2026-10-31",
-     "baslik_tr": "Çin'de odaklanmış ultrason terapisi beyin hasarlı hastaları uyandırmak için deneniyor",
-     "ozet": "Çin'deki klinik denemelerde odaklanmış ultrason dalgaları kullanılarak komadaki hastaların beyin bölgeleri uyarılıyor. Teknoloji ile bir hastanın yeniden konuşup yürüyebildiği bildirildi.",
-     "onem": 2,
+     "id": "ea8a4a6aab",
+     "kaynak": "Sixth Tone",
+     "baslik": "China Clears First Brain-Computer Implant for Commercial Use",
+     "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE1mTERTMXMtSTVxZFBiZ21mMnBEclYxaW9qb3hxaEkyY2EzbmZWTUl0YXVBeGxpZkJ3ZVlQamhOa2JNek1vV25DdEhHNUMtakU?oc=5",
+     "tarih": "2026-11-06",
+     "baslik_tr": "Çin İlk Beyin-Bilgisayar İmplantının Ticari Kullanımına Onay Verdi",
+     "ozet": "Çin, ticari kullanıma yönelik olarak geliştirilen ilk beyin-bilgisayar implantı için resmi onay çıkardı.",
+     "onem": 3,
      "bolge": "Çin"
     },
     {
-     "id": "b3dca8b2e1",
+     "id": "2cc3b80912",
      "kaynak": "MedPage Today",
-     "baslik": "Does ChatGPT Measure Up to Doctors When It Comes to Questions About IVF?",
-     "url": "https://www.medpagetoday.com/meetingcoverage/asrm/123668",
-     "tarih": "2026-10-30",
-     "baslik_tr": "ChatGPT'nin Tüp Bebek Sorularına Yanıtları Doğru Ancak Kapsamsız Bulundu",
-     "ozet": "Analiz sonuçlarına göre ChatGPT'nin yardımcı üreme tekniklerine dair hasta sorularına verdiği yanıtlar genel olarak doğru bulunurken uzmanlık derneklerinin rehberlerine kıyasla daha eksik kaldı.",
-     "onem": 2,
-     "bolge": "ABD"
+     "baslik": "Gene Therapy Under Scrutiny After Nine Tumor Reports",
+     "url": "https://www.medpagetoday.com/neurology/generalneurology/123769",
+     "tarih": "2026-11-06",
+     "baslik_tr": "SMA Gen Tedavisi Zolgensma Alan Çocuklarda Dokuz Tümör Vakası Bildirildi",
+     "ozet": "Novartis, SMA gen tedavisi Zolgensma uygulanan çocuklarda dokuz tümör vakası bildirildiğini doğruladı. Bu vakaların ikisi hakkında detay paylaşılırken tedavi mercek altına alındı.",
+     "onem": 3,
+     "bolge": "Küresel",
+     "benzer": 1
     },
     {
-     "id": "18a497a3b1",
+     "id": "06c75f64a4",
      "kaynak": "MedPage Today",
-     "baslik": "Extra Genetic Testing in Young IVF Patients Cut Costs but Came With a Downside",
-     "url": "https://www.medpagetoday.com/meetingcoverage/asrm/123665",
-     "tarih": "2026-10-30",
-     "baslik_tr": "Genç Tüp Bebek Hastalarında Kapsamlı Genetik Test Maliyeti ve Doğum Oranı",
-     "ozet": "Genç tüp bebek hastalarında tek gen testi yerine kapsamlı genetik test eklenmesinin maliyeti düşürdüğü ancak kümülatif canlı doğum oranlarını azaltabileceği belirlendi.",
-     "onem": 2,
-     "bolge": "ABD"
-    },
-    {
-     "id": "82f3078b95",
-     "kaynak": "Longevity.Technology",
-     "baslik": "FDA clears NeuroXT’s AI tool that sizes up Alzheimer’s risk",
-     "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOUmVzaUFQb0ZPM0VSQWswdGg4NGdvWGFYTzV1MW51NmYyVUFLbEV5S0ZqSW1xLWd4Nmp2ajhsWFdtRi1tTVRKS3ZiZ3pqd1NqMkJlNkFKbEVrR1B3UmtMUElyNEJQOXBsdjB2OERUOHpfSUNQVDg1dFZ2bjRCU1V0X0JNYllhNGF1eC11LXNIMHBWV0Jhal9n?oc=5",
-     "tarih": "2026-10-30",
-     "baslik_tr": "FDA NeuroXT'nin Alzheimer Riskini Ölçen Yapay Zekâ Aracını Onayladı",
-     "ozet": "FDA, NeuroXT şirketinin geliştirdiği ve Alzheimer riskini değerlendiren yapay zekâ aracına onay verdi.",
-     "onem": 2,
-     "bolge": "ABD"
-    },
-    {
-     "id": "3fdcd41a67",
-     "kaynak": "MedPage Today",
-     "baslik": "Novel Sarcoidosis Drug Fails to Improve Steroid Dose Reduction",
-     "url": "https://www.medpagetoday.com/pulmonology/generalpulmonary/123653",
-     "tarih": "2026-10-30",
-     "baslik_tr": "Yeni Sarkoidoz İlacı Efzofitimod Faz 3 Çalışmasında Başarısız Oldu",
-     "ozet": "Akciğer sarkoidozunda steroid kullanımını azaltmayı hedefleyen efzofitimod, faz 3 klinik çalışmasında plaseboya kıyasla üstünlük gösteremedi.",
-     "onem": 2,
+     "baslik": "New Trials Back Quickly Approved Drugs for Primary Biliary Cholangitis",
+     "url": "https://www.medpagetoday.com/meetingcoverage/aasld/123768",
+     "tarih": "2026-11-06",
+     "baslik_tr": "Primer Biliyer Kolanjit İlaçları Elafibranor ve Seladelpar İçin Yeni Klinik Sonuçlar",
+     "ozet": "Yeni klinik çalışmalar, elafibranor ve seladelpar tedavisinin yüksek ALP seviyesine sahip primer biliyer kolanjit hastalarının büyük çoğunluğunda ALP normalizasyonu sağladığını gösterdi.",
+     "onem": 3,
      "bolge": "Küresel"
     },
     {
-     "id": "84f01e7f5c",
-     "kaynak": "Healthcare Dive",
-     "baslik": "Popular AI models get medication doses wrong, some dangerously: Doximity",
-     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNRU1XM1FKMzF0bGc0R0NuSTZ0WTVkdE5SamFmcE5SWDVRLVcwWkRnS0FQMHYxTzRCbnhOR1E3aXVKcTdYeFlEYXlOckRuTXRDY3JkcldKU2VZZHI4SEFoWm56MUNWNTlpS1BuRl9jS01vVEpwc01Pcm02SjI0NEgzU2UtY0xxUXB3dXM0QWdTUEtuMjYxWDVuc00tMUdncGVzbW9MZ1AwSGJGaElPQUhLcG5IYVE?oc=5",
-     "tarih": "2026-10-29",
-     "baslik_tr": "Popüler Yapay Zekâ Modelleri İlaç Dozlarında Tehlikeli Hatalar Yapıyor",
-     "ozet": "Doximity raporuna göre popüler yapay zekâ modelleri ilaç dozajlarını yanlış hesaplıyor ve bazı durumlarda bu durum tehlikeli boyutlara ulaşıyor.",
-     "onem": 2,
+     "id": "9b4543cb93",
+     "kaynak": "STAT News",
+     "baslik": "STAT+: New tumor cases show common gene therapy tool can come with risk",
+     "url": "https://www.statnews.com/2026/11/06/novartis-zolgensma-gene-therapy-tumor-risk/?utm_campaign=rss",
+     "tarih": "2026-11-06",
+     "baslik_tr": "AAV Gen Tedavilerinde Tümör Riski Endişesi",
+     "ozet": "Zolgensma gibi AAV gen tedavilerinin tümör riski taşıdığını gösteren yeni vakalar, SMA hastaları ve araştırmacılar açısından endişe yaratıyor.",
+     "onem": 3,
      "bolge": "ABD"
+    },
+    {
+     "id": "1f9344618f",
+     "kaynak": "Engadget",
+     "baslik": "Samsung's Galaxy Ring Gets FDA Approval For Advanced Sleep Apnea Detection",
+     "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOQXd2RlFxcEJGVW9pR3J0eHBjMmVmTUZNWkhJb3RMRkZzblRSSU5wTzAzbnJrQU43SlNaSEs5M1R6b05KSVZObGUyLTRUajBsb3RndW9WUWw4TkExeEMyUkhsUHRyWklseXNEb05VYXNleTd6dnhIZ2dzclJaQmtRTGs3Y09Qb1hsbEI4UHlzLUpwZlFvdTJIbmFmSnZqSGswRHlvai02eDYzUQ?oc=5",
+     "tarih": "2026-11-03",
+     "baslik_tr": "Samsung Galaxy Ring Uyku Apnesi Tespiti İçin FDA Onayı Aldı",
+     "ozet": "Samsung'un Galaxy Ring akıllı yüzüğü, gelişmiş uyku apnesi tespiti özelliği için FDA onayını aldı.",
+     "onem": 3,
+     "bolge": "ABD"
+    },
+    {
+     "id": "fa8d19bce6",
+     "kaynak": "EurekAlert!",
+     "baslik": "Chinese Medical Journal article review explores AI-powered CGM data analysis in diabetes care",
+     "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE5oZUpEeUVIOFVUNWhPREN2OWNiU1RpdHEtUWhYNkktZ1F6U01HZk1ELUJrTmlJNE04X2ZrUXl5Ujl1OWFYWGU5OVFuaUZJQ29SSTFRemFtSXZrVWVD?oc=5",
+     "tarih": "2026-11-07",
+     "baslik_tr": "Diyabet Bakımında Yapay Zekâ Destekli CGM Veri Analizi",
+     "ozet": "Chinese Medical Journal derlemesi, diyabet yönetiminde yapay zekâ destekli sürekli glukoz izleme (CGM) verisi analizini inceliyor.",
+     "onem": 2,
+     "bolge": "Çin"
     }
    ]
   },
@@ -149,71 +151,72 @@
    "ad": "👥 Toplum & sosyoloji",
    "ogeler": [
     {
-     "id": "832950e693",
-     "kaynak": "Fortune",
-     "baslik": "China's elderly now outnumber children for the first time as pension costs mount",
-     "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9XN0d5TXVPOWM0bmFmNGRIMnhmRk1TczJQNzU4S3c5U29tR2s5dVJaakZzNHY3TlFZekdQcEp0d3g5WWptNDJTd244SUZzUXhlU2hPTHgzMXIxWVdNOUhabDQ4bFhvS3lpd3hoZkUyMA?oc=5",
-     "tarih": "2026-10-29",
-     "baslik_tr": "Çin'de Yaşlı Nüfus İlk Kez Çocuk Sayısını Aştı",
-     "ozet": "Emeklilik sistemi maliyetlerinin arttığı Çin'de, yaşlı bireylerin sayısının ilk kez resmi olarak çocuk nüfusunun üzerine çıktığı bildirildi.",
+     "id": "8e8bc416e6",
+     "kaynak": "Guardian Toplum",
+     "baslik": "Reproductive rights protected in several states by midterm election ballot measures",
+     "url": "https://www.theguardian.com/society/2026/nov/05/abortion-ballot-measures-pass",
+     "tarih": "2026-11-05",
+     "baslik_tr": "ABD Ara Seçimlerinde Birçok Eyalette Üreme Hakları Koruma Altına Alındı",
+     "ozet": "ABD ara seçimlerinde Nevada, Virginia ve Missouri'deki seçmenler, kadınların üreme özgürlüğü ve kürtaj haklarını koruyan maddeleri kabul etti.",
      "onem": 3,
-     "bolge": "Çin",
-     "benzer": 2
-    },
-    {
-     "id": "521496eedd",
-     "kaynak": "Global Times",
-     "baslik": "China's old-age dependency ratio exceeds child dependency ratio for first time in 2025; expert sees challenges, silver economy opportunities",
-     "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1zVUd2dmo5Z20xa1BNQmpsUWVPN3R2a3BlUm96VEp4ZU5qUVkxZjgybVU2RXBDZ29fNkFCTEJ1bGFTTmlzNVJ4djRuRmVDWEwxaEhoT1RVZWx5QUlneXdHSmx3?oc=5",
-     "tarih": "2026-10-28",
-     "baslik_tr": "Çin'de Yaşlı Bağımlılık Oranı İlk Kez Çocuk Bağımlılık Oranını Geçti",
-     "ozet": "Çin'de 2025 yılında yaşlı bağımlılık oranı ilk kez çocuk bağımlılık oranını geride bıraktı. Bu durum ülke için hem zorluklar hem de gümüş ekonomi fırsatları doğuruyor.",
-     "onem": 3,
-     "bolge": "Çin"
-    },
-    {
-     "id": "150aaed2a7",
-     "kaynak": "NPR Sağlık",
-     "baslik": "Nearly 2 out of 3 teens and tweens use AI chatbots, new research shows",
-     "url": "https://www.npr.org/2026/10/30/nx-s1-6022278/ai-artificial-intelligence-teens-jed-common-sense-media",
-     "tarih": "2026-10-30",
-     "baslik_tr": "Gençlerin Üçte İkisine Yakını Yapay Zekâ Sohbet Botlarını Kullanıyor",
-     "ozet": "Yeni bir araştırmaya göre gençler ödev yardımı, stres, yalnızlık ve kaygı anlarında sohbet botlarına başvuruyor; kullanım biçimi ruh sağlığıyla ilişkili bulunuyor.",
-     "onem": 2,
-     "bolge": "Küresel"
-    },
-    {
-     "id": "7041e80d06",
-     "kaynak": "STAT News",
-     "baslik": "The persisting paradox of men’s health",
-     "url": "https://www.statnews.com/2026/10/30/health-news-the-paradox-of-men-health/?utm_campaign=rss",
-     "tarih": "2026-10-30",
-     "baslik_tr": "The Lancet erkek sağlığında yaşanan çelişkili durumları inceleyen bir seri yayımladı",
-     "ozet": "The Lancet'teki yeni yazı dizisi, erkeklerin toplumsal avantajlarına rağmen kadınlardan daha kötü sağlık sonuçları yaşamasının nedenlerini inceliyor.",
-     "onem": 2,
-     "bolge": "Küresel"
-    },
-    {
-     "id": "5de7ef7176",
-     "kaynak": "MedPage Today",
-     "baslik": "Lonely Cancer Deaths; 'Silence Was Deafening'; Mental Health and Cancer Mortality",
-     "url": "https://www.medpagetoday.com/hematologyoncology/othercancers/123661",
-     "tarih": "2026-10-30",
-     "baslik_tr": "Yalnız yaşayan kanser hastalarında ölüm oranının daha yüksek olduğu açıklandı",
-     "ozet": "Yalnız yaşayan kişilerin kanser ve diğer hastalıklardan ölüm oranının belirgin şekilde yüksek olduğu tespit edildi.",
-     "onem": 2,
      "bolge": "ABD"
     },
     {
-     "id": "b77fb51d8d",
-     "kaynak": "The Business Standard",
-     "baslik": "How will China's aging population affect its economy?",
-     "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPcFVDLVZ4YUpJVWFOMF9UTzhPR2dKNTB1SklTM1FhOWxucnJLT25qUDVyN09FUWxzVEJMdEFFelZmUHpKWkZwSEhSclV4c1drX2pzQW5hR212UU9HWmdrdEZxSXl0S1ZQUzlYYVZxM05BZGZISlB6NExxNXlEU2ZzM0ctR1d0eWVFLUJiRzRtU3FITERpMWZCOUJFeFN1QQ?oc=5",
-     "tarih": "2026-10-28",
-     "baslik_tr": "Çin'in Yaşlanan Nüfusunun Ekonomi Üzerindeki Etkileri",
-     "ozet": "Çin'in hızla yaşlanan nüfus yapısının ülke ekonomisi üzerindeki olası etkileri değerlendiriliyor.",
+     "id": "9d164e2c0c",
+     "kaynak": "Guardian Toplum",
+     "baslik": "Early release prisoners facing street homelessness, probation staff warn",
+     "url": "https://www.theguardian.com/society/2026/nov/07/early-release-prisoners-street-homelessness-england",
+     "tarih": "2026-11-07",
+     "baslik_tr": "İngiltere'de Erken Tahliye Edilen Mahkûmlar Evsiz Kalma Riskiyle Karşı Karşıya",
+     "ozet": "İngiltere'de cezaevinden erken tahliye edilen kişilerin geçici konaklama sürelerinin dolmasıyla sokakta kalma riski yaşadığı uyarısı yapıldı.",
+     "onem": 2,
+     "bolge": "Avrupa",
+     "benzer": 1
+    },
+    {
+     "id": "a530309545",
+     "kaynak": "SCMP Çin",
+     "baslik": "China to narrow scope of contentious detention and surveillance measure",
+     "url": "https://www.scmp.com/news/china/politics/article/3373546/china-narrow-scope-contentious-designated-location-surveillance-measure",
+     "tarih": "2026-11-07",
+     "baslik_tr": "Çin Tartışmalı Gözetim ve Gözaltı Uygulamasını Daraltıyor",
+     "ozet": "Çinli yasa yapıcılar, devlet güvenliği vakalarında sert bir gözaltı yöntemine dönüşen 'belirlenmiş adreste gözetim' (RSDL) uygulamasını kısıtlamayı öneriyor.",
      "onem": 2,
      "bolge": "Çin"
+    },
+    {
+     "id": "6c3cbccdc5",
+     "kaynak": "Guardian Toplum",
+     "baslik": "Burnham aims for ‘quite radical change’ in support for young people",
+     "url": "https://www.theguardian.com/politics/2026/nov/06/andy-burnham-quite-radical-change-young-people-support-benefits-neets",
+     "tarih": "2026-11-06",
+     "baslik_tr": "İngiltere'de Gençlere Destek ve Çocukluk Politikalarında Kapsamlı Değişiklik Planı",
+     "ozet": "İngiltere'de hükümet istihdam, eğitim ve ruh sağlığı alanlarında gençlere yönelik destekleri yeniden yapılandırmayı ve sosyal yardım kurallarını sıkılaştırmayı planlıyor.",
+     "onem": 2,
+     "bolge": "Avrupa"
+    },
+    {
+     "id": "dd7236a63c",
+     "kaynak": "VnExpress International",
+     "baslik": "China's marriage registrations hit 18-year low in first 9 months",
+     "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPYWFybnFkdmxTUWJvaG9ETl9VVlBzN2d3OXllNHNmeGJNSG9ramlsRFJLdDNGQU4zRW1QT3liYjhPczRqcXdXWnhwbkpXQnJoWWdzcnM1QW0zMl9mRDB5aEFWQXBTMXROMlFWbFpndHFzSlg5d1lfQ25Hb3hZWHFfVF9DT0ZCVmI4ak1ZbHo5Q2J0WVhqZTJKSlJrYnp0MlNDc3ZBYktxVll6Zzk3UXowWQ?oc=5",
+     "tarih": "2026-11-06",
+     "baslik_tr": "Çin'de Evlilik Kayıtları Yılın İlk Dokuz Ayında Son 18 Yılın En Düşük Seviyesinde",
+     "ozet": "Çin'de 2026 yılının ilk dokuz ayındaki evlilik kayıtları, son 18 yılın en düşük seviyesine geriledi.",
+     "onem": 2,
+     "bolge": "Çin",
+     "benzer": 1
+    },
+    {
+     "id": "8c4e393478",
+     "kaynak": "Rest of World",
+     "baslik": "A rare strike in Taiwan exposes labor unrest beneath the global AI rush",
+     "url": "https://restofworld.org/2026/taiwan-labor-strike-ai-profits/?utm_source=rss&utm_medium=rss&utm_campaign=feeds",
+     "tarih": "2026-11-05",
+     "baslik_tr": "Tayvan Yarı İletken Sektöründe Yapay Zekâ Kârları Sebebiyle İşçi Grevi",
+     "ozet": "Tayvan'ın yarı iletken sektöründe yaşanan grev, yapay zekâ patlamasından elde edilen kârların eşitsiz dağılımına yönelik tepkileri ortaya koydu.",
+     "onem": 2,
+     "bolge": "Diğer"
     }
    ]
   },
@@ -221,108 +224,109 @@
    "ad": "🌐 Teknoloji & jeopolitik",
    "ogeler": [
     {
-     "id": "f32136ad1a",
-     "kaynak": "Reuters",
-     "baslik": "China's new export curbs draw a line around its AI crown jewels",
-     "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNaEpIM3FfOEVIU0g3dkIzdlhrWnVpRHNhd3BaQS1XZ0liaXgydVhrTDZ3Z3piOTUyYVlBNFZXdTVPenctR01Hb0RuZEtvNVZObkFHRE9Pb0dkTURvamlKanJVQm1hX2k5cERiSnpQbmRsaTJSS2VZY0NEaEpGanlxODFiR1IxbFozM0p4a3Y0Sl9NdFFMd1Zrd05lQlQyaS1ZYlJqQURvYXpxNVFzSEJUd3JKZ1lGbWtGSDNqaWhR?oc=5",
-     "tarih": "2026-10-28",
-     "baslik_tr": "Çin kritik yapay zeka teknolojilerine yeni ihracat kısıtlamaları getirdi",
-     "ozet": "Çin hükümeti önde gelen yapay zeka teknolojilerini korumak amacıyla kapsamlı yeni ihracat kısıtlamaları yürürlüğe koydu.",
+     "id": "99adf0b33f",
+     "kaynak": "SCMP Teknoloji",
+     "baslik": "China’s AI models, led by Kimi, dominate open-source enterprise spending",
+     "url": "https://www.scmp.com/tech/tech-trends/article/3373550/chinas-ai-models-led-kimi-dominate-open-source-enterprise-spending",
+     "tarih": "2026-11-06",
+     "baslik_tr": "Çin Yapay Zekâ Modelleri Açık Kaynak Kurumsal Harcamalara Hükmediyor",
+     "ozet": "Menlo Ventures raporuna göre Kimi liderliğindeki Çin yapay zekâ modelleri, küresel açık kaynak kurumsal harcamalarının yaklaşık %89'unu oluşturuyor.",
      "onem": 3,
      "bolge": "Çin"
     },
     {
-     "id": "a9264d2e39",
-     "kaynak": "SCMP Çin",
-     "baslik": "AI could turn China’s social credit system into surveillance tool: government-funded study",
-     "url": "https://www.scmp.com/news/china/science/article/3372510/ai-could-turn-chinas-social-credit-system-surveillance-tool-government-funded-study",
-     "tarih": "2026-10-31",
-     "baslik_tr": "Çin'de Yapay Zekânın Sosyal Kredi Sistemini Gözetim Aracına Dönüştürme Riski",
-     "ozet": "Hükümet destekli bir çalışmada Çinli bir hukukçu, sosyal kredi sistemine yapay zekâ entegre edilmesinin sistemi kitlesel bir gözetim aracına dönüştürebileceği uyarısını yaptı.",
-     "onem": 2,
-     "bolge": "Çin"
-    },
-    {
-     "id": "639b6b3d94",
+     "id": "9eb034d4d5",
      "kaynak": "SCMP Teknoloji",
-     "baslik": "Apple Intelligence to roll out on iPhones in China in December with Alibaba backing",
-     "url": "https://www.scmp.com/tech/big-tech/article/3372831/apple-intelligence-roll-out-iphones-china-december-alibaba-backing",
-     "tarih": "2026-10-31",
-     "baslik_tr": "Apple Intelligence Çin'de Alibaba Desteğiyle Aralık Ayında Kullanıma Açılıyor",
-     "ozet": "Apple, düzenleyici engellerin ardından Çin'deki iPhone kullanıcılarına yönelik yapay zekâ özelliklerini Alibaba ortaklığıyla aralık ayında sunacağını duyurdu.",
-     "onem": 2,
-     "bolge": "Çin"
+     "baslik": "Does the Democratic midterm victory spell the end of US AI data centre boom?",
+     "url": "https://www.scmp.com/tech/big-tech/article/3373506/does-democratic-midterm-victory-spell-end-us-ai-data-centre-boom",
+     "tarih": "2026-11-06",
+     "baslik_tr": "Demokratların Zaferi ABD Yapay Zekâ Veri Merkezi Projelerini Yavaşlatabilir",
+     "ozet": "Demokratların ara seçim zaferi sonrası olası yasal denetimler ve moratoryumlar sebebiyle, ABD'de planlanan yapay zekâ veri merkezlerinin yüzde 30'unun durabileceği ve altyapı yatırımlarının kısılabileceği öngörülüyor.",
+     "onem": 3,
+     "bolge": "ABD",
+     "benzer": 1
     },
     {
-     "id": "68cc2b159e",
-     "kaynak": "SCMP Çin",
-     "baslik": "Beijing blasts US ban on device testing in China, warns of supply chain disruptions",
-     "url": "https://www.scmp.com/news/china/diplomacy/article/3372816/beijing-blasts-us-ban-device-testing-china-warns-supply-chain-disruptions",
-     "tarih": "2026-10-31",
-     "baslik_tr": "Pekin'den ABD'nin Cihaz Testi Yasağı Kararına Sert Tepki",
-     "ozet": "Çin Ticaret Bakanlığı, ABD Federal İletişim Komisyonu'nun 2028'e kadar Çin'de cihaz testini yasaklama kararına küresel tedarik zincirlerini bozduğu gerekçesiyle karşı çıktı.",
-     "onem": 2,
-     "bolge": "Çin"
-    },
-    {
-     "id": "c63923de68",
+     "id": "480bb63dbc",
      "kaynak": "SCMP Teknoloji",
-     "baslik": "As AI cyber risks grow, Chinese chip expert urges shared ethics standards with US rivals",
-     "url": "https://www.scmp.com/tech/article/3372807/ai-cyber-risks-grow-chinese-chip-expert-urges-shared-ethics-standards-us-rivals",
-     "tarih": "2026-10-31",
-     "baslik_tr": "Çinli uzman ABD ve Çin için ortak yapay zeka etik standartları önerdi",
-     "ozet": "Cambricon Technologies kurucu ortağı Chen Yunji, artan siber risklere karşı ABD ve Çin'in ortak yapay zeka etik standartları belirlemesini istedi.",
+     "baslik": "China blocks SoftBank’s US$5.4 billion takeover of ABB’s robotics division",
+     "url": "https://www.scmp.com/business/china-business/article/3373415/china-blocks-softbanks-us54-billion-takeover-abbs-robotics-division",
+     "tarih": "2026-11-05",
+     "baslik_tr": "Çin, SoftBank'ın 5,4 Milyar Dolarlık Robotik Satın Almasını Engelledi",
+     "ozet": "Çin devleti, SoftBank'ın ABB'nin robotik birimini 5,4 milyar dolara satın alma işlemini onaylamayacağını açıkladı.",
+     "onem": 3,
+     "bolge": "Çin"
+    },
+    {
+     "id": "1939ea20c2",
+     "kaynak": "China Briefing",
+     "baslik": "China Proposes Export Curbs on AI, Biopharma, and Solar Tech – How Will It Impact China Sourcing?",
+     "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBNUldXVkxWOE81amt2QzFleFYzV0dUa0JmS2QzZWZuTXV5a0hBUGUwMUdaWTlmUTVTVC1uZEUySTdNdXdkVnF3Wldzb2JCeG9PbGxIWkY3amo2SG9rLUpuYnRlenFGQURoRFhUcWhMUEswQWNxaGZMYg?oc=5",
+     "tarih": "2026-11-02",
+     "baslik_tr": "Çin Yapay Zekâ ve Biyofarma İçin İhracat Kısıtlamaları Önerdi",
+     "ozet": "Çin; yapay zekâ, biyofarmasötik ve güneş enerjisi teknolojilerine yönelik yeni ihrakat kısıtlamaları getirmeyi teklif etti.",
+     "onem": 3,
+     "bolge": "Çin"
+    },
+    {
+     "id": "263f78072b",
+     "kaynak": "SCMP Teknoloji",
+     "baslik": "China’s AI chipmakers report first profits, but will the trend continue?",
+     "url": "https://www.scmp.com/tech/big-tech/article/3373532/chinas-ai-chipmakers-report-first-profits-will-trend-continue",
+     "tarih": "2026-11-06",
+     "baslik_tr": "Çinli Yapay Zekâ Çip Geliştiricileri Üçüncü Çeyrekte Kâra Geçti",
+     "ozet": "Nvidia'ya yönelik ABD ihracat kısıtlamaları sonrası pazarı doldurmaya çalışan Çinli yerli GPU üreticileri kâr açıklamaya başladı.",
      "onem": 2,
      "bolge": "Çin"
     },
     {
-     "id": "e9d77ce28f",
-     "kaynak": "SCMP Teknoloji",
-     "baslik": "AI, fuelled by advanced chips, set to power semiconductor manufacturing: industry veteran",
-     "url": "https://www.scmp.com/tech/big-tech/article/3372774/ai-fuelled-advanced-chips-set-power-semiconductor-manufacturing-industry-veteran",
-     "tarih": "2026-10-30",
-     "baslik_tr": "Yapay zekâ yarı iletken tasarım ve üretim süreçlerini otomatikleştirecek",
-     "ozet": "Şanghay'daki bilim forumunda uzmanlar yapay zekânın önümüzdeki 10 yıl içinde çip tasarım süreçlerini tamamen otomatikleştireceğini öngördü.",
+     "id": "89fe7823f7",
+     "kaynak": "DW.com",
+     "baslik": "How the China-US AI arms race is escalating",
+     "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPN2t3MjU3UTZCUHl3bXRTUGI4bUhIWGIwRXQ5aXlRRi1qRV9YcUYxWXlzUVpZb1FaQVBzaFRibUhiV3g3Slk1UUR3RkNES2xtZ3ktc2ZocF9uYlFyTFhxOGpaeEdxQkJKa3JQTDhMVkg3UXFyNmZGcEY0dUZPQ1YtR2RXaWlmQzA?oc=5",
+     "tarih": "2026-11-06",
+     "baslik_tr": "ABD ve Çin Arasındaki Yapay Zekâ Yarışı Tırmanıyor",
+     "ozet": "ABD ve Çin arasındaki yapay zekâ teknolojileri alanındaki küresel rekabet ve silahlanma yarışı giderek kızışıyor.",
      "onem": 2,
-     "bolge": "Çin"
+     "bolge": "Küresel"
     }
    ]
   }
  },
  "brifing": {
-  "giris": "Bu hafta küresel düzeyde yeme bozukluklarındaki artış ve GLP-1 zayıflama ilaçlarının riskleri gündeme geldi. Çin'de yaşlı nüfusun ilk kez çocuk sayısını aşması ve ABD'de CDC'nin ilaç dirençli patojenler listesini güncellemesi öne çıkan diğer gelişmeler oldu.",
+  "giris": "Bu hafta küresel tıp ve toplum gündeminde gen tedavilerindeki güvenlik endişeleri, sağlık altyapılarına yönelik siber saldırılar ve üreme hakları ön plana çıktı. Zolgensma tedavisinde tümör vakaları bildirilirken Fransa'da kan depoları siber saldırıya uğradı ve ABD'de üreme hakları koruma altına alındı.",
   "ana_basliklar": [
    {
-    "baslik": "Küresel Yeme Bozuklukları Artışı ve GLP-1 İlaçları Riski",
-    "aciklama": "Raporlar 1990-2023 arasında anoreksiya ve bulimiya vakalarının yüzde 71 arttığını gösteriyor. Klinik psikologlar GLP-1 zayıflama ilaçlarının bu bozuklukları tetikleyebileceğini vurguluyor.",
-    "kaynaklar": [
-     {
-      "ad": "MIT Technology Review",
-      "url": "https://www.technologyreview.com/2026/10/30/1147838/eating-disorders-rise-glp-1s-weight-loss-drugs/"
-     }
-    ]
-   },
-   {
-    "baslik": "Çin'de Yaşlı Nüfus İlk Kez Çocuk Sayısını Geçti",
-    "aciklama": "Çin'de yaşlı bireylerin sayısı ve 2025 yılı yaşlı bağımlılık oranı ilk kez resmi olarak çocuk nüfusunun ve çocuk bağımlılık oranının üzerine çıktı. Emeklilik sistemi maliyetlerinin arttığı ülkede bu durum hem zorluklar hem de gümüş ekonomi fırsatları doğuruyor.",
-    "kaynaklar": [
-     {
-      "ad": "Fortune",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9XN0d5TXVPOWM0bmFmNGRIMnhmRk1TczJQNzU4S3c5U29tR2s5dVJaakZzNHY3TlFZekdQcEp0d3g5WWptNDJTd244SUZzUXhlU2hPTHgzMXIxWVdNOUhabDQ4bFhvS3lpd3hoZkUyMA?oc=5"
-     },
-     {
-      "ad": "Global Times",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1zVUd2dmo5Z20xa1BNQmpsUWVPN3R2a3BlUm96VEp4ZU5qUVkxZjgybVU2RXBDZ29fNkFCTEJ1bGFTTmlzNVJ4djRuRmVDWEwxaEhoT1RVZWx5QUlneXdHSmx3?oc=5"
-     }
-    ]
-   },
-   {
-    "baslik": "CDC Güncellenmiş İlaç Dirençli Patojenler Listesini Açıkladı",
-    "aciklama": "CDC'nin 2026 listesinde Candida auris ve diğer dirençli patojenler öne çıktı. Bu mikropların ABD'de yılda 50 bin kişiyi öldürdüğü belirtildi.",
+    "baslik": "SMA Gen Tedavisi Zolgensma Uygulanan Çocuklarda Tümör Vakaları Bildirildi",
+    "aciklama": "Novartis, SMA gen tedavisi Zolgensma uygulanan çocuklarda 9 tümör vakası bildirildiğini doğruladı ve bunlardan 2'si hakkında detay paylaştı. AAV gen tedavilerinin tümör riski taşıdığını gösteren bu yeni vakalar, hastalar ve araştırmacılar açısından endişe yaratıyor.",
     "kaynaklar": [
      {
       "ad": "MedPage Today",
-      "url": "https://www.medpagetoday.com/infectiousdisease/generalinfectiousdisease/123650"
+      "url": "https://www.medpagetoday.com/neurology/generalneurology/123769"
+     },
+     {
+      "ad": "STAT News",
+      "url": "https://www.statnews.com/2026/11/06/novartis-zolgensma-gene-therapy-tumor-risk/?utm_campaign=rss"
+     }
+    ]
+   },
+   {
+    "baslik": "Fransa'da Kan Depolarının Soğuk Hava Sistemleri Siber Saldırıya Uğradı",
+    "aciklama": "Fransa Kan Kurumu, kan ürünlerinin saklandığı soğuk hava depolarının siber korsanların saldırısından etkilendiğini duyurdu. Gerçekleşen siber saldırı doğrudan kan ürünlerinin muhafaza edildiği depoları hedef aldı.",
+    "kaynaklar": [
+     {
+      "ad": "BBC Teknoloji",
+      "url": "https://www.bbc.co.uk/news/articles/c8vgxyvz6y9ro?at_medium=RSS&at_campaign=rss"
+     }
+    ]
+   },
+   {
+    "baslik": "ABD Ara Seçimlerinde Birçok Eyalette Üreme Hakları Koruma Altına Alındı",
+    "aciklama": "ABD ara seçimlerinde Nevada, Virginia ve Missouri'deki seçmenler sandık başına gitti. Seçimlerde kadınların üreme özgürlüğü ile kürtaj haklarını koruyan maddeler kabul edildi.",
+    "kaynaklar": [
+     {
+      "ad": "Guardian Toplum",
+      "url": "https://www.theguardian.com/society/2026/nov/05/abortion-ballot-measures-pass"
      }
     ]
    }
@@ -332,10 +336,13 @@
  "aday": 200,
  "ana_model": "gemini-flash-latest",
  "model_kullanimi": {
+  "gemini-3.6-flash": 7,
   "gemini-flash-latest": 2,
-  "gemini-3.6-flash": 9
+  "gemini-3.7-flash": 2
  },
  "model_notlari": [
+  "gemini-flash-latest: yoğun",
+  "gemini-3.7-flash: yoğun",
   "gemini-flash-latest: günlük kota dolu",
   "gemini-3.7-flash: günlük kota dolu"
  ]
