@@ -1,77 +1,81 @@
 {
- "hafta": "7–14 Kasım 2026",
- "hazirlanma": "2026-11-14",
+ "hafta": "14–21 Kasım 2026",
+ "hazirlanma": "2026-11-21",
  "model": "gemini-3.6-flash",
  "bolumler": {
   "saglik_politikasi": {
    "ad": "🏛️ Sağlık politikası",
    "ogeler": [
     {
-     "id": "25595b6782",
+     "id": "447a12c631",
      "kaynak": "KFF Health News",
-     "baslik": "US Has Lost Measles Elimination Status, Global Health Authorities Say",
-     "url": "https://kffhealthnews.org/public-health/us-measles-elimination-status-lost-outbreaks-continuous-spread-year-paho-cdc/",
-     "tarih": "2026-11-14",
-     "baslik_tr": "Küresel Sağlık Yetkilileri ABD'nin Kızamığı Eliminasyon Statüsünü Kaybettiğini Duyurdu",
-     "ozet": "Yirmi beş yıl önce neredeyse tamamen kontrol altına alınan kızamığın ABD'de yeniden yayılmasıyla ülkenin eliminasyon statüsünü kaybettiği açıklandı. Salgının kamu sağlığı politikaları ve dezenformasyon ortamında ilerlediği belirtiliyor.",
-     "onem": 3,
-     "bolge": "ABD",
-     "benzer": 1
-    },
-    {
-     "id": "cf927358c2",
-     "kaynak": "MedPage Today",
-     "baslik": "Cervical Cancer Burden Persists; Cancer Trial Payments; Fighting Cancer With Nerves",
-     "url": "https://www.medpagetoday.com/hematologyoncology/cervicalcancer/123880",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Rahim Ağzı Kanseri Yükü WHO'nun 2050 Yok Etme Hedefinin Gerisinde Kalabilir",
-     "ozet": "HPV aşılama oranlarındaki artışa rağmen, küresel rahim ağzı kanseri yükünün Dünya Sağlık Örgütü'nün 2050 yılına kadar hastalığı yok etme hedefinin gerisinde kalacağı öngörülüyor.",
-     "onem": 3,
-     "bolge": "Küresel"
-    },
-    {
-     "id": "2b29bf6ff3",
-     "kaynak": "MedPage Today",
-     "baslik": "Major Change to Prostate Cancer Screening Guidelines",
-     "url": "https://www.medpagetoday.com/hematologyoncology/prostatecancer/123870",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Amerikan Kanser Derneği Prostat Kanseri Tarama Rehberini Güncelledi",
-     "ozet": "Amerikan Kanser Derneği, ortalama riskli 50-69 yaş arası erkekler için 2 yılda bir PSA taraması önermeye başladı.",
+     "baslik": "Big Win Sets Up Democrats To Intensify Probe of Trump’s Obamacare Purge",
+     "url": "https://kffhealthnews.org/elections/midterms-democratic-wins-aca-obamacare-purge-senate-insurance-investigation/",
+     "tarih": "2026-11-20",
+     "baslik_tr": "Demokratlar Trump Yönetiminin 760 Bin Kişilik Obamacare İptallerini Soruşturacak",
+     "ozet": "Trump yönetimi yetkisiz olduğu gerekçesiyle 760 bin kişinin Affordable Care Act sigorta kapsamını iptal etti; Kongre kontrolünü alan Demokratlar soruşturma başlatıyor.",
      "onem": 3,
      "bolge": "ABD"
     },
     {
-     "id": "cde917a1b0",
-     "kaynak": "NPR Sağlık",
-     "baslik": "Ebola tops 11,000 cases in Congo's deadliest outbreak",
-     "url": "https://www.npr.org/2026/11/11/nx-s1-6037304/ebola-congo-outbreak",
-     "tarih": "2026-11-11",
-     "baslik_tr": "Kongo'daki Ebola Salgınında Vaka Sayısı 11 Bini Aştı",
-     "ozet": "Kongo hükümeti, ülkedeki en ölümcül Ebola salgınında toplam vaka sayısının 11 bin eşiğini geçtiğini açıkladı.",
+     "id": "a5b11af68d",
+     "kaynak": "China Academy",
+     "baslik": "How China Cut the Price of a $193,400 CAR-T Cancer Treatment by 77%",
+     "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNQ1R3SkVEa01BTUx2VzdINGtIekZNV1p2ampvTmU5Tk9VLThEZk1zSGRqbmdrcDFOZDFRRXRYZHVZUzFqSmJveE5mUTNUWFUxSzRZamNsS1h0ZnQyQmVJTVlZYU5uaXBMdm90SldPRDVGM1ZvYms4dkdpb2U4dW0xNlg5OFRyVnZLLVZyeXA4Z0JSWFVzb1dpSEUzMF9pUEhPOEE?oc=5",
+     "tarih": "2026-11-20",
+     "baslik_tr": "Çin 193 Bin Dolarlık CAR-T Kanseri Tedavisinin Fiyatını Yüzde 77 Düşürdü",
+     "ozet": "Çin, 193 bin 400 dolar değerindeki CAR-T kanser tedavisinin maliyetini yüzde 77 oranında indirmeyi başardı.",
      "onem": 3,
-     "bolge": "Diğer"
+     "bolge": "Çin",
+     "sayi_uyarisi": [
+      "193",
+      "400"
+     ]
     },
     {
-     "id": "f005ff3038",
+     "id": "5965fd8f6b",
      "kaynak": "Guardian Toplum",
-     "baslik": "Health is wealth? Polymarket and Kalshi now host bets on measles and other US health crises",
-     "url": "https://www.theguardian.com/world/2026/nov/14/measles-kalshi-polymarket-betting",
-     "tarih": "2026-11-14",
-     "baslik_tr": "ABD'de Tahmin Platformlarında Kızamık ve Halk Sağlığı Krizlerine Bahis Oynanıyor",
-     "ozet": "Polymarket ve Kalshi platformlarında aşı zorunlulukları ve salgınlar üzerine bahis açılması uzmanların tepkisini çekiyor.",
-     "onem": 2,
+     "baslik": "‘They’re struggling for oxygen’: children pay the price as countries allow measles to surge again",
+     "url": "https://www.theguardian.com/global-development/2026/nov/20/children-measles-surges-us-mexico-bolivia",
+     "tarih": "2026-11-20",
+     "baslik_tr": "Kızamık Salgını Artarken ABD, Meksika ve Bolivya Kızamıksız Statüsünü Kaybetti",
+     "ozet": "Kızamık vakalarının yeniden tırmanışa geçmesiyle ABD, Meksika ve Bolivya kızamıksız ülke statüsünü kaybeden ülkeler arasına katıldı.",
+     "onem": 3,
+     "bolge": "Küresel",
+     "benzer": 2
+    },
+    {
+     "id": "629c4dbc67",
+     "kaynak": "Mezha.net",
+     "baslik": "FDA establishes council to review vaccine and gene therapy safety after approval",
+     "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPcWdURDlBVG42R2Q5VjFhYlJIR3dPa0l6M3pFMEkwZDc5bVVROXZLLUtHNzFPZU14cU9XeXVuRGpVVW9lcFQ5U2tHbHlHRWJiYXV2eTZZU0RBcXFzLWNNMTdQem9fRUZHaFlHaTlSS2hMMWhnSjlhLWNYbGh0c1RnLWo3QXh4Y2E0clE?oc=5",
+     "tarih": "2026-11-19",
+     "baslik_tr": "FDA Aşı ve Gen Tedavisi Güvenliğini İncelemek İçin Yeni Konsey Kurdu",
+     "ozet": "FDA, onay sonrasında aşıların ve gen tedavilerinin güvenliğini takip edip incelemek üzere özel bir konsey oluşturdu.",
+     "onem": 3,
      "bolge": "ABD"
     },
     {
-     "id": "acbac1dec4",
-     "kaynak": "STAT News",
-     "baslik": "STAT+: Enforcement of stringent Medicaid work requirements delayed for six months",
-     "url": "https://www.statnews.com/2026/11/13/medicaid-work-requirements-implementation-delayed-six-months/?utm_campaign=rss",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Trump Yönetiminin Medicaid Çalışma Şartı Düzenlemesi Altı Ay Ertelendi",
-     "ozet": "Trump yönetiminin yeni ve katı Medicaid çalışma zorunluluğu kurallarının uygulanması 1 Temmuz 2027 tarihine ertelendi. Karar, programdan yararlanan geniş kitleleri doğrudan ilgilendiriyor.",
-     "onem": 2,
+     "id": "433aafd86c",
+     "kaynak": "KFF Health News",
+     "baslik": "Trump Administration OKs Native Traditional Healing for Two States’ Medicaid Programs",
+     "url": "https://kffhealthnews.org/medicaid/medicaid-cms-native-american-traditional-healing-state-waivers-utah-maine/",
+     "tarih": "2026-11-18",
+     "baslik_tr": "Trump Yönetimi İki Eyalette Medicaid Kapsamına Geleneksel Tedavileri Dahil Etti",
+     "ozet": "ABD yönetimi yerlilerin geleneksel tedavi yöntemlerini iki eyalette Medicaid kapsamına alırken, sistemdeki kısıtlamalar 7,5 milyon kişiyi etkiliyor.",
+     "onem": 3,
      "bolge": "ABD"
+    },
+    {
+     "id": "b8070b6a63",
+     "kaynak": "Sixth Tone",
+     "baslik": "China’s Basic Insurance to Cover CAR T-Cell Cancer Therapy",
+     "url": "https://www.sixthtone.com/news/1019275/China’s Basic Insurance to Cover CAR T-Cell Cancer Therapy",
+     "tarih": "",
+     "baslik_tr": "Çin Temel Sağlık Sigortası CAR T-Hücre Tedavisini Kapsama Alıyor",
+     "ozet": "Kan kanseri tedavisinde kullanılan CAR T-hücre terapisi, 1 Ocak'tan itibaren Çin'de kamu sigortası kapsamına dahil edilecek.",
+     "onem": 3,
+     "bolge": "Çin"
     }
    ]
   },
@@ -79,71 +83,72 @@
    "ad": "🧬 Tıp teknolojisi & AI",
    "ogeler": [
     {
-     "id": "7b2e932e47",
-     "kaynak": "SCMP Çin",
-     "baslik": "Chinese scientists fired after child dies in world’s first brain gene-editing attempt",
-     "url": "https://www.scmp.com/news/china/science/article/3374429/chinese-scientists-fired-after-child-dies-worlds-first-brain-gene-editing-attempt",
-     "tarih": "2026-11-14",
-     "baslik_tr": "Çin'de Beyin Gen Düzenleme Denemesinde Çocuk Ölümü Sonrası Araştırmacılar Kovuldu",
-     "ozet": "Şanghay'da bir çocuğun beyninde yapılan dünyadaki ilk gen düzenleme denemesinin ölümle sonuçlanması üzerine yürütülen soruşturmada kuralları ihlal ettiği belirlenen araştırmacılar kovuldu.",
+     "id": "4360ac421a",
+     "kaynak": "BBC Sağlık",
+     "baslik": "Massive hope for pancreatic cancer pill after trial saw tumours vanish",
+     "url": "https://www.bbc.co.uk/news/articles/cqrmgjnzz9l0o?at_medium=RSS&at_campaign=rss",
+     "tarih": "2026-11-20",
+     "baslik_tr": "Pankreas Kanseri İçin Geliştirilen Günlük Hap Klinik Denemede Tümörleri Yok Etti",
+     "ozet": "Daraxonrasib adlı günlük hapın, en ölümcül kanser türlerinden birine sahip hastaların bazılarında tümörleri küçülttüğü ve hatta tamamen ortadan kaldırdığı görüldü.",
      "onem": 3,
-     "bolge": "Çin"
+     "bolge": "Küresel"
     },
     {
-     "id": "6c01f6fabb",
+     "id": "f4386c7b3a",
      "kaynak": "MedPage Today",
-     "baslik": "Injectable Nanobody Wins FDA Approval for Myasthenia Gravis",
-     "url": "https://www.medpagetoday.com/neurology/generalneurology/123885",
-     "tarih": "2026-11-13",
-     "baslik_tr": "FDA'dan Myasthenia Gravis İçin Enjekte Edilebilir Nanobody Tedavisine Onay",
-     "ozet": "FDA, anti-asetilkolin reseptör pozitif yetişkinlerde jenerelize myasthenia gravis tedavisi için C5 aktivasyonunu engelleyen gefurulimab (Klygefa) adlı nanobodu onayladı.",
+     "baslik": "'Grand Slam' Pancreatic Cancer Drug Shows Promise as First-Line Treatment",
+     "url": "https://www.medpagetoday.com/hematologyoncology/othercancers/123989",
+     "tarih": "2026-11-20",
+     "baslik_tr": "Daraxonrasib Pankreas Kanseri Birinci Basamak Tedavisinde Umut Vaat Ediyor",
+     "ozet": "Sınıfının ilk örneği olan RAS inhibitörü daraxonrasib (Rasonque), kemoterapiyle birlikte metastatik pankreas adenokarsinomu tedavisinde olumlu klinik sonuçlar gösterdi.",
+     "onem": 3,
+     "bolge": "Küresel",
+     "benzer": 1
+    },
+    {
+     "id": "8037dfd488",
+     "kaynak": "MedPage Today",
+     "baslik": "Alzheimer's Light and Sound Stimulation Therapy Misses Main Goal in Pivotal Trial",
+     "url": "https://www.medpagetoday.com/meetingcoverage/ctad/123981",
+     "tarih": "2026-11-20",
+     "baslik_tr": "Alzheimer İçin Işık ve Ses Stimülasyonu Terapisi Faz Çalışmasında Başarısız Oldu",
+     "ozet": "Alzheimer tedavisinde 40 Hz ışık ve ses uyarımı sağlayan terapi platformu, pivotal HOPE çalışmasında birincil sonlanım noktasına ulaşamadı.",
      "onem": 3,
      "bolge": "ABD"
     },
     {
-     "id": "99227d8df8",
-     "kaynak": "Imaging Technology News",
-     "baslik": "AI-Enabled Software for Brain Aneurysm Detection, Assessment Gets FDA Approval",
-     "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOZ08tNVJiQWJyVjZLSk01MmxwWEhaaFU2TnBrRkk4aGVTanV6TzM1U0U4dXdJVUE5cTY3TWwxLUtmeFR2NTlKTFpDdkpsaUNkY1paUkZjNXRmY21vNTYyM013UnV5QmNkQURoNlhsM2RxWENvZTR5dElZWFREeThIMmxSUGpHMndYeWNrMS1TWWthaThsSnhZQnZ4X084MWx1ZFF4Z2Z3czV5eEE?oc=5",
-     "tarih": "2026-11-13",
-     "baslik_tr": "FDA Beyin Anevrizması Tespiti Yapan Yapay Zekâ Yazılımına Onay Verdi",
-     "ozet": "FDA, beyin anevrizmasının tespiti ve değerlendirilmesi için geliştirilen yapay zekâ destekli yazılımı onayladı.",
+     "id": "0011ae0145",
+     "kaynak": "MIT Technology Review",
+     "baslik": "The Download: a living liver, a billion-dollar battery deal, and AI hype",
+     "url": "https://www.technologyreview.com/2026/11/19/1148979/the-download-liver-kept-alive-sila-battery-deal-ai-hype/",
+     "tarih": "2026-11-19",
+     "baslik_tr": "İnsan Karaciğeri Vücut Dışında Rekor Süreyle Yedi Hafta Canlı Tutuldu",
+     "ozet": "Avustralya'daki araştırmacılar, bir insan karaciğerini vücut dışında yaşam destek ünitesinde rekor kırarak yedi hafta boyunca canlı tutmayı başardı.",
      "onem": 3,
-     "bolge": "ABD",
-     "benzer": 2
+     "bolge": "Küresel",
+     "benzer": 1
     },
     {
-     "id": "54d011196e",
+     "id": "ed0189b275",
+     "kaynak": "Medical Daily",
+     "baslik": "Utah lets AI renew—and in one pilot write—prescriptions, but federal FDA oversight remains unanswered",
+     "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPRmVqbVBvLWlqdElzY1BPNG9LUHhxSU9Ub01BeDRibzRadmZDN2huYTh0eGd1RURZVjhxYktIOEUtek02UGRaSEdoRFhpY1hkV3dUOVZxbFdGcVRhSUxkbkRPbU1QT0FlTk9MWHFGU0VSdC1MYVQyVW5jSnlnd2RjXzlyUUNZQzlU?oc=5",
+     "tarih": "2026-11-19",
+     "baslik_tr": "Utah Yapay Zekânın Reçete Yenilemesine ve Yazmasına İzin Veriyor",
+     "ozet": "Utah eyaleti, yapay zekânın reçeteleri yenilemesine ve bir pilot projede reçete yazmasına izin verdi ancak FDA denetimi konusundaki belirsizlik süratle tartışılıyor.",
+     "onem": 3,
+     "bolge": "ABD"
+    },
+    {
+     "id": "fa3dd3c817",
      "kaynak": "MedPage Today",
-     "baslik": "Shorter Cycle Maintains Efficacy of Colorectal Cancer Regimen",
-     "url": "https://www.medpagetoday.com/hematologyoncology/coloncancer/123883",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Kolorektal Kanser Tedavisinde Kısa Döngü Rejimi Etkinliğini Korudu",
-     "ozet": "Japonya'da yapılan evre III PRABITAS çalışması, dirençli metastatik kolorektal kanserde kısa döngülü tedavinin toksisiteyi azalttığını gösterdi.",
-     "onem": 3,
-     "bolge": "Diğer"
-    },
-    {
-     "id": "4a2108350b",
-     "kaynak": "SCMP Teknoloji",
-     "baslik": "Eli Lilly beats Novo Nordisk to China approval for first oral GLP-1 weight-loss drug",
-     "url": "https://www.scmp.com/business/companies/article/3374229/eli-lilly-beats-novo-nordisk-china-approval-first-oral-glp-1-weight-loss-drug",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Çin Eli Lilly'nin Ağızdan Alınan Kilo Kaybı İlacını Onayladı",
-     "ozet": "Çin Ulusal Tıbbi Ürünler İdaresi (NMPA), Eli Lilly'nin obezite tedavisinde kullanılan ilk oral GLP-1 ilacı orforglipron'u (Foundayo) onayladı.",
-     "onem": 3,
-     "bolge": "Çin"
-    },
-    {
-     "id": "59a903ad25",
-     "kaynak": "NPR Sağlık",
-     "baslik": "An organ transplant controversy tests 'the dead donor rule'",
-     "url": "https://www.npr.org/2026/11/14/nx-s1-6032604/organ-transplant-donor-dead-ethics",
-     "tarih": "2026-11-14",
-     "baslik_tr": "Organ Naklinde 'Ölü Verici Kuralı' Tartışması Yeni Kılavuzlarla Gündemde",
-     "ozet": "Karaciğer, böbrek, akciğer ve kalbe kan akışını sürdüren organ alım prosedüründe vericileri korumayı hedefleyen yeni kılavuzlar yayımlandı. Yöntem, tıp etiği uzmanları arasında tartışma yarattı.",
+     "baslik": "Alzheimer's Test Results Delivered Digitally Didn't Increase Distress",
+     "url": "https://www.medpagetoday.com/meetingcoverage/ctad/123991",
+     "tarih": "2026-11-21",
+     "baslik_tr": "Alzheimer test sonuçlarının dijital iletimi ek strese yol açmadı",
+     "ozet": "eSMARTER klinik araştırması, Alzheimer genetik ve biyobelirteç sonuçlarını dijital araçla almanın e-sağlık görüşmesiyle almakla eşdeğer olduğunu gösterdi.",
      "onem": 2,
-     "bolge": "Diğer"
+     "bolge": "ABD"
     }
    ]
   },
@@ -151,70 +156,70 @@
    "ad": "👥 Toplum & sosyoloji",
    "ogeler": [
     {
-     "id": "0dc96cc7d7",
-     "kaynak": "Bloomberg.com",
-     "baslik": "Chinese Kindergartens, Schools Have Lost 17 Million Pupils Since 2021",
-     "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOM0pLa01oWGdBNldnV3RkUWEtXzlUT0wwVkE5anAtVU1zckNBbk4wcExmYk5MbmhGd3ViY252cnkyR3VCQUNLd0NKWVpCZzR1bXk3Mzd3UnhFcDhVaE5FS1c4cWlKTkdabEx6UExBbnFTN3YtOG92TkM1OUI0VEEzZGkwWU9JMmJzR2dJOVdnTFRNNEdCWXNUSlc2QWRkRWg2SFhlS0NlOVp1OXRWMUU1V1FROHQ?oc=5",
-     "tarih": "2026-11-10",
-     "baslik_tr": "Çin'deki Okullar ve Anaokulları 2021'den Bu Yana 17 Milyon Öğrenci Kaybetti",
-     "ozet": "Çin'deki anaokulları ve okullar, 2021 yılından bu yana toplam 17 milyon öğrenci kaybetti.",
-     "onem": 3,
-     "bolge": "Çin"
-    },
-    {
-     "id": "8142a71bad",
-     "kaynak": "Guardian Toplum",
-     "baslik": "Hundreds of children in England prescribed weight-loss jabs, figures show",
-     "url": "https://www.theguardian.com/science/2026/nov/14/children-iengland-prescribed-weight-loss-jabs",
-     "tarih": "2026-11-14",
-     "baslik_tr": "İngiltere'de Yüzlerce Çocuğa Kilo Verme İlaçları Reçete Edildi",
-     "ozet": "İngiltere'de yapılan inceleme, 12 yaşından küçükler dahil yüzlerce çocuğa Wegovy ve Mounjaro gibi GLP-1 zayıflama ilaçlarının yazıldığını gösterdi.",
-     "onem": 2,
-     "bolge": "Avrupa"
-    },
-    {
-     "id": "be1b435353",
+     "id": "90efc62d09",
      "kaynak": "BBC Sağlık",
-     "baslik": "Doctor burnout putting maternity patients at risk, says regulator",
-     "url": "https://www.bbc.co.uk/news/articles/ckx28le8dv9wo?at_medium=RSS&at_campaign=rss",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Asistan Hekimlerdeki Tükenmişlik Doğum Hastalarını Riske Atıyor",
-     "ozet": "İngiltere'deki verilere göre doğum yaptıran asistan hekimlerin, aşırı çalışma ve tükenmişlikten diğer uzmanlık alanlarına kıyasla daha fazla etkilendiği bildirildi.",
+     "baslik": "Further walkout planned by NI doctors as strike ends",
+     "url": "https://www.bbc.co.uk/news/articles/c6d71e9epe8qo?at_medium=RSS&at_campaign=rss",
+     "tarih": "2026-11-21",
+     "baslik_tr": "Kuzey İrlanda'da Uzman Doktorlar Ücret Anlaşmazlığı Nedeniyle Yeni Greve Hazırlanıyor",
+     "ozet": "Kuzey İrlanda'da konsültan ve uzman doktorlar, maaş anlaşmazlığı kapsamında Pazartesi sabahı 24 saatlik yeni bir grev başlatacak.",
      "onem": 2,
      "bolge": "Avrupa"
     },
     {
-     "id": "71461bb866",
-     "kaynak": "Bioengineer.org",
-     "baslik": "Urban Renewal Boosts Mental Health Among Older Adults Across China",
-     "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxONE8tM1ZVUFlaNnVianotVTRBRFZZalNuLWFSd2FlZEthbEpWZHRkaUM3MnBrWGE0WFB4ejl2NjNaY3NJYmY3M1hjd1loTnE4NmlORWR4aloxbF9wLVlzZEw1NXQ4LXdJSTlTaW01cm94VFMyZHgydlVmR3BVUXVsQkt6c1dnTllJcEVOOUNid1ZMQThfTlE?oc=5",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Kentsel Dönüşüm Çin'deki Yaşlıların Ruh Sağlığını Olumlu Etkiliyor",
-     "ozet": "Çin genelinde yürütülen kentsel yenileme projelerinin, yaşlı yetişkinlerin ruh sağlığı ve yaşam kalitesi üzerinde olumlu etkiler sağladığı tespit edildi.",
+     "id": "b2365444eb",
+     "kaynak": "Rest of World",
+     "baslik": "AI isn’t replacing your job. It’s turning it into low-paid gig work",
+     "url": "https://restofworld.org/2026/ai-jobs-skills-gig-work/?utm_source=rss&utm_medium=rss&utm_campaign=feeds",
+     "tarih": "2026-11-19",
+     "baslik_tr": "Yapay zeka uzmanlık gerektiren meslekleri düşük ücretli serbest işlere dönüştürüyor",
+     "ozet": "Platform şirketleri doktor ve hukukçu gibi uzmanları yüksek ücretlerle çekip daha sonra ödeme kesintileriyle serbest çalışanlara dönüştürüyor.",
+     "onem": 2,
+     "bolge": "Küresel"
+    },
+    {
+     "id": "0ce7a711f6",
+     "kaynak": "China Daily",
+     "baslik": "Xi outlines priorities for aging strategy",
+     "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5MbnVhYXdfSVhsVl8zVjVpTTFnOGF4NTdIVTFXSnJ6WUdRRnpIcTd3c2NkRkk3UEctS0p2N2Uya3d2bDZ5REdjQXVJZjJFMGc2WEFDSENMay1fanRnTjFjMlBZUG04U3doaDRSVGZoYmN4cTZ3dERmclZwVU1NZw?oc=5",
+     "tarih": "2026-11-19",
+     "baslik_tr": "Xi Jinping Çin'in Yaşlanma Stratejisi İçin Öncelikleri Belirledi",
+     "ozet": "Çin Devlet Başkanı Xi Jinping, ülkenin nüfus yaşlanmasına karşı yürütülecek stratejideki öncelikli adımları açıkladı.",
      "onem": 2,
      "bolge": "Çin"
     },
     {
-     "id": "96dc6c8430",
-     "kaynak": "Pension Policy International",
-     "baslik": "Premier pledges action on gaps in China’s social security net amid warnings of shortfalls",
-     "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPeXhIN19TRnU4WkRJTjZ2MUVYUFFENW5BYXhyNlNnUmkySkZnZEFIdGdpVEJlZEtVODVSMzlONmFTcE05M2V1Z243d2tNeHNhR2lPT3lBQUk2ZGJuRGE5bmpybHc3ODlEZkFKUUN2RlZXMTN2dlZycG1DV2p2WUdoZ093QzFOb2NwU3hlVGJiWlhGNkM3ZDBBRnBYWEhpMldWOTdBb2Y1YVVjTWNHT285YmRJcTUxb1N3RWNUak5LM1ZqR3pjdjdIaHZyU3Y?oc=5",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Çin Başbakanı Sosyal Güvenlik Ağındaki Açıklar İçin Adım Atma Sözü Verdi",
-     "ozet": "Çin Başbakanı, sistemdeki açık uyarılarının ardından ülkenin sosyal güvenlik ağındaki eksiklikleri gidermek için harekete geçileceğini taahhüt etti.",
+     "id": "aedce54a3e",
+     "kaynak": "Xinhua",
+     "baslik": "Xi urges actively addressing population aging",
+     "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE8wdWNtTkFtbTBaTWVYZ0JhSlg0QzF0VjVHUHpZcUZ6aGpKTDhJcFZCM085WXdZeTgyQXlaeV9Gc2VRT09aQlNHMjN5N0dXNmZrMnBkYlppSHdvZk9NWWdGOG5HWDV0Yl81dHJNMjVST2xySTZVZ1JFaEp4Wkc?oc=5",
+     "tarih": "2026-11-19",
+     "baslik_tr": "Xi Jinping Nüfusun Yaşlanmasıyla Aktif Mücadele Edilmesi Çağrısında Bulundu",
+     "ozet": "Çin Devlet Başkanı Xi Jinping, ülke genelinde nüfusun yaşlanmasıyla aktif bir şekilde mücadele edilmesi gerektiğini vurguladı.",
      "onem": 2,
      "bolge": "Çin"
     },
     {
-     "id": "c26cd8f4d0",
-     "kaynak": "Bipartisan Policy Center",
-     "baslik": "Leading Health Policy Experts Across the Political Spectrum View Aging Policy as a National Priority, Suggest Areas of Focus",
-     "url": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxPQVM0OEFlMjVkRWVURkxVTU5QTWVGcktqMlZMczU4VWRtRE1IMTdxbkRHVDY5V2o2R1lZMzVONTVxVVZ0V0pyNHRTY09UeDJMMzVDR3RyaHlZZnp1Z0dYQWdiNC1lQ1pDMU96c1J6TGNPcUpPcGk2VVh4dzItYXNseExvVXFMdUNKMXlPN01TSHBzVGFIMFNTOHdBcnR3WWRka2tSNFlqa1hFNmNPcGlNdjg2SC1Rel9MZDFyQ1VLMW1IM25HOS1NYU5DNmFwb0xHbGRnQkRJYVlPT1NDWHdITXlWdmxTbnFMR1gwczNLYnZOMW5iYlhhbA?oc=5",
-     "tarih": "2026-11-12",
-     "baslik_tr": "Sağlık Politikası Uzmanları Yaşlanma Politikasını Ulusal Öncelik Olarak Görüyor",
-     "ozet": "Farklı siyasi görüşlerden gelen sağlık politikası uzmanları, yaşlanma politikasını ulusal bir öncelik olarak değerlendirerek odak alanları sundu.",
+     "id": "55ffa21d5b",
+     "kaynak": "BBC Sağlık",
+     "baslik": "Largest British study to check social media ban's effect on youth mental health",
+     "url": "https://www.bbc.co.uk/news/articles/cm0evw0d2wq4o?at_medium=RSS&at_campaign=rss",
+     "tarih": "2026-11-18",
+     "baslik_tr": "İngiltere'de Sosyal Medya Yasağının Genç Ruh Sağlığına Etkileri Araştırılıyor",
+     "ozet": "İngiltere'de yürütülen araştırmada on farklı araştırma ekibi, gençlerin sosyal medya olmadan nasıl başa çıktıklarını inceliyor.",
      "onem": 2,
-     "bolge": "ABD"
+     "bolge": "Avrupa"
+    },
+    {
+     "id": "91fa0b9c38",
+     "kaynak": "www.mercer.com",
+     "baslik": "Ageing populations are straining retirement systems worldwide",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSmIxemd6UVZMOXdMSEZLMlUyVzk0dmhFNWM5NkRFVW9wQW5nOUxRQnpBVU9scnFiR19jclc4MDhNTV9DTk5fTnJURUhXZXJBWWpTVUlNTkVuTUFrWWw5ZmZiaTNTWHFQRDdkM0dnemVIZUl0SVJsd2lpYmQ4aUpSdXRUNE5jTTZ0MDkxVEIzeS00bVpXaEt5ci1ZOHBIcFFLd2EwWXpiMDRKamlENU15eEtxR0dMcnc?oc=5",
+     "tarih": "2026-11-18",
+     "baslik_tr": "Yaşlanan Nüfus Dünya Genelinde Emeklilik Sistemlerini Zorluyor",
+     "ozet": "Dünya genelinde hızla yaşlanan nüfus yapısının mevcut emeklilik sistemleri üzerindeki baskıyı artırdığı bildirildi.",
+     "onem": 2,
+     "bolge": "Küresel"
     }
    ]
   },
@@ -222,110 +227,113 @@
    "ad": "🌐 Teknoloji & jeopolitik",
    "ogeler": [
     {
-     "id": "894e64e578",
-     "kaynak": "SCMP Çin",
-     "baslik": "China holds 80% of world’s underwater data centre patents as computing energy demands grow",
-     "url": "https://www.scmp.com/news/china/science/article/3374153/china-holds-80-worlds-underwater-data-centre-patents-computing-energy-demands-grow",
-     "tarih": "2026-11-14",
-     "baslik_tr": "Çin Su Altı Veri Merkezi Patentlerinin Yüzde 80'ine Sahip",
-     "ozet": "Küresel araştırma, Çin'in artan enerji ihtiyacına karşı su altı veri merkezi patentlerinin yüzde 80'ini elinde tuttuğunu gösteriyor.",
+     "id": "15da6cf3d0",
+     "kaynak": "SCMP Teknoloji",
+     "baslik": "Nvidia faces further blow after shock US export permit data release: analysts",
+     "url": "https://www.scmp.com/tech/big-tech/article/3375287/nvidia-faces-further-blow-after-shock-us-export-permit-data-release-analysts",
+     "tarih": "2026-11-21",
+     "baslik_tr": "ABD'nin Çin'e Yapay Zekâ Çip Satış Onayları Sektörde İnfial Yarattı",
+     "ozet": "ABD Temsilciler Meclisi'nin Çinli şirketlere 880 bin gelişmiş yapay zekâ çipi satışına onay verildiğini açıklaması, Çinli alıcıları yerli çiplere yöneltebilir.",
      "onem": 3,
      "bolge": "Çin"
     },
     {
-     "id": "ba4fab55eb",
-     "kaynak": "SCMP Teknoloji",
-     "baslik": "Will Jensen Huang’s downfall tip the scales against open-source AI?",
-     "url": "https://www.scmp.com/tech/big-tech/article/3374376/will-jensen-huangs-downfall-tip-scales-against-open-source-ai",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Jensen Huang'ın Nvidia'dan Ayrılışı Açık Kaynak Yapay Zekâyı Tehdit Ediyor",
-     "ozet": "Jensen Huang'ın Nvidia'dan istifası, şirketin açık kaynak yapay zekâ yatırımlarını ve açık ağırlıklı modellere ayrılan bütçeyi belirsizliğe soktu. Gelişme, küresel geliştiricileri ve Çinli yazılımcıları etkileyebilir.",
-     "onem": 3,
-     "bolge": "Küresel",
-     "benzer": 2
-    },
-    {
-     "id": "bed46def9d",
-     "kaynak": "SCMP Teknoloji",
-     "baslik": "China could tighten rare earths exports if US escalates chip curbs over Nvidia: analysts",
-     "url": "https://www.scmp.com/economy/global-economy/article/3374328/china-could-tighten-rare-earths-exports-if-us-escalates-chip-curbs-over-nvidia-analysts",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Çin, ABD'nin Çip Kısıtlamalarına Karşı Nadir Toprak İhracatını Sertleştirebilir",
-     "ozet": "Çinli analistler, ABD'nin yarı iletken satışlarını kısıtlamayı sürdürmesi halinde Pekin'in nadir toprak elementi ihracat kontrollerini artırabileceğini belirtiyor.",
+     "id": "0b73d3ee2f",
+     "kaynak": "SCMP Çin",
+     "baslik": "Xi, Trump agree military AI decisions must involve humans, Bessent says",
+     "url": "https://www.scmp.com/news/china/diplomacy/article/3375321/xi-trump-agree-military-ai-decisions-must-involve-humans-bessent-says",
+     "tarih": "2026-11-21",
+     "baslik_tr": "Xi ve Trump Askeri Yapay Zekâ Kararlarında İnsanların Yer Almasında Anlaştı",
+     "ozet": "Çin Devlet Başkanı Xi Jinping ve ABD Başkanı Donald Trump, askeri yapay zekâ kararlarında her zaman insanların yer alması gerektiği konusunda uzlaştı.",
      "onem": 3,
      "bolge": "Küresel"
     },
     {
-     "id": "1a7caf61da",
-     "kaynak": "SCMP Teknoloji",
-     "baslik": "Jensen Huang quits, China trade surplus hits US$1 trillion, Xi-Trump summit",
-     "url": "https://www.scmp.com/plus/tech/tech-war/article/3374341/jensen-huang-quits-china-trade-surplus-hits-us1-trillion-xi-trump-summit",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Nvidia CEO'su Jensen Huang Casusluk İddialarının Ardından İstifa Etti",
-     "ozet": "Nvidia kurucusu Jensen Huang iddialar üzerine istifa etti; geçici CEO'luğa Colette Kress getirilirken ABD ihracat kısıtlamaları gündeme geldi.",
+     "id": "55d04133b6",
+     "kaynak": "Reuters",
+     "baslik": "US AI chip curbs hit China tech stocks, spur self-sufficiency push",
+     "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNM3JhZ1hpWlJqYlVISU9pcFFUS0N1Sk9MeEx5aU9jWmt5OVBxY2RkeWNCWDBITU5nYmdNdzFNQm4xTkZVbTM3T214cjhzSDBPWHFsaGt0Uk56c2F0TUFOOWl2ZlZHRGhjdXN5WDNPM3BiS3E1QW9lbHZ0NjZDUVNtaVZBbGUzNmxMR1o4c3REOGE3c3R4ZFk3d1VpR3diM0FmTnphSVdtR0M5MWpHRm9OeFJtaTQ5U1p6bnVRc3VnTW54cVVW?oc=5",
+     "tarih": "2026-11-20",
+     "baslik_tr": "ABD'nin yapay zeka çip kısıtlamaları Çin'i öz yeterliliğe yöneltiyor",
+     "ozet": "ABD'nin Çin'e yönelik yapay zeka çip kısıtlamaları teknoloji hisselerini düşürürken Çin'in çipte yerlileşme çabalarını hızlandırdı.",
      "onem": 3,
-     "bolge": "ABD",
+     "bolge": "ABD"
+    },
+    {
+     "id": "36fb31620a",
+     "kaynak": "BBC Teknoloji",
+     "baslik": "Trump threatens ban on US firms building AI data centres overseas",
+     "url": "https://www.bbc.co.uk/news/articles/cmde1lw9y54ko?at_medium=RSS&at_campaign=rss",
+     "tarih": "2026-11-20",
+     "baslik_tr": "Trump ABD Şirketlerinin Yurtdışında Yapay Zekâ Veri Merkezi Kurmasını Yasaklamakla Tehdit Etti",
+     "ozet": "ABD Başkanı, Amerikan şirketlerinin yurt dışında yapay zekâ veri merkezleri inşa etmesini engelleyebilecek bir politika düşündüğünü açıkladı.",
+     "onem": 3,
+     "bolge": "ABD"
+    },
+    {
+     "id": "ac3e33edf9",
+     "kaynak": "SCMP Teknoloji",
+     "baslik": "Fighting AI with AI: how a Chinese cybersecurity giant is defending against new hacks",
+     "url": "https://www.scmp.com/tech/tech-trends/article/3375211/fighting-ai-ai-how-chinese-cybersecurity-giant-defending-against-new-hacks",
+     "tarih": "2026-11-20",
+     "baslik_tr": "Xi ve Trump Yapay Zekâ Güvenlik Standartlarını Görüştü",
+     "ozet": "Çin Lideri Xi Jinping ve ABD Başkanı Donald Trump, yapay zekâ kaynaklı siber saldırılara karşı ortak güvenlik kurallarını ele aldı.",
+     "onem": 3,
+     "bolge": "Çin",
      "benzer": 1
     },
     {
-     "id": "755e79a65b",
-     "kaynak": "SCMP Çin",
-     "baslik": "China should share its renewable energy expertise",
-     "url": "https://www.scmp.com/opinion/china-opinion/article/3374104/china-should-share-its-renewable-energy-expertise",
-     "tarih": "2026-11-14",
-     "baslik_tr": "Çin Yenilenebilir Enerji Kanunu Değişiklik Taslağını Görüşe Açtı",
-     "ozet": "Çin, yenilenebilir enerji gelişimini yönlendiren kanundaki değişiklik taslağını 5 Aralık'a kadar kamuoyu görüşüne sundu.",
-     "onem": 2,
-     "bolge": "Çin"
-    },
-    {
-     "id": "f30d860720",
-     "kaynak": "BBC Sağlık",
-     "baslik": "NHS, schools and police forces hit by Microsoft outage",
-     "url": "https://www.bbc.co.uk/news/articles/c6vg2ljjpj32o?at_medium=RSS&at_campaign=rss",
-     "tarih": "2026-11-13",
-     "baslik_tr": "Microsoft Kesintisi İngiltere'de NHS, Okullar ve Polisi Etkiledi",
-     "ozet": "Microsoft sistemlerinde yaşanan kesinti İngiltere'de Ulusal Sağlık Servisi (NHS), okullar ve polis teşkilatında aksamalara yol açtı. Havalimanları ve istihbarat servislerinin etkilenmediği açıklandı.",
-     "onem": 2,
-     "bolge": "Avrupa",
-     "benzer": 3
+     "id": "4cd2183a83",
+     "kaynak": "Al Jazeera",
+     "baslik": "US signed off on sales of nearly 900,000 AI chips to China in six months",
+     "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNblFuUDdEWUg1ZWIwNTZNbHlaYmNJZzVIZWw4ZzlJQnBnWUdFOHRLVXlPb0Yzb04ybzlTWG81Vk5NcERaTFF3emJvQjU3emdyMEIzQnQ4TUZ5NXl5eWVVYnhWODVoR01nRjJiX3RTWkZqQm9NbzFsdklxN3QxRVFsVHhVZXBwUHI0blg3T0p6QzJfQVhQaDNTRF9EMEF2VUYzdkFTNnZQRE80SGVfMDBOQVg0ZmZlVlHSAbwBQVVfeXFMUFIzdGJGR3ZPOHVNc2c3cmROaWtaUFhhSE55NkQ4YVVvQVhjU3o0MTBqT25XTzZYUF90alpxMk1ROWxpTFl6Mm83YXhhQW5uOHZqczF3VGRlcTRUNWdWeUVaMmQ4eGVrQ3RtVXFvZzl5aWx5OTBoNV9ybG5QMzBNTGRHcF9wWmZIYjMwc0JPUmhyM3A1VGJWMmxvUG9mT1UwZnRZZlFGS1o3ekgxZUxQY1pxWHhXc2lYU24wUDY?oc=5",
+     "tarih": "2026-11-19",
+     "baslik_tr": "ABD Altı Ayda Çin'e Yaklaşık 900 Bin Yapay Zekâ Çipi Satışını Onayladı",
+     "ozet": "ABD yönetimi, altı aylık süre zarfında Çin'e yaklaşık 900.000 adet yapay zekâ çipinin satışına onay verdi.",
+     "onem": 3,
+     "bolge": "ABD"
     }
    ]
   }
  },
  "brifing": {
-  "giris": "Bu hafta küresel sağlık gündeminde ABD'nin kızamık eliminasyon statüsünü kaybetmesi ve Çin'deki gen düzenleme denemesi öne çıktı. Ayrıca asistan hekimlerdeki tükenmişlik ve teknolojik gelişmeler dünya kamuoyunun odağındaydı.",
+  "giris": "Bu hafta pankreas ve kan kanseri tedavilerinde yenilikçi klinik ve finansal gelişmeler öne çıktı. Bunun yanı sıra Kuzey İrlanda'da doktorların grev kararı ve sağlık politikalarındaki kapsam değişiklikleri gündemde yer aldı.",
   "ana_basliklar": [
    {
-    "baslik": "ABD Kızamık Eliminasyon Statüsünü Kaybetti",
-    "aciklama": "25 yıl önce neredeyse tamamen kontrol altına alınan kızamığın yeniden yayılmasıyla ABD eliminasyon statüsünü kaybetti. Salgının kamu sağlığı politikaları ve dezenformasyon ortamında ilerlediği belirtiliyor.",
-    "kaynaklar": [
-     {
-      "ad": "KFF Health News",
-      "url": "https://kffhealthnews.org/public-health/us-measles-elimination-status-lost-outbreaks-continuous-spread-year-paho-cdc/"
-     }
-    ],
-    "sayi_uyarisi": [
-     "25"
-    ]
-   },
-   {
-    "baslik": "Çin'deki Gen Düzenleme Denemesinde Ölüm Sonrası Araştırmacılar Kovuldu",
-    "aciklama": "Şanghay'da bir çocuğun beyninde yapılan dünyadaki ilk gen düzenleme denemesi ölümle sonuçlandı. Soruşturmada kuralları ihlal ettiği belirlenen araştırmacılar görevden kovuldu.",
-    "kaynaklar": [
-     {
-      "ad": "SCMP Çin",
-      "url": "https://www.scmp.com/news/china/science/article/3374429/chinese-scientists-fired-after-child-dies-worlds-first-brain-gene-editing-attempt"
-     }
-    ]
-   },
-   {
-    "baslik": "İngiltere'de Asistan Hekimlerdeki Tükenmişlik Doğum Hastalarını Riske Atıyor",
-    "aciklama": "İngiltere'deki verilere göre doğum yaptıran asistan hekimler aşırı çalışma ve tükenmişlikten diğer uzmanlık alanlarına kıyasla daha fazla etkileniyor. Bu durumun doğum hastalarını riske attığı bildiriliyor.",
+    "baslik": "Pankreas Kanseri Tedavisinde Günlük Hap Umut Vaat Ediyor",
+    "aciklama": "Sınıfının ilk örneği olan RAS inhibitörü daraxonrasib (Rasonque), kemoterapiyle birlikte metastatik pankreas adenokarsinomu tedavisinde olumlu klinik sonuçlar gösterdi. Klinik denemelerde bu günlük hapın, en ölümcül kanser türlerinden birine sahip hastaların bazılarında tümörleri küçülttüğü ve hatta tamamen ortadan kaldırdığı görüldü.",
     "kaynaklar": [
      {
       "ad": "BBC Sağlık",
-      "url": "https://www.bbc.co.uk/news/articles/ckx28le8dv9wo?at_medium=RSS&at_campaign=rss"
+      "url": "https://www.bbc.co.uk/news/articles/cqrmgjnzz9l0o?at_medium=RSS&at_campaign=rss"
+     },
+     {
+      "ad": "MedPage Today",
+      "url": "https://www.medpagetoday.com/hematologyoncology/othercancers/123989"
+     }
+    ]
+   },
+   {
+    "baslik": "Çin CAR T-Hücre Kanseri Tedavi Maliyetini Yüzde 77 Düşürdü",
+    "aciklama": "Çin, 193 bin 400 dolar değerindeki CAR-T kanser tedavisinin maliyetini yüzde 77 oranında indirmeyi başardı. Kan kanseri tedavisinde kullanılan bu terapi, 1 Ocak'tan itibaren ülke genelinde kamu sigortası kapsamına dahil edilecek.",
+    "kaynaklar": [
+     {
+      "ad": "China Academy",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNQ1R3SkVEa01BTUx2VzdINGtIekZNV1p2ampvTmU5Tk9VLThEZk1zSGRqbmdrcDFOZDFRRXRYZHVZUzFqSmJveE5mUTNUWFUxSzRZamNsS1h0ZnQyQmVJTVlZYU5uaXBMdm90SldPRDVGM1ZvYms4dkdpb2U4dW0xNlg5OFRyVnZLLVZyeXA4Z0JSWFVzb1dpSEUzMF9pUEhPOEE?oc=5"
+     },
+     {
+      "ad": "Sixth Tone",
+      "url": "https://www.sixthtone.com/news/1019275/China’s Basic Insurance to Cover CAR T-Cell Cancer Therapy"
+     }
+    ]
+   },
+   {
+    "baslik": "Kuzey İrlanda'da Uzman Doktorlar Ücret Nedeniyle Greve Gidiyor",
+    "aciklama": "Kuzey İrlanda'da konsültan ve uzman doktorlar maaş anlaşmazlığı yaşamaktadır. Doktorlar bu anlaşmazlık kapsamında Pazartesi sabahı 24 saatlik yeni bir grev başlatacak.",
+    "kaynaklar": [
+     {
+      "ad": "BBC Sağlık",
+      "url": "https://www.bbc.co.uk/news/articles/c6d71e9epe8qo?at_medium=RSS&at_campaign=rss"
      }
     ]
    }
@@ -335,10 +343,11 @@
  "aday": 200,
  "ana_model": "gemini-flash-latest",
  "model_kullanimi": {
-  "gemini-flash-latest": 1,
-  "gemini-3.6-flash": 10
+  "gemini-3.6-flash": 11
  },
  "model_notlari": [
+  "gemini-flash-latest: yoğun",
+  "gemini-3.7-flash: yoğun",
   "gemini-flash-latest: günlük kota dolu",
   "gemini-3.7-flash: günlük kota dolu"
  ]
